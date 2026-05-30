@@ -17,15 +17,19 @@ export type PageContent = {
   pillars: Array<{
     title: string;
     ja: string;
+    jaBody?: string;
     en?: string;
     body: string;
     enBody?: string;
   }>;
   proof: string[];
+  jaProof?: string[];
   enProof?: string[];
   process: string[];
+  jaProcess?: string[];
   enProcess?: string[];
   cta: string;
+  jaCta?: string;
   enCta?: string;
 };
 
@@ -37,6 +41,7 @@ export const navItems: NavItem[] = [
   { href: "/longevity-planning", label: "长寿规划", ja: "長寿計画", en: "Longevity" },
   { href: "/medical-concierge", label: "医疗礼宾", ja: "医療コンシェルジュ", en: "Concierge" },
   { href: "/japan-hospital-network", label: "日本医院网络", ja: "医療機関ネットワーク", en: "Network" },
+  { href: "/fertility-preservation", label: "生育力保存", ja: "妊孕性温存", en: "Fertility" },
   { href: "/doctor-network", label: "医生网络", ja: "医師ネットワーク", en: "Doctors" },
   { href: "/medical-resource-database", label: "资源数据库", ja: "リソースDB", en: "Database" },
   { href: "/family-office-health-plan", label: "家庭健康计划", ja: "家族健康計画", en: "Family Plan" },
@@ -270,6 +275,42 @@ export const pages: Record<string, PageContent> = {
     process: ["家庭访谈", "成员分层", "档案建立", "年度路线图", "例行复盘"],
     cta: "建立家庭计划"
   },
+  "fertility-preservation": {
+    slug: "fertility-preservation",
+    eyebrow: "Fertility Preservation",
+    title: "生育力保存与跨境生殖医疗咨询",
+    jaTitle: "妊孕性温存と国際生殖医療相談",
+    description:
+      "围绕卵子冷冻、精子或胚胎保存、备孕体检、遗传咨询与跨境生殖医疗路径，提供审慎的医学资料整理、机构匹配与合规风险说明。",
+    jaDescription:
+      "卵子凍結、精子・胚保存、妊娠準備検査、遺伝カウンセリング、国際生殖医療の選択肢について、医療情報整理、医療機関調整、法務・倫理リスクの確認を行います。",
+    pillars: [
+      {
+        title: "冻卵与生育力评估",
+        ja: "卵子凍結と妊孕性評価",
+        jaBody: "年齢、卵巣機能、既往歴、家族計画、医師への質問事項を整理し、日本または国際的な相談ルートを検討します。",
+        body: "协助整理年龄、卵巢功能、既往病史、家族计划与医生问题清单，再匹配适合的日本或跨境咨询路径。"
+      },
+      {
+        title: "跨境路径尽调",
+        ja: "国際医療ルート確認",
+        jaBody: "医療機関の資格、医師とのコミュニケーション、費用、周期、必要資料、現地ルールを事前に確認します。",
+        body: "对机构资质、医生沟通、费用结构、周期安排、资料要求和当地规则进行事前确认。"
+      },
+      {
+        title: "代孕相关风险说明",
+        ja: "代理懐胎に関するリスク確認",
+        jaBody: "代理懐胎については医学・倫理・法律上のリスク説明に限定し、斡旋、法規回避、結果保証は行いません。",
+        body: "代孕议题仅提供医学、伦理与法律风险说明；不提供代孕撮合、规避当地法律或结果承诺。"
+      }
+    ],
+    proof: ["生育力资料清单", "机构合规边界确认", "医学与法律风险说明"],
+    jaProof: ["妊孕性資料チェックリスト", "医療機関と規制境界の確認", "医学・法務リスク説明"],
+    process: ["初步需求访谈", "资料与指标整理", "医生问题清单", "机构路径建议", "风险确认与后续安排"],
+    jaProcess: ["初回ヒアリング", "資料と指標の整理", "医師への質問リスト", "医療機関ルート提案", "リスク確認と次の手配"],
+    cta: "咨询生育力保存",
+    jaCta: "妊孕性温存を相談"
+  },
   "medical-resource-database": {
     slug: "medical-resource-database",
     eyebrow: "Medical Resource Database",
@@ -369,42 +410,46 @@ export const homeServices = [
   pages["medical-concierge"],
   pages["japan-hospital-network"],
   pages["doctor-network"],
-  pages["medical-resource-database"],
+  pages["fertility-preservation"],
   pages["family-office-health-plan"]
 ];
 
 export const serviceImages: Record<string, { src: string; alt: string }> = {
   services: {
-    src: "/hospital-network.png",
-    alt: "Premium Japan medical coordination interior"
+    src: "/executive-checkup-consultation.png",
+    alt: "Executive health checkup consultation in Japan"
   },
   "regenerative-medicine": {
     src: "/regenerative-advisory.png",
     alt: "Luxury regenerative medicine advisory room"
   },
   "longevity-planning": {
-    src: "/longevity-planning.png",
-    alt: "Private longevity planning advisory table"
+    src: "/fuji-active-longevity.png",
+    alt: "Healthy older couple walking near Mount Fuji"
   },
   "medical-concierge": {
-    src: "/medical-concierge.png",
-    alt: "Discreet Japan medical concierge lounge"
+    src: "/japan-wellness-concierge.png",
+    alt: "Discreet Japan wellness concierge consultation"
   },
   "japan-hospital-network": {
     src: "/hospital-network.png",
     alt: "Refined Japan hospital network corridor"
   },
   "doctor-network": {
-    src: "/hospital-network.png",
+    src: "/medical-concierge.png",
     alt: "Trusted Japanese specialist network setting"
+  },
+  "fertility-preservation": {
+    src: "/fertility-preservation.png",
+    alt: "Private fertility preservation consultation in Japan"
   },
   "medical-resource-database": {
     src: "/longevity-planning.png",
     alt: "Structured medical resource intelligence desk"
   },
   "family-office-health-plan": {
-    src: "/longevity-planning.png",
-    alt: "Long-term family health planning materials"
+    src: "/family-health-planning.png",
+    alt: "Multi-generation family health planning meeting"
   },
   contact: {
     src: "/medical-concierge.png",
@@ -516,6 +561,19 @@ const englishPages: Record<string, EnglishPage> = {
       { title: "Next-generation health education", body: "Younger family members build checkup awareness, lifestyle management habits, and psychological stress support frameworks." }
     ]
   },
+  "fertility-preservation": {
+    title: "Fertility preservation and cross-border reproductive medicine advisory",
+    description:
+      "We provide discreet advisory support around egg freezing, sperm or embryo preservation, preconception checkups, genetic counseling, and cross-border reproductive medicine pathways, with clear medical, ethical, and legal risk framing.",
+    proof: ["Fertility document checklist", "Institution and compliance boundary review", "Medical and legal risk briefing"],
+    process: ["Initial needs interview", "Organize records and indicators", "Prepare physician questions", "Recommend institution pathways", "Confirm risks and next steps"],
+    cta: "Discuss fertility preservation",
+    pillars: [
+      { title: "Egg freezing and fertility assessment", body: "Age, ovarian reserve, medical history, family planning goals, and physician questions are organized before matching a Japanese or cross-border consultation pathway." },
+      { title: "Cross-border pathway diligence", body: "Institution credentials, physician communication, cost structure, cycle timing, document requirements, and local rules are reviewed before decisions are made." },
+      { title: "Surrogacy risk briefing", body: "Surrogacy-related questions are handled only as medical, ethical, and legal risk discussions. We do not arrange surrogacy, bypass local law, or guarantee outcomes." }
+    ]
+  },
   "medical-resource-database": {
     title: "Medical resources, physician profiles, programs, and HNW acquisition system",
     description:
@@ -586,13 +644,13 @@ export function pageText(page: PageContent, lang: Language) {
       secondaryTitle: page.title,
       description: page.jaDescription,
       secondaryDescription: page.description,
-      proof: page.proof,
-      process: page.process,
-      cta: page.cta,
+      proof: page.jaProof ?? page.proof,
+      process: page.jaProcess ?? page.process,
+      cta: page.jaCta ?? page.cta,
       pillars: page.pillars.map((pillar) => ({
         title: pillar.ja,
         label: pillar.title,
-        body: pillar.body
+        body: pillar.jaBody ?? pillar.body
       }))
     };
   }

@@ -136,7 +136,7 @@ export default function Home({
             title={copy.sectionTitle}
             body={copy.sectionBody}
           />
-          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {homeServices.map((service) => {
               const serviceText = pageText(service, lang);
               const image = serviceImages[service.slug];
@@ -153,23 +153,23 @@ export default function Home({
                         alt={image.alt}
                         fill
                         className="object-cover transition duration-500 group-hover:scale-105"
-                        sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
                       />
                     </div>
                   ) : null}
-                  <div className="p-8">
-                  <p className="text-xs uppercase tracking-[0.28em] text-champagne">
-                    {serviceText.eyebrow}
-                  </p>
-                  <h2 className="mt-6 text-2xl font-semibold leading-tight text-ink">
-                    {serviceText.title}
-                  </h2>
-                  <p className="mt-4 text-sm leading-7 text-graphite/72">
-                    {serviceText.description}
-                  </p>
-                  <span className="mt-8 inline-flex text-sm font-semibold text-jade">
-                    {serviceText.cta} →
-                  </span>
+                  <div className="p-7">
+                    <p className="text-xs uppercase tracking-[0.28em] text-champagne">
+                      {serviceText.eyebrow}
+                    </p>
+                    <h2 className="mt-6 text-2xl font-semibold leading-tight text-ink">
+                      {serviceText.title}
+                    </h2>
+                    <p className="mt-4 text-sm leading-7 text-graphite/72">
+                      {serviceText.description}
+                    </p>
+                    <span className="mt-8 inline-flex text-sm font-semibold text-jade">
+                      {serviceText.cta} →
+                    </span>
                   </div>
                 </Link>
               );

@@ -35,12 +35,12 @@ export function Header() {
             <span className="block text-xs text-pearl/58">Tokyo | Shanghai</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-6 xl:flex">
+        <nav className="hidden items-center gap-4 xl:flex">
           {navItems.slice(1).map((item) => (
             <Link
               key={item.href}
               href={withLanguage(item.href, lang)}
-              className="text-xs uppercase tracking-[0.18em] text-pearl/72 transition hover:text-champagne"
+              className="text-[11px] uppercase tracking-[0.16em] text-pearl/72 transition hover:text-champagne"
             >
               {navLabel(item, lang)}
             </Link>
