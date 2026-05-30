@@ -3,17 +3,19 @@ import Link from "next/link";
 type PageHeroProps = {
   eyebrow: string;
   title: string;
-  jaTitle: string;
+  secondaryTitle: string;
   description: string;
-  jaDescription: string;
+  secondaryDescription: string;
+  cta?: string;
 };
 
 export function PageHero({
   eyebrow,
   title,
-  jaTitle,
+  secondaryTitle,
   description,
-  jaDescription
+  secondaryDescription,
+  cta = "Private Inquiry"
 }: PageHeroProps) {
   return (
     <section className="noise bg-ink px-5 pb-20 pt-44 text-pearl lg:px-8">
@@ -30,14 +32,14 @@ export function PageHero({
           </p>
         </div>
         <div className="mt-12 grid gap-8 border-t border-white/12 pt-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <p className="font-serif text-3xl leading-tight text-champagne">{jaTitle}</p>
-          <p className="text-base leading-8 text-pearl/66">{jaDescription}</p>
+          <p className="font-serif text-3xl leading-tight text-champagne">{secondaryTitle}</p>
+          <p className="text-base leading-8 text-pearl/66">{secondaryDescription}</p>
         </div>
         <Link
           href="/contact"
           className="mt-12 inline-flex items-center gap-3 bg-champagne px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-pearl"
         >
-          Private Inquiry <span aria-hidden="true">→</span>
+          {cta} <span aria-hidden="true">→</span>
         </Link>
       </div>
     </section>

@@ -2,29 +2,24 @@
 
 ## 目标
 
-构建一个高端双语中文/日文官网，覆盖 Home、About、Services、Regenerative Medicine、Longevity Planning、Medical Concierge、Japan Hospital Network、Family Office Health Plan、Contact。
+在现有日本医疗官网中建立有实际内容的医疗资源数据库、医生数据库、项目数据库与中国高净值客户获客系统，并接入公开页面与导航。
 
 ## 成功标准
 
-- 所有页面可通过 Next.js 路由访问
-- 页面具备双语内容与高端咨询风格
-- 响应式布局适配桌面与移动端
-- SEO 元数据、站点结构与基础可访问性完成
-- 执行最小必要验证并说明结果
+- 新增数据库内容不是空文件，包含可渲染的结构化种子数据
+- 页面可通过 Next.js 路由访问，并保持现有高端咨询风格
+- 数据库入口接入导航、首页服务入口与 sitemap 来源
+- 不虚构真实医生姓名，不做医疗诊断、治疗建议或疗效承诺
+- 执行 TypeScript 与生产构建验证
 
 ## 状态
 
-- 已确认目录为空项目
-- 已创建 Next.js + Tailwind 项目结构
-- 已完成 9 个页面、共享组件、双语内容、SEO 文件与首屏视觉资产
-- 已将正式域名配置为 `https://mwmwt.com`
-- 已新增 README 与 DEPLOY 上线说明
-- 已完成 `npm run build` 正式构建验证
-- 已生成可上传压缩包 `/private/tmp/mwmwt-medical-family-office.zip`
-- 已执行文件结构与资产核对
+- 已新增 `lib/databases.ts`，包含医疗资源库、医生画像库、项目库、获客阶段、客户分层与线索评分规则
+- 已新增 `/medical-resource-database` 页面，展示四类数据库内容与合规边界说明
+- 已将数据库页面接入导航、首页服务卡片与 sitemap 自动来源
+- 已保留医生库为“专家画像 + 验证字段”模式，避免虚构真实医生与资质
 
 ## 验证记录
 
-- 已确认项目文件完整生成
-- 已确认首屏视觉资产存在且为 PNG，尺寸 1672 x 941
-- 已执行 `npm run build`，Next.js 生产构建通过，生成 14 个静态路由
+- 已执行 `npm run typecheck`，通过
+- 已执行 `npm run build`，Next.js 生产构建通过，生成 15 个路由

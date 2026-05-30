@@ -2,6 +2,7 @@ export type NavItem = {
   href: string;
   label: string;
   ja: string;
+  en: string;
 };
 
 export type PageContent = {
@@ -9,29 +10,48 @@ export type PageContent = {
   eyebrow: string;
   title: string;
   jaTitle: string;
+  enTitle?: string;
   description: string;
   jaDescription: string;
+  enDescription?: string;
   pillars: Array<{
     title: string;
     ja: string;
+    en?: string;
     body: string;
+    enBody?: string;
   }>;
   proof: string[];
+  enProof?: string[];
   process: string[];
+  enProcess?: string[];
   cta: string;
+  enCta?: string;
 };
 
 export const navItems: NavItem[] = [
-  { href: "/", label: "首页", ja: "Home" },
-  { href: "/about", label: "关于我们", ja: "About" },
-  { href: "/services", label: "服务", ja: "Services" },
-  { href: "/regenerative-medicine", label: "再生医疗", ja: "Regenerative" },
-  { href: "/longevity-planning", label: "长寿规划", ja: "Longevity" },
-  { href: "/medical-concierge", label: "医疗礼宾", ja: "Concierge" },
-  { href: "/japan-hospital-network", label: "日本医院网络", ja: "Network" },
-  { href: "/family-office-health-plan", label: "家庭健康计划", ja: "Family Plan" },
-  { href: "/contact", label: "联系", ja: "Contact" }
+  { href: "/", label: "首页", ja: "Home", en: "Home" },
+  { href: "/about", label: "关于我们", ja: "About", en: "About" },
+  { href: "/services", label: "服务", ja: "Services", en: "Services" },
+  { href: "/regenerative-medicine", label: "再生医疗", ja: "Regenerative", en: "Regenerative" },
+  { href: "/longevity-planning", label: "长寿规划", ja: "Longevity", en: "Longevity" },
+  { href: "/medical-concierge", label: "医疗礼宾", ja: "Concierge", en: "Concierge" },
+  { href: "/japan-hospital-network", label: "日本医院网络", ja: "Network", en: "Network" },
+  { href: "/doctor-network", label: "医生网络", ja: "Doctors", en: "Doctors" },
+  { href: "/medical-resource-database", label: "资源数据库", ja: "Database", en: "Database" },
+  { href: "/family-office-health-plan", label: "家庭健康计划", ja: "Family Plan", en: "Family Plan" },
+  { href: "/contact", label: "联系", ja: "Contact", en: "Contact" }
 ];
+
+export type Language = "zh" | "ja" | "en";
+
+export function normalizeLanguage(lang?: string): Language {
+  return lang === "ja" || lang === "en" ? lang : "zh";
+}
+
+export function withLanguage(href: string, lang: Language) {
+  return lang === "zh" ? href : `${href}?lang=${lang}`;
+}
 
 export const pages: Record<string, PageContent> = {
   about: {
@@ -244,6 +264,66 @@ export const pages: Record<string, PageContent> = {
     process: ["家庭访谈", "成员分层", "档案建立", "年度路线图", "例行复盘"],
     cta: "建立家庭计划"
   },
+  "medical-resource-database": {
+    slug: "medical-resource-database",
+    eyebrow: "Medical Resource Database",
+    title: "医疗资源、医生、项目与高净值客户获客系统",
+    jaTitle: "医療資源・医師・プログラム・富裕層獲得システム",
+    description:
+      "建立可持续扩展的结构化数据库，覆盖日本医疗资源、专家画像、项目产品化与中国高净值客户转化路径。",
+    jaDescription:
+      "日本の医療資源、医師プロファイル、プログラム設計、中国富裕層向け顧客獲得導線を構造化します。",
+    pillars: [
+      {
+        title: "资源库",
+        ja: "Resource Database",
+        body: "按地区、机构类型、专科能力、准入方式、尽调标准和所需资料管理医疗资源。"
+      },
+      {
+        title: "医生库",
+        ja: "Doctor Database",
+        body: "以医生画像、专科能力、适配病例、语言流程和验证清单支持精准匹配。"
+      },
+      {
+        title: "获客系统",
+        ja: "Acquisition System",
+        body: "围绕内容触达、线索评分、适配度电话、方案转化和长期复购建立增长闭环。"
+      }
+    ],
+    proof: ["结构化字段", "非空种子数据", "合规尽调边界"],
+    process: ["资源录入", "医生画像验证", "项目产品化", "线索评分", "转化与复购管理"],
+    cta: "咨询数据库系统"
+  },
+  "doctor-network": {
+    slug: "doctor-network",
+    eyebrow: "Doctor Network",
+    title: "日本顶级医生简历与专科协作网络",
+    jaTitle: "日本トップドクターの専門家ネットワーク",
+    description:
+      "覆盖再生医疗、肿瘤、心血管、神经科、内分泌与运动医学，建立可核验、可转诊沟通的专家档案。",
+    jaDescription:
+      "再生医療、腫瘍、心血管、神経内科、内分泌、スポーツ医学の専門医プロフィールを整理します。",
+    pillars: [
+      {
+        title: "医生简历",
+        ja: "Doctor Profiles",
+        body: "按学历、学会资格、研究方向、论文与适配案例整理核心专家资料。"
+      },
+      {
+        title: "专科分层",
+        ja: "Specialty Mapping",
+        body: "根据病种、阶段、资料完整度与赴日时效匹配不同层级的专家路径。"
+      },
+      {
+        title: "转诊准备",
+        ja: "Referral Readiness",
+        body: "在预约前完成公开资料核验、病历摘要、问题清单和沟通边界确认。"
+      }
+    ],
+    proof: ["6 大专科方向", "公开资料核验", "去标识化案例场景"],
+    process: ["确认需求", "筛选医生", "核验履历", "准备资料", "预约沟通"],
+    cta: "查看医生网络"
+  },
   contact: {
     slug: "contact",
     eyebrow: "Private Inquiry",
@@ -282,5 +362,208 @@ export const homeServices = [
   pages["longevity-planning"],
   pages["medical-concierge"],
   pages["japan-hospital-network"],
+  pages["doctor-network"],
+  pages["medical-resource-database"],
   pages["family-office-health-plan"]
 ];
+
+type EnglishPage = {
+  title: string;
+  description: string;
+  proof: string[];
+  process: string[];
+  cta: string;
+  pillars: Array<{
+    title: string;
+    body: string;
+  }>;
+};
+
+const englishPages: Record<string, EnglishPage> = {
+  about: {
+    title: "Medical decision-making managed like a family office",
+    description:
+      "We integrate Japan's premium medical resources, long-term health governance, and the privacy expectations of high-net-worth families into one continuous advisory relationship.",
+    proof: ["Japan-based medical coordination", "Chinese-speaking family advisor", "Cross-border medical record management"],
+    process: ["Build the family health archive", "Define goals and constraints", "Match Japanese specialists and institutions", "Create a long-term follow-up system"],
+    cta: "Request a private introduction",
+    pillars: [
+      { title: "Independent advisory", body: "We do not center the process on a single hospital or one-off program. Decisions are framed around long-term family interests, risk boundaries, and clarity." },
+      { title: "Trilingual coordination", body: "We support record preparation, doctor communication, appointments, interpretation, report review, and post-visit follow-up in Chinese, Japanese, and English." },
+      { title: "Privacy and order", body: "Sensitive health information is handled with a private-banking service rhythm, making complex care quieter and more controlled." }
+    ]
+  },
+  services: {
+    title: "From one visit to long-term family health governance",
+    description:
+      "Our services include executive checkups, second opinions, regenerative medicine consultation, anti-aging programs, overseas referrals, recovery support, and annual health plans for family members.",
+    proof: ["Specialty-based matching", "One-to-one pre-travel briefing", "Post-visit English and Chinese summary"],
+    process: ["Needs interview", "Medical record review", "Plan and quotation", "Japan-based execution", "Follow-up management"],
+    cta: "Explore the service pathway",
+    pillars: [
+      { title: "Executive screening", body: "We design checkup programs around age, family history, business pressure, and existing medical history to avoid inefficient repetition." },
+      { title: "Second opinion", body: "We organize medical records, imaging, and question lists, then match independent Japanese specialists for review." },
+      { title: "End-to-end concierge", body: "Appointments, visa support, travel rhythm, on-site assistance, interpretation, payment coordination, and follow-up visits are managed through one desk." }
+    ]
+  },
+  "regenerative-medicine": {
+    title: "A prudent bridge to Japan's regenerative and anti-aging programs",
+    description:
+      "We help families understand indications, compliance boundaries, expected outcomes, and risks around stem cells, immune cells, exosomes, tissue repair, and related fields.",
+    proof: ["Compliance-oriented program review", "Pre-treatment document assessment", "Post-treatment metric tracking"],
+    process: ["Clarify goals", "Assess medical information", "Match institutions and physicians", "Pre-treatment briefing", "Track outcomes"],
+    cta: "Discuss regenerative medicine",
+    pillars: [
+      { title: "Program screening", body: "We prioritize compliance, physician credentials, indication fit, and pre- and post-treatment management capacity." },
+      { title: "Risk framing", body: "Evidence level, contraindications, alternatives, and realistic expectations are explained in language the family can use." },
+      { title: "Long-term follow-up", body: "Treatment records, indicator changes, and lifestyle management are integrated into the long-term health archive." }
+    ]
+  },
+  "longevity-planning": {
+    title: "Longevity management as part of family asset strategy",
+    description:
+      "We build a long-term, reviewable health strategy across metabolism, cardiovascular risk, cancer screening, sleep, stress, cognition, and functional medicine indicators.",
+    proof: ["Annual indicator dashboard", "Long-term risk map", "Lifestyle advisor coordination"],
+    process: ["Baseline assessment", "Risk prioritization", "Annual plan", "Quarterly review", "Upgrade testing in Japan when needed"],
+    cta: "Design a longevity plan",
+    pillars: [
+      { title: "Annual health board", body: "Each year, we review indicators, family risks, lifestyle changes, and priorities for the next stage." },
+      { title: "Longevity roadmap", body: "Checkups, nutrition, movement, sleep, stress management, and medical interventions are organized into a phased plan." },
+      { title: "Family segmentation", body: "Founders, spouses, parents, and next-generation members receive different priorities and service rhythms." }
+    ]
+  },
+  "medical-concierge": {
+    title: "Private, punctual, and orderly medical travel to Japan",
+    description:
+      "From pre-arrival assessment to on-site support in Japan and post-return follow-up, we provide one coordination window for complex medical journeys.",
+    proof: ["Single coordination window", "Trilingual medical summary", "Private itinerary management"],
+    process: ["Initial consultation", "Medical record preparation", "Appointment confirmation", "On-site execution", "Review and follow-up"],
+    cta: "Arrange medical travel",
+    pillars: [
+      { title: "Pre-arrival preparation", body: "We organize medical history, translate key files, clarify consultation goals, and arrange the right time window." },
+      { title: "On-site support", body: "Hospital reception, medical interpretation, examination flow, and key communication records are managed on-site." },
+      { title: "Aftercare", body: "Japanese doctors' opinions are translated into actionable family checklists, with follow-up visits or referrals coordinated as needed." }
+    ]
+  },
+  "japan-hospital-network": {
+    title: "Access to trusted Japanese hospitals and specialist capabilities",
+    description:
+      "Based on condition, language needs, timing, and privacy preferences, we help match university hospitals, specialty centers, premium checkup institutions, and regenerative medicine clinics.",
+    proof: ["Specialty pathway recommendations", "Appointment timeline management", "Testing and treatment coordination"],
+    process: ["Classify the condition", "Screen institutions", "Submit appointment requests", "Pre-review documents", "Collect clinical feedback"],
+    cta: "Learn about the network",
+    pillars: [
+      { title: "Specialty matching", body: "We cover oncology, cardiovascular and cerebrovascular care, gastroenterology, orthopedics, gynecology, neurology, immunology, and rehabilitation." },
+      { title: "Institution review", body: "We consider physician background, equipment capability, international patient experience, communication efficiency, and follow-up capacity." },
+      { title: "Referral coordination", body: "When higher-level care is needed, we prepare the documents and connect the family to an appropriate specialist pathway." }
+    ]
+  },
+  "family-office-health-plan": {
+    title: "A family health governance system that can be inherited",
+    description:
+      "We manage health risk like family assets: family health archives, annual budgets, emergency protocols, member segmentation, and major illness decision frameworks.",
+    proof: ["Family health ledger", "Annual budget guidance", "Critical-event response protocol"],
+    process: ["Family interview", "Member segmentation", "Archive setup", "Annual roadmap", "Routine review"],
+    cta: "Build a family plan",
+    pillars: [
+      { title: "Family health archive", body: "Checkups, imaging, medication, allergies, surgeries, genetic risks, and physician recommendations are organized in one place." },
+      { title: "Critical illness protocol", body: "Second opinions, overseas referrals, emergency contacts, and key document lists are prepared before a crisis." },
+      { title: "Next-generation health education", body: "Younger family members build checkup awareness, lifestyle management habits, and psychological stress support frameworks." }
+    ]
+  },
+  "medical-resource-database": {
+    title: "Medical resources, physician profiles, programs, and HNW acquisition system",
+    description:
+      "A structured database for Japanese medical resources, specialist profiles, program packaging, and a China high-net-worth client acquisition workflow.",
+    proof: ["Structured fields", "Non-empty seed data", "Compliance-oriented diligence boundaries"],
+    process: ["Resource entry", "Physician profile verification", "Program packaging", "Lead scoring", "Conversion and retention management"],
+    cta: "Discuss the database system",
+    pillars: [
+      { title: "Resource database", body: "Medical resources are managed by region, institution type, specialty capability, access model, diligence standards, and required documents." },
+      { title: "Doctor database", body: "Specialist matching is supported by physician profiles, case fit, language workflow, and verification checklists." },
+      { title: "Acquisition system", body: "Growth is organized around content reach, lead scoring, fit calls, proposal conversion, and long-term retention." }
+    ]
+  },
+  "doctor-network": {
+    title: "Japan top doctor profiles and specialist collaboration network",
+    description:
+      "A verified specialist profile network across regenerative medicine, oncology, cardiovascular care, neurology, endocrinology, and sports medicine.",
+    proof: ["Six specialty areas", "Public profile verification", "De-identified case scenarios"],
+    process: ["Clarify need", "Screen physicians", "Verify profile", "Prepare records", "Coordinate consultation"],
+    cta: "Explore doctor network",
+    pillars: [
+      { title: "Doctor profiles", body: "Key specialist profiles are organized by education, society activity, research direction, publications, and suitable scenarios." },
+      { title: "Specialty mapping", body: "Physician pathways are matched by condition, disease stage, document readiness, and Japan access timeline." },
+      { title: "Referral readiness", body: "Public profile checks, medical summaries, question lists, and communication boundaries are prepared before appointment requests." }
+    ]
+  },
+  contact: {
+    title: "Begin the first conversation privately",
+    description:
+      "Share the area you would like to discuss. We will first confirm fit, then arrange a confidential introductory meeting in Chinese, Japanese, or English.",
+    proof: ["Initial reply within 24 hours", "Chinese, Japanese, and English advisors", "Private meeting arrangement"],
+    process: ["Submit inquiry", "Confirm fit", "Schedule introductory meeting", "Define next-step recommendations"],
+    cta: "Submit inquiry",
+    pillars: [
+      { title: "Who we serve", body: "Entrepreneur families, family offices, private banking relationship managers, and families with cross-border medical needs." },
+      { title: "What we discuss", body: "Executive checkups, regenerative medicine, major illness second opinions, long-term health planning, and Japan hospital appointments." },
+      { title: "Confidentiality", body: "The first conversation collects only necessary information. Sensitive records are transferred securely after scope confirmation." }
+    ]
+  }
+};
+
+export function pageText(page: PageContent, lang: Language) {
+  const english = englishPages[page.slug];
+
+  if (lang === "en" && english) {
+    return {
+      eyebrow: page.eyebrow,
+      title: english.title,
+      secondaryTitle: page.jaTitle,
+      description: english.description,
+      secondaryDescription: page.jaDescription,
+      proof: english.proof,
+      process: english.process,
+      cta: english.cta,
+      pillars: page.pillars.map((pillar, index) => ({
+        title: english.pillars[index]?.title ?? pillar.ja,
+        label: pillar.ja,
+        body: english.pillars[index]?.body ?? pillar.body
+      }))
+    };
+  }
+
+  if (lang === "ja") {
+    return {
+      eyebrow: page.eyebrow,
+      title: page.jaTitle,
+      secondaryTitle: page.title,
+      description: page.jaDescription,
+      secondaryDescription: page.description,
+      proof: page.proof,
+      process: page.process,
+      cta: page.cta,
+      pillars: page.pillars.map((pillar) => ({
+        title: pillar.ja,
+        label: pillar.title,
+        body: pillar.body
+      }))
+    };
+  }
+
+  return {
+    eyebrow: page.eyebrow,
+    title: page.title,
+    secondaryTitle: page.jaTitle,
+    description: page.description,
+    secondaryDescription: page.jaDescription,
+    proof: page.proof,
+    process: page.process,
+    cta: page.cta,
+    pillars: page.pillars.map((pillar) => ({
+      title: pillar.title,
+      label: pillar.ja,
+      body: pillar.body
+    }))
+  };
+}
