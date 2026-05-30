@@ -8,6 +8,10 @@ const homeCopy = {
     intro:
       "我们专注于为企业家、家族客户与高净值人群，建立长期、系统、全球化的健康管理体系。",
     risk: "不是一次治疗，而是一套长期健康资产管理系统。核心价值是风险管理、长期健康决策权与全球医疗资源配置能力。",
+    promise: "我们不承诺永生。我们帮助您更长时间保持健康。",
+    wealth: "财富管理的是资产，Medical Family Office 管理的是人生。",
+    healthspan:
+      "客户真正购买的不是一次治疗，而是尽可能多获得高质量人生：更长时间保持行动力、判断力、独立生活能力与家庭参与感。",
     inquiry: "预约私密咨询",
     learn: "了解会员体系",
     whatBody:
@@ -25,6 +29,10 @@ const homeCopy = {
     intro:
       "起業家、家族、超富裕層クライアントのために、長期的な健康意思決定システムを構築します。高度健診、長寿医療、再生医療、国際紹介、家族健康ガバナンスを一つの顧問体制に統合します。",
     risk: "重要なのは単発受診ではなく、長期的な健康意思決定権、リスク管理、国際医療資源への管理されたアクセスです。",
+    promise: "私たちは不老不死を約束しません。より長く健康でいられる状態を支援します。",
+    wealth: "資産はウェルスマネジメントが管理し、Medical Family Office は人生を支える健康寿命を管理します。",
+    healthspan:
+      "クライアントが求めているのは単発の治療ではなく、行動力、判断力、自立した生活、家族との時間をできるだけ長く保つための高品質な人生時間です。",
     inquiry: "プライベート相談",
     learn: "会員制度を見る",
     whatBody:
@@ -43,6 +51,10 @@ const homeCopy = {
       "We build a long-term health decision system for entrepreneurs, families, and UHNW clients by integrating executive health, longevity medicine, regenerative medicine, global referrals, and family health governance.",
     risk:
       "The core value is not a single appointment. It is risk management, long-term health decision rights, and controlled access to global medical resources.",
+    promise: "We do not promise immortality. We help you stay healthy longer.",
+    wealth: "Wealth management protects assets. A Medical Family Office protects the healthspan behind a life.",
+    healthspan:
+      "Clients are not buying a single treatment. They are seeking more high-quality years: mobility, judgment, independence, family time, and the ability to keep making long-term decisions.",
     inquiry: "Book Private Inquiry",
     learn: "View Membership",
     whatBody:
@@ -61,6 +73,7 @@ const homeCopy = {
 const sectionCopy = {
   zh: {
     what: "核心服务",
+    healthspan: "健康寿命价值观",
     why: "客户为什么选择我们",
     governance: "医疗治理体系",
     valueModel: "麦肯锡 + 私人银行 + 医疗礼宾",
@@ -75,6 +88,7 @@ const sectionCopy = {
   },
   ja: {
     what: "中核サービス",
+    healthspan: "健康寿命の価値観",
     why: "選ばれる理由",
     governance: "医療ガバナンス",
     valueModel: "マッキンゼー + プライベートバンク + 医療コンシェルジュ",
@@ -89,6 +103,7 @@ const sectionCopy = {
   },
   en: {
     what: "What We Do",
+    healthspan: "Healthspan Philosophy",
     why: "Why Clients Choose Us",
     governance: "Medical Governance Framework",
     valueModel: "McKinsey + Private Bank + Medical Concierge",
@@ -101,6 +116,17 @@ const sectionCopy = {
     membership: "Membership",
     membershipTitle: "Membership is the long-term health office behind the family."
   }
+};
+
+const healthspanPoints = {
+  zh: ["延缓功能衰退", "降低重大疾病风险", "延长健康寿命 Healthspan", "长期健康决策权"],
+  ja: ["機能低下を遅らせる", "重大疾患リスクを下げる", "健康寿命 Healthspan を延ばす", "長期的な健康意思決定権"],
+  en: [
+    "Slow functional decline",
+    "Reduce major disease risk",
+    "Extend healthspan",
+    "Long-term health decision rights"
+  ]
 };
 
 const whatWeDo = [
@@ -295,6 +321,7 @@ export default function Home({
   const lang = normalizeLanguage(searchParams?.lang);
   const copy = homeCopy[lang];
   const sections = sectionCopy[lang];
+  const healthspan = healthspanPoints[lang];
   const featuredDoctors = doctorProfiles.slice(0, 4);
 
   return (
@@ -320,8 +347,8 @@ export default function Home({
           <p className="mt-7 max-w-4xl text-2xl font-semibold leading-tight text-pearl md:text-4xl">
             Private Health Intelligence for Global Families
           </p>
-          <p className="mt-4 text-lg leading-8 text-pearl/72">
-            为全球家族提供私人健康智慧系统
+          <p className="mt-4 max-w-4xl text-lg leading-8 text-pearl/76">
+            {copy.promise}
           </p>
           <div className="mt-8 grid max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
             <div>
@@ -352,6 +379,31 @@ export default function Home({
             >
               {copy.learn}
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink px-5 py-20 text-pearl lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 border-y border-white/12 py-14 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+          <div>
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+              {sections.healthspan}
+            </p>
+            <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">
+              {copy.wealth}
+            </h2>
+          </div>
+          <div className="space-y-7 text-lg leading-9 text-pearl/72">
+            <p>{copy.healthspan}</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {healthspan.map((item) => (
+                <div key={item} className="border-l border-champagne/70 pl-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-champagne">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

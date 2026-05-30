@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
-import { normalizeLanguage } from "@/lib/site";
+import { normalizeLanguage, serviceImages } from "@/lib/site";
 
 type PlatformPage = {
   eyebrow: string;
@@ -147,6 +147,18 @@ const platformPages: Record<string, PlatformPage> = {
   }
 };
 
+const platformHeroImages: Record<string, { src: string; alt: string }> = {
+  "medical-family-office": serviceImages["family-office-health-plan"],
+  "executive-health": serviceImages.services,
+  "global-medical-access": serviceImages["japan-hospital-network"],
+  "membership-program": serviceImages["family-office-health-plan"],
+  "medical-governance-framework": serviceImages["medical-resource-database"],
+  "research-center": serviceImages["longevity-planning"],
+  "case-library": serviceImages["medical-concierge"],
+  "media-center": serviceImages["japan-hospital-network"],
+  "private-aviation-concierge": serviceImages["medical-concierge"]
+};
+
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const page = platformPages[params.slug];
 
@@ -194,6 +206,7 @@ export default function PlatformPage({
         description={description}
         secondaryDescription={secondaryDescription}
         cta={heroCta}
+        image={platformHeroImages[params.slug] ?? serviceImages["medical-concierge"]}
       />
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">

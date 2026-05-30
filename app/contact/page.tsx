@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { normalizeLanguage, pageText, pages, serviceImages } from "@/lib/site";
@@ -72,32 +71,8 @@ export default function ContactPage({
         description={text.description}
         secondaryDescription={text.secondaryDescription}
         cta={text.cta}
+        image={image}
       />
-      <section className="bg-pearl px-5 py-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div className="border-l border-champagne/50 pl-6">
-            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              {copy.firstStep}
-            </p>
-            <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
-              {lang === "en"
-                ? "A discreet first conversation before any medical record transfer."
-                : lang === "ja"
-                  ? "医療資料を共有する前に、まずは静かな初回相談を。"
-                  : "在传递敏感病历前，先进行一次克制而私密的初步沟通。"}
-            </h2>
-          </div>
-          <div className="relative aspect-[16/10] overflow-hidden border border-mist bg-ink shadow-quiet">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 55vw, 100vw"
-            />
-          </div>
-        </div>
-      </section>
       <section className="px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
