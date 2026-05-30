@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { normalizeLanguage, serviceImages } from "@/lib/site";
@@ -172,8 +173,32 @@ const platformHeroImages: Record<string, { src: string; alt: string }> = {
   "research-center": serviceImages["longevity-planning"],
   "case-library": serviceImages["medical-concierge"],
   "media-center": serviceImages["japan-hospital-network"],
-  "private-aviation-concierge": serviceImages["medical-concierge"]
+  "private-aviation-concierge": {
+    src: "/private-jet-medical-concierge.png",
+    alt: "Private jet medical concierge coordination"
+  }
 };
+
+const aviationScenes = [
+  {
+    title: "Private aviation",
+    body: "包机协调、抵达动线、医疗资料与当地接驳统一管理。",
+    image: "/private-jet-medical-concierge.png",
+    alt: "私人包机医疗礼宾协调"
+  },
+  {
+    title: "Alphard-style transfer",
+    body: "高端商务车、司机与双语协调人员，覆盖机场、酒店与医院之间接送。",
+    image: "/alphard-medical-transfer.png",
+    alt: "阿尔法商务车医疗接送"
+  },
+  {
+    title: "One-on-one escort",
+    body: "预约签到、检查动线、翻译沟通与诊后资料整理由专人陪同。",
+    image: "/one-on-one-medical-escort.png",
+    alt: "一对一医疗陪同"
+  }
+];
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const page = platformPages[params.slug];
@@ -236,6 +261,44 @@ export default function PlatformPage({
           ))}
         </div>
       </section>
+      {params.slug === "private-aviation-concierge" ? (
+        <section className="bg-white px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                  Premium Ground & Air Logistics
+                </p>
+                <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
+                  包机、阿尔法接送与一对一陪同共同构成私密医疗出行。
+                </h2>
+              </div>
+              <p className="text-lg leading-9 text-graphite/72">
+                对高净值家庭来说，跨境医疗不只是预约医生，也包括抵达方式、现场动线、隐私保护、翻译陪同与诊后资料交接。
+              </p>
+            </div>
+            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+              {aviationScenes.map((scene) => (
+                <article key={scene.title} className="border border-mist bg-pearl">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={scene.image}
+                      alt={scene.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                    />
+                  </div>
+                  <div className="p-7">
+                    <h3 className="text-2xl font-semibold text-ink">{scene.title}</h3>
+                    <p className="mt-4 text-sm leading-7 text-graphite/72">{scene.body}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }

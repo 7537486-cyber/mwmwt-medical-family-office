@@ -190,28 +190,31 @@ export const pages: Record<string, PageContent> = {
     title: "让赴日就医保持私密、准时与有序",
     jaTitle: "訪日医療を静かに、正確に、秩序立てて",
     description:
-      "从行前评估到日本现场陪同，再到回国后的复诊与报告管理，我们为复杂医疗旅程提供单一协调窗口。",
+      "从行前评估、包机协调、阿尔法商务车接送、日本现场一对一陪同，到回国后的复诊与报告管理，我们为复杂医疗旅程提供单一协调窗口。",
     jaDescription:
-      "渡航前評価、現地同行、帰国後の再診・報告管理まで、複雑な医療行程を一元的に調整します。",
+      "渡航前評価、チャーター調整、専用車送迎、現地での一対一同行、帰国後の再診・報告管理まで、複雑な医療行程を一元的に調整します。",
     pillars: [
       {
         title: "行前准备",
         ja: "Pre-arrival",
+        jaBody: "病歴整理、重要資料の翻訳、相談目的の確認、適切な受診時間枠の調整を行います。",
         body: "整理中文病史、翻译关键资料、明确问诊目标并安排合适时间窗口。"
       },
       {
-        title: "现场陪同",
-        ja: "On-site Support",
-        body: "提供医院接待、医疗翻译、检查动线管理与重要沟通记录。"
+        title: "高端出行协调",
+        ja: "Premium Logistics",
+        jaBody: "秘匿性、時間、医療スケジュールに合わせて、チャーター、空港送迎、専用車、ホテルと医療機関間の動線を調整します。",
+        body: "根据隐私、时间与医疗节奏，协调包机、机场接送、阿尔法商务车和酒店医院之间的动线。"
       },
       {
-        title: "诊后管理",
-        ja: "Aftercare",
-        body: "将日本医生意见转化为中文行动清单，并协调后续复诊或转诊。"
+        title: "一对一陪同",
+        ja: "One-on-one Escort",
+        jaBody: "医療機関での受付、通訳、検査動線管理、重要な会話記録、診療後資料整理を支援します。",
+        body: "提供医院接待、医疗翻译、检查动线管理、重要沟通记录与诊后资料整理。"
       }
     ],
-    proof: ["单一协调窗口", "双语病历摘要", "私密行程安排"],
-    process: ["初步问诊", "病历整理", "预约确认", "现场执行", "回访与复盘"],
+    proof: ["包机与高端接送协调", "一对一现场陪同", "双语病历摘要"],
+    process: ["初步问诊", "病历整理", "预约确认", "出行与接送安排", "现场陪同", "回访与复盘"],
     cta: "安排赴日就医"
   },
   "japan-hospital-network": {
@@ -529,14 +532,14 @@ const englishPages: Record<string, EnglishPage> = {
   "medical-concierge": {
     title: "Private, punctual, and orderly medical travel to Japan",
     description:
-      "From pre-arrival assessment to on-site support in Japan and post-return follow-up, we provide one coordination window for complex medical journeys.",
-    proof: ["Single coordination window", "Trilingual medical summary", "Private itinerary management"],
-    process: ["Initial consultation", "Medical record preparation", "Appointment confirmation", "On-site execution", "Review and follow-up"],
+      "From pre-arrival assessment, private aviation coordination, executive van transfer, and one-on-one escort in Japan to post-return follow-up, we provide one coordination window for complex medical journeys.",
+    proof: ["Private aviation and executive transfer coordination", "One-on-one on-site escort", "Trilingual medical summary"],
+    process: ["Initial consultation", "Medical record preparation", "Appointment confirmation", "Travel and transfer planning", "One-on-one on-site support", "Review and follow-up"],
     cta: "Arrange medical travel",
     pillars: [
       { title: "Pre-arrival preparation", body: "We organize medical history, translate key files, clarify consultation goals, and arrange the right time window." },
-      { title: "On-site support", body: "Hospital reception, medical interpretation, examination flow, and key communication records are managed on-site." },
-      { title: "Aftercare", body: "Japanese doctors' opinions are translated into actionable family checklists, with follow-up visits or referrals coordinated as needed." }
+      { title: "Premium logistics", body: "Private aviation, airport transfer, executive van routes, hotel-to-hospital movement, and privacy timing are coordinated around the medical schedule." },
+      { title: "One-on-one escort", body: "Hospital reception, medical interpretation, examination flow, key communication records, and post-visit documentation are managed on-site." }
     ]
   },
   "japan-hospital-network": {
