@@ -35,9 +35,23 @@
 - 已新增 Global Medical Network 屏，展示日本、新加坡、瑞士、美国资源网络布局
 - 已将会员体系改为 Founder Membership、Executive Membership、Family Membership、Legacy Membership，并强调长期健康伙伴关系
 - 已新增 `/medical-governance-framework` 承接页面，并将研究中心、案例中心、媒体中心等平台页面加入 sitemap
+- 已新增正式 `/knowledge-center` 知识库首页，加入 Regenerative Medicine、Cellular Science、Longevity Science、Healthy Aging 四大核心研究方向
+- 已新增 `/knowledge-center/longevity-medicine` 长寿医学长文页面，覆盖健康寿命、传统医学对比、衰老机制、生物年龄检测、检测技术和 Medical Family Office 理念
+- 已将长寿医学文章加入 sitemap，便于后续 SEO 收录
+- 已移除首页 Knowledge Center 区域中的内部运营话术，不再展示“1000+文章”“10大知识中心”“SEO内容资产”，改为客户可理解的 Medical intelligence 与长期健康决策表达
+- 已清理多语言混用问题：中文导航改为中文，联系表单中文字段移除日文混写，通用页面小标题、联系页栏目、医生档案返回与资料标签按中日英分别显示
+- 已为知识库首页增加中日英显示逻辑，避免日文/英文访问时仍出现大段中文
+- 已将医生网络定位调整为专业履历页与医疗资源介绍页，不再呈现为销售页
+- 已在医生网络页新增专业定位、医生分类规划与合规说明，强调持续建立跨领域医生网络，而不是宣称“已有100位顶级医生”
+- 已重构医生详情页模板，新增医生基本信息、专业定位、学历/资格/研究/论文/临床经验、适合客户、医疗家族办公室如何协助与合规免责声明
+- 已新增 `/doctors` 与 `/doctors/[slug]` URL 结构，并将 sitemap 医生详情链接改为 `/doctors/...`
 - 待用户执行 Git 提交和推送，触发 Vercel 自动部署
 
 ## 验证记录
 
 - 已执行 `npm run build`，Next.js 生产构建通过，生成 23 个路由
 - 已再次执行 `npm run build`，Next.js 生产构建通过，确认治理体系、会员体系和 sitemap 改动未破坏构建
+- 已执行 `npm run build`，Next.js 生产构建通过，确认知识库首页与长寿医学文章静态路由生成正常，共 25 个路由
+- 已执行 `npm run build`，Next.js 生产构建通过，确认首页知识库文案精简后仍正常生成 25 个路由
+- 已执行 `npm run build`，Next.js 生产构建通过，确认多语言文案清理后仍正常生成 25 个路由
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 `/doctors` 路由与医生履历模板正常生成，共 32 个路由

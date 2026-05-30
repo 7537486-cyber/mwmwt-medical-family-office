@@ -15,7 +15,7 @@ const homeCopy = {
     whyBody:
       "客户选择我们的原因，是能在重大健康选择前获得更完整的信息、更安静的隐私保护和更长期的医学陪伴。",
     knowledgeBody:
-      "知识中心规划 1000+ 篇专业文章，覆盖 10 大医学与健康资产管理主题，形成可持续的 SEO 内容资产。",
+      "知识中心用于帮助客户理解医学趋势、风险边界、检测逻辑和长期健康决策，而不是替代医生诊断或治疗建议。",
     boardBody:
       "医疗顾问资源以公开资料核验、专科能力、研究方向和适配场景进行整理，实际转诊前仍需确认医生接诊规则与机构准入要求。",
     membershipBody:
@@ -50,11 +50,56 @@ const homeCopy = {
     whyBody:
       "Clients choose us because major health decisions require better information, complete privacy, and a long-term medical team that stays with the family.",
     knowledgeBody:
-      "The Knowledge Center will publish SEO articles for entrepreneurs and family offices on medical risk management, longevity planning, Japan access, egg freezing, and regenerative medicine.",
+      "The Knowledge Center helps clients understand medical trends, risk boundaries, testing logic, and long-term health decisions. It does not replace physician diagnosis or treatment advice.",
     boardBody:
       "Medical advisory resources are organized by public profile verification, specialty capability, research direction, and appropriate case scenarios. Actual referrals require current institution and physician confirmation.",
     membershipBody:
       "Membership is not built around a one-time checkup or procedure. It is a long-term health partnership for founders, executives, and family members."
+  }
+};
+
+const sectionCopy = {
+  zh: {
+    what: "核心服务",
+    why: "客户为什么选择我们",
+    governance: "医疗治理体系",
+    valueModel: "麦肯锡 + 私人银行 + 医疗礼宾",
+    network: "全球医疗资源网络",
+    knowledge: "知识中心",
+    knowledgeTitle: "用于长期健康决策的医学知识体系。",
+    knowledgeCta: "进入知识中心",
+    platform: "平台架构",
+    advisory: "医学顾问资源",
+    membership: "会员体系",
+    membershipTitle: "为家族长期运行的私人健康办公室。"
+  },
+  ja: {
+    what: "中核サービス",
+    why: "選ばれる理由",
+    governance: "医療ガバナンス",
+    valueModel: "マッキンゼー + プライベートバンク + 医療コンシェルジュ",
+    network: "グローバル医療ネットワーク",
+    knowledge: "ナレッジセンター",
+    knowledgeTitle: "長期的な健康判断を支える医療知識体系。",
+    knowledgeCta: "ナレッジセンターを見る",
+    platform: "プラットフォーム構造",
+    advisory: "医療アドバイザリー",
+    membership: "会員制度",
+    membershipTitle: "家族のために長期稼働するプライベート健康オフィス。"
+  },
+  en: {
+    what: "What We Do",
+    why: "Why Clients Choose Us",
+    governance: "Medical Governance Framework",
+    valueModel: "McKinsey + Private Bank + Medical Concierge",
+    network: "Global Medical Network",
+    knowledge: "Knowledge Center",
+    knowledgeTitle: "Medical intelligence for better long-term health decisions.",
+    knowledgeCta: "Explore Knowledge Center",
+    platform: "Platform Architecture",
+    advisory: "Medical Advisory Board",
+    membership: "Membership",
+    membershipTitle: "Membership is the long-term health office behind the family."
   }
 };
 
@@ -167,66 +212,26 @@ const globalNetwork = [
   }
 ];
 
-const knowledgeCenters = [
-  {
-    title: "Longevity Medicine",
-    label: "长寿医学中心",
-    target: "100篇+",
-    topics: ["什么是长寿医学", "生物年龄是什么", "炎症与衰老", "NAD+研究"]
-  },
-  {
-    title: "Stem Cell Research",
-    label: "干细胞中心",
-    target: "100篇+",
-    topics: ["干细胞是什么", "日本干细胞合法吗", "干细胞安全性", "常见误区"]
-  },
-  {
-    title: "Exosome Research",
-    label: "外泌体中心",
-    target: "80篇+",
-    topics: ["什么是Exosome", "Exosome工作原理", "Exosome与PRP区别", "日本外泌体监管"]
-  },
-  {
-    title: "Executive Health",
-    label: "企业家健康中心",
-    target: "100篇+",
-    topics: ["CEO为何衰老更快", "企业家睡眠管理", "飞行时差恢复", "高净值人士体检体系"]
-  },
+const researchDirections = [
   {
     title: "Regenerative Medicine",
-    label: "再生医疗中心",
-    target: "100篇+",
-    topics: ["再生医疗是什么", "日本再生医疗体系", "再生医疗法介绍", "未来趋势"]
+    label: "再生医学",
+    body: "探索人体自我修复、组织再生与功能维持的前沿科学，关注安全性、合规性与医学评估。"
   },
   {
-    title: "Global Medical Access",
-    label: "医疗资源中心",
-    target: "150篇+",
-    topics: ["日本医疗体系", "东京顶级医院", "新加坡医疗体系", "瑞士医疗体系"]
+    title: "Cellular Science",
+    label: "细胞科技",
+    body: "以细胞再生、细胞通讯、组织修复和健康寿命管理为核心，建立更审慎的科学认知框架。"
   },
   {
-    title: "Biomarker Research",
-    label: "生物标志物中心",
-    target: "80篇+",
-    topics: ["炎症指标", "代谢指标", "认知筛查", "影像评估"]
+    title: "Longevity Science",
+    label: "长寿科学",
+    body: "结合全球长寿研究、基因科学、健康数据与风险评估，支持个性化健康寿命管理。"
   },
   {
-    title: "Preventive Medicine",
-    label: "预防医学中心",
-    target: "100篇+",
-    topics: ["肿瘤筛查", "心血管预防", "慢病管理", "家庭风险地图"]
-  },
-  {
-    title: "Case Library",
-    label: "案例中心",
-    target: "80篇+",
-    topics: ["企业家睡眠管理", "海外转诊旅程", "长期随访", "家庭健康治理"]
-  },
-  {
-    title: "Founder Insights",
-    label: "创始人观点",
-    target: "80篇+",
-    topics: ["长寿产业", "再生医疗产业", "高净值健康需求", "医疗家族办公室"]
+    title: "Healthy Aging",
+    label: "健康老龄化",
+    body: "帮助客户关注身体活力、认知能力、肌肉质量与生活品质，实现更长期的功能保持。"
   }
 ];
 
@@ -289,6 +294,7 @@ export default function Home({
 }) {
   const lang = normalizeLanguage(searchParams?.lang);
   const copy = homeCopy[lang];
+  const sections = sectionCopy[lang];
   const featuredDoctors = doctorProfiles.slice(0, 4);
 
   return (
@@ -353,7 +359,7 @@ export default function Home({
       <section className="bg-pearl px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-champagne">What We Do</p>
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">{sections.what}</p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
               四大核心板块构成长期健康资产管理系统。
             </h2>
@@ -387,7 +393,7 @@ export default function Home({
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              Why Clients Choose Us
+              {sections.why}
             </p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
               Risk management for the family&apos;s most important asset: health.
@@ -410,7 +416,7 @@ export default function Home({
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                Medical Governance Framework
+                {sections.governance}
               </p>
               <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
                 我们不提供医疗服务，我们代表客户做医疗尽调与长期治理。
@@ -454,7 +460,7 @@ export default function Home({
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                McKinsey + Private Bank + Medical Concierge
+                {sections.valueModel}
               </p>
               <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">
                 Global Medical Family Office for Entrepreneurs, Investors & Families.
@@ -490,7 +496,7 @@ export default function Home({
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                Global Medical Network
+                {sections.network}
               </p>
               <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
                 We Help Families Access The World&apos;s Best Medical Resources
@@ -519,30 +525,33 @@ export default function Home({
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                Knowledge Center
+                {sections.knowledge}
               </p>
               <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">
-                1000+专业文章，分成10大知识中心。
+                {sections.knowledgeTitle}
               </h2>
             </div>
             <p className="text-lg leading-9 text-pearl/72">{copy.knowledgeBody}</p>
           </div>
-          <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
-            {knowledgeCenters.map((center) => (
-              <article key={center.title} className="bg-ink p-7 transition hover:bg-pearl/5">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {researchDirections.map((direction) => (
+              <article key={direction.title} className="border border-white/12 bg-pearl/[0.03] p-7">
                 <p className="text-xs uppercase tracking-[0.28em] text-champagne">
-                  {center.target}
+                  {direction.title}
                 </p>
-                <h3 className="mt-6 text-xl font-semibold leading-tight text-pearl">
-                  {center.title}
+                <h3 className="mt-6 text-2xl font-semibold leading-tight text-pearl">
+                  {direction.label}
                 </h3>
-                <p className="mt-2 text-sm font-semibold text-champagne">{center.label}</p>
-                <p className="mt-5 text-sm leading-7 text-pearl/60">
-                  {center.topics.join(" / ")}
-                </p>
+                <p className="mt-5 text-sm leading-7 text-pearl/62">{direction.body}</p>
               </article>
             ))}
           </div>
+          <Link
+            href={withLanguage("/knowledge-center", lang)}
+            className="mt-12 inline-flex border border-pearl/45 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-pearl transition hover:border-champagne hover:text-champagne"
+          >
+            {sections.knowledgeCta} <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
@@ -551,7 +560,7 @@ export default function Home({
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                Platform Architecture
+                {sections.platform}
               </p>
               <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
                 从医生数据库到研究中心，建立真正的平台资产。
@@ -586,7 +595,7 @@ export default function Home({
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                Medical Advisory Board
+                {sections.advisory}
               </p>
               <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
                 Specialist intelligence before cross-border medical access.
@@ -620,9 +629,9 @@ export default function Home({
       <section id="membership" className="bg-white px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-champagne">Membership</p>
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">{sections.membership}</p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-              Membership is the long-term health office behind the family.
+              {sections.membershipTitle}
             </h2>
             <p className="mt-6 text-lg leading-9 text-graphite/72">{copy.membershipBody}</p>
             <p className="mt-6 border-l border-champagne pl-5 text-base leading-8 text-graphite/72">

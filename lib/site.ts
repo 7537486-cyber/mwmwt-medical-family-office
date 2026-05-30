@@ -35,15 +35,15 @@ export type PageContent = {
 
 export const navItems: NavItem[] = [
   { href: "/", label: "首页", ja: "ホーム", en: "Home" },
-  { href: "/about", label: "About Us", ja: "私たちについて", en: "About Us" },
-  { href: "/medical-family-office", label: "Medical Family Office", ja: "医療ファミリーオフィス", en: "Medical Family Office" },
-  { href: "/longevity-planning", label: "Longevity Medicine", ja: "長寿医学", en: "Longevity Medicine" },
-  { href: "/regenerative-medicine", label: "Regenerative Medicine", ja: "再生医療", en: "Regenerative Medicine" },
-  { href: "/executive-health", label: "Executive Health", ja: "エグゼクティブヘルス", en: "Executive Health" },
-  { href: "/global-medical-access", label: "Global Medical Access", ja: "国際医療アクセス", en: "Global Medical Access" },
+  { href: "/about", label: "关于我们", ja: "私たちについて", en: "About Us" },
+  { href: "/medical-family-office", label: "医疗家族办公室", ja: "医療ファミリーオフィス", en: "Medical Family Office" },
+  { href: "/longevity-planning", label: "长寿医学", ja: "長寿医学", en: "Longevity Medicine" },
+  { href: "/regenerative-medicine", label: "再生医疗", ja: "再生医療", en: "Regenerative Medicine" },
+  { href: "/executive-health", label: "企业家健康", ja: "エグゼクティブヘルス", en: "Executive Health" },
+  { href: "/global-medical-access", label: "全球医疗资源", ja: "国際医療アクセス", en: "Global Medical Access" },
   { href: "/doctor-network", label: "医生网络", ja: "医師ネットワーク", en: "Doctors" },
-  { href: "/knowledge-center", label: "Knowledge Center", ja: "ナレッジセンター", en: "Knowledge Center" },
-  { href: "/membership-program", label: "Membership", ja: "会員制度", en: "Membership" },
+  { href: "/knowledge-center", label: "知识中心", ja: "ナレッジセンター", en: "Knowledge Center" },
+  { href: "/membership-program", label: "会员体系", ja: "会員制度", en: "Membership" },
   { href: "/contact", label: "联系", ja: "お問い合わせ", en: "Contact" }
 ];
 

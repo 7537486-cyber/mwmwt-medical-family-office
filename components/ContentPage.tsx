@@ -10,6 +10,23 @@ type ContentPageProps = {
 export function ContentPage({ page, lang }: ContentPageProps) {
   const text = pageText(page, lang);
   const image = serviceImages[page.slug];
+  const sectionLabels = {
+    zh: {
+      visual: "视觉呈现",
+      assurance: "信任依据",
+      protocol: "服务流程"
+    },
+    ja: {
+      visual: "ビジュアル",
+      assurance: "信頼の根拠",
+      protocol: "進行プロトコル"
+    },
+    en: {
+      visual: "Visual Diligence",
+      assurance: "Assurance",
+      protocol: "Working Protocol"
+    }
+  }[lang];
 
   return (
     <>
@@ -35,7 +52,7 @@ export function ContentPage({ page, lang }: ContentPageProps) {
             </div>
             <div className="border-l border-champagne/50 pl-6">
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                Visual Diligence
+                {sectionLabels.visual}
               </p>
               <p className="mt-5 font-serif text-3xl leading-tight text-ink md:text-4xl">
                 {lang === "en"
@@ -51,7 +68,9 @@ export function ContentPage({ page, lang }: ContentPageProps) {
       <section className="px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <aside className="border-l border-champagne/50 pl-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-champagne">Assurance</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-champagne">
+              {sectionLabels.assurance}
+            </p>
             <div className="mt-8 space-y-5">
               {text.proof.map((item) => (
                 <p key={item} className="font-serif text-2xl leading-tight text-ink">
@@ -78,7 +97,7 @@ export function ContentPage({ page, lang }: ContentPageProps) {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.2fr]">
           <div>
             <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              Working Protocol
+              {sectionLabels.protocol}
             </p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
               {lang === "en"

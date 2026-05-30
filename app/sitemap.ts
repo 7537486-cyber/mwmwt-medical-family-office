@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://mwmwt.com";
   const platformPaths = [
     "/medical-governance-framework",
+    "/knowledge-center/longevity-medicine",
     "/research-center",
     "/case-library",
     "/media-center",
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const doctorPages = doctorProfiles.map((doctor) => ({
-    url: `${baseUrl}/doctor-network/${doctor.slug}`,
+    url: `${baseUrl}/doctors/${doctor.slug}`,
     lastModified: new Date("2026-05-30"),
     changeFrequency: "monthly" as const,
     priority: 0.7

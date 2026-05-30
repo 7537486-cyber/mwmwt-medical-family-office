@@ -12,10 +12,12 @@ const recipient = "7537486@qq.com";
 
 const copy = {
   zh: {
-    name: "称呼 / お名前",
-    contact: "联系方式 / ご連絡先",
-    inquiry: "咨询方向 / ご相談内容",
-    background: "背景说明 / ご状況",
+    name: "称呼",
+    contact: "联系方式",
+    inquiry: "咨询方向",
+    background: "背景说明",
+    namePlaceholder: "陈先生",
+    contactPlaceholder: "邮箱 / 微信 / 电话",
     placeholder: "请简要说明目标、时间安排、家庭成员情况或已持有的医疗资料。",
     submit: "发送私密咨询",
     note:
@@ -26,6 +28,8 @@ const copy = {
     contact: "ご連絡先",
     inquiry: "ご相談内容",
     background: "ご状況",
+    namePlaceholder: "山田様",
+    contactPlaceholder: "メール / WeChat / 電話",
     placeholder: "目的、時期、ご家族の状況、すでにお持ちの医療資料を簡潔にご記入ください。",
     submit: "プライベート相談を送信",
     note:
@@ -36,6 +40,8 @@ const copy = {
     contact: "Contact",
     inquiry: "Inquiry type",
     background: "Background",
+    namePlaceholder: "Mr. Chen",
+    contactPlaceholder: "Email / WeChat / Phone",
     placeholder: "Briefly describe goals, timing, family member context, or available medical records.",
     submit: "Submit Private Inquiry",
     note:
@@ -77,7 +83,7 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
             value={name}
             onChange={(event) => setName(event.target.value)}
             className="border border-mist bg-pearl px-4 py-3 font-normal outline-none transition focus:border-champagne"
-            placeholder="Mr. Chen"
+            placeholder={text.namePlaceholder}
           />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-ink">
@@ -86,7 +92,7 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
             value={contact}
             onChange={(event) => setContact(event.target.value)}
             className="border border-mist bg-pearl px-4 py-3 font-normal outline-none transition focus:border-champagne"
-            placeholder="Email / WeChat / Phone"
+            placeholder={text.contactPlaceholder}
           />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-ink">

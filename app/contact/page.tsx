@@ -27,6 +27,30 @@ const inquiryTypesEn = [
   "Long-term family health planning"
 ];
 
+const inquiryTypesJa = [
+  "日本での精密健診",
+  "再生医療・アンチエイジング",
+  "重大疾患のセカンドオピニオン",
+  "訪日医療コンシェルジュ",
+  "卵子凍結・妊孕性温存",
+  "家族の長期健康計画"
+];
+
+const contactCopy = {
+  zh: {
+    firstStep: "私密初步沟通",
+    scope: "咨询范围"
+  },
+  ja: {
+    firstStep: "プライベート初回相談",
+    scope: "相談範囲"
+  },
+  en: {
+    firstStep: "Private First Step",
+    scope: "Inquiry Scope"
+  }
+};
+
 export default function ContactPage({
   searchParams
 }: {
@@ -35,7 +59,8 @@ export default function ContactPage({
   const lang = normalizeLanguage(searchParams?.lang);
   const page = pages.contact;
   const text = pageText(page, lang);
-  const typeOptions = lang === "en" ? inquiryTypesEn : inquiryTypes;
+  const typeOptions = lang === "en" ? inquiryTypesEn : lang === "ja" ? inquiryTypesJa : inquiryTypes;
+  const copy = contactCopy[lang];
   const image = serviceImages.contact;
 
   return (
@@ -52,7 +77,7 @@ export default function ContactPage({
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="border-l border-champagne/50 pl-6">
             <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              Private First Step
+              {copy.firstStep}
             </p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
               {lang === "en"
@@ -77,7 +102,7 @@ export default function ContactPage({
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              Inquiry Scope
+              {copy.scope}
             </p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
               {lang === "en"

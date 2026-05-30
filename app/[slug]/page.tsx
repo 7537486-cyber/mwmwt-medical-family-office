@@ -177,6 +177,13 @@ export default function PlatformPage({
   const title = lang === "en" ? page.enTitle : lang === "ja" ? page.jaTitle : page.title;
   const description =
     lang === "en" ? page.enDescription : lang === "ja" ? page.jaDescription : page.description;
+  const heroCta = lang === "en" ? "Private Inquiry" : lang === "ja" ? "プライベート相談" : "私密咨询";
+  const secondaryDescription =
+    lang === "en"
+      ? "Risk management, long-term health decision rights, and global medical resource allocation."
+      : lang === "ja"
+        ? "リスク管理、長期的な健康判断、国際医療資源の配置。"
+        : "风险管理、长期健康决策权与全球医疗资源配置。";
 
   return (
     <>
@@ -185,8 +192,8 @@ export default function PlatformPage({
         title={title}
         secondaryTitle="Private Health Intelligence for Global Families"
         description={description}
-        secondaryDescription="风险管理、长期健康决策权与全球医疗资源配置。"
-        cta="Private Inquiry"
+        secondaryDescription={secondaryDescription}
+        cta={heroCta}
       />
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
