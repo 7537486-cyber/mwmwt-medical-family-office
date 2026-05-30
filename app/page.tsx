@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionIntro } from "@/components/SectionIntro";
-import { homeServices, normalizeLanguage, pageText, withLanguage } from "@/lib/site";
+import {
+  homeServices,
+  normalizeLanguage,
+  pageText,
+  serviceImages,
+  withLanguage
+} from "@/lib/site";
 
 const homeCopy = {
   zh: {
@@ -133,12 +139,25 @@ export default function Home({
           <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {homeServices.map((service) => {
               const serviceText = pageText(service, lang);
+              const image = serviceImages[service.slug];
               return (
                 <Link
                   key={service.slug}
                   href={withLanguage(`/${service.slug}`, lang)}
-                  className="group min-h-72 border border-mist bg-pearl/55 p-8 transition hover:-translate-y-1 hover:border-champagne hover:shadow-quiet"
+                  className="group overflow-hidden border border-mist bg-pearl/55 transition hover:-translate-y-1 hover:border-champagne hover:shadow-quiet"
                 >
+                  {image ? (
+                    <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      />
+                    </div>
+                  ) : null}
+                  <div className="p-8">
                   <p className="text-xs uppercase tracking-[0.28em] text-champagne">
                     {serviceText.eyebrow}
                   </p>
@@ -151,6 +170,7 @@ export default function Home({
                   <span className="mt-8 inline-flex text-sm font-semibold text-jade">
                     {serviceText.cta} →
                   </span>
+                  </div>
                 </Link>
               );
             })}

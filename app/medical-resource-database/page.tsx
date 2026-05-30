@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import {
   acquisitionSegments,
@@ -8,7 +9,7 @@ import {
   medicalResources,
   programProfiles
 } from "@/lib/databases";
-import { normalizeLanguage, pages } from "@/lib/site";
+import { normalizeLanguage, pages, serviceImages } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "医疗资源数据库与获客系统",
@@ -68,6 +69,7 @@ export default function MedicalResourceDatabasePage({
   const lang = normalizeLanguage(searchParams?.lang);
   const text = copy[lang];
   const page = pages["medical-resource-database"];
+  const image = serviceImages["medical-resource-database"];
 
   return (
     <>
@@ -79,6 +81,32 @@ export default function MedicalResourceDatabasePage({
         secondaryDescription={text.compliance}
         cta={lang === "en" ? "Discuss the system" : lang === "ja" ? "相談する" : "咨询数据库系统"}
       />
+
+      <section className="bg-pearl px-5 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+          <div className="border-l border-champagne/50 pl-6">
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+              Operating Intelligence
+            </p>
+            <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
+              {lang === "en"
+                ? "Medical resources become useful when they are structured, verified, and ready for decisions."
+                : lang === "ja"
+                  ? "医療資源は、構造化され、検証され、判断に使える状態で初めて価値を持ちます。"
+                  : "医疗资源只有被结构化、验证并可用于决策，才真正有价值。"}
+            </h2>
+          </div>
+          <div className="relative aspect-[16/10] overflow-hidden border border-mist bg-ink shadow-quiet">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 55vw, 100vw"
+            />
+          </div>
+        </div>
+      </section>
 
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">

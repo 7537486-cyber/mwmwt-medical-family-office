@@ -373,6 +373,45 @@ export const homeServices = [
   pages["family-office-health-plan"]
 ];
 
+export const serviceImages: Record<string, { src: string; alt: string }> = {
+  services: {
+    src: "/hospital-network.png",
+    alt: "Premium Japan medical coordination interior"
+  },
+  "regenerative-medicine": {
+    src: "/regenerative-advisory.png",
+    alt: "Luxury regenerative medicine advisory room"
+  },
+  "longevity-planning": {
+    src: "/longevity-planning.png",
+    alt: "Private longevity planning advisory table"
+  },
+  "medical-concierge": {
+    src: "/medical-concierge.png",
+    alt: "Discreet Japan medical concierge lounge"
+  },
+  "japan-hospital-network": {
+    src: "/hospital-network.png",
+    alt: "Refined Japan hospital network corridor"
+  },
+  "doctor-network": {
+    src: "/hospital-network.png",
+    alt: "Trusted Japanese specialist network setting"
+  },
+  "medical-resource-database": {
+    src: "/longevity-planning.png",
+    alt: "Structured medical resource intelligence desk"
+  },
+  "family-office-health-plan": {
+    src: "/longevity-planning.png",
+    alt: "Long-term family health planning materials"
+  },
+  contact: {
+    src: "/medical-concierge.png",
+    alt: "Private inquiry and concierge coordination setting"
+  }
+};
+
 type EnglishPage = {
   title: string;
   description: string;

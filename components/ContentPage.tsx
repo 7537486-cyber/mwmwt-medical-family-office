@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
-import { type Language, type PageContent, pageText } from "@/lib/site";
+import { type Language, type PageContent, pageText, serviceImages } from "@/lib/site";
 
 type ContentPageProps = {
   page: PageContent;
@@ -8,6 +9,7 @@ type ContentPageProps = {
 
 export function ContentPage({ page, lang }: ContentPageProps) {
   const text = pageText(page, lang);
+  const image = serviceImages[page.slug];
 
   return (
     <>
@@ -19,6 +21,33 @@ export function ContentPage({ page, lang }: ContentPageProps) {
         secondaryDescription={text.secondaryDescription}
         cta={text.cta}
       />
+      {image ? (
+        <section className="bg-pearl px-5 py-16 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            <div className="relative aspect-[16/10] overflow-hidden border border-mist bg-ink shadow-quiet">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 58vw, 100vw"
+              />
+            </div>
+            <div className="border-l border-champagne/50 pl-6">
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                Visual Diligence
+              </p>
+              <p className="mt-5 font-serif text-3xl leading-tight text-ink md:text-4xl">
+                {lang === "en"
+                  ? "A quieter visual language for high-stakes medical decisions."
+                  : lang === "ja"
+                    ? "重要な医療判断にふさわしい、静かなビジュアル設計。"
+                    : "用更安静的视觉语言承载高风险医疗决策。"}
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : null}
       <section className="px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <aside className="border-l border-champagne/50 pl-6">

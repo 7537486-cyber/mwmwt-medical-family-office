@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { doctorProfiles } from "@/lib/doctors";
-import { normalizeLanguage, withLanguage } from "@/lib/site";
+import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "医生网络",
@@ -16,6 +17,7 @@ export default function DoctorNetworkPage({
   searchParams?: { lang?: string };
 }) {
   const lang = normalizeLanguage(searchParams?.lang);
+  const image = serviceImages["doctor-network"];
   const hero =
     lang === "en"
       ? {
@@ -58,6 +60,32 @@ export default function DoctorNetworkPage({
         secondaryDescription={hero.secondaryDescription}
         cta={hero.cta}
       />
+
+      <section className="bg-pearl px-5 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div className="relative aspect-[16/10] overflow-hidden border border-mist bg-ink shadow-quiet">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 55vw, 100vw"
+            />
+          </div>
+          <div className="border-l border-champagne/50 pl-6">
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+              Specialist Access
+            </p>
+            <p className="mt-5 font-serif text-3xl leading-tight text-ink md:text-4xl">
+              {lang === "en"
+                ? "Specialist matching should feel precise, verified, and calm."
+                : lang === "ja"
+                  ? "専門医マッチングは、正確で検証可能、そして落ち着いたものであるべきです。"
+                  : "医生匹配应当精准、可验证，并保持冷静有序。"}
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-3">
