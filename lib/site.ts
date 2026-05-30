@@ -35,16 +35,15 @@ export type PageContent = {
 
 export const navItems: NavItem[] = [
   { href: "/", label: "首页", ja: "ホーム", en: "Home" },
-  { href: "/about", label: "关于我们", ja: "私たちについて", en: "About" },
-  { href: "/services", label: "服务", ja: "サービス", en: "Services" },
-  { href: "/regenerative-medicine", label: "再生医疗", ja: "再生医療", en: "Regenerative" },
-  { href: "/longevity-planning", label: "长寿规划", ja: "長寿計画", en: "Longevity" },
-  { href: "/medical-concierge", label: "医疗礼宾", ja: "医療コンシェルジュ", en: "Concierge" },
-  { href: "/japan-hospital-network", label: "日本医院网络", ja: "医療機関ネットワーク", en: "Network" },
-  { href: "/fertility-preservation", label: "冻卵咨询", ja: "卵子凍結", en: "Egg Freezing" },
+  { href: "/about", label: "About Us", ja: "私たちについて", en: "About Us" },
+  { href: "/medical-family-office", label: "Medical Family Office", ja: "医療ファミリーオフィス", en: "Medical Family Office" },
+  { href: "/longevity-planning", label: "Longevity Medicine", ja: "長寿医学", en: "Longevity Medicine" },
+  { href: "/regenerative-medicine", label: "Regenerative Medicine", ja: "再生医療", en: "Regenerative Medicine" },
+  { href: "/executive-health", label: "Executive Health", ja: "エグゼクティブヘルス", en: "Executive Health" },
+  { href: "/global-medical-access", label: "Global Medical Access", ja: "国際医療アクセス", en: "Global Medical Access" },
   { href: "/doctor-network", label: "医生网络", ja: "医師ネットワーク", en: "Doctors" },
-  { href: "/medical-resource-database", label: "资源数据库", ja: "リソースDB", en: "Database" },
-  { href: "/family-office-health-plan", label: "家庭健康计划", ja: "家族健康計画", en: "Family Plan" },
+  { href: "/knowledge-center", label: "Knowledge Center", ja: "ナレッジセンター", en: "Knowledge Center" },
+  { href: "/membership-program", label: "Membership", ja: "会員制度", en: "Membership" },
   { href: "/contact", label: "联系", ja: "お問い合わせ", en: "Contact" }
 ];
 

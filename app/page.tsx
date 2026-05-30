@@ -6,16 +6,16 @@ import { normalizeLanguage, withLanguage } from "@/lib/site";
 const homeCopy = {
   zh: {
     intro:
-      "为企业家、家族与超高净值客户建立长期健康决策系统。我们把高端体检、长寿医学、再生医疗、全球转诊与家庭健康治理放在同一个顾问框架内。",
-    risk: "核心不是一次就医，而是长期健康决策权、风险管理与跨境医疗资源的可控访问。",
+      "我们专注于为企业家、家族客户与高净值人群，建立长期、系统、全球化的健康管理体系。",
+    risk: "不是一次治疗，而是一套长期健康资产管理系统。核心价值是风险管理、长期健康决策权与全球医疗资源配置能力。",
     inquiry: "预约私密咨询",
     learn: "了解会员体系",
     whatBody:
-      "参考国际高端医疗与长寿机构的资源整合逻辑，将检测、专家、长期追踪和跨境协调整合为一个持续服务关系。",
+      "MWMWT 不做单一项目销售，而是以医疗版家族办公室的方式，把长寿医学、再生医疗、企业家健康管理和全球医疗资源整合为长期顾问关系。",
     whyBody:
       "客户选择我们的原因，是能在重大健康选择前获得更完整的信息、更安静的隐私保护和更长期的医学陪伴。",
     knowledgeBody:
-      "知识中心将持续发布面向企业家与家庭办公室的医疗风险管理、长寿规划、赴日就医、冻卵与再生医疗文章。",
+      "知识中心规划 1000+ 篇专业文章，覆盖 10 大医学与健康资产管理主题，形成可持续的 SEO 内容资产。",
     boardBody:
       "医疗顾问资源以公开资料核验、专科能力、研究方向和适配场景进行整理，实际转诊前仍需确认医生接诊规则与机构准入要求。",
     membershipBody:
@@ -59,11 +59,26 @@ const homeCopy = {
 };
 
 const whatWeDo = [
-  "Executive Health Management",
-  "Longevity Programs",
-  "Regenerative Medicine Access",
-  "Global Medical Concierge",
-  "Family Health Planning"
+  {
+    title: "Longevity Medicine",
+    label: "长寿医学",
+    body: "以健康寿命为目标，围绕生物年龄、慢病风险、睡眠、代谢、炎症、认知功能与衰老速度，建立长期健康规划。"
+  },
+  {
+    title: "Regenerative Medicine",
+    label: "再生医疗",
+    body: "整合日本及全球合规再生医疗资源，包括干细胞、外泌体、免疫调节与组织修复相关方案，强调安全性、合规性与医学评估。"
+  },
+  {
+    title: "Executive Health",
+    label: "企业家健康管理",
+    body: "专为企业家与核心决策者设计，关注高压、过劳、睡眠不足、代谢紊乱、心脑血管风险与精力下降等问题。"
+  },
+  {
+    title: "Global Medical Access",
+    label: "全球医疗资源",
+    body: "连接日本、新加坡、瑞士、美国等顶级医疗资源，提供专家会诊、海外转诊、第二诊疗意见、私密医疗安排与长期随访。"
+  }
 ];
 
 const whyClientsChooseUs = [
@@ -74,19 +89,90 @@ const whyClientsChooseUs = [
   "Dedicated Health Team"
 ];
 
-const knowledgeArticles = [
-  "Executive Health Checkups in Japan for Entrepreneurs",
-  "How UHNW Families Manage Medical Risk Across Borders",
-  "Longevity Programs: Biomarkers, Imaging and Annual Review",
-  "Regenerative Medicine Access in Japan: What Families Should Verify",
-  "Second Opinions for Cancer, Cardiology and Neurology",
-  "Egg Freezing and Fertility Preservation for Global Families",
-  "Japan Medical Concierge: From Records to Specialist Access",
-  "Family Health Governance for Founders and Next Generation",
-  "Privacy Protocols for Sensitive Medical Records",
-  "Medical Travel Planning for Complex Diagnoses",
-  "Preventive Cardiology and Metabolic Risk Management",
-  "How to Build a Long-Term Family Health Archive"
+const knowledgeCenters = [
+  {
+    title: "Longevity Medicine",
+    label: "长寿医学中心",
+    target: "100篇+",
+    topics: ["什么是长寿医学", "生物年龄是什么", "炎症与衰老", "NAD+研究"]
+  },
+  {
+    title: "Stem Cell Research",
+    label: "干细胞中心",
+    target: "100篇+",
+    topics: ["干细胞是什么", "日本干细胞合法吗", "干细胞安全性", "常见误区"]
+  },
+  {
+    title: "Exosome Research",
+    label: "外泌体中心",
+    target: "80篇+",
+    topics: ["什么是Exosome", "Exosome工作原理", "Exosome与PRP区别", "日本外泌体监管"]
+  },
+  {
+    title: "Executive Health",
+    label: "企业家健康中心",
+    target: "100篇+",
+    topics: ["CEO为何衰老更快", "企业家睡眠管理", "飞行时差恢复", "高净值人士体检体系"]
+  },
+  {
+    title: "Regenerative Medicine",
+    label: "再生医疗中心",
+    target: "100篇+",
+    topics: ["再生医疗是什么", "日本再生医疗体系", "再生医疗法介绍", "未来趋势"]
+  },
+  {
+    title: "Global Medical Access",
+    label: "医疗资源中心",
+    target: "150篇+",
+    topics: ["日本医疗体系", "东京顶级医院", "新加坡医疗体系", "瑞士医疗体系"]
+  },
+  {
+    title: "Biomarker Research",
+    label: "生物标志物中心",
+    target: "80篇+",
+    topics: ["炎症指标", "代谢指标", "认知筛查", "影像评估"]
+  },
+  {
+    title: "Preventive Medicine",
+    label: "预防医学中心",
+    target: "100篇+",
+    topics: ["肿瘤筛查", "心血管预防", "慢病管理", "家庭风险地图"]
+  },
+  {
+    title: "Case Library",
+    label: "案例中心",
+    target: "80篇+",
+    topics: ["企业家睡眠管理", "海外转诊旅程", "长期随访", "家庭健康治理"]
+  },
+  {
+    title: "Founder Insights",
+    label: "创始人观点",
+    target: "80篇+",
+    topics: ["长寿产业", "再生医疗产业", "高净值健康需求", "医疗家族办公室"]
+  }
+];
+
+const platformSections = [
+  {
+    title: "Doctor Network",
+    label: "100位医生数据库",
+    body: "每位医生建立独立页面，覆盖简介、照片、学历、经历、研究方向、专业资格、学会职位、论文、国际会议、研究项目与媒体采访。"
+  },
+  {
+    title: "Journey Case",
+    label: "客户健康管理案例",
+    body: "不宣传疗效，只展示服务流程：健康评估、检测、专家会诊、国际转诊、长期跟踪与持续健康管理方案。"
+  },
+  {
+    title: "Media Center",
+    label: "媒体中心",
+    body: "持续发布公司新闻、医学动态、行业观察和 Founder Insights，建立长期可信的品牌声音。"
+  },
+  {
+    title: "Research Center",
+    label: "研究中心",
+    body: "围绕 Longevity Research、Stem Cell Research、Exosome Research、Clinical Studies、Precision Medicine 建立深度研究内容。"
+  }
 ];
 
 const memberships = [
@@ -135,8 +221,14 @@ export default function Home({
             Medical Family Office
           </p>
           <h1 className="mt-7 max-w-6xl font-serif text-5xl leading-[0.98] text-balance md:text-7xl lg:text-8xl">
-            Private Health, Longevity & Global Medical Access
+            打造亚洲领先的高净值健康与长寿管理平台
           </h1>
+          <p className="mt-7 max-w-4xl text-2xl font-semibold leading-tight text-pearl md:text-4xl">
+            Private Health Intelligence for Global Families
+          </p>
+          <p className="mt-4 text-lg leading-8 text-pearl/72">
+            为全球家族提供私人健康智慧系统
+          </p>
           <div className="mt-8 grid max-w-6xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
             <div>
               <p className="text-xl font-semibold text-pearl">
@@ -175,17 +267,19 @@ export default function Home({
           <div>
             <p className="text-xs uppercase tracking-[0.34em] text-champagne">What We Do</p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-              Integrated health management, not fragmented medical projects.
+              四大核心板块构成长期健康资产管理系统。
             </h2>
             <p className="mt-6 text-lg leading-9 text-graphite/72">{copy.whatBody}</p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             {whatWeDo.map((item, index) => (
-              <div key={item} className="border-t border-champagne/55 pt-5">
+              <div key={item.title} className="border-t border-champagne/55 pt-5">
                 <p className="font-serif text-4xl text-champagne">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-4 text-xl font-semibold text-ink">{item}</p>
+                <p className="mt-4 text-xl font-semibold text-ink">{item.title}</p>
+                <p className="mt-2 text-sm font-semibold text-champagne">{item.label}</p>
+                <p className="mt-4 text-sm leading-7 text-graphite/72">{item.body}</p>
               </div>
             ))}
           </div>
@@ -231,23 +325,55 @@ export default function Home({
                 Knowledge Center
               </p>
               <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">
-                Search-ready medical intelligence for long-term decisions.
+                1000+专业文章，分成10大知识中心。
               </h2>
             </div>
             <p className="text-lg leading-9 text-pearl/72">{copy.knowledgeBody}</p>
           </div>
           <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
-            {knowledgeArticles.map((article) => (
-              <article key={article} className="bg-ink p-7 transition hover:bg-pearl/5">
+            {knowledgeCenters.map((center) => (
+              <article key={center.title} className="bg-ink p-7 transition hover:bg-pearl/5">
                 <p className="text-xs uppercase tracking-[0.28em] text-champagne">
-                  Medical Insight
+                  {center.target}
                 </p>
                 <h3 className="mt-6 text-xl font-semibold leading-tight text-pearl">
-                  {article}
+                  {center.title}
                 </h3>
+                <p className="mt-2 text-sm font-semibold text-champagne">{center.label}</p>
                 <p className="mt-5 text-sm leading-7 text-pearl/60">
-                  Designed for SEO expansion, client education, and pre-consultation trust building.
+                  {center.topics.join(" / ")}
                 </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                Platform Architecture
+              </p>
+              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
+                从医生数据库到研究中心，建立真正的平台资产。
+              </h2>
+            </div>
+            <p className="text-lg leading-9 text-graphite/72">
+              网站不应像医美诊所、干细胞中介或医疗旅游公司，而应像医疗版麦肯锡、医疗版家族办公室和亚洲顶级长寿资源整合平台。
+            </p>
+          </div>
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {platformSections.map((section) => (
+              <article key={section.title} className="border border-mist bg-pearl p-7">
+                <p className="text-xs uppercase tracking-[0.28em] text-champagne">
+                  {section.title}
+                </p>
+                <h3 className="mt-6 text-2xl font-semibold leading-tight text-ink">
+                  {section.label}
+                </h3>
+                <p className="mt-5 text-sm leading-7 text-graphite/72">{section.body}</p>
               </article>
             ))}
           </div>

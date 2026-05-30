@@ -2,7 +2,7 @@
 
 ## 目标
 
-优化首页信息架构，使其更接近高端医疗资源整合与长寿会员平台，同时保留冻卵咨询和联系表单可用发送路径。
+优化首页信息架构，使其更接近亚洲领先的高净值健康与长寿管理平台，同时保留冻卵咨询和联系表单可用发送路径。
 
 ## 成功标准
 
@@ -13,6 +13,8 @@
 - 联系表单点击后能打开邮件草稿
 - 首页第一屏不出现具体项目，改为 Medical Family Office 总定位
 - 首页按六屏结构呈现：定位、What We Do、Why Clients Choose Us、Knowledge Center、Medical Advisory Board、Membership
+- 首页体现“四大核心板块”：Longevity Medicine、Regenerative Medicine、Executive Health、Global Medical Access
+- 首页体现“1000+专业文章 / 10大知识中心 / 100位医生数据库 / 案例中心 / 媒体中心 / 研究中心”平台目标
 - 执行生产构建验证
 
 ## 状态
@@ -24,8 +26,10 @@
 - 已更新图片映射，首页可见服务卡片不再重复图片
 - 已新增 `ContactForm`，表单提交会打开发往 `7537486@qq.com` 的邮件草稿
 - 已重构首页为六屏结构，强调风险管理、长期健康决策权、跨境医疗资源整合和会员体系
-- Knowledge Center 已预置 12 个 SEO 文章主题入口
+- Knowledge Center 已调整为 10 大知识中心，并标注文章目标数量
 - Medical Advisory Board 已接入现有医生资料中的前 4 位专家卡片
+- 已新增通用顶层栏目路由 `/[slug]`，用于承接 Medical Family Office、Executive Health、Global Medical Access、Knowledge Center、Membership 等新增导航入口
+- 顶部导航已调整为更接近平台结构：About Us、Medical Family Office、Longevity Medicine、Regenerative Medicine、Executive Health、Global Medical Access、Doctor Network、Knowledge Center、Membership、Contact
 - 待用户执行 Git 提交和推送，触发 Vercel 自动部署
 
 ## 验证记录
