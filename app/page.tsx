@@ -19,7 +19,7 @@ const homeCopy = {
     boardBody:
       "医疗顾问资源以公开资料核验、专科能力、研究方向和适配场景进行整理，实际转诊前仍需确认医生接诊规则与机构准入要求。",
     membershipBody:
-      "会员体系按家庭复杂度、服务频率、跨境需求和健康治理深度分层。"
+      "会员体系不是销售一次体检、一次医美或一次干细胞项目，而是为创始人、企业家和家族成员建立长期健康伙伴关系。"
   },
   ja: {
     intro:
@@ -36,7 +36,7 @@ const homeCopy = {
     boardBody:
       "医療顧問リソースは公開資料、専門性、研究領域、適応シーンを基に整理し、実際の紹介前には接診条件と医療機関規定を確認します。",
     membershipBody:
-      "会員制度は家族の複雑性、サービス頻度、国際医療ニーズ、健康ガバナンスの深度に応じて設計します。"
+      "会員制度は単発の健診や治療手配ではなく、創業者、経営者、家族のための長期的な健康パートナーシップとして設計します。"
   },
   en: {
     intro:
@@ -54,7 +54,7 @@ const homeCopy = {
     boardBody:
       "Medical advisory resources are organized by public profile verification, specialty capability, research direction, and appropriate case scenarios. Actual referrals require current institution and physician confirmation.",
     membershipBody:
-      "Membership is structured by family complexity, service frequency, cross-border needs, and the depth of health governance required."
+      "Membership is not built around a one-time checkup or procedure. It is a long-term health partnership for founders, executives, and family members."
   }
 };
 
@@ -82,11 +82,89 @@ const whatWeDo = [
 ];
 
 const whyClientsChooseUs = [
-  "Medical Network",
-  "Long-Term Health Management",
-  "Complete Privacy",
-  "Cross-Border Medical Access",
-  "Dedicated Health Team"
+  "Resource Access",
+  "Medical Navigation",
+  "Privacy",
+  "Time Efficiency",
+  "Risk Control"
+];
+
+const coreValues = [
+  {
+    title: "Resource Access",
+    label: "医疗资源获取",
+    body: "普通客户很难判断医生、医院和项目真假；会员直接进入经审查的顶级资源网络。"
+  },
+  {
+    title: "Medical Navigation",
+    label: "医疗决策顾问",
+    body: "客户最大的痛点不是没有预算，而是不知道选谁。我们帮助比较路径、医生与方案。"
+  },
+  {
+    title: "Privacy",
+    label: "隐私保护",
+    body: "围绕 VIP 通道、独立接待、翻译团队、私密行程和保密协议，降低暴露与混乱。"
+  },
+  {
+    title: "Time Efficiency",
+    label: "时间效率",
+    body: "企业家不需要研究每一家医院和每一位医生，只需要知道当前最稳妥的选择是什么。"
+  },
+  {
+    title: "Risk Control",
+    label: "风险控制",
+    body: "通过医疗尽调体系评估资质、背景、案例、学术成果、合规性和安全记录。"
+  }
+];
+
+const governanceLayers = [
+  {
+    title: "Medical Compliance",
+    label: "严格监管",
+    body: "坚持只合作合法合规机构，并围绕日本厚生劳动省相关监管框架与机构规则进行审慎确认。",
+    items: ["医疗机构资质", "医师执照", "学会认证资格", "再生医疗备案情况", "医疗责任保险"]
+  },
+  {
+    title: "Physician Excellence Program",
+    label: "医生培训体系",
+    body: "优秀医疗结果来自优秀医生。我们优先筛选有明确专业声誉、临床经验和学术背景的医生。",
+    items: ["大学教授", "主任医师", "学会专家", "国际医学会议", "临床研究项目"]
+  },
+  {
+    title: "Quality Assurance Framework",
+    label: "医疗质量控制",
+    body: "很多机构只销售项目，我们管理整个过程，避免不必要治疗并形成完整记录闭环。",
+    items: ["Layer 1 机构审核", "Layer 2 方案审核", "Layer 3 执行监督", "Layer 4 结果追踪"]
+  },
+  {
+    title: "Lifetime Follow-up Program",
+    label: "长期随访机制",
+    body: "医疗不是一次消费，而是长期管理。治疗结束后，真正重要的是持续复盘与健康决策。",
+    items: ["个人健康档案", "3/6/12个月回顾", "专属健康顾问", "长寿管理计划"]
+  }
+];
+
+const globalNetwork = [
+  {
+    region: "Japan",
+    cities: "Tokyo / Osaka / Nagoya",
+    focus: "再生医疗、癌症筛查、精密体检、专科医院、企业家健康管理"
+  },
+  {
+    region: "Singapore",
+    cities: "Asia medical hub",
+    focus: "国际医疗中心、家族办公室客户、高端保险资源"
+  },
+  {
+    region: "Switzerland",
+    cities: "European longevity network",
+    focus: "长寿医学、健康度假、顶级私立诊所"
+  },
+  {
+    region: "United States",
+    cities: "North America",
+    focus: "Longevity Medicine、Precision Medicine、Clinical Research"
+  }
 ];
 
 const knowledgeCenters = [
@@ -154,43 +232,53 @@ const knowledgeCenters = [
 
 const platformSections = [
   {
+    title: "Medical Governance",
+    label: "医疗治理体系",
+    href: "/medical-governance-framework",
+    body: "建立从机构审核、医生评估、方案审查、执行监督到长期随访的完整医疗风控框架。"
+  },
+  {
     title: "Doctor Network",
     label: "100位医生数据库",
+    href: "/doctor-network",
     body: "每位医生建立独立页面，覆盖简介、照片、学历、经历、研究方向、专业资格、学会职位、论文、国际会议、研究项目与媒体采访。"
   },
   {
     title: "Journey Case",
     label: "客户健康管理案例",
+    href: "/case-library",
     body: "不宣传疗效，只展示服务流程：健康评估、检测、专家会诊、国际转诊、长期跟踪与持续健康管理方案。"
   },
   {
     title: "Media Center",
     label: "媒体中心",
+    href: "/media-center",
     body: "持续发布公司新闻、医学动态、行业观察和 Founder Insights，建立长期可信的品牌声音。"
   },
   {
     title: "Research Center",
     label: "研究中心",
+    href: "/research-center",
     body: "围绕 Longevity Research、Stem Cell Research、Exosome Research、Clinical Studies、Precision Medicine 建立深度研究内容。"
   }
 ];
 
 const memberships = [
   {
-    name: "Silver",
-    focus: "Annual review, executive health planning, and basic concierge coordination."
+    name: "Founder Membership",
+    focus: "为创始人和核心决策者建立年度健康策略、精密体检、睡眠压力管理和重大风险预警。"
   },
   {
-    name: "Gold",
-    focus: "Quarterly health management, Japan specialist access, and priority second opinions."
+    name: "Executive Membership",
+    focus: "面向高压管理者，提供季度复盘、专家第二意见、国际医疗协调和长期精力管理。"
   },
   {
-    name: "Black",
-    focus: "Dedicated health team, regenerative medicine diligence, and global medical access."
+    name: "Family Membership",
+    focus: "覆盖配偶、父母与下一代，建立家庭健康档案、成员分层、转诊预案与长期随访。"
   },
   {
-    name: "Family Office",
-    focus: "Multi-generation governance, emergency protocol, archive management, and board-level reporting."
+    name: "Legacy Membership",
+    focus: "为家族办公室和多代家庭建立医疗治理、应急协议、全球资源配置和年度健康董事会。"
   }
 ];
 
@@ -317,6 +405,115 @@ export default function Home({
         </div>
       </section>
 
+      <section className="bg-pearl px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                Medical Governance Framework
+              </p>
+              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
+                我们不提供医疗服务，我们代表客户做医疗尽调与长期治理。
+              </h2>
+            </div>
+            <div className="space-y-6 text-lg leading-9 text-graphite/72">
+              <p>
+                我们代表客户，严格筛选全球优质医疗资源，建立从机构审核、医生评估、治疗协调到长期随访的完整医疗治理体系。
+              </p>
+              <p>
+                Medical Family Office 的使命，不是安排一次治疗，而是守护客户及其家庭未来数十年的健康寿命。
+              </p>
+            </div>
+          </div>
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {governanceLayers.map((layer) => (
+              <article key={layer.title} className="border border-mist bg-white p-7 shadow-sm">
+                <p className="text-xs uppercase tracking-[0.26em] text-champagne">
+                  {layer.title}
+                </p>
+                <h3 className="mt-6 text-2xl font-semibold leading-tight text-ink">
+                  {layer.label}
+                </h3>
+                <p className="mt-5 text-sm leading-7 text-graphite/72">{layer.body}</p>
+                <ul className="mt-6 space-y-3 border-t border-mist pt-6">
+                  {layer.items.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm leading-6 text-graphite/78">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-champagne" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink px-5 py-24 text-pearl lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                McKinsey + Private Bank + Medical Concierge
+              </p>
+              <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">
+                Global Medical Family Office for Entrepreneurs, Investors & Families.
+              </h2>
+            </div>
+            <div className="space-y-6 text-lg leading-9 text-pearl/72">
+              <p>
+                我们的核心价值不是“卖项目”，而是帮助家族获得资源、完成判断、保护隐私、节省时间，并在看不懂医疗信息时建立风险控制机制。
+              </p>
+              <p className="text-champagne">
+                Medical Due Diligence System：医院资质、医生背景、真实案例、学术成果、合规性与安全记录。
+              </p>
+            </div>
+          </div>
+          <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-5">
+            {coreValues.map((value) => (
+              <article key={value.title} className="bg-ink p-7 transition hover:bg-pearl/5">
+                <p className="text-xs uppercase tracking-[0.26em] text-champagne">
+                  {value.title}
+                </p>
+                <h3 className="mt-6 text-xl font-semibold leading-tight text-pearl">
+                  {value.label}
+                </h3>
+                <p className="mt-5 text-sm leading-7 text-pearl/62">{value.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                Global Medical Network
+              </p>
+              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
+                We Help Families Access The World&apos;s Best Medical Resources
+              </h2>
+            </div>
+            <p className="text-lg leading-9 text-graphite/72">
+              帮助企业家家庭链接全球顶级医疗资源，以医疗尽调体系评估医院资质、医生背景、真实案例、学术成果、合规性与安全记录。
+            </p>
+          </div>
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {globalNetwork.map((network) => (
+              <article key={network.region} className="border-t border-champagne/55 pt-6">
+                <p className="font-serif text-4xl text-champagne">{network.region}</p>
+                <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink">
+                  {network.cities}
+                </p>
+                <p className="mt-5 text-sm leading-7 text-graphite/72">{network.focus}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-ink px-5 py-24 text-pearl lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
@@ -364,9 +561,13 @@ export default function Home({
               网站不应像医美诊所、干细胞中介或医疗旅游公司，而应像医疗版麦肯锡、医疗版家族办公室和亚洲顶级长寿资源整合平台。
             </p>
           </div>
-          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             {platformSections.map((section) => (
-              <article key={section.title} className="border border-mist bg-pearl p-7">
+              <Link
+                key={section.title}
+                href={withLanguage(section.href, lang)}
+                className="border border-mist bg-pearl p-7 transition hover:-translate-y-1 hover:border-champagne hover:shadow-quiet"
+              >
                 <p className="text-xs uppercase tracking-[0.28em] text-champagne">
                   {section.title}
                 </p>
@@ -374,7 +575,7 @@ export default function Home({
                   {section.label}
                 </h3>
                 <p className="mt-5 text-sm leading-7 text-graphite/72">{section.body}</p>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -421,9 +622,12 @@ export default function Home({
           <div>
             <p className="text-xs uppercase tracking-[0.34em] text-champagne">Membership</p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-              A private health office scaled to the family.
+              Membership is the long-term health office behind the family.
             </h2>
             <p className="mt-6 text-lg leading-9 text-graphite/72">{copy.membershipBody}</p>
+            <p className="mt-6 border-l border-champagne pl-5 text-base leading-8 text-graphite/72">
+              从一次性获客转向持续关系：年度健康策略、专家资源、风险预案、跨境协调与家族健康档案共同构成会员价值。
+            </p>
           </div>
           <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2">
             {memberships.map((membership) => (

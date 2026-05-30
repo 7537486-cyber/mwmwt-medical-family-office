@@ -11,8 +11,14 @@ export const metadata: Metadata = {
     template: "%s | Japan Medical Family Office"
   },
   description:
-    "面向中国高净值家庭的日本医疗家族办公室与长寿健康礼宾平台，提供再生医疗、抗衰管理、精密体检、第二诊疗意见与长期家庭健康规划。",
+    "面向企业家、投资人与高净值家庭的全球医疗家族办公室与长寿健康管理平台，提供医疗治理体系、再生医疗资源、企业家健康管理、全球医疗准入与长期家庭健康规划。",
   keywords: [
+    "Medical Family Office",
+    "Global Medical Access",
+    "Medical Governance Framework",
+    "医疗治理体系",
+    "医疗尽调",
+    "企业家健康管理",
     "日本医疗",
     "再生医疗",
     "长寿管理",
@@ -27,10 +33,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Japan Medical Family Office",
     description:
-      "Private medical access, longevity planning, and family health governance in Japan.",
+      "Private health intelligence, longevity planning, medical governance, and global medical access for entrepreneurs and families.",
     type: "website",
     locale: "zh_CN",
-    alternateLocale: ["ja_JP"]
+    alternateLocale: ["ja_JP", "en_US"]
   }
 };
 
@@ -44,8 +50,8 @@ export default function RootLayout({
     "@type": "MedicalBusiness",
     name: "Japan Medical Family Office",
     description:
-      "Private medical concierge and longevity planning platform for Chinese high-net-worth families seeking Japan medical resources.",
-    areaServed: ["China", "Japan"],
+      "Private health intelligence, longevity planning, medical governance, and global medical access for entrepreneurs, investors, and families.",
+    areaServed: ["China", "Japan", "Singapore", "Switzerland", "United States"],
     availableLanguage: ["zh-CN", "ja-JP", "en"],
     medicalSpecialty: [
       "Preventive",

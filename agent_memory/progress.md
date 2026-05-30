@@ -30,8 +30,14 @@
 - Medical Advisory Board 已接入现有医生资料中的前 4 位专家卡片
 - 已新增通用顶层栏目路由 `/[slug]`，用于承接 Medical Family Office、Executive Health、Global Medical Access、Knowledge Center、Membership 等新增导航入口
 - 顶部导航已调整为更接近平台结构：About Us、Medical Family Office、Longevity Medicine、Regenerative Medicine、Executive Health、Global Medical Access、Doctor Network、Knowledge Center、Membership、Contact
+- 已在首页新增 Medical Governance Framework，包含严格监管、医生培训体系、医疗质量控制和长期随访机制
+- 已新增 McKinsey + Private Bank + Medical Concierge 的核心价值屏，覆盖 Resource Access、Medical Navigation、Privacy、Time Efficiency、Risk Control
+- 已新增 Global Medical Network 屏，展示日本、新加坡、瑞士、美国资源网络布局
+- 已将会员体系改为 Founder Membership、Executive Membership、Family Membership、Legacy Membership，并强调长期健康伙伴关系
+- 已新增 `/medical-governance-framework` 承接页面，并将研究中心、案例中心、媒体中心等平台页面加入 sitemap
 - 待用户执行 Git 提交和推送，触发 Vercel 自动部署
 
 ## 验证记录
 
 - 已执行 `npm run build`，Next.js 生产构建通过，生成 23 个路由
+- 已再次执行 `npm run build`，Next.js 生产构建通过，确认治理体系、会员体系和 sitemap 改动未破坏构建
