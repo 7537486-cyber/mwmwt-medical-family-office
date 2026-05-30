@@ -41,7 +41,7 @@ export const navItems: NavItem[] = [
   { href: "/longevity-planning", label: "长寿规划", ja: "長寿計画", en: "Longevity" },
   { href: "/medical-concierge", label: "医疗礼宾", ja: "医療コンシェルジュ", en: "Concierge" },
   { href: "/japan-hospital-network", label: "日本医院网络", ja: "医療機関ネットワーク", en: "Network" },
-  { href: "/fertility-preservation", label: "生育力保存", ja: "妊孕性温存", en: "Fertility" },
+  { href: "/fertility-preservation", label: "冻卵咨询", ja: "卵子凍結", en: "Egg Freezing" },
   { href: "/doctor-network", label: "医生网络", ja: "医師ネットワーク", en: "Doctors" },
   { href: "/medical-resource-database", label: "资源数据库", ja: "リソースDB", en: "Database" },
   { href: "/family-office-health-plan", label: "家庭健康计划", ja: "家族健康計画", en: "Family Plan" },
@@ -278,8 +278,8 @@ export const pages: Record<string, PageContent> = {
   "fertility-preservation": {
     slug: "fertility-preservation",
     eyebrow: "Fertility Preservation",
-    title: "生育力保存与跨境生殖医疗咨询",
-    jaTitle: "妊孕性温存と国際生殖医療相談",
+    title: "冻卵与生育力保存咨询",
+    jaTitle: "卵子凍結と妊孕性温存相談",
     description:
       "围绕卵子冷冻、精子或胚胎保存、备孕体检、遗传咨询与跨境生殖医疗路径，提供审慎的医学资料整理、机构匹配与合规风险说明。",
     jaDescription:
@@ -410,6 +410,7 @@ export const homeServices = [
   pages["medical-concierge"],
   pages["japan-hospital-network"],
   pages["doctor-network"],
+  pages["medical-resource-database"],
   pages["fertility-preservation"],
   pages["family-office-health-plan"]
 ];
