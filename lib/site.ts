@@ -415,6 +415,10 @@ export const homeServices = [
 ];
 
 export const serviceImages: Record<string, { src: string; alt: string }> = {
+  about: {
+    src: "/hero-about-governance.png",
+    alt: "Private medical advisory governance corridor in Japan"
+  },
   services: {
     src: "/executive-checkup-consultation.png",
     alt: "Executive health checkup consultation in Japan"
@@ -436,8 +440,8 @@ export const serviceImages: Record<string, { src: string; alt: string }> = {
     alt: "Refined Japan hospital network corridor"
   },
   "doctor-network": {
-    src: "/medical-concierge.png",
-    alt: "Trusted Japanese specialist network setting"
+    src: "/hero-doctor-network.png",
+    alt: "Senior physicians reviewing medical advisory cases"
   },
   "fertility-preservation": {
     src: "/fertility-preservation.png",
@@ -452,8 +456,8 @@ export const serviceImages: Record<string, { src: string; alt: string }> = {
     alt: "Multi-generation family health planning meeting"
   },
   contact: {
-    src: "/medical-concierge.png",
-    alt: "Private inquiry and concierge coordination setting"
+    src: "/hero-private-inquiry.png",
+    alt: "Confidential private inquiry desk in a luxury Tokyo office"
   }
 };
 

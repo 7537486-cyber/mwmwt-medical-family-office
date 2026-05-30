@@ -148,10 +148,26 @@ const platformPages: Record<string, PlatformPage> = {
 };
 
 const platformHeroImages: Record<string, { src: string; alt: string }> = {
-  "medical-family-office": serviceImages["family-office-health-plan"],
-  "executive-health": serviceImages.services,
-  "global-medical-access": serviceImages["japan-hospital-network"],
-  "membership-program": serviceImages["family-office-health-plan"],
+  "medical-family-office": {
+    src: "/hero-medical-family-office.png",
+    alt: "Luxury private medical family office advisory meeting in Tokyo"
+  },
+  "executive-health": {
+    src: "/hero-executive-health.png",
+    alt: "Executive health management consultation with discreet health data"
+  },
+  "global-medical-access": {
+    src: "/hero-global-medical-access.png",
+    alt: "Private aviation medical concierge for global medical access"
+  },
+  "knowledge-center": {
+    src: "/hero-knowledge-center.png",
+    alt: "Premium medical knowledge and research intelligence library"
+  },
+  "membership-program": {
+    src: "/hero-membership-program.png",
+    alt: "Exclusive medical family office membership portfolio"
+  },
   "medical-governance-framework": serviceImages["medical-resource-database"],
   "research-center": serviceImages["longevity-planning"],
   "case-library": serviceImages["medical-concierge"],

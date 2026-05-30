@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
+import { normalizeLanguage, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Knowledge Center | 长寿医学与再生医学知识库",
@@ -113,7 +113,10 @@ export default function KnowledgeCenterPage({
 }) {
   const lang = normalizeLanguage(searchParams?.lang);
   const copy = pageCopy[lang];
-  const image = serviceImages["longevity-planning"];
+  const image = {
+    src: "/hero-knowledge-center.png",
+    alt: "Premium medical knowledge and research intelligence library"
+  };
 
   return (
     <>
