@@ -16,16 +16,47 @@ export default function DoctorNetworkPage({
   searchParams?: { lang?: string };
 }) {
   const lang = normalizeLanguage(searchParams?.lang);
+  const hero =
+    lang === "en"
+      ? {
+          title: "Japan top doctor profiles and specialist collaboration network",
+          secondaryTitle: "Verified specialist intelligence for referral decisions",
+          description:
+            "A searchable and diligence-ready specialist archive across regenerative medicine, oncology, cardiovascular care, neurology, endocrinology, and sports medicine.",
+          secondaryDescription:
+            "Profiles are organized from public information and structured around education, society activity, research fields, publications, and appropriate case scenarios.",
+          cta: "Build doctor matching",
+          diligenceTitle:
+            "A doctor network is not a list. It is decision-grade referral intelligence.",
+          diligenceItems: ["Public profile verification", "Research and publication focus", "Appropriate case scenarios"],
+          diligenceBody:
+            "We confirm specialty fit, institution rules, language workflow, and document requirements before moving into appointments or second-opinion communication.",
+          profileCta: "View full profile"
+        }
+      : {
+          title: "日本顶级医生简历与专科协作网络",
+          secondaryTitle: "日本トップドクターの専門家ネットワーク",
+          description:
+            "围绕再生医疗、肿瘤、心血管、神经科、内分泌与运动医学，建立可检索、可尽调、可转诊沟通的专家档案。",
+          secondaryDescription:
+            "公開情報に基づく医師プロフィールを整理し、学歴、学会活動、研究領域、論文、適応シーンを確認できる形で管理します。",
+          cta: "建立医生匹配",
+          diligenceTitle: "医生网络不是名单，而是可验证的转诊决策资料",
+          diligenceItems: ["公开履历核验", "论文与研究方向", "适配案例场景"],
+          diligenceBody:
+            "先确认医生专长、机构规则、语言流程与资料要求，再决定是否进入预约或第二意见沟通。",
+          profileCta: "查看完整简历"
+        };
 
   return (
     <>
       <PageHero
         eyebrow="Doctor Network"
-        title="日本顶级医生简历与专科协作网络"
-        secondaryTitle="日本トップドクターの専門家ネットワーク"
-        description="围绕再生医疗、肿瘤、心血管、神经科、内分泌与运动医学，建立可检索、可尽调、可转诊沟通的专家档案。"
-        secondaryDescription="公開情報に基づく医師プロフィールを整理し、学歴、学会活動、研究領域、論文、適応シーンを確認できる形で管理します。"
-        cta="建立医生匹配"
+        title={hero.title}
+        secondaryTitle={hero.secondaryTitle}
+        description={hero.description}
+        secondaryDescription={hero.secondaryDescription}
+        cta={hero.cta}
       />
 
       <section className="bg-pearl px-5 py-20 lg:px-8">
@@ -52,7 +83,7 @@ export default function DoctorNetworkPage({
                 </p>
               </div>
               <span className="mt-8 inline-flex text-sm font-semibold text-jade">
-                查看完整简历 →
+                {hero.profileCta} →
               </span>
             </Link>
           ))}
@@ -66,15 +97,15 @@ export default function DoctorNetworkPage({
               Diligence Standard
             </p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
-              医生网络不是名单，而是可验证的转诊决策资料
+              {hero.diligenceTitle}
             </h2>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
-            {["公开履历核验", "论文与研究方向", "适配案例场景"].map((item) => (
+            {hero.diligenceItems.map((item) => (
               <div key={item} className="border-t border-champagne/50 pt-6">
                 <p className="text-xl font-semibold text-ink">{item}</p>
                 <p className="mt-4 text-sm leading-7 text-graphite/72">
-                  先确认医生专长、机构规则、语言流程与资料要求，再决定是否进入预约或第二意见沟通。
+                  {hero.diligenceBody}
                 </p>
               </div>
             ))}

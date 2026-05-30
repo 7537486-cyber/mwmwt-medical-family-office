@@ -30,17 +30,17 @@ export type PageContent = {
 };
 
 export const navItems: NavItem[] = [
-  { href: "/", label: "首页", ja: "Home", en: "Home" },
-  { href: "/about", label: "关于我们", ja: "About", en: "About" },
-  { href: "/services", label: "服务", ja: "Services", en: "Services" },
-  { href: "/regenerative-medicine", label: "再生医疗", ja: "Regenerative", en: "Regenerative" },
-  { href: "/longevity-planning", label: "长寿规划", ja: "Longevity", en: "Longevity" },
-  { href: "/medical-concierge", label: "医疗礼宾", ja: "Concierge", en: "Concierge" },
-  { href: "/japan-hospital-network", label: "日本医院网络", ja: "Network", en: "Network" },
-  { href: "/doctor-network", label: "医生网络", ja: "Doctors", en: "Doctors" },
-  { href: "/medical-resource-database", label: "资源数据库", ja: "Database", en: "Database" },
-  { href: "/family-office-health-plan", label: "家庭健康计划", ja: "Family Plan", en: "Family Plan" },
-  { href: "/contact", label: "联系", ja: "Contact", en: "Contact" }
+  { href: "/", label: "首页", ja: "ホーム", en: "Home" },
+  { href: "/about", label: "关于我们", ja: "私たちについて", en: "About" },
+  { href: "/services", label: "服务", ja: "サービス", en: "Services" },
+  { href: "/regenerative-medicine", label: "再生医疗", ja: "再生医療", en: "Regenerative" },
+  { href: "/longevity-planning", label: "长寿规划", ja: "長寿計画", en: "Longevity" },
+  { href: "/medical-concierge", label: "医疗礼宾", ja: "医療コンシェルジュ", en: "Concierge" },
+  { href: "/japan-hospital-network", label: "日本医院网络", ja: "医療機関ネットワーク", en: "Network" },
+  { href: "/doctor-network", label: "医生网络", ja: "医師ネットワーク", en: "Doctors" },
+  { href: "/medical-resource-database", label: "资源数据库", ja: "リソースDB", en: "Database" },
+  { href: "/family-office-health-plan", label: "家庭健康计划", ja: "家族健康計画", en: "Family Plan" },
+  { href: "/contact", label: "联系", ja: "お問い合わせ", en: "Contact" }
 ];
 
 export type Language = "zh" | "ja" | "en";
@@ -51,6 +51,12 @@ export function normalizeLanguage(lang?: string): Language {
 
 export function withLanguage(href: string, lang: Language) {
   return lang === "zh" ? href : `${href}?lang=${lang}`;
+}
+
+export function navLabel(item: NavItem, lang: Language) {
+  if (lang === "ja") return item.ja;
+  if (lang === "en") return item.en;
+  return item.label;
 }
 
 export const pages: Record<string, PageContent> = {
@@ -519,9 +525,10 @@ export function pageText(page: PageContent, lang: Language) {
     return {
       eyebrow: page.eyebrow,
       title: english.title,
-      secondaryTitle: page.jaTitle,
+      secondaryTitle: "Private medical coordination for Japan access",
       description: english.description,
-      secondaryDescription: page.jaDescription,
+      secondaryDescription:
+        "Designed for discreet cross-border care, specialist access, and long-term family health governance.",
       proof: english.proof,
       process: english.process,
       cta: english.cta,

@@ -2,13 +2,19 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { type Language, navItems, normalizeLanguage, withLanguage } from "@/lib/site";
+import { type Language, navItems, navLabel, normalizeLanguage, withLanguage } from "@/lib/site";
 
 const languageLabels: Array<[Language, string]> = [
   ["zh", "中文"],
   ["ja", "日本語"],
   ["en", "EN"]
 ];
+
+const inquiryLabel: Record<Language, string> = {
+  zh: "私密咨询",
+  ja: "お問い合わせ",
+  en: "Private Inquiry"
+};
 
 export function Header() {
   const pathname = usePathname();
@@ -36,7 +42,7 @@ export function Header() {
               href={withLanguage(item.href, lang)}
               className="text-xs uppercase tracking-[0.18em] text-pearl/72 transition hover:text-champagne"
             >
-              {lang === "zh" ? item.ja : item.en}
+              {navLabel(item, lang)}
             </Link>
           ))}
         </nav>
@@ -58,14 +64,14 @@ export function Header() {
             href={withLanguage("/contact", lang)}
             className="border border-champagne/60 px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-champagne transition hover:bg-champagne hover:text-ink"
           >
-            Private Inquiry
+            {inquiryLabel[lang]}
           </Link>
         </div>
       </div>
       <div className="flex gap-5 overflow-x-auto border-t border-white/10 px-5 py-3 text-xs text-pearl/70 xl:hidden">
         {navItems.map((item) => (
           <Link key={item.href} href={withLanguage(item.href, lang)} className="shrink-0">
-            {lang === "zh" ? item.label : item.en}
+            {navLabel(item, lang)}
           </Link>
         ))}
         {languageLabels.map(([value, label]) => (

@@ -64,7 +64,9 @@ export default function RootLayout({
           <Header />
         </Suspense>
         <main>{children}</main>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );
