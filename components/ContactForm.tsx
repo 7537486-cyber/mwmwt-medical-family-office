@@ -13,12 +13,16 @@ type ContactFormProps = {
 const copy = {
   zh: {
     name: "称呼",
+    gender: "性别",
+    ageRange: "年龄",
     phone: "电话 / WhatsApp / LINE",
     messenger: "微信 / 备用联系方式",
     email: "邮箱",
     inquiry: "咨询方向",
     background: "背景说明",
     namePlaceholder: "陈先生",
+    genderOptions: ["男", "女"],
+    ageOptions: ["30岁以下", "30-39岁", "40-49岁", "50-59岁", "60-69岁", "70岁以上"],
     phonePlaceholder: "+86 / +81 / +65 手机号，或 WhatsApp / LINE ID",
     messengerPlaceholder: "微信号或其他备用联系方式，可选",
     emailPlaceholder: "邮箱，可选",
@@ -36,12 +40,16 @@ const copy = {
   },
   ja: {
     name: "お名前",
+    gender: "性別",
+    ageRange: "年齢",
     phone: "電話 / WhatsApp / LINE",
     messenger: "WeChat / 予備連絡先",
     email: "メール",
     inquiry: "ご相談内容",
     background: "ご状況",
     namePlaceholder: "山田様",
+    genderOptions: ["男性", "女性"],
+    ageOptions: ["30歳未満", "30-39歳", "40-49歳", "50-59歳", "60-69歳", "70歳以上"],
     phonePlaceholder: "+86 / +81 / +65 の電話番号、または WhatsApp / LINE ID",
     messengerPlaceholder: "WeChat ID または予備連絡先、任意",
     emailPlaceholder: "メール、任意",
@@ -59,12 +67,16 @@ const copy = {
   },
   en: {
     name: "Name",
+    gender: "Gender",
+    ageRange: "Age",
     phone: "Phone / WhatsApp / LINE",
     messenger: "WeChat / Backup Contact",
     email: "Email",
     inquiry: "Inquiry type",
     background: "Background",
     namePlaceholder: "Mr. Chen",
+    genderOptions: ["Male", "Female"],
+    ageOptions: ["Under 30", "30-39", "40-49", "50-59", "60-69", "70+"],
     phonePlaceholder: "+86 / +81 / +65 phone number, or WhatsApp / LINE ID",
     messengerPlaceholder: "WeChat ID or backup contact, optional",
     emailPlaceholder: "Email, optional",
@@ -87,6 +99,8 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
   const router = useRouter();
   const text = copy[lang];
   const [name, setName] = useState("");
+  const [gender, setGender] = useState("");
+  const [ageRange, setAgeRange] = useState("");
   const [phone, setPhone] = useState("");
   const [messenger, setMessenger] = useState("");
   const [email, setEmail] = useState("");
@@ -106,6 +120,8 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
       body: JSON.stringify({
         lang,
         name,
+        gender,
+        ageRange,
         phone,
         messenger,
         email,
@@ -137,6 +153,54 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
             placeholder={text.namePlaceholder}
           />
         </label>
+        <fieldset className="grid gap-3">
+          <legend className="text-sm font-semibold text-ink">{text.gender}</legend>
+          <div className="grid grid-cols-2 gap-3">
+            {text.genderOptions.map((item) => {
+              const active = gender === item;
+
+              return (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => setGender(item)}
+                  className={`min-h-12 border px-4 py-3 text-left text-sm font-semibold leading-6 transition ${
+                    active
+                      ? "border-champagne bg-ink text-pearl"
+                      : "border-mist bg-pearl text-ink hover:border-champagne"
+                  }`}
+                  aria-pressed={active}
+                >
+                  {item}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
+        <fieldset className="grid gap-3">
+          <legend className="text-sm font-semibold text-ink">{text.ageRange}</legend>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {text.ageOptions.map((item) => {
+              const active = ageRange === item;
+
+              return (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => setAgeRange(item)}
+                  className={`min-h-12 border px-4 py-3 text-left text-sm font-semibold leading-6 transition ${
+                    active
+                      ? "border-champagne bg-ink text-pearl"
+                      : "border-mist bg-pearl text-ink hover:border-champagne"
+                  }`}
+                  aria-pressed={active}
+                >
+                  {item}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
         <label className="grid gap-2 text-sm font-semibold text-ink">
           {text.phone}
           <input

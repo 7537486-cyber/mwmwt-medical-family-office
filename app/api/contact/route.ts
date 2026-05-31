@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 type ContactPayload = {
   lang?: string;
   name?: string;
+  gender?: string;
+  ageRange?: string;
   contact?: string;
   phone?: string;
   messenger?: string;
@@ -52,6 +54,8 @@ function escapeHtml(value: string) {
 async function pushLineNotification(payload: {
   submittedAt: string;
   name: string;
+  gender: string;
+  ageRange: string;
   phone: string;
   messenger: string;
   email: string;
@@ -62,6 +66,8 @@ async function pushLineNotification(payload: {
     "MWMWT new inquiry",
     `Time: ${payload.submittedAt}`,
     `Name: ${payload.name}`,
+    payload.gender ? `Gender: ${payload.gender}` : undefined,
+    payload.ageRange ? `Age: ${payload.ageRange}` : undefined,
     `Phone/LINE: ${payload.phone}`,
     payload.messenger ? `WeChat/Backup: ${payload.messenger}` : undefined,
     payload.email ? `Email: ${payload.email}` : undefined,
@@ -112,6 +118,8 @@ export async function POST(request: Request) {
   }
 
   const name = clean(payload.name);
+  const gender = clean(payload.gender);
+  const ageRange = clean(payload.ageRange);
   const phone = clean(payload.phone ?? payload.contact);
   const messenger = clean(payload.messenger);
   const email = clean(payload.email);
@@ -130,6 +138,8 @@ export async function POST(request: Request) {
     source: "mwmwt.com",
     lang,
     name,
+    gender,
+    ageRange,
     phone,
     messenger,
     email,
@@ -159,6 +169,8 @@ export async function POST(request: Request) {
     `Language: ${lang}`,
     `Source page: ${sourcePage}`,
     `Name: ${name}`,
+    `Gender: ${gender || "-"}`,
+    `Age: ${ageRange || "-"}`,
     `Phone / WhatsApp / LINE: ${phone}`,
     `WeChat / Backup contact: ${messenger || "-"}`,
     `Email: ${email || "-"}`,
@@ -175,6 +187,8 @@ export async function POST(request: Request) {
       <p><strong>Language:</strong> ${escapeHtml(lang)}</p>
       <p><strong>Source page:</strong> ${escapeHtml(sourcePage)}</p>
       <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+      <p><strong>Gender:</strong> ${escapeHtml(gender || "-")}</p>
+      <p><strong>Age:</strong> ${escapeHtml(ageRange || "-")}</p>
       <p><strong>Phone / WhatsApp / LINE:</strong> ${escapeHtml(phone)}</p>
       <p><strong>WeChat / Backup contact:</strong> ${escapeHtml(messenger || "-")}</p>
       <p><strong>Email:</strong> ${escapeHtml(email || "-")}</p>
@@ -235,6 +249,8 @@ export async function POST(request: Request) {
     pushLineNotification({
       submittedAt,
       name,
+      gender,
+      ageRange,
       phone,
       messenger,
       email,
