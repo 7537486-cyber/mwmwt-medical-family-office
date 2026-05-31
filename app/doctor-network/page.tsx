@@ -10,6 +10,36 @@ export const metadata: Metadata = {
     "日本顶级医生简历与专科网络，覆盖再生医疗、肿瘤、心血管、神经科、内分泌与运动医学。"
 };
 
+const categorySets = {
+  zh: [
+    ["再生医疗 / 抗衰", "20"],
+    ["肿瘤", "20"],
+    ["心血管", "15"],
+    ["神经科", "15"],
+    ["内分泌 / 代谢", "15"],
+    ["运动医学 / 康复", "10"],
+    ["综合体检 / 预防医学", "5"]
+  ],
+  ja: [
+    ["再生医療 / 抗加齢", "20"],
+    ["腫瘍", "20"],
+    ["心血管", "15"],
+    ["神経内科", "15"],
+    ["内分泌 / 代謝", "15"],
+    ["スポーツ医学 / リハビリ", "10"],
+    ["総合健診 / 予防医学", "5"]
+  ],
+  en: [
+    ["Regenerative / Anti-aging", "20"],
+    ["Oncology", "20"],
+    ["Cardiovascular", "15"],
+    ["Neurology", "15"],
+    ["Endocrinology / Metabolism", "15"],
+    ["Sports Medicine / Rehabilitation", "10"],
+    ["Executive Screening / Preventive Medicine", "5"]
+  ]
+};
+
 export default function DoctorNetworkPage({
   searchParams
 }: {
@@ -33,8 +63,11 @@ export default function DoctorNetworkPage({
           diligenceBody:
             "We confirm specialty fit, institution rules, language workflow, and document requirements before moving into appointments or second-opinion communication.",
           profileCta: "View full profile",
+          cardSpecialty: "Specialist Profile",
+          cardSummary:
+            "Public background, research focus, and referral context are organized for pre-referral review. Current availability is confirmed case by case.",
           accessLabel: "Professional Positioning",
-          accessTitle: "The doctor network is a professional resource archive, not a sales page.",
+          accessTitle: "The doctor network is a professional resource archive for referral decisions.",
           accessBody:
             "We continuously build a cross-specialty physician network to support long-term medical resource matching and health risk management for high-net-worth families. Physician pages present public background information and referral context only.",
           categoriesLabel: "Network Categories",
@@ -56,8 +89,11 @@ export default function DoctorNetworkPage({
             diligenceBody:
               "予約やセカンドオピニオンに進む前に、専門性、医療機関の規定、言語対応、必要資料を確認します。",
             profileCta: "詳しいプロフィール",
+            cardSpecialty: "専門医プロフィール",
+            cardSummary:
+              "公開履歴、研究領域、紹介前の確認ポイントを整理しています。現在の受診可否は個別に確認します。",
             accessLabel: "専門的な位置づけ",
-            accessTitle: "医師ページは販売ページではなく、専門履歴と医療資源紹介ページです。",
+            accessTitle: "医師ページは、紹介判断のための専門履歴と医療資源紹介ページです。",
             accessBody:
               "富裕層家族の長期的な医療資源マッチングと健康リスク管理を支えるため、分野横断の医師ネットワークを継続的に構築します。",
             categoriesLabel: "専門領域分類",
@@ -78,8 +114,10 @@ export default function DoctorNetworkPage({
           diligenceBody:
             "先确认医生专长、机构规则、语言流程与资料要求，再决定是否进入预约或第二意见沟通。",
           profileCta: "查看完整简历",
+          cardSpecialty: "专家资料",
+          cardSummary: "",
           accessLabel: "专业定位",
-          accessTitle: "医生页面不是销售页，而是专业履历页与医疗资源介绍页。",
+          accessTitle: "医生页面定位为专业履历页与医疗资源介绍页，用于支持转诊前判断。",
           accessBody:
             "我们持续建立跨领域医生网络，为高净值家庭提供长期医疗资源匹配与健康风险管理。页面只呈现公开背景、专科方向与适配场景，不暗示疗效保证。",
           categoriesLabel: "医生分类规划",
@@ -87,15 +125,7 @@ export default function DoctorNetworkPage({
           disclaimer:
             "医生档案不构成医疗广告、诊断建议或治疗承诺。医生当前任职、接诊规则、合作身份与机构准入要求，均需在正式转诊前再次核验。"
         };
-  const categories = [
-    ["再生医疗 / 抗衰", "20"],
-    ["肿瘤", "20"],
-    ["心血管", "15"],
-    ["神经科", "15"],
-    ["内分泌 / 代谢", "15"],
-    ["运动医学 / 康复", "10"],
-    ["综合体检 / 预防医学", "5"]
-  ];
+  const categories = categorySets[lang];
 
   return (
     <>
@@ -138,17 +168,17 @@ export default function DoctorNetworkPage({
             >
               <div>
                 <p className="text-xs uppercase tracking-[0.28em] text-champagne">
-                  {doctor.specialty}
+                  {lang === "zh" ? doctor.specialty : hero.cardSpecialty}
                 </p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight text-ink">
                   {doctor.name}
                 </h2>
-                <p className="mt-2 text-lg text-jade">{doctor.jaName}</p>
+                {lang !== "en" ? <p className="mt-2 text-lg text-jade">{doctor.jaName}</p> : null}
                 <p className="mt-5 text-sm font-semibold leading-6 text-graphite">
                   {doctor.institution}
                 </p>
                 <p className="mt-4 text-sm leading-7 text-graphite/72">
-                  {doctor.summary}
+                  {lang === "zh" ? doctor.summary : hero.cardSummary}
                 </p>
               </div>
               <span className="mt-8 inline-flex text-sm font-semibold text-jade">

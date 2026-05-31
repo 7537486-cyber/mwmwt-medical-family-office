@@ -21,7 +21,7 @@ const copy = {
     placeholder: "请简要说明目标、时间安排、家庭成员情况或已持有的医疗资料。",
     submit: "发送私密咨询",
     note:
-      "点击后会打开邮件草稿，请在邮件里确认内容后发送。正式版后续可接入加密邮件、CRM、预约系统或安全文件上传流程。"
+      "点击后会打开您的邮件草稿，请在邮件里确认内容后发送。我们收到后会尽快回复。"
   },
   ja: {
     name: "お名前",
@@ -33,7 +33,7 @@ const copy = {
     placeholder: "目的、時期、ご家族の状況、すでにお持ちの医療資料を簡潔にご記入ください。",
     submit: "プライベート相談を送信",
     note:
-      "クリックするとメール下書きが開きます。内容をご確認のうえ送信してください。正式版では暗号化メール、CRM、予約、ファイル共有にも接続できます。"
+      "クリックするとメール下書きが開きます。内容をご確認のうえ送信してください。受信後、順次ご返信します。"
   },
   en: {
     name: "Name",
@@ -45,7 +45,7 @@ const copy = {
     placeholder: "Briefly describe goals, timing, family member context, or available medical records.",
     submit: "Submit Private Inquiry",
     note:
-      "Clicking opens an email draft. Please review and send it from your email app. A secure email, CRM, booking, or protected file upload workflow can be connected later."
+      "Clicking opens an email draft. Please review and send it from your email app. We will reply after receiving your inquiry."
   }
 };
 

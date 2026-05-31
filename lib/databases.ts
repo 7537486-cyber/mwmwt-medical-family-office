@@ -237,14 +237,14 @@ export const acquisitionStages: AcquisitionStage[] = [
     nextAction: "生成初步服务路径和报价范围"
   },
   {
-    stage: "方案转化",
+    stage: "服务确认",
     target: "需要决策赴日体检、第二意见或年度健康计划的客户",
     contentAsset: "项目说明书、行程节奏、交付物样例",
     qualificationSignal: "确认决策人、时间窗口和付款主体",
     nextAction: "签署服务确认并建立客户档案"
   },
   {
-    stage: "交付复购",
+    stage: "长期跟进",
     target: "已完成体检、会诊或医疗礼宾的客户",
     contentAsset: "诊后中文行动清单与年度复盘报告",
     qualificationSignal: "愿意加入季度复盘或推荐家庭成员",
@@ -271,5 +271,5 @@ export const leadScoringRules = [
   "A 级线索：30 天内有明确赴日计划、愿意提交资料、预算与决策人明确",
   "B 级线索：有明确健康议题但时间未定，需要内容培育和适配度沟通",
   "C 级线索：只关注价格或单一项目，先进入教育内容池，不立即投入高成本服务",
-  "风险线索：要求保证疗效、规避合规流程或拒绝基础病史披露，应暂停推进"
+  "风险线索：要求结果承诺、规避合规流程或拒绝基础病史披露，应暂停推进"
 ];

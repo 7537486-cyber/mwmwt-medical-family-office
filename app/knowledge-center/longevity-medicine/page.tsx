@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { serviceImages } from "@/lib/site";
+import { normalizeLanguage, serviceImages } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "什么是长寿医学 Longevity Medicine",
@@ -14,7 +14,7 @@ const comparison = [
   ["关注疾病", "关注衰老"],
   ["单一器官", "全身系统"],
   ["诊断疾病", "发现风险"],
-  ["延长寿命", "延长健康寿命"]
+  ["关注寿命数字", "关注健康寿命"]
 ];
 
 const agingMechanisms = [
@@ -79,7 +79,123 @@ const officeApproach = [
   "持续健康管理"
 ];
 
-export default function LongevityMedicineArticlePage() {
+const translatedArticle = {
+  ja: {
+    title: "長寿医学とは何か",
+    secondaryTitle: "Lifespan ではなく Healthspan を重視する",
+    description:
+      "長寿医学は、単に長く生きることではありません。予防医学、機能医学、再生医学、遺伝子科学、AI、栄養、運動科学を統合し、健康寿命を支える医学的な考え方です。",
+    secondaryDescription:
+      "目的は、疾患を抱えたまま年齢を重ねることではなく、より長く働き、自立し、認知機能と生活の質を保つことです。",
+    cta: "プライベート相談",
+    sections: [
+      {
+        label: "Definition",
+        title: "長寿医学は、疾患ではなく老化速度と将来リスクを見ます。",
+        body: "従来医療は病気になってから診断・治療します。長寿医学は、病気になる前に代謝、炎症、血管、認知、睡眠、筋肉量などの変化を確認し、将来のリスクを早く捉えます。"
+      },
+      {
+        label: "Biological Age",
+        title: "生物学的年齢は、体がどの速度で老化しているかを見る指標です。",
+        body: "実年齢が同じでも、睡眠、ストレス、運動、炎症、代謝状態により体の状態は異なります。血液バイオマーカー、DNAメチル化、多層オミクスなどが評価に使われます。"
+      },
+      {
+        label: "Risk Management",
+        title: "高所得層にとって健康寿命は、最も希少な意思決定資源です。",
+        body: "企業家や家族にとって重要なのは、単発の検査ではなく、10年から30年の健康軌道を把握し、重大疾患リスクと機能低下を管理することです。"
+      },
+      {
+        label: "Medical Family Office",
+        title: "私たちは長期的な健康判断のための体制を整えます。",
+        body: "生物学的年齢評価、深度健診、リスク分析、国際医療資源、再生医療相談、継続フォローを組み合わせ、家族の健康寿命管理を支援します。"
+      }
+    ],
+    summary:
+      "従来医学は病気を見ます。長寿医学は老化と将来リスクを見ます。健康寿命を守るには、検査、専門医、生活習慣、国際医療資源を長期的に管理する必要があります。"
+  },
+  en: {
+    title: "What Is Longevity Medicine?",
+    secondaryTitle: "Healthspan over lifespan",
+    description:
+      "Longevity medicine is not simply about living longer. It integrates preventive medicine, functional medicine, regenerative medicine, genetics, AI, nutrition, and exercise science to support healthspan.",
+    secondaryDescription:
+      "The goal is not to age with disease, but to preserve work capacity, independence, cognition, and quality of life for as long as possible.",
+    cta: "Private Inquiry",
+    sections: [
+      {
+        label: "Definition",
+        title: "Longevity medicine looks beyond disease and focuses on aging speed and future risk.",
+        body: "Traditional medicine often begins after disease appears. Longevity medicine looks earlier, using signals such as metabolism, inflammation, vascular health, cognition, sleep, and muscle quality to identify risk before disease becomes obvious."
+      },
+      {
+        label: "Biological Age",
+        title: "Biological age helps estimate how fast the body is aging.",
+        body: "Two people can be the same chronological age but have very different biological profiles. Blood biomarkers, DNA methylation, and multi-omics testing are commonly discussed in advanced longevity settings."
+      },
+      {
+        label: "Risk Management",
+        title: "For high-net-worth families, healthspan is a scarce decision-making resource.",
+        body: "The priority is not one isolated test. It is understanding the family's 10- to 30-year health trajectory and managing major disease risk, functional decline, and long-term quality of life."
+      },
+      {
+        label: "Medical Family Office",
+        title: "We organize a long-term system for better health decisions.",
+        body: "Biological age review, advanced screening, risk analysis, international medical resources, regenerative medicine advisory, and follow-up are combined into a long-term health governance framework."
+      }
+    ],
+    summary:
+      "Traditional medicine focuses on disease. Longevity medicine focuses on aging and future risk. Protecting healthspan requires long-term coordination across testing, specialists, lifestyle, and global medical resources."
+  }
+};
+
+export default function LongevityMedicineArticlePage({
+  searchParams
+}: {
+  searchParams?: { lang?: string };
+}) {
+  const lang = normalizeLanguage(searchParams?.lang);
+
+  if (lang !== "zh") {
+    const copy = translatedArticle[lang];
+
+    return (
+      <>
+        <PageHero
+          eyebrow="Longevity Medicine"
+          title={copy.title}
+          secondaryTitle={copy.secondaryTitle}
+          description={copy.description}
+          secondaryDescription={copy.secondaryDescription}
+          cta={copy.cta}
+          image={serviceImages["longevity-planning"]}
+        />
+
+        <article className="bg-pearl px-5 py-24 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="grid gap-6">
+              {copy.sections.map((section) => (
+                <section key={section.label} className="border border-mist bg-white p-8">
+                  <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                    {section.label}
+                  </p>
+                  <h2 className="mt-5 font-serif text-4xl leading-tight text-ink">
+                    {section.title}
+                  </h2>
+                  <p className="mt-6 text-base leading-8 text-graphite/76">
+                    {section.body}
+                  </p>
+                </section>
+              ))}
+            </div>
+            <p className="mt-12 border-l border-champagne pl-6 text-lg leading-9 text-graphite/76">
+              {copy.summary}
+            </p>
+          </div>
+        </article>
+      </>
+    );
+  }
+
   return (
     <>
       <PageHero

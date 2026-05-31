@@ -10,13 +10,46 @@ type DoctorPageProps = {
   searchParams?: { lang?: string };
 };
 
-const sections = [
-  ["学历", "education"],
-  ["医师资格 / 学会资格", "societies"],
-  ["研究方向", "research"],
-  ["代表论文", "papers"],
-  ["临床经验与案例方向", "cases"]
-] as const;
+const sectionSets = {
+  zh: [
+    ["学历", "education"],
+    ["医师资格 / 学会资格", "societies"],
+    ["研究方向", "research"],
+    ["代表论文", "papers"],
+    ["临床经验与案例方向", "cases"]
+  ],
+  ja: [
+    ["学歴", "education"],
+    ["医師資格 / 学会活動", "societies"],
+    ["研究領域", "research"],
+    ["代表的な論文・公開資料", "papers"],
+    ["臨床経験と相談領域", "cases"]
+  ],
+  en: [
+    ["Education", "education"],
+    ["Qualifications / Societies", "societies"],
+    ["Research Focus", "research"],
+    ["Selected Publications", "papers"],
+    ["Clinical Experience and Case Focus", "cases"]
+  ]
+} as const;
+
+const genericDoctorDetails = {
+  ja: {
+    education: ["公開履歴と医療機関情報を基に整理", "正式紹介前に現在の所属と受診条件を再確認", "必要に応じて追加資料を取得"],
+    societies: ["関連学会活動と専門領域を公開情報で確認", "資格、役職、受診可否は個別に再確認", "医療機関の規定と紹介条件を確認"],
+    research: ["専門領域と研究テーマの整理", "公開論文・研究資料の初期確認", "相談内容との適合性評価"],
+    papers: ["公開論文、大学・病院プロフィール、PubMed 等を参照", "正式紹介前に最新情報を再確認", "ページ内容は背景紹介であり診療判断ではありません"],
+    cases: ["セカンドオピニオン前の資料整理", "専門医相談の適合性確認", "国際医療紹介と長期フォローの準備"]
+  },
+  en: {
+    education: ["Organized from public profiles and institution information", "Current role and access rules are reconfirmed before referral", "Additional documents are requested when needed"],
+    societies: ["Society activity and specialty scope reviewed from public information", "Qualifications, roles, and availability are confirmed case by case", "Institution rules and referral requirements are checked"],
+    research: ["Specialty focus and research themes are organized", "Public papers and research materials are reviewed initially", "Fit with the client's question is assessed before referral"],
+    papers: ["Publications, university or hospital profiles, and PubMed references may be used", "Latest information is reconfirmed before any referral", "This page introduces background and does not provide medical advice"],
+    cases: ["Document preparation before second opinions", "Specialist-fit review", "International referral preparation and long-term follow-up planning"]
+  }
+};
 
 const doctorCopy = {
   zh: {
@@ -44,7 +77,10 @@ const doctorCopy = {
     disclaimerBody:
       "本页面内容仅用于医生专业背景介绍，不构成医疗广告、诊断建议或治疗承诺。具体诊疗方案需由持牌医生根据客户个人情况进行判断。医生当前任职、接诊规则、合作身份与机构准入要求需在正式转诊前再次核验。",
     sourceBody:
-      "以下链接用于初步履历核验；正式转诊前仍需再次确认医生当前任职、接诊规则与机构准入要求。"
+      "以下链接用于初步履历核验；正式转诊前仍需再次确认医生当前任职、接诊规则与机构准入要求。",
+    genericSpecialty: "",
+    genericRole: "",
+    genericSummary: ""
   },
   ja: {
     back: "← 医師ネットワーク",
@@ -71,7 +107,11 @@ const doctorCopy = {
     disclaimerBody:
       "本ページは医師の専門背景紹介を目的としており、医療広告、診断助言、治療効果の保証ではありません。具体的な診療方針は、個別状況に基づき医師が判断します。",
     sourceBody:
-      "以下のリンクは初期確認のための公開情報です。正式紹介前には現在の所属、受診規定、医療機関の受入条件を再確認します。"
+      "以下のリンクは初期確認のための公開情報です。正式紹介前には現在の所属、受診規定、医療機関の受入条件を再確認します。",
+    genericSpecialty: "専門医プロフィール",
+    genericRole: "公開情報に基づく専門医リソース",
+    genericSummary:
+      "公開情報、研究領域、紹介前の確認項目を整理した専門医プロフィールです。実際の受診可否、協力形態、医療機関規定は個別に確認します。"
   },
   en: {
     back: "← Doctor Network",
@@ -98,7 +138,11 @@ const doctorCopy = {
     disclaimerBody:
       "This page is for professional background introduction only and does not constitute medical advertising, diagnostic advice, or treatment commitment. Specific care decisions must be made by licensed physicians based on individual circumstances.",
     sourceBody:
-      "The following links support initial profile review. Current role, appointment rules, and institution access requirements must be confirmed again before referral."
+      "The following links support initial profile review. Current role, appointment rules, and institution access requirements must be confirmed again before referral.",
+    genericSpecialty: "Specialist Profile",
+    genericRole: "Public-information-based specialist resource",
+    genericSummary:
+      "A specialist profile organized from public information, research focus, and pre-referral review points. Current availability, cooperation identity, and institution rules are confirmed case by case."
   }
 };
 
@@ -140,6 +184,10 @@ export default function DoctorProfilePage({ params, searchParams }: DoctorPagePr
   }
 
   const city = citiesBySlug[doctor.slug] ?? "Japan";
+  const sectionSet = sectionSets[lang];
+  const specialty = lang === "zh" ? doctor.specialty : copy.genericSpecialty;
+  const role = lang === "zh" ? doctor.role : copy.genericRole;
+  const summary = lang === "zh" ? doctor.summary : copy.genericSummary;
 
   return (
     <>
@@ -149,7 +197,7 @@ export default function DoctorProfilePage({ params, searchParams }: DoctorPagePr
           alt={serviceImages["doctor-network"].alt}
           fill
           priority
-          className="object-cover object-center opacity-52"
+          className="object-contain object-top opacity-70 md:object-cover md:object-center md:opacity-52"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/84 to-ink/22" />
@@ -164,14 +212,16 @@ export default function DoctorProfilePage({ params, searchParams }: DoctorPagePr
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.36em] text-champagne">
-                {doctor.specialty}
+                {specialty}
               </p>
               <h1 className="mt-7 font-serif text-5xl leading-[1.03] text-balance md:text-7xl">
                 {doctor.name}
               </h1>
-              <p className="mt-4 font-serif text-3xl text-champagne">{doctor.jaName}</p>
+              {lang !== "en" ? (
+                <p className="mt-4 font-serif text-3xl text-champagne">{doctor.jaName}</p>
+              ) : null}
               <p className="mt-8 max-w-3xl text-lg leading-9 text-pearl/76">
-                {doctor.summary}
+                {summary}
               </p>
             </div>
             <aside className="border border-white/12 bg-white/[0.04] p-7">
@@ -183,7 +233,7 @@ export default function DoctorProfilePage({ params, searchParams }: DoctorPagePr
                   <dt className="text-xs uppercase tracking-[0.22em] text-pearl/45">
                     {copy.field}
                   </dt>
-                  <dd className="mt-2 text-lg leading-7 text-pearl">{doctor.specialty}</dd>
+                  <dd className="mt-2 text-lg leading-7 text-pearl">{specialty}</dd>
                 </div>
                 <div>
                   <dt className="text-xs uppercase tracking-[0.22em] text-pearl/45">
@@ -201,7 +251,7 @@ export default function DoctorProfilePage({ params, searchParams }: DoctorPagePr
                   <dt className="text-xs uppercase tracking-[0.22em] text-pearl/45">
                     {copy.role}
                   </dt>
-                  <dd className="mt-2 text-lg leading-7 text-pearl">{doctor.role}</dd>
+                  <dd className="mt-2 text-lg leading-7 text-pearl">{role}</dd>
                 </div>
                 <div>
                   <dt className="text-xs uppercase tracking-[0.22em] text-pearl/45">
@@ -228,7 +278,7 @@ export default function DoctorProfilePage({ params, searchParams }: DoctorPagePr
               {copy.positioning}
             </p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
-              {doctor.name} | {doctor.specialty}
+              {doctor.name} | {specialty}
             </h2>
           </div>
           <p className="text-lg leading-9 text-graphite/72">{copy.positioningBody}</p>
@@ -237,13 +287,13 @@ export default function DoctorProfilePage({ params, searchParams }: DoctorPagePr
 
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-5">
-          {sections.map(([title, key]) => (
+          {sectionSet.map(([title, key]) => (
             <article key={key} className="border border-mist bg-white/72 p-6 shadow-sm">
               <p className="text-xs uppercase tracking-[0.24em] text-champagne">
                 {title}
               </p>
               <ul className="mt-6 space-y-4">
-                {doctor[key].map((item) => (
+                {(lang === "zh" ? doctor[key] : genericDoctorDetails[lang][key]).map((item) => (
                   <li key={item} className="text-sm leading-7 text-graphite/78">
                     {item}
                   </li>

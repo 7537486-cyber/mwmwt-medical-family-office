@@ -48,18 +48,44 @@ const researchDirections = [
   }
 ];
 
-const centers = [
-  "Longevity Medicine 长寿医学中心",
-  "Stem Cell Research 干细胞中心",
-  "Exosome Research 外泌体中心",
-  "Executive Health 企业家健康中心",
-  "Regenerative Medicine 再生医疗中心",
-  "Global Medical Access 医疗资源中心",
-  "Biomarker Research 生物标志物中心",
-  "Preventive Medicine 预防医学中心",
-  "Case Library 案例中心",
-  "Founder Insights 创始人观点"
-];
+const centers = {
+  zh: [
+    "长寿医学中心",
+    "细胞科学中心",
+    "外泌体研究中心",
+    "企业家健康中心",
+    "再生医疗中心",
+    "全球医疗资源中心",
+    "生物标志物中心",
+    "预防医学中心",
+    "案例中心",
+    "创始人观点"
+  ],
+  ja: [
+    "長寿医学センター",
+    "細胞科学センター",
+    "エクソソーム研究センター",
+    "経営者健康センター",
+    "再生医療センター",
+    "国際医療資源センター",
+    "バイオマーカー研究センター",
+    "予防医学センター",
+    "ケースライブラリ",
+    "創業者インサイト"
+  ],
+  en: [
+    "Longevity Medicine",
+    "Cellular Science",
+    "Exosome Research",
+    "Executive Health",
+    "Regenerative Medicine",
+    "Global Medical Access",
+    "Biomarker Research",
+    "Preventive Medicine",
+    "Case Library",
+    "Founder Insights"
+  ]
+};
 
 const pageCopy = {
   zh: {
@@ -70,7 +96,7 @@ const pageCopy = {
     secondaryDescription: "知识库不提供诊断或治疗建议，而是帮助客户理解医学趋势、风险边界、检测逻辑和长期健康决策。",
     cta: "私密咨询",
     directions: "四大核心研究方向",
-    directionsBody: "高净值客户购买的不是单一研究名词，而是更年轻、更健康、更长寿的人生解决方案。因此知识库以更高级、更可信的方向组织内容。",
+    directionsBody: "高净值客户需要的不是单一研究名词，而是更清晰的医学判断、更稳妥的风险边界和更长期的健康决策依据。因此知识库以更高级、更可信的方向组织内容。",
     featured: "精选文章",
     articleTitle: "什么是长寿医学？",
     articleBody: "长寿医学不是简单地活得更久，而是以延长健康寿命为目标，提前发现衰老速度、慢病风险与功能下降趋势。",
@@ -183,7 +209,7 @@ export default function KnowledgeCenterPage({
             </Link>
           </div>
           <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2">
-            {centers.map((center) => (
+            {centers[lang].map((center) => (
               <div key={center} className="bg-pearl p-6">
                 <p className="text-sm font-semibold leading-7 text-ink">{center}</p>
               </div>

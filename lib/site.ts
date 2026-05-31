@@ -76,17 +76,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "独立顾问视角",
-        ja: "Independent Advisory",
+        ja: "独立した助言",
         body: "不以单一医院或单次项目为中心，而以家庭长期利益、风险边界和可解释决策为核心。"
       },
       {
         title: "中日双语协调",
-        ja: "Bilingual Coordination",
+        ja: "中日バイリンガル調整",
         body: "覆盖资料整理、医生沟通、预约安排、陪诊翻译、报告解读与回国后的连续跟进。"
       },
       {
         title: "隐私与秩序",
-        ja: "Discretion",
+        ja: "秘匿性と秩序",
         body: "以私行式服务节奏处理敏感健康信息，让医疗过程更安静、更清晰、更可控。"
       }
     ],
@@ -106,17 +106,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "精密体检与筛查",
-        ja: "Executive Screening",
+        ja: "エグゼクティブ健診",
         body: "根据年龄、家族史、商业压力与既往病史设计检查组合，避免低效重复。"
       },
       {
         title: "第二诊疗意见",
-        ja: "Second Opinion",
+        ja: "セカンドオピニオン",
         body: "协助整理病历、影像与问题清单，匹配日本专科医生进行独立意见评估。"
       },
       {
         title: "就医全流程礼宾",
-        ja: "Medical Concierge",
+        ja: "医療コンシェルジュ",
         body: "预约、签证辅助、行程节奏、现场陪同、翻译、支付与后续复诊统一协调。"
       }
     ],
@@ -136,17 +136,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "项目筛选",
-        ja: "Program Screening",
+        ja: "プログラム審査",
         body: "优先评估合规性、医生资质、适应症匹配度与术前术后管理能力。"
       },
       {
         title: "风险说明",
-        ja: "Risk Framing",
+        ja: "リスク説明",
         body: "用家族可理解的语言说明证据等级、禁忌、替代路径和合理预期。"
       },
       {
         title: "长期追踪",
-        ja: "Long-term Follow-up",
+        ja: "長期フォロー",
         body: "将治疗记录、指标变化与生活方式管理纳入长期健康档案。"
       }
     ],
@@ -166,17 +166,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "年度健康董事会",
-        ja: "Annual Health Board",
+        ja: "年次ヘルスボード",
         body: "每年复盘指标、家族风险、生活变化和下一阶段优先级。"
       },
       {
         title: "抗衰路径设计",
-        ja: "Longevity Roadmap",
+        ja: "長寿ロードマップ",
         body: "将体检、营养、运动、睡眠、压力管理与医学干预整合为分阶段计划。"
       },
       {
         title: "家庭成员分层",
-        ja: "Family Segmentation",
+        ja: "家族メンバー分類",
         body: "为创始人、配偶、父母与下一代设计不同关注重点与服务节奏。"
       }
     ],
@@ -196,19 +196,19 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "行前准备",
-        ja: "Pre-arrival",
+        ja: "渡航前準備",
         jaBody: "病歴整理、重要資料の翻訳、相談目的の確認、適切な受診時間枠の調整を行います。",
         body: "整理中文病史、翻译关键资料、明确问诊目标并安排合适时间窗口。"
       },
       {
         title: "高端出行协调",
-        ja: "Premium Logistics",
+        ja: "高付加価値移動調整",
         jaBody: "秘匿性、時間、医療スケジュールに合わせて、チャーター、空港送迎、専用車、ホテルと医療機関間の動線を調整します。",
         body: "根据隐私、时间与医疗节奏，协调包机、机场接送、阿尔法商务车和酒店医院之间的动线。"
       },
       {
         title: "一对一陪同",
-        ja: "One-on-one Escort",
+        ja: "一対一同行",
         jaBody: "医療機関での受付、通訳、検査動線管理、重要な会話記録、診療後資料整理を支援します。",
         body: "提供医院接待、医疗翻译、检查动线管理、重要沟通记录与诊后资料整理。"
       }
@@ -229,17 +229,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "专科匹配",
-        ja: "Specialty Matching",
+        ja: "専門領域マッチング",
         body: "覆盖肿瘤、心脑血管、消化、骨科、妇科、神经、免疫与康复等方向。"
       },
       {
         title: "机构尽调",
-        ja: "Institution Review",
+        ja: "医療機関確認",
         body: "关注医生背景、设备能力、国际患者经验、沟通效率与后续管理能力。"
       },
       {
         title: "转诊协调",
-        ja: "Referral Coordination",
+        ja: "紹介調整",
         body: "当需要更高层级诊疗时，协助准备资料并衔接合适专家路径。"
       }
     ],
@@ -259,17 +259,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "家族健康档案",
-        ja: "Family Health Archive",
+        ja: "家族健康アーカイブ",
         body: "集中管理体检、影像、用药、过敏史、手术史、遗传风险与医生建议。"
       },
       {
         title: "重大疾病预案",
-        ja: "Critical Care Protocol",
+        ja: "重大疾患対応プロトコル",
         body: "提前设计第二意见、海外转诊、紧急联系人和关键资料清单。"
       },
       {
         title: "下一代健康教育",
-        ja: "Next Generation",
+        ja: "次世代健康教育",
         body: "帮助年轻成员建立体检意识、生活方式管理与心理压力支持框架。"
       }
     ],
@@ -316,31 +316,31 @@ export const pages: Record<string, PageContent> = {
   "medical-resource-database": {
     slug: "medical-resource-database",
     eyebrow: "Medical Resource Database",
-    title: "医疗资源、医生、项目与高净值客户获客系统",
-    jaTitle: "医療資源・医師・プログラム・富裕層獲得システム",
+    title: "医疗资源、医生资料与长期服务管理体系",
+    jaTitle: "医療資源・医師情報・長期サービス管理体系",
     description:
-      "建立可持续扩展的结构化数据库，覆盖日本医疗资源、专家画像、项目产品化与中国高净值客户转化路径。",
+      "建立可持续扩展的结构化资料体系，覆盖日本医疗资源、专家画像、服务路径、风险边界与长期随访。",
     jaDescription:
-      "日本の医療資源、医師プロファイル、プログラム設計、中国富裕層向け顧客獲得導線を構造化します。",
+      "日本の医療資源、医師プロファイル、サービスプロセス、リスク境界、長期フォローを構造化します。",
     pillars: [
       {
         title: "资源库",
-        ja: "Resource Database",
+        ja: "医療資源データベース",
         body: "按地区、机构类型、专科能力、准入方式、尽调标准和所需资料管理医疗资源。"
       },
       {
         title: "医生库",
-        ja: "Doctor Database",
+        ja: "医師情報データベース",
         body: "以医生画像、专科能力、适配病例、语言流程和验证清单支持精准匹配。"
       },
       {
-        title: "获客系统",
-        ja: "Acquisition System",
-        body: "围绕内容触达、线索评分、适配度电话、方案转化和长期复购建立增长闭环。"
+        title: "服务流程",
+        ja: "サービスプロセス",
+        body: "围绕初步咨询、适配度确认、资料整理、专家沟通和长期随访建立清晰流程。"
       }
     ],
     proof: ["结构化字段", "非空种子数据", "合规尽调边界"],
-    process: ["资源录入", "医生画像验证", "项目产品化", "线索评分", "转化与复购管理"],
+    process: ["资源录入", "医生画像验证", "服务路径整理", "适配度确认", "长期随访管理"],
     cta: "咨询数据库系统"
   },
   "doctor-network": {
@@ -355,17 +355,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "医生简历",
-        ja: "Doctor Profiles",
+        ja: "医師プロフィール",
         body: "按学历、学会资格、研究方向、论文与适配案例整理核心专家资料。"
       },
       {
         title: "专科分层",
-        ja: "Specialty Mapping",
+        ja: "専門領域整理",
         body: "根据病种、阶段、资料完整度与赴日时效匹配不同层级的专家路径。"
       },
       {
         title: "转诊准备",
-        ja: "Referral Readiness",
+        ja: "紹介前準備",
         body: "在预约前完成公开资料核验、病历摘要、问题清单和沟通边界确认。"
       }
     ],
@@ -385,17 +385,17 @@ export const pages: Record<string, PageContent> = {
     pillars: [
       {
         title: "适合对象",
-        ja: "For Whom",
+        ja: "対象者",
         body: "企业家家庭、家族办公室、私人银行客户经理、跨境医疗需求家庭。"
       },
       {
         title: "沟通内容",
-        ja: "Scope",
+        ja: "相談内容",
         body: "可讨论体检、再生医疗、重大疾病第二意见、长期健康规划或日本医院预约。"
       },
       {
         title: "保密原则",
-        ja: "Confidentiality",
+        ja: "秘匿性",
         body: "首次沟通仅收集必要信息，敏感病历资料将在确认服务范围后再安全传递。"
       }
     ],
@@ -582,16 +582,16 @@ const englishPages: Record<string, EnglishPage> = {
     ]
   },
   "medical-resource-database": {
-    title: "Medical resources, physician profiles, programs, and HNW acquisition system",
+    title: "Medical resources, physician profiles, and long-term service workflow",
     description:
-      "A structured database for Japanese medical resources, specialist profiles, program packaging, and a China high-net-worth client acquisition workflow.",
+      "A structured resource system for Japanese medical resources, specialist profiles, service pathways, risk boundaries, and long-term follow-up.",
     proof: ["Structured fields", "Non-empty seed data", "Compliance-oriented diligence boundaries"],
-    process: ["Resource entry", "Physician profile verification", "Program packaging", "Lead scoring", "Conversion and retention management"],
+    process: ["Resource entry", "Physician profile verification", "Service pathway mapping", "Fit review", "Long-term follow-up management"],
     cta: "Discuss the database system",
     pillars: [
       { title: "Resource database", body: "Medical resources are managed by region, institution type, specialty capability, access model, diligence standards, and required documents." },
       { title: "Doctor database", body: "Specialist matching is supported by physician profiles, case fit, language workflow, and verification checklists." },
-      { title: "Acquisition system", body: "Growth is organized around content reach, lead scoring, fit calls, proposal conversion, and long-term retention." }
+      { title: "Service workflow", body: "The process is organized around initial inquiry, fit review, document preparation, specialist communication, and long-term follow-up." }
     ]
   },
   "doctor-network": {
@@ -638,7 +638,7 @@ export function pageText(page: PageContent, lang: Language) {
       cta: english.cta,
       pillars: page.pillars.map((pillar, index) => ({
         title: english.pillars[index]?.title ?? pillar.ja,
-        label: pillar.ja,
+        label: page.eyebrow,
         body: english.pillars[index]?.body ?? pillar.body
       }))
     };
@@ -648,16 +648,17 @@ export function pageText(page: PageContent, lang: Language) {
     return {
       eyebrow: page.eyebrow,
       title: page.jaTitle,
-      secondaryTitle: page.title,
+      secondaryTitle: english?.title ?? page.eyebrow,
       description: page.jaDescription,
-      secondaryDescription: page.description,
-      proof: page.jaProof ?? page.proof,
-      process: page.jaProcess ?? page.process,
-      cta: page.jaCta ?? page.cta,
-      pillars: page.pillars.map((pillar) => ({
+      secondaryDescription:
+        "ご相談内容に応じて、医療資源、専門医、資料整理、予約調整、長期フォローを一つの窓口で支援します。",
+      proof: page.jaProof ?? ["専門性確認", "医療機関ルール確認", "長期フォロー設計"],
+      process: page.jaProcess ?? ["初回相談", "資料整理", "専門医・医療機関確認", "手配調整", "フォローアップ"],
+      cta: page.jaCta ?? "プライベート相談",
+      pillars: page.pillars.map((pillar, index) => ({
         title: pillar.ja,
-        label: pillar.title,
-        body: pillar.jaBody ?? pillar.body
+        label: page.eyebrow,
+        body: pillar.jaBody ?? english?.pillars[index]?.body ?? page.jaDescription
       }))
     };
   }
@@ -665,15 +666,15 @@ export function pageText(page: PageContent, lang: Language) {
   return {
     eyebrow: page.eyebrow,
     title: page.title,
-    secondaryTitle: page.jaTitle,
+    secondaryTitle: page.enTitle ?? page.eyebrow,
     description: page.description,
-    secondaryDescription: page.jaDescription,
+    secondaryDescription: page.enDescription ?? "面向跨境医疗、专家资源、长期健康治理与家庭隐私管理的私密协调体系。",
     proof: page.proof,
     process: page.process,
     cta: page.cta,
     pillars: page.pillars.map((pillar) => ({
       title: pillar.title,
-      label: pillar.ja,
+      label: pillar.en ?? page.eyebrow,
       body: pillar.body
     }))
   };

@@ -2,17 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import {
-  acquisitionSegments,
-  acquisitionStages,
   doctorProfiles,
-  leadScoringRules,
   medicalResources,
   programProfiles
 } from "@/lib/databases";
 import { normalizeLanguage, pages, serviceImages } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "医疗资源数据库与获客系统",
+  title: "医疗资源与专家资料管理体系",
   description: pages["medical-resource-database"].description
 };
 
@@ -21,13 +18,13 @@ const copy = {
     resourceTitle: "医疗资源数据库",
     resourceIntro: "用于管理日本各地区可协调的医疗机构、专科能力、准入方式和尽调信息。",
     doctorTitle: "医生数据库",
-    doctorIntro: "不虚构真实医生姓名，先用可验证的专家画像管理匹配逻辑，后续可接入真实医生资质文件。",
+    doctorIntro: "以可验证的专家画像管理匹配逻辑，真实医生资料须在授权与资质核验后展示。",
     programTitle: "项目数据库",
     programIntro: "将高净值客户常见需求产品化，明确交付物、风险控制和复盘机制。",
-    acquisitionTitle: "中国高净值客户获客系统",
-    acquisitionIntro: "从内容触达到方案转化，形成可追踪、可分级、可复购的私域增长流程。",
-    segmentTitle: "核心客群分层",
-    scoringTitle: "线索评分规则",
+    coordinationTitle: "客户适配与服务流程",
+    coordinationIntro: "从初步咨询到适配度确认、资料整理、专家沟通与长期随访，形成更清晰的服务路径。",
+    segmentTitle: "适合服务人群",
+    scoringTitle: "适配度确认重点",
     compliance:
       "合规边界：以下内容用于资源管理与服务介绍，不构成医疗诊断、治疗建议或疗效承诺；真实医生与机构接入前必须完成资质、授权、费用、等待周期和适应症确认。"
   },
@@ -38,10 +35,10 @@ const copy = {
     doctorIntro: "実名を仮作成せず、検証可能な専門医プロファイルでマッチングロジックを管理します。",
     programTitle: "プログラムデータベース",
     programIntro: "富裕層家族の主要ニーズをプログラム化し、成果物、リスク管理、フォローを明確にします。",
-    acquisitionTitle: "中国富裕層顧客獲得システム",
-    acquisitionIntro: "コンテンツ接点から提案転換まで、追跡可能な成長導線を構築します。",
-    segmentTitle: "主要顧客セグメント",
-    scoringTitle: "リードスコアリング",
+    coordinationTitle: "クライアント適合性とサービスプロセス",
+    coordinationIntro: "初回相談、適合性確認、資料整理、専門医コミュニケーション、長期フォローまでを明確にします。",
+    segmentTitle: "適したクライアント",
+    scoringTitle: "適合性確認の重点",
     compliance:
       "コンプライアンス：本内容は資源管理とサービス紹介を目的とし、診断、治療助言、効果保証ではありません。実際の医師・機関連携前に資格、権限、費用、待機期間、適応を確認します。"
   },
@@ -52,13 +49,145 @@ const copy = {
     doctorIntro: "Instead of inventing doctor names, verified specialist profiles define matching logic until real credentials are attached.",
     programTitle: "Program Database",
     programIntro: "Package common HNW needs into programs with deliverables, risk controls, and follow-up mechanisms.",
-    acquisitionTitle: "China HNW Client Acquisition System",
-    acquisitionIntro: "A traceable growth workflow from content reach to proposal conversion, retention, and referral.",
-    segmentTitle: "Core Client Segments",
-    scoringTitle: "Lead Scoring Rules",
+    coordinationTitle: "Client Fit and Service Workflow",
+    coordinationIntro: "A clear pathway from initial inquiry and fit review to document preparation, specialist communication, and long-term follow-up.",
+    segmentTitle: "Suitable Clients",
+    scoringTitle: "Fit Review Priorities",
     compliance:
       "Compliance boundary: this content is for resource management and service introduction only. It is not diagnosis, treatment advice, or an outcome guarantee. Real physicians and institutions require credential, authorization, cost, timing, and indication confirmation."
   }
+};
+
+const serviceFit = {
+  zh: [
+    "希望建立长期健康管理体系的企业家与家族客户",
+    "需要跨境医疗资源、第二诊疗意见或专家会诊的人群",
+    "关注隐私、时间效率、风险控制和长期随访的高净值客户"
+  ],
+  ja: [
+    "長期的な健康管理体制を構築したい起業家と家族",
+    "国際医療資源、セカンドオピニオン、専門医相談が必要な方",
+    "秘匿性、時間効率、リスク管理、長期フォローを重視する富裕層クライアント"
+  ],
+  en: [
+    "Entrepreneurs and families seeking a long-term health management system",
+    "Clients who need cross-border resources, second opinions, or specialist consultation",
+    "HNW clients who value privacy, time efficiency, risk control, and long-term follow-up"
+  ]
+};
+
+const fitReview = {
+  zh: [
+    "当前健康目标与主要风险",
+    "既往病史、用药与检查资料完整度",
+    "是否需要跨境转诊、专家复核或长期随访",
+    "隐私、时间、语言与陪同需求"
+  ],
+  ja: [
+    "現在の健康目標と主なリスク",
+    "既往歴、服薬、検査資料の整理状況",
+    "国際紹介、専門医レビュー、長期フォローの必要性",
+    "秘匿性、時間、言語、同行の要件"
+  ],
+  en: [
+    "Current health goals and key risks",
+    "Completeness of medical history, medication, and test records",
+    "Need for cross-border referral, specialist review, or long-term follow-up",
+    "Privacy, timing, language, and escort requirements"
+  ]
+};
+
+const serviceStages = {
+  zh: [
+    {
+      stage: "初步咨询",
+      target: "确认需求方向、家庭成员情况与时间安排",
+      contentAsset: "咨询摘要与资料清单",
+      qualificationSignal: "目标清晰、资料完整、愿意遵守合规流程",
+      nextAction: "进入适配度确认"
+    },
+    {
+      stage: "适配度确认",
+      target: "评估是否适合进入医生匹配、机构咨询或长期管理",
+      contentAsset: "风险边界与服务范围说明",
+      qualificationSignal: "了解服务边界，不要求结果承诺",
+      nextAction: "准备医疗资料"
+    },
+    {
+      stage: "资料整理",
+      target: "整理既往报告、影像、用药、家族史与核心问题",
+      contentAsset: "医生沟通资料包",
+      qualificationSignal: "可提供必要医学资料",
+      nextAction: "专家或机构沟通"
+    },
+    {
+      stage: "长期跟进",
+      target: "建立复盘节奏、复查计划与家庭健康档案",
+      contentAsset: "随访计划与健康档案",
+      qualificationSignal: "需要持续管理而非一次性安排",
+      nextAction: "年度健康回顾"
+    }
+  ],
+  ja: [
+    {
+      stage: "初回相談",
+      target: "相談内容、家族状況、日程を確認します。",
+      contentAsset: "相談サマリーと資料リスト",
+      qualificationSignal: "目的が明確で、資料整理と規定遵守が可能",
+      nextAction: "適合性確認へ"
+    },
+    {
+      stage: "適合性確認",
+      target: "医師マッチング、医療機関相談、長期管理に適しているかを確認します。",
+      contentAsset: "リスク境界とサービス範囲の説明",
+      qualificationSignal: "サービス境界を理解し、結果保証を求めない",
+      nextAction: "医療資料準備"
+    },
+    {
+      stage: "資料整理",
+      target: "既往レポート、画像、服薬、家族歴、質問を整理します。",
+      contentAsset: "医師コミュニケーション資料",
+      qualificationSignal: "必要な医学資料を提出できる",
+      nextAction: "専門医・医療機関との確認"
+    },
+    {
+      stage: "長期フォロー",
+      target: "レビュー頻度、再検査計画、家族健康記録を整えます。",
+      contentAsset: "フォロー計画と健康記録",
+      qualificationSignal: "単発手配ではなく継続管理を希望",
+      nextAction: "年次健康レビュー"
+    }
+  ],
+  en: [
+    {
+      stage: "Initial inquiry",
+      target: "Clarify goals, family context, and timing.",
+      contentAsset: "Inquiry summary and document checklist",
+      qualificationSignal: "Clear goals, organized information, and willingness to follow compliant process",
+      nextAction: "Fit review"
+    },
+    {
+      stage: "Fit review",
+      target: "Assess whether physician matching, institution consultation, or long-term management is appropriate.",
+      contentAsset: "Risk boundaries and service scope",
+      qualificationSignal: "Understands service boundaries and does not expect outcome guarantees",
+      nextAction: "Medical document preparation"
+    },
+    {
+      stage: "Document preparation",
+      target: "Organize prior reports, imaging, medication, family history, and key questions.",
+      contentAsset: "Physician communication package",
+      qualificationSignal: "Able to provide necessary medical information",
+      nextAction: "Specialist or institution communication"
+    },
+    {
+      stage: "Long-term follow-up",
+      target: "Set review rhythm, retesting plan, and family health records.",
+      contentAsset: "Follow-up plan and health archive",
+      qualificationSignal: "Needs continuing management rather than a one-time arrangement",
+      nextAction: "Annual health review"
+    }
+  ]
 };
 
 export default function MedicalResourceDatabasePage({
@@ -75,9 +204,27 @@ export default function MedicalResourceDatabasePage({
     <>
       <PageHero
         eyebrow={page.eyebrow}
-        title={lang === "en" ? "Medical resources, doctors, programs, and HNW acquisition" : lang === "ja" ? page.jaTitle : page.title}
-        secondaryTitle={lang === "en" ? "Structured operating system" : page.jaTitle}
-        description={lang === "en" ? "A practical operating layer for Japan medical resources, doctor matching, program packaging, and China high-net-worth client acquisition." : lang === "ja" ? page.jaDescription : page.description}
+        title={
+          lang === "en"
+            ? "Medical resources, doctors, programs, and client-fit workflow"
+            : lang === "ja"
+              ? page.jaTitle
+              : page.title
+        }
+        secondaryTitle={
+          lang === "en"
+            ? "Structured resource intelligence"
+            : lang === "ja"
+              ? "構造化された医療資源インテリジェンス"
+              : "结构化医疗资源管理"
+        }
+        description={
+          lang === "en"
+            ? "A practical operating layer for Japan medical resources, doctor matching, program structure, and long-term client follow-up."
+            : lang === "ja"
+              ? page.jaDescription
+              : page.description
+        }
         secondaryDescription={text.compliance}
         cta={lang === "en" ? "Discuss the system" : lang === "ja" ? "相談する" : "咨询数据库系统"}
       />
@@ -173,11 +320,11 @@ export default function MedicalResourceDatabasePage({
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <DatabaseIntro title={text.acquisitionTitle} intro={text.acquisitionIntro} />
+            <DatabaseIntro title={text.coordinationTitle} intro={text.coordinationIntro} />
             <div className="mt-10 border-y border-mist py-7">
               <h2 className="text-xl font-semibold text-ink">{text.segmentTitle}</h2>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-graphite/74">
-                {acquisitionSegments.map((segment) => (
+                {serviceFit[lang].map((segment) => (
                   <li key={segment}>{segment}</li>
                 ))}
               </ul>
@@ -185,14 +332,14 @@ export default function MedicalResourceDatabasePage({
             <div className="mt-8">
               <h2 className="text-xl font-semibold text-ink">{text.scoringTitle}</h2>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-graphite/74">
-                {leadScoringRules.map((rule) => (
+                {fitReview[lang].map((rule) => (
                   <li key={rule}>{rule}</li>
                 ))}
               </ul>
             </div>
           </div>
           <div className="divide-y divide-mist border-y border-mist">
-            {acquisitionStages.map((stage, index) => (
+            {serviceStages[lang].map((stage, index) => (
               <article key={stage.stage} className="grid gap-5 py-7 md:grid-cols-[5rem_1fr]">
                 <span className="font-serif text-4xl text-champagne">
                   {String(index + 1).padStart(2, "0")}

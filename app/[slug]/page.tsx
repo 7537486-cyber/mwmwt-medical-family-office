@@ -57,13 +57,13 @@ const platformPages: Record<string, PlatformPage> = {
   },
   "knowledge-center": {
     eyebrow: "Knowledge Center",
-    title: "1000+专业文章，形成高净值健康与长寿知识中心",
-    jaTitle: "1000本以上の記事で健康・長寿ナレッジセンターを構築",
-    enTitle: "A 1000+ article knowledge center for health and longevity",
+    title: "面向长期健康决策的知识中心",
+    jaTitle: "長期的な健康判断のためのナレッジセンター",
+    enTitle: "A knowledge center for long-term health decisions",
     description:
-      "覆盖长寿医学、干细胞、外泌体、企业家健康、再生医疗、全球医疗资源、预防医学、案例、媒体与研究内容。",
+      "围绕长寿医学、细胞科学、外泌体、企业家健康、再生医疗、全球医疗资源、预防医学、案例、媒体与研究内容持续整理。",
     jaDescription:
-      "長寿医学、幹細胞、エクソソーム、経営者健康、再生医療、国際医療、予防医学、ケース、メディア、研究を扱います。",
+      "長寿医学、細胞科学、エクソソーム、経営者健康、再生医療、国際医療、予防医学、ケース、メディア、研究を継続的に整理します。",
     enDescription:
       "Longevity medicine, stem cells, exosomes, executive health, regenerative medicine, global medical access, preventive medicine, cases, media, and research.",
     sections: ["Longevity Medicine", "Stem Cell Research", "Exosome Research", "Executive Health"]
@@ -74,7 +74,7 @@ const platformPages: Record<string, PlatformPage> = {
     jaTitle: "Founder、Executive、Family、Legacy 会員制度",
     enTitle: "Founder, Executive, Family, and Legacy membership",
     description:
-      "会员体系不是销售一次体检、一次医美或一次干细胞项目，而是根据家庭复杂度、服务频率、跨境医疗需求与健康治理深度，提供长期顾问服务。",
+      "会员体系根据家庭复杂度、服务频率、跨境医疗需求与健康治理深度，提供长期顾问服务。",
     jaDescription:
       "単発の健診や治療手配ではなく、家族の複雑性、利用頻度、国際医療ニーズ、健康ガバナンスの深度に応じた長期顧問サービスです。",
     enDescription:
@@ -179,26 +179,136 @@ const platformHeroImages: Record<string, { src: string; alt: string }> = {
   }
 };
 
-const aviationScenes = [
-  {
-    title: "Private aviation",
-    body: "包机协调、抵达动线、医疗资料与当地接驳统一管理。",
-    image: "/private-jet-medical-concierge.png",
-    alt: "私人包机医疗礼宾协调"
+const localizedPlatformSections: Record<string, Record<"zh" | "ja" | "en", string[]>> = {
+  "medical-family-office": {
+    zh: ["家族健康档案", "年度健康董事会", "医疗风险地图", "重大疾病预案"],
+    ja: ["家族健康記録", "年次健康レビュー", "医療リスクマップ", "重大疾患対応"],
+    en: ["Family health archive", "Annual health board", "Medical risk map", "Critical illness protocol"]
   },
-  {
-    title: "Alphard-style transfer",
-    body: "高端商务车、司机与双语协调人员，覆盖机场、酒店与医院之间接送。",
-    image: "/alphard-medical-transfer.png",
-    alt: "阿尔法商务车医疗接送"
+  "executive-health": {
+    zh: ["企业家精密体检", "睡眠与压力", "代谢风险", "精力与表现"],
+    ja: ["経営者精密健診", "睡眠とストレス", "代謝リスク", "活力とパフォーマンス"],
+    en: ["Executive checkups", "Sleep and stress", "Metabolic risk", "Energy and performance"]
   },
-  {
-    title: "One-on-one escort",
-    body: "预约签到、检查动线、翻译沟通与诊后资料整理由专人陪同。",
-    image: "/one-on-one-medical-escort.png",
-    alt: "一对一医疗陪同"
+  "global-medical-access": {
+    zh: ["第二诊疗意见", "海外转诊", "私密协调", "长期随访"],
+    ja: ["セカンドオピニオン", "海外紹介", "プライベート調整", "長期フォロー"],
+    en: ["Second opinions", "Overseas referral", "Private coordination", "Long-term follow-up"]
+  },
+  "knowledge-center": {
+    zh: ["长寿医学", "细胞科学", "外泌体研究", "企业家健康"],
+    ja: ["長寿医学", "細胞科学", "エクソソーム研究", "経営者健康"],
+    en: ["Longevity Medicine", "Cellular Science", "Exosome Research", "Executive Health"]
+  },
+  "membership-program": {
+    zh: ["创始人会员", "企业家会员", "家族会员", "传承会员"],
+    ja: ["創業者会員", "経営者会員", "家族会員", "レガシー会員"],
+    en: ["Founder Membership", "Executive Membership", "Family Membership", "Legacy Membership"]
+  },
+  "medical-governance-framework": {
+    zh: ["医疗合规", "医生评估", "质量控制", "长期随访"],
+    ja: ["医療コンプライアンス", "医師評価", "品質管理", "長期フォロー"],
+    en: ["Medical Compliance", "Physician Excellence", "Quality Assurance", "Lifetime Follow-up"]
+  },
+  "research-center": {
+    zh: ["长寿研究", "细胞科学", "临床研究", "精准医学"],
+    ja: ["長寿研究", "細胞科学", "臨床研究", "精密医療"],
+    en: ["Longevity Research", "Cellular Science", "Clinical Studies", "Precision Medicine"]
+  },
+  "case-library": {
+    zh: ["健康评估", "专家复核", "国际转诊", "长期随访"],
+    ja: ["健康評価", "専門医レビュー", "国際紹介", "長期フォロー"],
+    en: ["Health assessment", "Specialist review", "International referral", "Long-term follow-up"]
+  },
+  "media-center": {
+    zh: ["公司新闻", "医学动态", "行业观察", "创始人观点"],
+    ja: ["会社ニュース", "医学動向", "業界観察", "創業者視点"],
+    en: ["Company News", "Medical Trends", "Industry Observation", "Founder Insights"]
+  },
+  "private-aviation-concierge": {
+    zh: ["VIP 通道", "独立接待", "翻译团队", "包机协调"],
+    ja: ["VIP導線", "独立対応", "通訳チーム", "チャーター調整"],
+    en: ["VIP Access", "Private Reception", "Interpreter Team", "Charter Coordination"]
   }
-];
+};
+
+const aviationCopy = {
+  zh: {
+    label: "高端空地礼宾",
+    title: "包机、阿尔法接送与一对一陪同共同构成私密医疗出行。",
+    body: "对高净值家庭来说，跨境医疗不只是预约医生，也包括抵达方式、现场动线、隐私保护、翻译陪同与诊后资料交接。",
+    scenes: [
+      {
+        title: "私人航空",
+        body: "包机协调、抵达动线、医疗资料与当地接驳统一管理。",
+        image: "/private-jet-medical-concierge.png",
+        alt: "私人包机医疗礼宾协调"
+      },
+      {
+        title: "阿尔法商务车接送",
+        body: "高端商务车、司机与双语协调人员，覆盖机场、酒店与医院之间接送。",
+        image: "/alphard-medical-transfer.png",
+        alt: "阿尔法商务车医疗接送"
+      },
+      {
+        title: "一对一医疗陪同",
+        body: "预约签到、检查动线、翻译沟通与诊后资料整理由专人陪同。",
+        image: "/one-on-one-medical-escort.png",
+        alt: "一对一医疗陪同"
+      }
+    ]
+  },
+  ja: {
+    label: "プレミアム移動コンシェルジュ",
+    title: "チャーター、アルファード送迎、一対一同行で秘匿性の高い医療渡航を支えます。",
+    body: "国際医療では医師予約だけでなく、到着導線、現地移動、プライバシー、通訳同行、診療後資料の整理が重要です。",
+    scenes: [
+      {
+        title: "プライベート航空",
+        body: "チャーター調整、到着導線、医療資料、現地接続を一体で管理します。",
+        image: "/private-jet-medical-concierge.png",
+        alt: "プライベート航空と医療コンシェルジュ"
+      },
+      {
+        title: "アルファード送迎",
+        body: "高級車、ドライバー、バイリンガル調整担当が空港、ホテル、病院間を支援します。",
+        image: "/alphard-medical-transfer.png",
+        alt: "アルファードによる医療送迎"
+      },
+      {
+        title: "一対一医療同行",
+        body: "受付、検査動線、通訳、診療後資料整理まで専任担当が同行します。",
+        image: "/one-on-one-medical-escort.png",
+        alt: "一対一の医療同行"
+      }
+    ]
+  },
+  en: {
+    label: "Premium Ground & Air Logistics",
+    title: "Private aviation, Alphard-style transfer, and one-on-one escort create a discreet medical journey.",
+    body: "For high-net-worth families, cross-border medical access includes arrival logistics, on-site flow, privacy, interpretation, and post-visit document handover.",
+    scenes: [
+      {
+        title: "Private aviation",
+        body: "Charter coordination, arrival flow, medical documents, and local transfers managed as one discreet journey.",
+        image: "/private-jet-medical-concierge.png",
+        alt: "Private jet medical concierge coordination"
+      },
+      {
+        title: "Alphard-style transfer",
+        body: "Premium vehicle, driver, and bilingual coordinator for airport, hotel, and hospital transfers.",
+        image: "/alphard-medical-transfer.png",
+        alt: "Luxury medical transfer by Alphard-style vehicle"
+      },
+      {
+        title: "One-on-one escort",
+        body: "Appointment check-in, examination flow, interpretation, and post-visit document organization with dedicated support.",
+        image: "/one-on-one-medical-escort.png",
+        alt: "One-on-one medical escort"
+      }
+    ]
+  }
+};
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const page = platformPages[params.slug];
@@ -231,6 +341,14 @@ export default function PlatformPage({
   const description =
     lang === "en" ? page.enDescription : lang === "ja" ? page.jaDescription : page.description;
   const heroCta = lang === "en" ? "Private Inquiry" : lang === "ja" ? "プライベート相談" : "私密咨询";
+  const secondaryTitle =
+    lang === "en"
+      ? "Private Health Intelligence for Global Families"
+      : lang === "ja"
+        ? "グローバルファミリーのためのプライベート健康インテリジェンス"
+        : "为全球家族提供私人健康智慧系统";
+  const visibleSections = localizedPlatformSections[params.slug]?.[lang] ?? page.sections;
+  const aviation = aviationCopy[lang];
   const secondaryDescription =
     lang === "en"
       ? "Risk management, long-term health decision rights, and global medical resource allocation."
@@ -243,7 +361,7 @@ export default function PlatformPage({
       <PageHero
         eyebrow={page.eyebrow}
         title={title}
-        secondaryTitle="Private Health Intelligence for Global Families"
+        secondaryTitle={secondaryTitle}
         description={description}
         secondaryDescription={secondaryDescription}
         cta={heroCta}
@@ -251,7 +369,7 @@ export default function PlatformPage({
       />
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {page.sections.map((section, index) => (
+          {visibleSections.map((section, index) => (
             <article key={section} className="border border-mist bg-white p-7 shadow-sm">
               <p className="font-serif text-4xl text-champagne">
                 {String(index + 1).padStart(2, "0")}
@@ -267,18 +385,18 @@ export default function PlatformPage({
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
               <div>
                 <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                  Premium Ground & Air Logistics
+                  {aviation.label}
                 </p>
                 <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
-                  包机、阿尔法接送与一对一陪同共同构成私密医疗出行。
+                  {aviation.title}
                 </h2>
               </div>
               <p className="text-lg leading-9 text-graphite/72">
-                对高净值家庭来说，跨境医疗不只是预约医生，也包括抵达方式、现场动线、隐私保护、翻译陪同与诊后资料交接。
+                {aviation.body}
               </p>
             </div>
             <div className="mt-12 grid gap-5 lg:grid-cols-3">
-              {aviationScenes.map((scene) => (
+              {aviation.scenes.map((scene) => (
                 <article key={scene.title} className="border border-mist bg-pearl">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
