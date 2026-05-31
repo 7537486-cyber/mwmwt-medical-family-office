@@ -6,7 +6,7 @@
 
 当前追加目标：将医疗官网与误覆盖进来的钢结构网站彻底分开；医疗官网继续补齐联系表单系统、首页首屏价值主张、会员体系、合规声明和服务流程页面。
 
-当前最新调整：彻底移除联系表单 `mailto` 行为，改为 `/api/contact` 服务端通过 Resend 发送到固定收件地址 `info@mwmwt.com`，使用 `process.env.RESEND_API_KEY`；内部邮件补充来源页面字段，默认发件人改为 `Medical Family Office <info@mwmwt.com>`，客户填写有效邮箱时自动发送确认回复。
+当前最新调整：在现有询盘闭环基础上补齐增长基础设施入口：LINE/CRM 配置说明已更新，自动回复已完成；新增 Google Analytics 与 Google Search Console 环境变量入口；知识库新增 5 个 SEO 文章页，并与现有长寿医学文章共同组成首批 6 个 SEO 主题。
 
 ## 成功标准
 
@@ -85,6 +85,11 @@
 - 已将表单当前页面 URL 作为 `sourcePage` 传给后端，内部询盘邮件、CRM Payload 与 LINE 通知均包含来源页面
 - 已将默认发件人显示改为 `Medical Family Office <info@mwmwt.com>`
 - 已新增客户自动回复邮件：客户填写有效邮箱时，按中日英语言发送 24 小时内联系的确认邮件，并提示不要通过公开邮件直接发送完整病历或敏感资料
+- 已新增 `components/Analytics.tsx`，通过 `NEXT_PUBLIC_GA_ID` 加载 Google Analytics，不配置时不输出脚本
+- 已在根布局加入 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`，用于 Google Search Console HTML 标记验证
+- 已新增 `lib/knowledge.ts` 与 `/knowledge-center/[slug]` 动态文章页，首批新增 5 个知识库 SEO 文章：日本精密体检、干细胞合法性、外泌体、日本医疗体系、企业家健康管理
+- 已将知识库首页的精选文章区扩展为 6 篇文章入口，并将新知识库文章加入 sitemap
+- 已更新 `DEPLOY.md`，补充 LINE Webhook、GA、Search Console 的环境变量与落地说明
 
 ## 验证记录
 
@@ -108,3 +113,4 @@
 - 已执行 `rg` 检索，确认 `app`、`components`、`lib`、`DEPLOY.md` 中不再出现 `mailto:`、`window.location`、`location.href`、`CONTACT_TO_EMAIL`、旧邮箱等残留
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 Resend 服务端发送、感谢页文案和部署说明更新后仍正常生成 38 个路由
 - 已执行 `npm run build`，Next.js 生产构建通过，确认来源页面字段、发件人显示和客户自动回复邮件改动未破坏构建
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 GA/GSC 入口、知识库动态文章和 sitemap 正常生成，共 43 个路由

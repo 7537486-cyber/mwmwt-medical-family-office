@@ -83,6 +83,8 @@ LINE_CHANNEL_ACCESS_TOKEN=LINE Messaging API Channel Access Token，可选
 LINE_TO_ID=要接收内部通知的 LINE 用户或群组 ID，可选
 NEXT_PUBLIC_LINE_URL=LINE 官方账号链接，可选
 NEXT_PUBLIC_WHATSAPP_URL=WhatsApp 咨询链接，可选
+NEXT_PUBLIC_GA_ID=Google Analytics 衡量 ID，例如 G-XXXXXXXXXX，可选
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=Google Search Console HTML 标记中的验证码，可选
 ```
 
 配置路径：
@@ -92,3 +94,10 @@ Vercel -> Project -> Settings -> Environment Variables
 ```
 
 保存后重新部署一次，表单才会真正发送邮件并写入 CRM Webhook。
+
+LINE 通知最快的落地方式是先用 Make、Zapier 或其他自动化工具生成一个 Webhook URL，填入
+`LINE_NOTIFICATION_WEBHOOK_URL`，再由该工具转发到 LINE 群。正式开发 LINE Messaging API 时，再使用
+`LINE_CHANNEL_ACCESS_TOKEN` 与 `LINE_TO_ID`。
+
+Google Search Console 推荐使用域名资源验证；如果先用 HTML 标记验证，将 content 值填入
+`NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`，重新部署后再回到 Search Console 点击验证。

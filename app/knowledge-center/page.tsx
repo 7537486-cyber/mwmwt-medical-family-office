@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
+import { knowledgeArticles } from "@/lib/knowledge";
 import { normalizeLanguage, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -132,6 +133,29 @@ const pageCopy = {
   }
 };
 
+const featuredArticles = [
+  {
+    href: "/knowledge-center/longevity-medicine",
+    category: "Longevity Medicine",
+    title: {
+      zh: "什么是长寿医学？",
+      ja: "長寿医学とは何か",
+      en: "What Is Longevity Medicine?"
+    },
+    description: {
+      zh: "长寿医学不是简单地活得更久，而是以延长健康寿命为目标，提前发现衰老速度、慢病风险与功能下降趋势。",
+      ja: "長寿医学は単に長く生きることではなく、健康寿命を延ばし、老化速度や慢性疾患リスクを早期に捉える考え方です。",
+      en: "Longevity medicine focuses on extending healthspan by identifying aging speed, chronic disease risk, and functional decline earlier."
+    }
+  },
+  ...knowledgeArticles.map((article) => ({
+    href: `/knowledge-center/${article.slug}`,
+    category: article.category,
+    title: article.title,
+    description: article.description
+  }))
+];
+
 export default function KnowledgeCenterPage({
   searchParams
 }: {
@@ -209,9 +233,33 @@ export default function KnowledgeCenterPage({
               {copy.read} →
             </Link>
           </div>
-          <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2">
+          <div className="grid gap-4">
+            {featuredArticles.map((article) => (
+              <Link
+                key={article.href}
+                href={withLanguage(article.href, lang)}
+                className="border border-mist bg-pearl p-6 transition hover:border-champagne hover:bg-white"
+              >
+                <p className="text-xs uppercase tracking-[0.26em] text-champagne">
+                  {article.category}
+                </p>
+                <h3 className="mt-4 text-xl font-semibold leading-tight text-ink">
+                  {article.title[lang]}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-graphite/70">
+                  {article.description[lang]}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-pearl px-5 pb-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2 lg:grid-cols-5">
             {centers[lang].map((center) => (
-              <div key={center} className="bg-pearl p-6">
+              <div key={center} className="bg-white p-6">
                 <p className="text-sm font-semibold leading-7 text-ink">{center}</p>
               </div>
             ))}

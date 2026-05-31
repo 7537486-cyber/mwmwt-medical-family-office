@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
+import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
@@ -37,6 +38,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_CN",
     alternateLocale: ["ja_JP", "en_US"]
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
   }
 };
 
@@ -68,6 +72,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <Analytics />
         <Suspense fallback={null}>
           <Header />
         </Suspense>

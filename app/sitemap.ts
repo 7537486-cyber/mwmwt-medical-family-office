@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { doctorProfiles } from "@/lib/doctors";
+import { knowledgeArticles } from "@/lib/knowledge";
 import { navItems } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -38,5 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }));
 
-  return [...staticPages, ...platformPages, ...doctorPages];
+  const knowledgePages = knowledgeArticles.map((article) => ({
+    url: `${baseUrl}/knowledge-center/${article.slug}`,
+    lastModified: new Date("2026-05-31"),
+    changeFrequency: "monthly" as const,
+    priority: 0.72
+  }));
+
+  return [...staticPages, ...platformPages, ...doctorPages, ...knowledgePages];
 }

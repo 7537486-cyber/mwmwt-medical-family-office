@@ -19,3 +19,5 @@
 - `info@mwmwt.com` 当前如尚未创建，表单代码虽已默认发送到该地址，但上线前必须先创建邮箱或至少完成 Resend 发信域名验证；否则邮件发送会失败。
 - LINE 内部推送需要二选一配置：`LINE_NOTIFICATION_WEBHOOK_URL`（推荐先接 Make/Zapier）或 `LINE_CHANNEL_ACCESS_TOKEN` + `LINE_TO_ID`（直接接 LINE Messaging API）。未配置时表单仍可提交邮件和 CRM，但不会推送 LINE。
 - 本次 Resend 表单修复已本地提交，但生产部署仍被账号认证阻塞：`git push origin main` 无法读取 GitHub 用户名，Vercel CLI token 无效，Vercel 连接工具也未提供直接部署能力。需要用户重新登录 GitHub/Vercel 或在本机执行授权后再发布。
+- Google Analytics 与 Google Search Console 代码入口已经加入，但需要在 Vercel 配置 `NEXT_PUBLIC_GA_ID` 与 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` 并重新部署；Search Console 仍需要用户在 Google 后台完成资源创建和验证。
+- 新增 SEO 文章为首批合规型内容骨架，未使用真实医生、真实机构或疗效承诺；后续扩展到深度医学文章时应继续保留参考文献、来源和医学免责声明。
