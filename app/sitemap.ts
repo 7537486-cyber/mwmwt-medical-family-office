@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/knowledge-center/longevity-medicine",
     "/research-center",
     "/case-library",
+    "/case-library/second-opinion-certainty",
     "/media-center",
     "/private-aviation-concierge",
     "/privacy-policy",

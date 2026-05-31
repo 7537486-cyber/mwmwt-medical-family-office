@@ -22,6 +22,14 @@
 
 当前首页与信任页整改：根据用户最高优先级要求，首页已重写为平台型叙事：Aging Is Not Destiny、客户真正购买的健康寿命与风险控制、MWMWT 四步流程、长期健康治理、全球医疗资源、医生网络、企业家专区、家庭健康办公室、知识中心与私密咨询入口；同时新增 About MWMWT、Founder、Medical Advisory 三个信任页并加入 sitemap。
 
+当前首页再精简：用户反馈首页仍然太长、像白皮书后，已将首页压缩为品牌叙事结构：首屏、Founder Letter、Why Japan、客户真正购买的健康决策权、一个案例故事入口、公开医学专家资料库入口和申请式咨询入口。首页不再展开知识库、会员、全球网络和完整案例内容。
+
+当前案例入口：首页只保留 “At times, the most valuable form of medical care is not a procedure, but certainty.” 与对应中日英文说明，并通过 Read the Story 进入 `/case-library/second-opinion-certainty` 案例详情页。
+
+当前医生资源降风险：医生资源页、医生详情页、医疗顾问页和导航已从“医生网络/顶级医生”调整为“公开医学专家资料库 / Medical Reference Network / Public Medical Expert Database”，并明确 Based on public academic and professional information，不代表医生为 MWMWT 团队成员、已确认合作或保证可接诊。
+
+当前 SEO 内容扩展：用户要求做健康管理、高端医疗、长寿管理方向 100 篇 SEO 文章；已通过 10 个主题 × 10 类高净值客户场景生成 100 篇新增知识库文章，并复用现有动态文章页、sitemap 与 Article/Breadcrumb 结构化数据。
+
 ## 成功标准
 
 - 首页 9 个服务卡片在桌面端呈现 3+3+3
@@ -120,6 +128,11 @@
 - 已重构联系表单字段与后台提交 payload，新增所在国家/城市、希望沟通语言、首选联系方式、紧急程度，并同步进入邮件、CRM 与 LINE 通知。
 - 已重写首页为 Medical Family Office 平台结构，弱化项目销售感，突出 Aging Is Not Destiny、Healthspan、Risk Control、Global Medical Access、Executive Health 与 Family Health Office。
 - 已新增 `/about-mwmwt`、`/founder`、`/medical-advisory` 三个信任页面，接入页脚入口与 sitemap。
+- 已将 `lib/knowledge.ts` 拆分为基础文章与 SEO 生成文章：保留原有 5 篇手写知识库文章，新增 100 篇程序化文章。
+- 新增 SEO 文章覆盖三大内容簇：Health Management、Premium Medical Access、Longevity Management。
+- 新增 SEO 主题覆盖年度健康管理、企业家压力睡眠、代谢风险、心脑血管预防、日本高端精密体检、第二诊疗意见、私人医疗礼宾、长寿基线评估、生物年龄检测、家族健康治理。
+- 新增文章按 10 类客户场景展开：企业家、50 岁以上创始人、高净值家庭、家族办公室客户、频繁跨境出行人群、私人银行客户、父母与长辈、下一代家庭成员、计划赴日医疗客户、长寿管理会员。
+- 新增每篇文章均包含中日英标题、描述、正文模块、决策问题、Medical Family Office 协助方式与医疗合规边界。
 
 ## 验证记录
 
@@ -154,3 +167,9 @@
 - 已执行 `npm run build`，Next.js 生产构建通过，确认联系页去重后仍正常生成 43 个路由
 - 已执行 `npm run build`，Next.js 生产构建通过，确认联系页顾问式表单重构、后台字段同步和首屏文案调整后仍正常生成 43 个路由
 - 已执行 `npm run build`，Next.js 生产构建通过，确认首页平台化重写、About MWMWT、Founder、Medical Advisory 三个信任页与 sitemap 更新后正常生成 46 个路由
+- 首次新增 SEO 主题矩阵后发现生成 150 篇新文章，超过用户要求；已收敛为精确 100 篇新增文章。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 100 篇新增 SEO 文章进入知识库动态路由，当前生成 146 个路由；`/knowledge-center/[slug]` 显示原有 5 篇 + 新增 100 篇，共 105 篇。
+- 已执行 `npm run typecheck`，TypeScript 检查通过。并行跑 typecheck/build 时曾因 `.next` 类型缓存被构建清理出现一次假失败，构建完成后单独重跑已通过。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认首页精简、公开专家资料库和新案例详情页类型正确。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 `/case-library/second-opinion-certainty` 新案例页、sitemap 和首页故事入口正常生成，当前生成 147 个静态页面。
+- 已执行公开文案检索，确认未出现“显著年轻化、疗效保证、永葆青春、Forever Young、卖项目、白皮书、SEO内容资产、100+ Medical、顶级医生”等不适合公开展示或高风险表述；“团队成员/已确认合作/保证可接诊”等词仅以否定免责声明形式出现。

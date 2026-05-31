@@ -27,7 +27,7 @@ const copy = {
     contactOptions: ["微信", "WhatsApp", "LINE", "电话", "邮箱"],
     urgencyOptions: ["非紧急", "1个月内", "尽快"],
     placeholder: "请简要说明健康目标、家庭情况、时间安排、已有检查结果或正在面对的风险议题。",
-    submit: "提交私密咨询",
+    submit: "申请私密顾问沟通",
     note:
       "提交后将进入 MWMWT 私人医疗协调流程。我们会先判断适配度，再安排中日双语或英文沟通。",
     submitting: "正在安全提交...",
@@ -54,7 +54,7 @@ const copy = {
     contactOptions: ["WeChat", "WhatsApp", "LINE", "電話", "メール"],
     urgencyOptions: ["緊急ではない", "1か月以内", "できるだけ早く"],
     placeholder: "健康目標、ご家族の状況、希望時期、既存の検査結果、現在のリスク課題を簡潔にご記入ください。",
-    submit: "プライベート相談を送信",
+    submit: "プライベート相談を申請",
     note:
       "送信後、MWMWT のプライベート医療調整プロセスに入ります。適合性を確認したうえで、中日または英語でのご連絡を調整します。",
     submitting: "安全に送信しています...",
@@ -81,7 +81,7 @@ const copy = {
     contactOptions: ["WeChat", "WhatsApp", "LINE", "Phone", "Email"],
     urgencyOptions: ["Not urgent", "Within 1 month", "As soon as possible"],
     placeholder: "Briefly describe health goals, family context, timing, existing test results, or risk concerns.",
-    submit: "Submit Private Inquiry",
+    submit: "Apply for Private Consultation",
     note:
       "Your inquiry enters the MWMWT private medical coordination process. We first review fit, then arrange communication in Chinese, Japanese, or English.",
     submitting: "Submitting securely...",

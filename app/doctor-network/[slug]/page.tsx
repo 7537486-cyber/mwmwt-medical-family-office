@@ -53,8 +53,8 @@ const genericDoctorDetails = {
 
 const doctorCopy = {
   zh: {
-    back: "← 医生网络",
-    profile: "医生基本信息",
+    back: "← 公开专家资料库",
+    profile: "公开专家资料",
     institution: "机构",
     role: "职务",
     sources: "公开资料",
@@ -67,15 +67,15 @@ const doctorCopy = {
     languagesValue: "日语 / 中文协调 / 英文协调",
     positioning: "专业定位",
     positioningBody:
-      "医生专注领域基于公开资料与研究方向整理，适用于专科匹配、第二诊疗意见、长期健康管理和跨境医疗资源判断。具体诊疗方案需由持牌医生根据个人情况决定。",
+      "本页基于公开资料与研究方向整理，适用于专科匹配、第二诊疗意见、长期健康管理和跨境医疗资源判断前的资料准备。页面不代表医生为 MWMWT 团队成员或已确认合作。",
     suitable: "适合客户",
     suitableItems: ["企业家", "家族办公室客户", "高净值家庭", "希望进行深度体检的人群", "需要第二诊疗意见的客户", "希望进行长期健康管理的人群"],
     support: "医疗家族办公室如何协助",
     supportBody:
-      "我们不是单一诊所，而是医疗资源整合顾问。我们协助客户匹配合适医生、整理既往病历、安排预约、翻译医疗资料、陪同就诊、协调第二诊疗意见，并建立长期健康管理档案。",
+      "我们不是单一诊所，而是医疗资源整合顾问。我们协助客户整理既往病历、准备问题清单、确认机构规则和转诊条件，并在适配后协调第二诊疗意见与长期健康管理档案。",
     disclaimer: "合规免责声明",
     disclaimerBody:
-      "本页面内容仅用于医生专业背景介绍，不构成医疗广告、诊断建议或治疗承诺。具体诊疗方案需由持牌医生根据客户个人情况进行判断。医生当前任职、接诊规则、合作身份与机构准入要求需在正式转诊前再次核验。",
+      "本页面内容基于公开学术与职业资料整理，仅用于专业背景参考，不构成医疗广告、诊断建议、推荐背书或治疗承诺。页面不表示医生为 MWMWT 员工、团队成员、已确认合作医生或保证可接诊资源。具体诊疗方案需由持牌医生根据客户个人情况判断。",
     sourceBody:
       "以下链接用于初步履历核验；正式转诊前仍需再次确认医生当前任职、接诊规则与机构准入要求。",
     genericSpecialty: "",
@@ -83,8 +83,8 @@ const doctorCopy = {
     genericSummary: ""
   },
   ja: {
-    back: "← 医師ネットワーク",
-    profile: "医師基本情報",
+    back: "← 公開専門家資料",
+    profile: "公開専門家情報",
     institution: "所属機関",
     role: "役職",
     sources: "公開情報",
@@ -97,15 +97,15 @@ const doctorCopy = {
     languagesValue: "日本語 / 中国語調整 / 英語調整",
     positioning: "専門的な位置づけ",
     positioningBody:
-      "専門領域は公開情報と研究方向に基づいて整理しています。専門医マッチング、セカンドオピニオン、長期健康管理、国際医療判断の参考情報です。",
+      "本ページは公開情報と研究方向に基づいて整理しています。専門医マッチング、セカンドオピニオン、長期健康管理、国際医療判断の参考情報であり、MWMWTのチームメンバーまたは提携確定を意味しません。",
     suitable: "適したクライアント",
     suitableItems: ["起業家", "ファミリーオフィス顧客", "富裕層家族", "深度健診を希望する方", "セカンドオピニオンが必要な方", "長期健康管理を希望する方"],
     support: "医療ファミリーオフィスの支援",
     supportBody:
-      "当社は単一クリニックではなく、医療資源統合アドバイザーです。医師マッチング、既往資料整理、予約調整、医療資料翻訳、受診同行、セカンドオピニオン調整、長期健康記録の構築を支援します。",
+      "当社は単一クリニックではなく、医療資源統合アドバイザーです。既往資料、質問リスト、医療機関規定、紹介条件を整理し、適合性確認後にセカンドオピニオンや長期健康記録の構築を支援します。",
     disclaimer: "免責事項",
     disclaimerBody:
-      "本ページは医師の専門背景紹介を目的としており、医療広告、診断助言、治療効果の保証ではありません。具体的な診療方針は、個別状況に基づき医師が判断します。",
+      "本ページは公開された学術・職業情報に基づく参考情報であり、医療広告、診断助言、推薦、治療効果の保証ではありません。掲載医師はMWMWTの従業員、チームメンバー、提携確定先、受診保証先ではありません。",
     sourceBody:
       "以下のリンクは初期確認のための公開情報です。正式紹介前には現在の所属、受診規定、医療機関の受入条件を再確認します。",
     genericSpecialty: "専門医プロフィール",
@@ -114,8 +114,8 @@ const doctorCopy = {
       "公開情報、研究領域、紹介前の確認項目を整理した専門医プロフィールです。実際の受診可否、協力形態、医療機関規定は個別に確認します。"
   },
   en: {
-    back: "← Doctor Network",
-    profile: "Doctor Information",
+    back: "← Public Expert Database",
+    profile: "Public Expert Information",
     institution: "Institution",
     role: "Role",
     sources: "Public Sources",
@@ -128,15 +128,15 @@ const doctorCopy = {
     languagesValue: "Japanese / Chinese coordination / English coordination",
     positioning: "Professional Positioning",
     positioningBody:
-      "The doctor's field is organized from public information and research focus. It supports specialist matching, second opinions, long-term health management, and cross-border medical resource decisions.",
+      "This profile is organized from public information and research focus. It supports specialist research, second-opinion preparation, long-term health planning, and cross-border medical resource decisions. It does not imply employment by MWMWT or confirmed cooperation.",
     suitable: "Suitable For",
     suitableItems: ["Entrepreneurs", "Family office clients", "High-net-worth families", "Clients seeking advanced screening", "Clients needing second opinions", "Clients seeking long-term health management"],
     support: "How We Support",
     supportBody:
-      "We are not a single clinic. We act as a medical resource integration advisor, supporting doctor matching, record preparation, appointment coordination, translation, on-site support, second-opinion coordination, and long-term health archives.",
+      "We are not a single clinic. We act as a medical resource integration advisor, supporting record preparation, question lists, institution-rule review, referral-condition confirmation, second-opinion coordination when appropriate, and long-term health archives.",
     disclaimer: "Disclaimer",
     disclaimerBody:
-      "This page is for professional background introduction only and does not constitute medical advertising, diagnostic advice, or treatment commitment. Specific care decisions must be made by licensed physicians based on individual circumstances.",
+      "This page is based on public academic and professional information for reference only. It does not constitute medical advertising, diagnostic advice, endorsement, or treatment commitment. Listed physicians are not MWMWT employees, team members, confirmed partners, or guaranteed referral options.",
     sourceBody:
       "The following links support initial profile review. Current role, appointment rules, and institution access requirements must be confirmed again before referral.",
     genericSpecialty: "Specialist Profile",
@@ -164,13 +164,13 @@ export function generateMetadata({ params }: DoctorPageProps): Metadata {
 
   if (!doctor) {
     return {
-      title: "医生档案"
+      title: "公开专家资料"
     };
   }
 
   return {
-    title: `${doctor.name} 医生档案`,
-    description: `${doctor.name}（${doctor.jaName}）${doctor.specialty}专家档案，包含学历、学会资格、研究方向、论文和适配案例。`
+    title: `${doctor.name} 公开专家资料`,
+    description: `${doctor.name}（${doctor.jaName}）${doctor.specialty}公开资料档案，基于公开信息整理学历、学会资格、研究方向、论文和适配场景。`
   };
 }
 

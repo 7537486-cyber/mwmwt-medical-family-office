@@ -42,7 +42,7 @@ export const navItems: NavItem[] = [
   { href: "/regenerative-medicine", label: "再生医疗", ja: "再生医療", en: "Regenerative Medicine" },
   { href: "/executive-health", label: "企业家健康", ja: "エグゼクティブヘルス", en: "Executive Health" },
   { href: "/global-medical-access", label: "全球医疗资源", ja: "国際医療アクセス", en: "Global Medical Access" },
-  { href: "/doctor-network", label: "医生网络", ja: "医師ネットワーク", en: "Doctors" },
+  { href: "/doctor-network", label: "医学专家库", ja: "専門家資料", en: "Expert Database" },
   { href: "/knowledge-center", label: "知识中心", ja: "ナレッジセンター", en: "Knowledge Center" },
   { href: "/membership-program", label: "会员体系", ja: "会員制度", en: "Membership" },
   { href: "/contact", label: "联系", ja: "お問い合わせ", en: "Contact" }
@@ -346,18 +346,18 @@ export const pages: Record<string, PageContent> = {
   },
   "doctor-network": {
     slug: "doctor-network",
-    eyebrow: "Doctor Network",
-    title: "日本顶级医生简历与专科协作网络",
-    jaTitle: "日本トップドクターの専門家ネットワーク",
+    eyebrow: "Medical Reference Network",
+    title: "公开医学专家资料库",
+    jaTitle: "公開医学専門家データベース",
     description:
-      "覆盖再生医疗、肿瘤、心血管、神经科、内分泌与运动医学，建立可核验、可转诊沟通的专家档案。",
+      "基于公开学术与职业资料整理医学专家参考信息，用于医学资源研究、专科方向理解与转诊前准备。",
     jaDescription:
-      "再生医療、腫瘍、心血管、神経内科、内分泌、スポーツ医学の専門医プロフィールを整理します。",
+      "公開された学術・職業情報に基づき、医療資源調査、専門領域の理解、紹介前準備に使う参考情報を整理します。",
     pillars: [
       {
-        title: "医生简历",
-        ja: "医師プロフィール",
-        body: "按学历、学会资格、研究方向、论文与适配案例整理核心专家资料。"
+        title: "公开资料",
+        ja: "公開情報",
+        body: "按公开学历、学会活动、研究方向、论文与适配场景整理专家参考资料。"
       },
       {
         title: "专科分层",
@@ -370,22 +370,22 @@ export const pages: Record<string, PageContent> = {
         body: "在预约前完成公开资料核验、病历摘要、问题清单和沟通边界确认。"
       }
     ],
-    proof: ["6 大专科方向", "公开资料核验", "去标识化案例场景"],
+    proof: ["6 大专科方向", "公开资料核验", "转诊前准备"],
     process: ["确认需求", "筛选医生", "核验履历", "准备资料", "预约沟通"],
-    cta: "查看医生网络"
+    cta: "查看公开专家资料"
   },
   contact: {
     slug: "contact",
-    eyebrow: "Private Medical Advisory",
-    title: "预约一次私密医疗顾问沟通",
-    jaTitle: "プライベート医療アドバイザー相談を予約",
-    enTitle: "先判断适配度，再安排私密沟通",
+    eyebrow: "Apply for Private Consultation",
+    title: "申请私密医疗顾问沟通",
+    jaTitle: "プライベート医療相談を申請",
+    enTitle: "申请制、审核制、预约制",
     description:
-      "MWMWT 为高净值家庭、企业家与跨境客户提供日本医疗资源协调、长期健康治理与私人医疗礼宾服务。提交信息后，我们会先判断适配度，再安排中日双语沟通。",
+      "MWMWT 每年仅接受有限数量的私人客户。提交信息后，我们会先了解您的健康目标、家庭情况与风险议题，再判断是否适合进入私人医疗协调体系。",
     jaDescription:
-      "MWMWTは富裕層家族、経営者、国際医療ニーズを持つお客様に、日本医療資源の調整、長期健康管理、プライベート医療コンシェルジュを提供します。送信後、適合性を確認したうえで中日バイリンガル面談を調整します。",
+      "MWMWTは年間で限られたプライベートクライアントのみ受け入れます。送信後、健康目標、ご家族の状況、リスク課題を確認し、プライベート医療調整体系への適合性を判断します。",
     enDescription:
-      "We first understand your health goals, family context, and risk concerns, then assess whether MWMWT is the right private medical coordination system for your needs.",
+      "MWMWT accepts a limited number of private clients each year. We first review your health goals, family context, and risk concerns, then assess fit before arranging a confidential advisory conversation.",
     pillars: [
       {
         title: "适合对象",
@@ -405,7 +405,7 @@ export const pages: Record<string, PageContent> = {
     ],
     proof: ["24 小时内初步回复", "中日双语顾问", "私密会议安排"],
     process: ["提交需求", "适配度确认", "预约介绍会议", "形成下一步建议"],
-    cta: "提交私密咨询"
+    cta: "申请私密顾问沟通"
   }
 };
 
@@ -599,25 +599,25 @@ const englishPages: Record<string, EnglishPage> = {
     ]
   },
   "doctor-network": {
-    title: "Japan top doctor profiles and specialist collaboration network",
+    title: "Public Medical Expert Database",
     description:
-      "A verified specialist profile network across regenerative medicine, oncology, cardiovascular care, neurology, endocrinology, and sports medicine.",
-    proof: ["Six specialty areas", "Public profile verification", "De-identified case scenarios"],
+      "A public-reference specialist database for medical resource research, specialty understanding, and pre-referral preparation.",
+    proof: ["Six specialty areas", "Public profile verification", "Pre-referral preparation"],
     process: ["Clarify need", "Screen physicians", "Verify profile", "Prepare records", "Coordinate consultation"],
-    cta: "Explore doctor network",
+    cta: "Explore public expert profiles",
     pillars: [
-      { title: "Doctor profiles", body: "Key specialist profiles are organized by education, society activity, research direction, publications, and suitable scenarios." },
+      { title: "Public profiles", body: "Specialist reference profiles are organized from public education, society activity, research direction, publications, and suitable scenarios." },
       { title: "Specialty mapping", body: "Physician pathways are matched by condition, disease stage, document readiness, and Japan access timeline." },
       { title: "Referral readiness", body: "Public profile checks, medical summaries, question lists, and communication boundaries are prepared before appointment requests." }
     ]
   },
   contact: {
-    title: "Book a private medical advisory consultation",
+    title: "Apply for Private Consultation",
     description:
-      "MWMWT provides Japan medical access coordination, long-term health governance, and private medical concierge support for high-net-worth families, entrepreneurs, and cross-border clients. After submission, we first assess fit, then arrange communication in Chinese, Japanese, or English.",
-    proof: ["Appointment-only first contact", "Chinese, Japanese, and English coordination", "Confidential handling"],
-    process: ["Submit private inquiry", "Review goals and fit", "Schedule advisory call", "Define next steps"],
-    cta: "Submit private inquiry",
+      "MWMWT accepts a limited number of private clients each year. We first review health goals, family context, and risk concerns, then assess fit before arranging a confidential medical advisory conversation.",
+    proof: ["Application-based", "Fit review", "Appointment-only", "Confidential handling"],
+    process: ["Submit request", "Review goals and fit", "Schedule advisory call", "Define next steps"],
+    cta: "Apply for private consultation",
     pillars: [
       { title: "Who we serve", body: "Entrepreneur families, family offices, private banking relationship managers, and families with cross-border medical needs." },
       { title: "What we discuss", body: "Executive checkups, regenerative medicine, major illness second opinions, long-term health planning, and Japan hospital appointments." },

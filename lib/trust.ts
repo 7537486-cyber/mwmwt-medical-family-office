@@ -64,7 +64,7 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "医疗资源协调", body: "连接日本及全球合规医疗机构、医生网络与专科资源。" },
+          { title: "医疗资源协调", body: "连接日本及全球合规医疗机构、公开医学专家资料与专科资源。" },
           { title: "风险管理", body: "围绕合规、医生资质、资料完整性和预期边界进行审慎说明。" },
           { title: "长期随访", body: "把体检、治疗、指标变化和家庭健康计划纳入持续管理。" }
         ]
@@ -101,7 +101,7 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "医療資源調整", body: "日本および海外の適法な医療機関、医師ネットワーク、専門資源へ接続します。" },
+          { title: "医療資源調整", body: "日本および海外の適法な医療機関、公開医学専門家情報、専門資源へ接続します。" },
           { title: "リスク管理", body: "コンプライアンス、医師資格、資料の完全性、期待値の境界を慎重に整理します。" },
           { title: "長期フォロー", body: "健診、治療、指標変化、家族健康計画を継続的に管理します。" }
         ]
@@ -138,7 +138,7 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "Medical Access", body: "Connect with compliant institutions, physician networks, and specialty resources in Japan and globally." },
+          { title: "Medical Access", body: "Connect with compliant institutions, public medical expert references, and specialty resources in Japan and globally." },
           { title: "Risk Governance", body: "Review compliance, physician background, document readiness, and realistic expectations." },
           { title: "Long-Term Follow-Up", body: "Integrate checkups, treatment records, indicators, and family health planning into one system." }
         ]
@@ -178,7 +178,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "面向未来",
             body: [
               "未来的高净值健康管理，不应停留在体检套餐或医疗旅游，而应成为家族治理的一部分。",
-              "MWMWT 将持续建设医生网络、知识中心、研究资料库和长期会员体系，为全球家族提供更稳定的私人健康决策支持。"
+              "MWMWT 将持续建设公开医学专家资料、知识中心、研究资料库和长期会员体系，为全球家族提供更稳定的私人健康决策支持。"
             ]
           }
         ],
@@ -215,7 +215,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "これから",
             body: [
               "未来の富裕層健康管理は、健診パッケージや医療旅行にとどまらず、家族ガバナンスの一部になるべきです。",
-              "MWMWTは医師ネットワーク、ナレッジセンター、研究資料、長期会員制度を継続的に構築します。"
+              "MWMWTは公開医学専門家情報、ナレッジセンター、研究資料、長期会員制度を継続的に構築します。"
             ]
           }
         ],
@@ -252,7 +252,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "Looking Forward",
             body: [
               "The future of UHNW health management should move beyond checkup packages or medical tourism and become part of family governance.",
-              "MWMWT will continue building physician networks, knowledge centers, research resources, and long-term membership systems."
+              "MWMWT will continue building public medical expert references, knowledge centers, research resources, and long-term membership systems."
             ]
           }
         ],
@@ -267,14 +267,14 @@ export const trustPages: Record<string, TrustPageContent> = {
   "medical-advisory": {
     slug: "medical-advisory",
     metaTitle: "Medical Advisory",
-    metaDescription: "MWMWT 医疗顾问体系：医生网络、医疗尽调、质量控制与长期随访机制。",
+    metaDescription: "MWMWT 医疗顾问体系：公开医学专家资料、医疗尽调、质量控制与长期随访机制。",
     image: "/hero-doctor-network.png",
     copies: {
       zh: {
         eyebrow: "Medical Advisory",
         title: "建立医疗顾问体系，而不是销售单一医疗项目。",
         description:
-          "MWMWT 的医疗顾问体系围绕医生网络、机构合规、项目审查、资料整理、第二意见和长期随访建立。",
+          "MWMWT 的医疗顾问体系围绕公开医学专家资料、机构合规、项目审查、资料整理、第二意见和长期随访建立。",
         secondaryTitle: "核心目标：降低重大健康决策的不确定性。",
         secondaryDescription:
           "我们帮助客户在进入具体医疗安排前，先完成医学资料、风险边界、医生背景和机构能力的基础判断。",
@@ -311,7 +311,7 @@ export const trustPages: Record<string, TrustPageContent> = {
         eyebrow: "Medical Advisory",
         title: "単一プログラム販売ではなく、医療アドバイザリー体系を構築します。",
         description:
-          "MWMWTの医療アドバイザリーは、医師ネットワーク、医療機関の適法性、プログラム審査、資料整理、セカンドオピニオン、長期フォローに基づきます。",
+          "MWMWTの医療アドバイザリーは、公開医学専門家情報、医療機関の適法性、プログラム審査、資料整理、セカンドオピニオン、長期フォローに基づきます。",
         secondaryTitle: "目的は、重要な健康意思決定の不確実性を下げることです。",
         secondaryDescription:
           "具体的な手配に入る前に、医療資料、リスク境界、医師背景、医療機関能力を整理します。",
@@ -348,7 +348,7 @@ export const trustPages: Record<string, TrustPageContent> = {
         eyebrow: "Medical Advisory",
         title: "A medical advisory framework, not single-program selling.",
         description:
-          "MWMWT's advisory framework is built around physician networks, institutional compliance, program review, document preparation, second opinions, and long-term follow-up.",
+          "MWMWT's advisory framework is built around public medical expert references, institutional compliance, program review, document preparation, second opinions, and long-term follow-up.",
         secondaryTitle: "The goal is to reduce uncertainty in major health decisions.",
         secondaryDescription:
           "Before specific arrangements begin, we help clients review medical records, risk boundaries, physician background, and institutional capability.",
