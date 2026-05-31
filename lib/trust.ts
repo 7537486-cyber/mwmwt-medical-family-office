@@ -28,23 +28,23 @@ export type TrustPageContent = {
 export const trustPages: Record<string, TrustPageContent> = {
   "about-mwmwt": {
     slug: "about-mwmwt",
-    metaTitle: "About MWMWT",
-    metaDescription: "MWMWT 的定位、服务边界、医疗治理理念与跨境医疗资源协调方式。",
+    metaTitle: "About Medical Family Office",
+    metaDescription: "Medical Family Office 的定位、服务边界、医疗治理理念与跨境医疗资源协调方式。",
     image: "/hero-medical-family-office.png",
     copies: {
       zh: {
-        eyebrow: "About MWMWT",
-        title: "MWMWT 是面向全球家族的医疗家族办公室。",
+        eyebrow: "About Medical Family Office",
+        title: "Medical Family Office 是面向全球家族的医疗家族办公室。",
         description:
           "我们为企业家、高净值家庭与跨境客户提供日本医疗资源协调、长期健康治理、长寿医学规划和私人医疗礼宾支持。",
         secondaryTitle: "不是医院，也不是单一项目中介。",
         secondaryDescription:
-          "MWMWT 的核心价值，是代表客户进行医疗资源筛选、医生沟通、资料整理、风险说明和长期随访管理。",
+          "Medical Family Office 的核心价值，是代表客户进行医疗资源筛选、医生沟通、资料整理、风险说明和长期随访管理。",
         sections: [
           {
             title: "我们的定位",
             body: [
-              "MWMWT 以 Medical Family Office 的方式工作：像家族办公室管理财富风险一样，帮助客户管理未来数十年的健康风险和重大医疗决策。",
+              "我们以 Medical Family Office 的方式工作：像家族办公室管理财富风险一样，帮助客户管理未来数十年的健康风险和重大医疗决策。",
               "我们不直接提供诊断、治疗或疗效承诺。具体医疗服务由持牌医生和合规医疗机构依法提供。"
             ]
           },
@@ -52,7 +52,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "我们解决的问题",
             body: [
               "高净值客户往往不缺预算，真正困难的是判断医生是否可靠、医院是否合规、项目是否适合、风险是否充分说明，以及治疗或体检之后是否有人持续跟进。",
-              "MWMWT 将医疗资源获取、医学资料整理、跨语言沟通、预约协调、长期健康档案和家庭健康规划整合为一个清晰的服务体系。"
+              "Medical Family Office 将医疗资源获取、医学资料整理、跨语言沟通、预约协调、长期健康档案和家庭健康规划整合为一个清晰的服务体系。"
             ]
           },
           {
@@ -70,18 +70,18 @@ export const trustPages: Record<string, TrustPageContent> = {
         ]
       },
       ja: {
-        eyebrow: "About MWMWT",
-        title: "MWMWTはグローバル家族のための医療ファミリーオフィスです。",
+        eyebrow: "About Medical Family Office",
+        title: "Medical Family Officeはグローバル家族のための医療ファミリーオフィスです。",
         description:
           "経営者、富裕層家族、国際医療ニーズを持つお客様に、日本医療資源の調整、長期健康管理、長寿医学計画、プライベート医療コンシェルジュを提供します。",
         secondaryTitle: "病院でも単一プログラムの仲介でもありません。",
         secondaryDescription:
-          "MWMWTの役割は、医療資源の確認、医師との調整、資料整理、リスク説明、長期フォローをお客様側に立って支援することです。",
+          "Medical Family Officeの役割は、医療資源の確認、医師との調整、資料整理、リスク説明、長期フォローをお客様側に立って支援することです。",
         sections: [
           {
             title: "私たちの位置づけ",
             body: [
-              "MWMWTは Medical Family Office として、資産リスクを管理する家族オフィスのように、健康リスクと重要な医療意思決定を支援します。",
+              "私たちは Medical Family Office として、資産リスクを管理するファミリーオフィスのように、健康リスクと重要な医療意思決定を支援します。",
               "当社は診断、治療、効果保証を直接提供しません。具体的な医療行為は、資格を持つ医師と適法な医療機関により提供されます。"
             ]
           },
@@ -89,7 +89,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "解決する課題",
             body: [
               "富裕層のお客様にとって難しいのは費用ではなく、医師の信頼性、医療機関の適法性、プログラムの適合性、リスク説明、受診後の継続管理です。",
-              "MWMWTは医療資源アクセス、資料整理、多言語調整、予約、長期健康記録、家族健康計画を一つの体系にまとめます。"
+              "Medical Family Officeは医療資源アクセス、資料整理、多言語調整、予約、長期健康記録、家族健康計画を一つの体系にまとめます。"
             ]
           },
           {
@@ -107,8 +107,8 @@ export const trustPages: Record<string, TrustPageContent> = {
         ]
       },
       en: {
-        eyebrow: "About MWMWT",
-        title: "MWMWT is a Medical Family Office for global families.",
+        eyebrow: "About Medical Family Office",
+        title: "Medical Family Office is a private medical advisory platform for global families.",
         description:
           "We support entrepreneurs, high-net-worth families, and cross-border clients with Japan medical access, long-term health governance, longevity planning, and private medical concierge coordination.",
         secondaryTitle: "We are not a hospital or a single-treatment broker.",
@@ -118,7 +118,7 @@ export const trustPages: Record<string, TrustPageContent> = {
           {
             title: "Our Position",
             body: [
-              "MWMWT works as a Medical Family Office: we help families manage health risk and major medical decisions with the same discipline used for wealth, legal, and succession planning.",
+              "We work with the discipline of a family office: helping families manage health risk and major medical decisions with the same care used for wealth, legal, and succession planning.",
               "We do not directly provide diagnosis, treatment, or outcome guarantees. Medical services are provided by licensed physicians and compliant institutions."
             ]
           },
@@ -126,7 +126,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "The Problem We Solve",
             body: [
               "For UHNW clients, the hardest question is rarely cost. It is whether the doctor is reliable, the institution is compliant, the program is appropriate, risks are explained, and follow-up is managed.",
-              "MWMWT integrates medical access, document preparation, multilingual coordination, appointment management, long-term health records, and family health planning."
+              "Medical Family Office integrates medical access, document preparation, multilingual coordination, appointment management, long-term health records, and family health planning."
             ]
           },
           {
@@ -148,23 +148,23 @@ export const trustPages: Record<string, TrustPageContent> = {
   founder: {
     slug: "founder",
     metaTitle: "Founder",
-    metaDescription: "MWMWT 创始人理念：以医疗家族办公室方式服务企业家、投资人与全球家族。",
+    metaDescription: "Medical Family Office 创始人理念：以医疗家族办公室方式服务企业家、投资人与全球家族。",
     image: "/hero-private-inquiry.png",
     copies: {
       zh: {
         eyebrow: "Founder",
         title: "创始人理念：把健康寿命纳入家族长期决策。",
         description:
-          "MWMWT 的建立，是为了回应企业家和家族客户在跨境医疗、长寿管理和重大健康决策中的真实不确定性。",
+          "Medical Family Office 的建立，是为了回应企业家和家族客户在跨境医疗、长寿管理和重大健康决策中的真实不确定性。",
         secondaryTitle: "客户需要的不是更多项目，而是更可靠的判断。",
         secondaryDescription:
           "创始团队坚持以合规、隐私、风险控制和长期陪伴为核心，而不是把医疗资源包装成一次性消费。",
         sections: [
           {
-            title: "为什么建立 MWMWT",
+            title: "为什么建立 Medical Family Office",
             body: [
               "很多企业家在事业进入成熟期后，才发现健康风险开始成为最不可控的变量。财富可以配置，税务可以规划，法律风险可以管理，但健康寿命常常缺少专属顾问。",
-              "MWMWT 希望填补这个空白：帮助客户在复杂医疗信息中获得清晰判断，知道该找谁、该问什么、该如何评估风险。"
+              "Medical Family Office 希望填补这个空白：帮助客户在复杂医疗信息中获得清晰判断，知道该找谁、该问什么、该如何评估风险。"
             ]
           },
           {
@@ -178,7 +178,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "面向未来",
             body: [
               "未来的高净值健康管理，不应停留在体检套餐或医疗旅游，而应成为家族治理的一部分。",
-              "MWMWT 将持续建设公开医学专家资料、知识中心、研究资料库和长期会员体系，为全球家族提供更稳定的私人健康决策支持。"
+              "Medical Family Office 将持续建设公开医学专家资料、知识中心、研究资料库和长期会员体系，为全球家族提供更稳定的私人健康决策支持。"
             ]
           }
         ],
@@ -192,16 +192,16 @@ export const trustPages: Record<string, TrustPageContent> = {
         eyebrow: "Founder",
         title: "創業理念：健康寿命を家族の長期意思決定へ。",
         description:
-          "MWMWTは、経営者と家族が国際医療、長寿管理、重大な健康判断に直面する不確実性に応えるために生まれました。",
+          "Medical Family Officeは、経営者と家族が国際医療、長寿管理、重大な健康判断に直面する不確実性に応えるために生まれました。",
         secondaryTitle: "必要なのは、より多くのプログラムではなく、より信頼できる判断です。",
         secondaryDescription:
           "創業チームは、単発消費ではなく、コンプライアンス、秘匿性、リスク管理、長期伴走を重視します。",
         sections: [
           {
-            title: "MWMWTを設立した理由",
+            title: "Medical Family Officeを設立した理由",
             body: [
               "多くの経営者は事業が成熟した後、健康リスクが最も制御しにくい変数であることに気づきます。資産、税務、法務は管理されても、健康寿命には専属の助言者が不足しています。",
-              "MWMWTは、複雑な医療情報の中で、誰に相談すべきか、何を確認すべきか、どうリスクを評価するかを明確にするために存在します。"
+              "Medical Family Officeは、複雑な医療情報の中で、誰に相談すべきか、何を確認すべきか、どうリスクを評価するかを明確にするために存在します。"
             ]
           },
           {
@@ -215,7 +215,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "これから",
             body: [
               "未来の富裕層健康管理は、健診パッケージや医療旅行にとどまらず、家族ガバナンスの一部になるべきです。",
-              "MWMWTは公開医学専門家情報、ナレッジセンター、研究資料、長期会員制度を継続的に構築します。"
+              "Medical Family Officeは公開医学専門家情報、ナレッジセンター、研究資料、長期会員制度を継続的に構築します。"
             ]
           }
         ],
@@ -229,16 +229,16 @@ export const trustPages: Record<string, TrustPageContent> = {
         eyebrow: "Founder",
         title: "Founder Perspective: healthspan belongs in long-term family decision-making.",
         description:
-          "MWMWT was created to address the uncertainty entrepreneurs and families face in cross-border medicine, longevity management, and major health decisions.",
+          "Medical Family Office was created to address the uncertainty entrepreneurs and families face in cross-border medicine, longevity management, and major health decisions.",
         secondaryTitle: "Clients do not need more programs. They need better judgment.",
         secondaryDescription:
           "Our founding principle is compliance, privacy, risk control, and long-term partnership rather than packaging medical access as a one-off transaction.",
         sections: [
           {
-            title: "Why MWMWT Exists",
+            title: "Why Medical Family Office Exists",
             body: [
               "Many entrepreneurs discover that health risk becomes the least controllable variable precisely when their business and family responsibilities are greatest.",
-              "MWMWT helps clients navigate complex medical information, understand who to consult, what to ask, and how to evaluate risk."
+              "Medical Family Office helps clients navigate complex medical information, understand who to consult, what to ask, and how to evaluate risk."
             ]
           },
           {
@@ -252,7 +252,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "Looking Forward",
             body: [
               "The future of UHNW health management should move beyond checkup packages or medical tourism and become part of family governance.",
-              "MWMWT will continue building public medical expert references, knowledge centers, research resources, and long-term membership systems."
+              "Medical Family Office will continue building public medical expert references, knowledge centers, research resources, and long-term membership systems."
             ]
           }
         ],
@@ -267,14 +267,14 @@ export const trustPages: Record<string, TrustPageContent> = {
   "medical-advisory": {
     slug: "medical-advisory",
     metaTitle: "Medical Advisory",
-    metaDescription: "MWMWT 医疗顾问体系：公开医学专家资料、医疗尽调、质量控制与长期随访机制。",
+    metaDescription: "Medical Family Office 医疗顾问体系：公开医学专家资料、医疗尽调、质量控制与长期随访机制。",
     image: "/hero-doctor-network.png",
     copies: {
       zh: {
         eyebrow: "Medical Advisory",
         title: "建立医疗顾问体系，而不是销售单一医疗项目。",
         description:
-          "MWMWT 的医疗顾问体系围绕公开医学专家资料、机构合规、项目审查、资料整理、第二意见和长期随访建立。",
+          "Medical Family Office 的医疗顾问体系围绕公开医学专家资料、机构合规、项目审查、资料整理、第二意见和长期随访建立。",
         secondaryTitle: "核心目标：降低重大健康决策的不确定性。",
         secondaryDescription:
           "我们帮助客户在进入具体医疗安排前，先完成医学资料、风险边界、医生背景和机构能力的基础判断。",
@@ -297,7 +297,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "长期随访",
             body: [
               "医疗安排结束后，真正重要的是指标变化、复查计划、生活方式管理和下一阶段健康优先级。",
-              "MWMWT 将检查结果、诊疗记录、医生建议和家庭健康目标纳入长期档案，帮助客户持续复盘。"
+              "Medical Family Office 将检查结果、诊疗记录、医生建议和家庭健康目标纳入长期档案，帮助客户持续复盘。"
             ]
           }
         ],
@@ -311,7 +311,7 @@ export const trustPages: Record<string, TrustPageContent> = {
         eyebrow: "Medical Advisory",
         title: "単一プログラム販売ではなく、医療アドバイザリー体系を構築します。",
         description:
-          "MWMWTの医療アドバイザリーは、公開医学専門家情報、医療機関の適法性、プログラム審査、資料整理、セカンドオピニオン、長期フォローに基づきます。",
+          "Medical Family Officeの医療アドバイザリーは、公開医学専門家情報、医療機関の適法性、プログラム審査、資料整理、セカンドオピニオン、長期フォローに基づきます。",
         secondaryTitle: "目的は、重要な健康意思決定の不確実性を下げることです。",
         secondaryDescription:
           "具体的な手配に入る前に、医療資料、リスク境界、医師背景、医療機関能力を整理します。",
@@ -334,7 +334,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "長期フォロー",
             body: [
               "医療手配後に重要なのは、指標変化、再検査計画、生活管理、次の健康優先順位です。",
-              "MWMWTは検査結果、診療記録、医師助言、家族目標を長期記録に統合します。"
+              "Medical Family Officeは検査結果、診療記録、医師助言、家族目標を長期記録に統合します。"
             ]
           }
         ],
@@ -348,7 +348,7 @@ export const trustPages: Record<string, TrustPageContent> = {
         eyebrow: "Medical Advisory",
         title: "A medical advisory framework, not single-program selling.",
         description:
-          "MWMWT's advisory framework is built around public medical expert references, institutional compliance, program review, document preparation, second opinions, and long-term follow-up.",
+          "Medical Family Office's advisory framework is built around public medical expert references, institutional compliance, program review, document preparation, second opinions, and long-term follow-up.",
         secondaryTitle: "The goal is to reduce uncertainty in major health decisions.",
         secondaryDescription:
           "Before specific arrangements begin, we help clients review medical records, risk boundaries, physician background, and institutional capability.",
@@ -371,7 +371,7 @@ export const trustPages: Record<string, TrustPageContent> = {
             title: "Long-Term Follow-Up",
             body: [
               "After any medical arrangement, what matters is indicator change, review timing, lifestyle management, and next-stage health priorities.",
-              "MWMWT integrates reports, clinical records, physician advice, and family health goals into a long-term archive."
+              "Medical Family Office integrates reports, clinical records, physician advice, and family health goals into a long-term archive."
             ]
           }
         ],

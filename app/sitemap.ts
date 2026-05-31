@@ -6,7 +6,7 @@ import { navItems } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const platformPaths = [
-    "/about-mwmwt",
+    "/about-medical-family-office",
     "/founder",
     "/medical-advisory",
     "/medical-governance-framework",
@@ -14,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/research-center",
     "/case-library",
     "/case-library/second-opinion-certainty",
+    "/case-library/executive-sleep-health",
+    "/case-library/family-fertility-planning",
+    "/case-library/cancer-risk-management",
     "/media-center",
     "/private-aviation-concierge",
     "/privacy-policy",

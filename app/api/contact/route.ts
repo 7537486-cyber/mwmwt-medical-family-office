@@ -72,7 +72,7 @@ async function pushLineNotification(payload: {
   sourcePage: string;
 }) {
   const message = [
-    "MWMWT new inquiry",
+    "Medical Family Office new inquiry",
     `Time: ${payload.submittedAt}`,
     `Name: ${payload.name}`,
     payload.gender ? `Gender: ${payload.gender}` : undefined,

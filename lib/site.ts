@@ -381,11 +381,11 @@ export const pages: Record<string, PageContent> = {
     jaTitle: "プライベート医療相談を申請",
     enTitle: "申请制、审核制、预约制",
     description:
-      "MWMWT 每年仅接受有限数量的私人客户。提交信息后，我们会先了解您的健康目标、家庭情况与风险议题，再判断是否适合进入私人医疗协调体系。",
+      "Medical Family Office 每年仅接受有限数量的私人客户。提交信息后，我们会先了解您的健康目标、家庭情况与风险议题，再判断是否适合进入私人医疗协调体系。",
     jaDescription:
-      "MWMWTは年間で限られたプライベートクライアントのみ受け入れます。送信後、健康目標、ご家族の状況、リスク課題を確認し、プライベート医療調整体系への適合性を判断します。",
+      "Medical Family Officeは年間で限られたプライベートクライアントのみ受け入れます。送信後、健康目標、ご家族の状況、リスク課題を確認し、プライベート医療調整体系への適合性を判断します。",
     enDescription:
-      "MWMWT accepts a limited number of private clients each year. We first review your health goals, family context, and risk concerns, then assess fit before arranging a confidential advisory conversation.",
+      "Medical Family Office accepts a limited number of private clients each year. We first review your health goals, family context, and risk concerns, then assess fit before arranging a confidential advisory conversation.",
     pillars: [
       {
         title: "适合对象",
@@ -614,7 +614,7 @@ const englishPages: Record<string, EnglishPage> = {
   contact: {
     title: "Apply for Private Consultation",
     description:
-      "MWMWT accepts a limited number of private clients each year. We first review health goals, family context, and risk concerns, then assess fit before arranging a confidential medical advisory conversation.",
+      "Medical Family Office accepts a limited number of private clients each year. We first review health goals, family context, and risk concerns, then assess fit before arranging a confidential medical advisory conversation.",
     proof: ["Application-based", "Fit review", "Appointment-only", "Confidential handling"],
     process: ["Submit request", "Review goals and fit", "Schedule advisory call", "Define next steps"],
     cta: "Apply for private consultation",

@@ -55,7 +55,7 @@ export default function DoctorNetworkPage({
           description:
             "A reference database for medical resource research, specialty understanding, and pre-referral preparation across regenerative medicine, oncology, cardiovascular care, neurology, endocrinology, and sports medicine.",
           secondaryDescription:
-            "These profiles do not imply employment by MWMWT, confirmed cooperation, endorsement, or current availability.",
+            "These profiles do not imply employment by Medical Family Office, confirmed cooperation, endorsement, or current availability.",
           cta: "Request referral preparation",
           diligenceTitle:
             "Public information is only the starting point for referral diligence.",
@@ -69,7 +69,7 @@ export default function DoctorNetworkPage({
           accessLabel: "Professional Positioning",
           accessTitle: "The database is a public reference layer, not a team roster.",
           accessBody:
-            "MWMWT uses public academic and professional information to support specialist research, medical resource mapping, and referral preparation. A listed physician should not be understood as an MWMWT employee, team member, confirmed partner, or guaranteed referral option.",
+            "Medical Family Office uses public academic and professional information to support specialist research, medical resource mapping, and referral preparation. A listed physician should not be understood as a Medical Family Office employee, team member, confirmed partner, or guaranteed referral option.",
           categoriesLabel: "Network Categories",
           categoriesTitle: "Specialty areas under continuous development",
           disclaimer:
@@ -82,7 +82,7 @@ export default function DoctorNetworkPage({
             description:
               "再生医療、腫瘍、心血管、神経内科、内分泌、スポーツ医学を横断し、医療資源調査、専門領域の理解、紹介前準備に使う参考データベースです。",
             secondaryDescription:
-              "掲載情報は、MWMWTのチームメンバー、提携確定、推薦、現在の受診可否を意味しません。",
+              "掲載情報は、Medical Family Officeのチームメンバー、提携確定、推薦、現在の受診可否を意味しません。",
             cta: "紹介前準備を相談",
             diligenceTitle: "公開情報は、紹介前確認の出発点です。",
             diligenceItems: ["公開プロフィール確認", "研究・論文領域", "適した相談シーン"],
@@ -95,7 +95,7 @@ export default function DoctorNetworkPage({
             accessLabel: "専門的な位置づけ",
             accessTitle: "このデータベースは公開参考資料であり、チーム名簿ではありません。",
             accessBody:
-              "MWMWTは公開された学術・職業情報を用いて、専門医調査、医療資源の整理、紹介前準備を支援します。掲載医師はMWMWTの従業員、チームメンバー、提携確定先、受診保証先ではありません。",
+              "Medical Family Officeは公開された学術・職業情報を用いて、専門医調査、医療資源の整理、紹介前準備を支援します。掲載医師はMedical Family Officeの従業員、チームメンバー、提携確定先、受診保証先ではありません。",
             categoriesLabel: "専門領域分類",
             categoriesTitle: "継続的に整備する専門領域",
             disclaimer:
@@ -107,7 +107,7 @@ export default function DoctorNetworkPage({
           description:
             "围绕再生医疗、肿瘤、心血管、神经科、内分泌与运动医学，整理用于医学资源研究、专科方向理解与转诊前准备的公开专家资料。",
           secondaryDescription:
-            "页面不代表医生为 MWMWT 团队成员，不代表已确认合作、推荐背书或当前可接诊。",
+            "页面不代表医生为 Medical Family Office 团队成员，不代表已确认合作、推荐背书或当前可接诊。",
           cta: "咨询转诊前准备",
           diligenceTitle: "公开资料只是转诊尽调的起点",
           diligenceItems: ["公开履历核验", "论文与研究方向", "适配案例场景"],
@@ -117,9 +117,9 @@ export default function DoctorNetworkPage({
           cardSpecialty: "专家资料",
           cardSummary: "",
           accessLabel: "专业定位",
-          accessTitle: "这是公开参考资料层，不是 MWMWT 团队名单。",
+          accessTitle: "这是公开参考资料层，不是 Medical Family Office 团队名单。",
           accessBody:
-            "MWMWT 基于公开学术与职业信息整理专家资料，用于医学资源研究、专科方向理解和转诊前准备。页面出现的医生不应被理解为 MWMWT 员工、团队成员、已确认合作医生或保证可接诊资源。",
+            "Medical Family Office 基于公开学术与职业信息整理专家资料，用于医学资源研究、专科方向理解和转诊前准备。页面出现的医生不应被理解为 Medical Family Office 员工、团队成员、已确认合作医生或保证可接诊资源。",
           categoriesLabel: "专科资料方向",
           categoriesTitle: "持续整理的公开专家资料",
           disclaimer:

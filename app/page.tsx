@@ -7,164 +7,197 @@ const copy = {
     heroEyebrow: "Medical Family Office",
     heroTitle: "Aging Is Not Destiny.",
     heroSubtitle: "衰老不是宿命。",
-    heroLine: "日本长寿医学 × 再生医疗 × 企业家健康管理",
-    heroBody:
-      "MWMWT 为企业家、投资人及家族客户提供私人医疗顾问、长期健康风险管理与日本高端医疗资源协调。",
+    heroBody: "面向企业家、投资人及全球家族的私人健康、长寿医学与日本医疗资源顾问体系。",
     heroCta: "申请私密顾问沟通",
+    assetEyebrow: "Ultimate Asset",
+    assetTitle: "Health Is The Ultimate Asset.",
+    assetBody: "财富可以配置，事业可以传承，但健康决策一旦失误，时间、行动力与家庭稳定性都会受到影响。",
+    protectEyebrow: "What We Protect",
+    protectTitle: "我们保护的不是项目，而是人生关键能力。",
+    japanEyebrow: "Why Japan",
+    japanTitle: "为什么全球家庭需要认真看日本。",
+    japanBody: "日本的价值不在于单一项目，而在于稳定、克制、重视流程和隐私的医疗生态。",
+    worksEyebrow: "How It Works",
+    worksTitle: "一个清晰的私人医疗顾问流程。",
     founderEyebrow: "Founder Letter",
-    founderTitle: "为什么建立 MWMWT。",
-    founderParagraphs: [
-      "财富可以传承，健康风险同样需要被管理。",
-      "当企业家拥有全球资产配置能力后，健康治理能力反而成为最稀缺的资源。重大健康选择不应该只靠临时搜索、熟人介绍或单一机构推荐。",
-      "MWMWT 的存在，是帮助家族在进入医疗决策前，先获得更完整的信息、更审慎的资源路径、更清晰的风险边界和更长期的随访秩序。"
-    ],
-    founderSignature: "MWMWT Founder Office",
-    whyJapanEyebrow: "Why Japan",
-    whyJapanTitle: "为什么全球客户需要认真看日本。",
-    whyJapanBody:
-      "日本不是单一项目目的地，而是长期健康管理、精密检查、再生医疗监管与高隐私医疗服务可以同时成立的市场。",
-    valueEyebrow: "What Clients Actually Buy",
-    valueTitle: "客户购买的不是项目，而是健康决策权。",
-    valueBody:
-      "对高净值家庭来说，真正重要的是在关键健康选择前拥有判断力、时间效率、隐私保护和长期风险管理。",
-    storyEyebrow: "Client Story",
-    storyQuote:
-      "At times, the most valuable form of medical care is not a procedure, but certainty.",
-    storyTranslation:
-      "有时候，最有价值的医疗并非治疗本身，而是获得一个准确、可靠且值得信赖的专业判断。",
-    storyCta: "Read the Story",
-    referenceEyebrow: "Medical Reference Network",
-    referenceTitle: "公开医学专家资料库。",
-    referenceBody:
-      "Based on public academic and professional information. 医生资料用于医学资源研究、专科方向理解和转诊前准备，不代表医生为 MWMWT 团队成员，也不代表已确认合作或可接诊。",
-    referenceCta: "查看公开专家资料库",
-    contactEyebrow: "Apply for Private Consultation",
+    founderTitle: "财富管理资产，健康管理人生。",
+    founderBody:
+      "我们见过太多企业家在事业成功后，才开始面对健康风险。Medical Family Office 的使命，是帮助客户更冷静地面对未来几十年的健康决策。",
+    founderCta: "阅读创始人信",
+    caseEyebrow: "Case Journey",
+    caseTitle: "When Certainty Matters Most",
+    caseBody:
+      "一位中国企业家因重大健康风险赴日寻求第二诊疗意见。通过更全面的检查、多学科评估与长期健康跟踪，他获得了更准确的健康判断，并避免了可能并无必要的医疗决策。",
+    caseQuote: "Sometimes the most valuable treatment is not a procedure. It is certainty.",
+    caseCta: "Read The Story",
+    journeyEyebrow: "Real Health Journeys",
+    journeyTitle: "真实健康决策案例。",
+    journeyBody: "案例中心展示的是服务路径与决策过程，不宣传疗效，也不承诺结果。",
+    journeyCta: "进入案例中心",
+    membershipEyebrow: "Apply For Membership",
+    membershipTitle: "不是一次消费，而是一段长期关系。",
+    membershipBody: "会员体系用于持续管理健康风险、医疗资源、家庭需求和跨境医疗安排。价格不公开，申请后进行适配度确认。",
+    membershipCta: "了解会员体系",
+    contactEyebrow: "Private Consultation",
     contactTitle: "申请制、审核制、预约制。",
-    contactBody:
-      "MWMWT 每年仅接受有限数量的私人客户。提交信息后，我们会先判断适配度，再安排私密医疗顾问沟通。",
-    contactCta: "申请私密顾问沟通"
+    contactBody: "提交信息后，我们会先判断适配度，再安排私密医疗顾问沟通。",
+    contactCta: "申请私密咨询"
   },
   ja: {
     heroEyebrow: "Medical Family Office",
     heroTitle: "Aging Is Not Destiny.",
     heroSubtitle: "老化は宿命ではありません。",
-    heroLine: "日本の長寿医学 × 再生医療 × エグゼクティブ健康管理",
-    heroBody:
-      "MWMWTは経営者、投資家、ご家族のために、プライベート医療アドバイザリー、長期的な健康リスク管理、日本の高度医療資源へのアクセス調整を提供します。",
+    heroBody: "経営者、投資家、グローバル家族のためのプライベート健康、長寿医学、日本医療アクセスの助言体系。",
     heroCta: "プライベート相談を申請",
+    assetEyebrow: "Ultimate Asset",
+    assetTitle: "Health Is The Ultimate Asset.",
+    assetBody: "資産は配置でき、事業は継承できます。しかし健康判断を誤れば、時間、行動力、家族の安定性に影響します。",
+    protectEyebrow: "What We Protect",
+    protectTitle: "守るのはプログラムではなく、人生の重要な機能です。",
+    japanEyebrow: "Why Japan",
+    japanTitle: "なぜ日本を真剣に見るべきなのか。",
+    japanBody: "日本の価値は単一プログラムではなく、安定し、抑制的で、手順と秘匿性を重視する医療環境にあります。",
+    worksEyebrow: "How It Works",
+    worksTitle: "明確なプライベート医療アドバイザリーの流れ。",
     founderEyebrow: "Founder Letter",
-    founderTitle: "MWMWTを設立した理由。",
-    founderParagraphs: [
-      "資産は継承できます。健康リスクもまた、管理されるべきものです。",
-      "経営者が世界規模で資産配分できる時代に、健康ガバナンスの力こそが最も希少な資源になっています。重要な医療判断を、偶然の紹介や単一機関の提案だけに委ねるべきではありません。",
-      "MWMWTは、医療判断に入る前に、より完全な情報、慎重なアクセス経路、明確なリスク境界、長期フォローの秩序を家族に提供するために存在します。"
-    ],
-    founderSignature: "MWMWT Founder Office",
-    whyJapanEyebrow: "Why Japan",
-    whyJapanTitle: "なぜ日本なのか。",
-    whyJapanBody:
-      "日本は単一プログラムの目的地ではありません。精密健診、長期健康管理、再生医療の規制枠組み、高い秘匿性が同時に成立する医療市場です。",
-    valueEyebrow: "What Clients Actually Buy",
-    valueTitle: "お客様が求めるのは、プログラムではなく健康上の意思決定力です。",
-    valueBody:
-      "富裕層家族にとって重要なのは、重大な健康判断の前に、判断材料、時間効率、秘匿性、長期リスク管理を持つことです。",
-    storyEyebrow: "Client Story",
-    storyQuote:
-      "At times, the most valuable form of medical care is not a procedure, but certainty.",
-    storyTranslation:
-      "時に、最も価値のある医療は処置そのものではなく、正確で信頼できる専門的判断です。",
-    storyCta: "Read the Story",
-    referenceEyebrow: "Medical Reference Network",
-    referenceTitle: "公開医学専門家データベース。",
-    referenceBody:
-      "Based on public academic and professional information. 医師情報は医療資源調査、専門領域の理解、紹介前準備のためのものであり、MWMWTのチームメンバー、提携確定、受診可能性を意味しません。",
-    referenceCta: "公開専門家資料を見る",
-    contactEyebrow: "Apply for Private Consultation",
+    founderTitle: "資産を管理するように、健康と人生を管理する。",
+    founderBody:
+      "事業で成功した後に、健康リスクと向き合い始める経営者を多く見てきました。Medical Family Office の使命は、今後数十年の健康判断をより冷静に支えることです。",
+    founderCta: "創業者の手紙を読む",
+    caseEyebrow: "Case Journey",
+    caseTitle: "When Certainty Matters Most",
+    caseBody:
+      "ある中国人経営者は重大な健康リスクに直面し、日本でセカンドオピニオンを求めました。より包括的な検査、多職種評価、長期フォローにより、より明確な医学的判断を得ました。",
+    caseQuote: "Sometimes the most valuable treatment is not a procedure. It is certainty.",
+    caseCta: "Read The Story",
+    journeyEyebrow: "Real Health Journeys",
+    journeyTitle: "実際の健康意思決定ケース。",
+    journeyBody: "ケースセンターはサービス経路と意思決定過程を示すもので、効果宣伝や結果保証ではありません。",
+    journeyCta: "ケースセンターへ",
+    membershipEyebrow: "Apply For Membership",
+    membershipTitle: "一回の消費ではなく、長期的な関係です。",
+    membershipBody: "会員制度は健康リスク、医療資源、家族ニーズ、国際医療手配を継続的に管理するための仕組みです。",
+    membershipCta: "会員制度を見る",
+    contactEyebrow: "Private Consultation",
     contactTitle: "申請制、審査制、予約制。",
-    contactBody:
-      "MWMWTは年間で限られたプライベートクライアントのみ受け入れます。送信後、適合性を確認してからプライベート医療相談を調整します。",
+    contactBody: "送信後、適合性を確認してからプライベート医療相談を調整します。",
     contactCta: "プライベート相談を申請"
   },
   en: {
     heroEyebrow: "Medical Family Office",
     heroTitle: "Aging Is Not Destiny.",
     heroSubtitle: "Private Health, Longevity & Japan Medical Access.",
-    heroLine: "Japan Longevity Medicine × Regenerative Medicine × Executive Health",
-    heroBody:
-      "MWMWT provides private medical advisory, long-term health risk management, and Japan medical access coordination for entrepreneurs, investors, and families.",
+    heroBody: "A private health advisory system for entrepreneurs, investors, and global families.",
     heroCta: "Apply for Private Consultation",
+    assetEyebrow: "Ultimate Asset",
+    assetTitle: "Health Is The Ultimate Asset.",
+    assetBody: "Capital can be allocated and businesses can be transferred. A wrong health decision can affect time, mobility, judgment, and family stability.",
+    protectEyebrow: "What We Protect",
+    protectTitle: "We protect the capabilities that shape a life.",
+    japanEyebrow: "Why Japan",
+    japanTitle: "Why global families should take Japan seriously.",
+    japanBody: "Japan's value is not a single program. It is a stable, process-oriented, privacy-conscious medical ecosystem.",
+    worksEyebrow: "How It Works",
+    worksTitle: "A clear private medical advisory process.",
     founderEyebrow: "Founder Letter",
-    founderTitle: "Why MWMWT exists.",
-    founderParagraphs: [
-      "Wealth can be transferred. Health risk also needs to be governed.",
-      "As entrepreneurs gain the ability to allocate assets globally, health governance becomes one of the scarcest resources. Critical medical decisions should not depend only on search results, informal referrals, or a single provider's recommendation.",
-      "MWMWT exists to give families clearer information, a more prudent access pathway, defined risk boundaries, and a long-term follow-up structure before major medical decisions are made."
-    ],
-    founderSignature: "MWMWT Founder Office",
-    whyJapanEyebrow: "Why Japan",
-    whyJapanTitle: "Why global clients should take Japan seriously.",
-    whyJapanBody:
-      "Japan is not just a destination for individual programs. It is a market where precision screening, long-term health management, regenerative medicine regulation, and high privacy standards can coexist.",
-    valueEyebrow: "What Clients Actually Buy",
-    valueTitle: "Clients are not buying projects. They are buying health decision power.",
-    valueBody:
-      "For high-net-worth families, the real value is better judgment, time efficiency, privacy protection, and long-term risk control before important health decisions.",
-    storyEyebrow: "Client Story",
-    storyQuote:
-      "At times, the most valuable form of medical care is not a procedure, but certainty.",
-    storyTranslation:
-      "The right answer can be more valuable than more intervention.",
-    storyCta: "Read the Story",
-    referenceEyebrow: "Medical Reference Network",
-    referenceTitle: "Public Medical Expert Database.",
-    referenceBody:
-      "Based on public academic and professional information. Physician profiles are used for medical resource research, specialty understanding, and pre-referral preparation. They do not imply employment by MWMWT, confirmed cooperation, endorsement, or availability.",
-    referenceCta: "View Public Expert Database",
-    contactEyebrow: "Apply for Private Consultation",
+    founderTitle: "Wealth manages assets. Health manages life.",
+    founderBody:
+      "We have seen too many entrepreneurs face health risk only after business success. The mission of Medical Family Office is to help clients make calmer health decisions for the decades ahead.",
+    founderCta: "Read Founder Letter",
+    caseEyebrow: "Case Journey",
+    caseTitle: "When Certainty Matters Most",
+    caseBody:
+      "A Chinese entrepreneur sought a second opinion in Japan after facing a major health risk. Through broader testing, multidisciplinary review, and long-term follow-up, he gained a clearer medical judgment and avoided a potentially unnecessary decision.",
+    caseQuote: "Sometimes the most valuable treatment is not a procedure. It is certainty.",
+    caseCta: "Read The Story",
+    journeyEyebrow: "Real Health Journeys",
+    journeyTitle: "Real health decision journeys.",
+    journeyBody: "The case library shows service pathways and decision-making logic. It does not advertise outcomes or promise results.",
+    journeyCta: "Enter Case Library",
+    membershipEyebrow: "Apply For Membership",
+    membershipTitle: "Not a transaction. A long-term relationship.",
+    membershipBody: "Membership is designed for ongoing health risk management, medical access, family needs, and cross-border coordination.",
+    membershipCta: "Explore Membership",
+    contactEyebrow: "Private Consultation",
     contactTitle: "Application-based, reviewed, and appointment-only.",
-    contactBody:
-      "MWMWT accepts a limited number of private clients each year. After submission, we first assess fit, then arrange a confidential medical advisory conversation.",
+    contactBody: "After submission, we first assess fit, then arrange a confidential medical advisory conversation.",
     contactCta: "Apply for Private Consultation"
   }
 };
 
-const valueItems = {
+const protectItems = {
   zh: [
-    ["Healthspan", "把关注点从寿命延长，转向更长时间保持功能、精力与生活质量。"],
-    ["Risk Control", "在重大健康选择前，先确认资料、风险、替代路径和合理边界。"],
-    ["Medical Access", "帮助客户更有秩序地进入日本及全球合规医疗资源。"],
-    ["Time Efficiency", "减少家庭自行筛选医生、医院、语言和流程的时间成本。"],
-    ["Family Governance", "为父母、配偶、子女和核心决策者建立长期健康管理秩序。"]
+    ["Decision Making Ability", "判断力"],
+    ["Mobility", "行动能力"],
+    ["Cognitive Health", "认知能力"],
+    ["Family Stability", "家庭稳定性"],
+    ["Time", "人生时间"]
   ],
   ja: [
-    ["Healthspan", "寿命そのものではなく、機能、活力、生活の質をより長く保つことを重視します。"],
-    ["Risk Control", "重要な健康判断の前に、資料、リスク、代替経路、合理的な境界を確認します。"],
-    ["Medical Access", "日本および世界の適切な医療資源へ、秩序あるアクセスを支援します。"],
-    ["Time Efficiency", "医師、医療機関、言語、手続きの選定にかかる時間負担を減らします。"],
-    ["Family Governance", "両親、配偶者、子ども、主要意思決定者の長期健康管理を整えます。"]
+    ["Decision Making Ability", "判断力"],
+    ["Mobility", "行動能力"],
+    ["Cognitive Health", "認知機能"],
+    ["Family Stability", "家族の安定"],
+    ["Time", "人生の時間"]
   ],
   en: [
-    ["Healthspan", "Focus on preserving function, energy, and quality of life for longer."],
-    ["Risk Control", "Clarify documents, risks, alternatives, and boundaries before major decisions."],
-    ["Medical Access", "Create a more orderly path into compliant Japan and global medical resources."],
-    ["Time Efficiency", "Reduce the burden of screening physicians, institutions, languages, and workflows."],
-    ["Family Governance", "Build long-term health order for parents, spouses, children, and key decision makers."]
+    ["Decision Making Ability", "Clarity before major decisions"],
+    ["Mobility", "The freedom to keep moving"],
+    ["Cognitive Health", "Judgment, memory, and focus"],
+    ["Family Stability", "Less uncertainty for the family"],
+    ["Time", "More high-quality years"]
   ]
 };
 
-const whyJapanItems = {
-  zh: ["世界最长寿国家之一", "稳定的医疗体系", "深厚的医学研究能力", "再生医疗监管框架", "高度重视安全与流程", "适合高隐私医疗安排"],
-  ja: ["世界有数の長寿国", "安定した医療制度", "高度な医学研究力", "再生医療の規制枠組み", "安全性と手順の重視", "高い秘匿性の医療手配"],
-  en: ["One of the world's longest-living societies", "Stable healthcare system", "Strong medical research base", "Regenerative medicine regulatory framework", "Safety-oriented process culture", "High-privacy medical arrangements"]
+const japanFacts = {
+  zh: ["世界最长寿国家之一", "医疗体系稳定", "医疗资源密度高", "检查体系完善", "隐私性强", "医患关系克制"],
+  ja: ["世界有数の長寿国", "安定した医療制度", "医療資源の密度", "精密な検査体制", "高い秘匿性", "抑制的な医患関係"],
+  en: ["Long-living society", "Stable healthcare system", "Dense medical resources", "Mature screening culture", "High privacy standards", "Measured physician-patient culture"]
 };
 
-const referenceSpecialties = ["Oncology", "Cardiology", "Neurology", "Regenerative Medicine", "Endocrinology", "Sports Medicine"];
-
-const consultationRules = {
-  zh: ["申请制", "适配度审核", "预约制沟通", "信息保密"],
-  ja: ["申請制", "適合性確認", "予約制相談", "情報の秘匿性"],
-  en: ["Application-based", "Fit review", "Appointment-only", "Confidential handling"]
+const processSteps = {
+  zh: [
+    ["01", "Assessment", "健康目标、家族背景、既往资料与风险议题。"],
+    ["02", "Strategy", "明确优先级、边界、可选路径和时间安排。"],
+    ["03", "Access", "匹配日本及全球合规医疗资源与专家路径。"],
+    ["04", "Follow-up", "建立长期档案、复盘指标和下一阶段计划。"]
+  ],
+  ja: [
+    ["01", "Assessment", "健康目標、家族背景、既存資料、リスク課題を確認。"],
+    ["02", "Strategy", "優先順位、境界、選択肢、時間軸を整理。"],
+    ["03", "Access", "日本および海外の適切な医療資源と専門家経路を調整。"],
+    ["04", "Follow-up", "長期記録、指標レビュー、次段階計画を構築。"]
+  ],
+  en: [
+    ["01", "Assessment", "Health goals, family context, records, and risk concerns."],
+    ["02", "Strategy", "Priorities, boundaries, options, and timing."],
+    ["03", "Access", "Japan and global medical resources with appropriate specialist pathways."],
+    ["04", "Follow-up", "Long-term records, indicator reviews, and next-stage plans."]
+  ]
 };
+
+const journeyCards = {
+  zh: [
+    ["Second Opinion", "浙江企业家重大健康风险第二意见", "/case-library/second-opinion-certainty"],
+    ["Executive Health", "连续失眠企业家健康管理路径", "/case-library/executive-sleep-health"],
+    ["Family Medical Planning", "企业家夫妻赴日冻卵与家庭规划", "/case-library/family-fertility-planning"],
+    ["Risk Management", "癌症风险筛查与长期管理路径", "/case-library/cancer-risk-management"]
+  ],
+  ja: [
+    ["Second Opinion", "中国人経営者の重大リスクとセカンドオピニオン", "/case-library/second-opinion-certainty"],
+    ["Executive Health", "不眠が続く経営者の健康管理", "/case-library/executive-sleep-health"],
+    ["Family Medical Planning", "日本での卵子凍結と家族計画", "/case-library/family-fertility-planning"],
+    ["Risk Management", "がんリスク検査と長期管理", "/case-library/cancer-risk-management"]
+  ],
+  en: [
+    ["Second Opinion", "Zhejiang entrepreneur second-opinion journey", "/case-library/second-opinion-certainty"],
+    ["Executive Health", "Persistent insomnia and founder health management", "/case-library/executive-sleep-health"],
+    ["Family Medical Planning", "Fertility preservation and family planning in Japan", "/case-library/family-fertility-planning"],
+    ["Risk Management", "Cancer risk screening and long-term planning", "/case-library/cancer-risk-management"]
+  ]
+};
+
+const membershipTiers = ["Silver", "Gold", "Black", "Family Office"];
 
 export default function Home({
   searchParams
@@ -182,11 +215,10 @@ export default function Home({
           alt="Private longevity medical advisory setting"
           fill
           priority
-          className="object-cover object-center opacity-60"
+          className="object-cover object-center opacity-58"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/82 to-ink/20" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(18,20,18,0.02),rgba(18,20,18,0.88))]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/84 to-ink/20" />
         <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-40 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.36em] text-champagne">
             {text.heroEyebrow}
@@ -197,10 +229,7 @@ export default function Home({
           <p className="mt-6 max-w-4xl font-serif text-4xl leading-tight text-champagne md:text-6xl">
             {text.heroSubtitle}
           </p>
-          <p className="mt-8 max-w-4xl text-sm font-semibold uppercase tracking-[0.2em] text-pearl/78">
-            {text.heroLine}
-          </p>
-          <p className="mt-6 max-w-3xl text-lg leading-9 text-pearl/76">{text.heroBody}</p>
+          <p className="mt-8 max-w-3xl text-lg leading-9 text-pearl/76">{text.heroBody}</p>
           <Link
             href={withLanguage("/contact", lang)}
             className="mt-10 inline-flex w-fit items-center gap-3 bg-champagne px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-pearl"
@@ -211,29 +240,37 @@ export default function Home({
       </section>
 
       <section className="bg-white px-5 py-24 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <div>
             <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              {text.founderEyebrow}
+              {text.assetEyebrow}
             </p>
             <h2 className="mt-5 font-serif text-5xl leading-tight text-ink md:text-7xl">
-              {text.founderTitle}
+              {text.assetTitle}
             </h2>
           </div>
-          <div className="border-l border-champagne/60 pl-6 md:pl-10">
-            {text.founderParagraphs.map((paragraph) => (
-              <p key={paragraph} className="mb-6 text-xl leading-10 text-graphite/76">
-                {paragraph}
-              </p>
-            ))}
-            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.26em] text-champagne">
-              {text.founderSignature}
-            </p>
-          </div>
+          <p className="text-xl leading-10 text-graphite/74">{text.assetBody}</p>
         </div>
       </section>
 
       <section className="bg-pearl px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.protectEyebrow}</p>
+          <h2 className="mt-5 max-w-4xl font-serif text-4xl leading-tight text-ink md:text-6xl">
+            {text.protectTitle}
+          </h2>
+          <div className="mt-12 grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-5">
+            {protectItems[lang].map(([title, body]) => (
+              <article key={title} className="bg-white p-6">
+                <p className="text-xs uppercase tracking-[0.24em] text-champagne">{title}</p>
+                <h3 className="mt-5 text-xl font-semibold leading-7 text-ink">{body}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="relative aspect-[16/11] overflow-hidden border border-mist bg-ink">
             <Image
@@ -245,16 +282,14 @@ export default function Home({
             />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              {text.whyJapanEyebrow}
-            </p>
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.japanEyebrow}</p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-              {text.whyJapanTitle}
+              {text.japanTitle}
             </h2>
-            <p className="mt-6 text-lg leading-9 text-graphite/72">{text.whyJapanBody}</p>
+            <p className="mt-6 text-lg leading-9 text-graphite/72">{text.japanBody}</p>
             <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {whyJapanItems[lang].map((item) => (
-                <div key={item} className="border-l border-champagne/60 bg-white px-5 py-4">
+              {japanFacts[lang].map((item) => (
+                <div key={item} className="border-l border-champagne/60 bg-pearl px-5 py-4">
                   <p className="text-sm font-semibold leading-6 text-ink">{item}</p>
                 </div>
               ))}
@@ -263,106 +298,140 @@ export default function Home({
         </div>
       </section>
 
-      <section className="bg-white px-5 py-24 lg:px-8">
+      <section className="bg-ink px-5 py-24 text-pearl lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-            <div>
-              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                {text.valueEyebrow}
-              </p>
-              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-                {text.valueTitle}
-              </h2>
-            </div>
-            <p className="text-lg leading-9 text-graphite/72">{text.valueBody}</p>
-          </div>
-          <div className="mt-12 grid gap-px overflow-hidden border border-mist bg-mist lg:grid-cols-5">
-            {valueItems[lang].map(([title, body]) => (
-              <article key={title} className="bg-pearl p-6">
-                <h3 className="text-lg font-semibold text-ink">{title}</h3>
-                <p className="mt-4 text-sm leading-7 text-graphite/70">{body}</p>
+          <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.worksEyebrow}</p>
+          <h2 className="mt-5 max-w-4xl font-serif text-4xl leading-tight md:text-6xl">
+            {text.worksTitle}
+          </h2>
+          <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-4">
+            {processSteps[lang].map(([number, title, body]) => (
+              <article key={number} className="bg-ink p-7">
+                <p className="font-serif text-5xl text-champagne">{number}</p>
+                <h3 className="mt-8 text-xl font-semibold text-pearl">{title}</h3>
+                <p className="mt-4 text-sm leading-7 text-pearl/68">{body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
+      <section className="bg-white px-5 py-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+          <div>
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.founderEyebrow}</p>
+            <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
+              {text.founderTitle}
+            </h2>
+          </div>
+          <div className="border-l border-champagne/60 pl-6 md:pl-10">
+            <p className="text-xl leading-10 text-graphite/76">{text.founderBody}</p>
+            <Link
+              href={withLanguage("/founder", lang)}
+              className="mt-8 inline-flex border border-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-pearl"
+            >
+              {text.founderCta} <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-ink px-5 py-24 text-pearl lg:px-8">
         <Image
-          src="/hero-global-medical-access.png"
-          alt="Private medical decision pathway"
+          src="/hero-doctor-network.png"
+          alt="Private medical second opinion review"
           fill
           className="object-cover object-center opacity-28"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-ink/72" />
-        <div className="relative mx-auto max-w-5xl text-center">
-          <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-            {text.storyEyebrow}
-          </p>
-          <blockquote className="mt-8 font-serif text-4xl leading-tight md:text-6xl">
-            {text.storyQuote}
+        <div className="absolute inset-0 bg-ink/74" />
+        <div className="relative mx-auto max-w-5xl">
+          <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.caseEyebrow}</p>
+          <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">{text.caseTitle}</h2>
+          <p className="mt-7 max-w-4xl text-xl leading-10 text-pearl/78">{text.caseBody}</p>
+          <blockquote className="mt-10 border-l border-champagne pl-6 font-serif text-3xl leading-tight text-champagne md:text-5xl">
+            {text.caseQuote}
           </blockquote>
-          <p className="mx-auto mt-7 max-w-3xl text-xl leading-9 text-pearl/78">
-            {text.storyTranslation}
-          </p>
           <Link
             href={withLanguage("/case-library/second-opinion-certainty", lang)}
             className="mt-10 inline-flex bg-champagne px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-pearl"
           >
-            {text.storyCta} <span aria-hidden="true">→</span>
+            {text.caseCta} <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>
 
       <section className="bg-pearl px-5 py-24 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.journeyEyebrow}</p>
+              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
+                {text.journeyTitle}
+              </h2>
+            </div>
+            <p className="text-lg leading-9 text-graphite/72">{text.journeyBody}</p>
+          </div>
+          <div className="mt-12 grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-4">
+            {journeyCards[lang].map(([label, title, href]) => (
+              <Link
+                key={href}
+                href={withLanguage(href, lang)}
+                className="group bg-white p-6 transition hover:bg-ink"
+              >
+                <p className="text-xs uppercase tracking-[0.24em] text-champagne">{label}</p>
+                <h3 className="mt-6 text-lg font-semibold leading-7 text-ink transition group-hover:text-pearl">
+                  {title}
+                </h3>
+                <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-graphite/48 transition group-hover:text-champagne">
+                  Read →
+                </p>
+              </Link>
+            ))}
+          </div>
+          <Link
+            href={withLanguage("/case-library", lang)}
+            className="mt-10 inline-flex border border-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-pearl"
+          >
+            {text.journeyCta} <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-24 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              {text.referenceEyebrow}
-            </p>
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.membershipEyebrow}</p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-              {text.referenceTitle}
+              {text.membershipTitle}
             </h2>
-            <p className="mt-6 text-lg leading-9 text-graphite/72">{text.referenceBody}</p>
+            <p className="mt-6 text-lg leading-9 text-graphite/72">{text.membershipBody}</p>
             <Link
-              href={withLanguage("/doctor-network", lang)}
+              href={withLanguage("/membership-program", lang)}
               className="mt-10 inline-flex border border-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-pearl"
             >
-              {text.referenceCta} <span aria-hidden="true">→</span>
+              {text.membershipCta} <span aria-hidden="true">→</span>
             </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {referenceSpecialties.map((item) => (
-              <div key={item} className="border-l border-champagne/70 bg-white px-6 py-5">
-                <p className="text-lg font-semibold text-ink">{item}</p>
+            {membershipTiers.map((tier, index) => (
+              <div key={tier} className="border border-mist bg-pearl p-7">
+                <p className="font-serif text-4xl text-champagne">0{index + 1}</p>
+                <h3 className="mt-8 text-xl font-semibold text-ink">{tier}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white px-5 py-24 lg:px-8">
-        <div className="mx-auto max-w-5xl border border-mist bg-pearl p-8 text-center shadow-quiet md:p-12">
-          <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-            {text.contactEyebrow}
-          </p>
-          <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-            {text.contactTitle}
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-graphite/72">
-            {text.contactBody}
-          </p>
-          <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-4">
-            {consultationRules[lang].map((item) => (
-              <div key={item} className="border border-mist bg-white px-4 py-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-ink">{item}</p>
-              </div>
-            ))}
-          </div>
+      <section className="bg-ink px-5 py-24 text-pearl lg:px-8">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.contactEyebrow}</p>
+          <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">{text.contactTitle}</h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-pearl/72">{text.contactBody}</p>
           <Link
             href={withLanguage("/contact", lang)}
-            className="mt-10 inline-flex bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-pearl transition hover:bg-champagne hover:text-ink"
+            className="mt-10 inline-flex bg-champagne px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-pearl"
           >
             {text.contactCta} <span aria-hidden="true">→</span>
           </Link>

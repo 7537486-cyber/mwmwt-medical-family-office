@@ -6,7 +6,7 @@ import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "咨询已提交",
-  description: "感谢提交私密咨询，MWMWT 私人礼宾团队将进行初步适配度确认。"
+  description: "感谢提交私密咨询，Medical Family Office 私人礼宾团队将进行初步适配度确认。"
 };
 
 const copy = {
@@ -124,7 +124,7 @@ export default function ThankYouPage({
             <div className="relative mx-auto aspect-square w-40 overflow-hidden bg-pearl">
               <Image
                 src="/wechat-tyler-qr.jpg"
-                alt="MWMWT WeChat QR code"
+                alt="Medical Family Office WeChat QR code"
                 fill
                 className="object-contain"
                 sizes="160px"

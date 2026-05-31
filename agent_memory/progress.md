@@ -30,6 +30,12 @@
 
 当前 SEO 内容扩展：用户要求做健康管理、高端医疗、长寿管理方向 100 篇 SEO 文章；已通过 10 个主题 × 10 类高净值客户场景生成 100 篇新增知识库文章，并复用现有动态文章页、sitemap 与 Article/Breadcrumb 结构化数据。
 
+当前品牌词清理：用户要求网页不要出现 MWMWT，公开页面可见文案已统一改为 Medical Family Office；域名、邮箱、内部兼容路由和环境配置继续保留 `mwmwt.com` / `info@mwmwt.com` 等技术标识。新增 `/about-medical-family-office` 页面，并将旧 `/about-mwmwt` 自动跳转到新地址。
+
+当前首页再整改：根据用户反馈首页信息密度过高，已重写为“一屏一个观点”的品牌首页：Aging Is Not Destiny、Health Is The Ultimate Asset、What We Protect、Why Japan、How It Works、Founder Letter、When Certainty Matters Most、Real Health Journeys、Apply For Membership、Private Consultation。医疗治理体系不再放在首页前段，改由内页承接。
+
+当前案例中心：已新增 `/case-library` 真实健康决策案例中心，并新增 3 个去标识化 Journey 页面：连续失眠企业家健康管理、赴日冻卵与家庭规划、癌症风险筛查与长期管理；原第二诊疗意见案例继续作为主案例入口。所有案例均强调服务路径与决策价值，不宣传疗效。
+
 ## 成功标准
 
 - 首页 9 个服务卡片在桌面端呈现 3+3+3
@@ -173,3 +179,9 @@
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认首页精简、公开专家资料库和新案例详情页类型正确。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 `/case-library/second-opinion-certainty` 新案例页、sitemap 和首页故事入口正常生成，当前生成 147 个静态页面。
 - 已执行公开文案检索，确认未出现“显著年轻化、疗效保证、永葆青春、Forever Young、卖项目、白皮书、SEO内容资产、100+ Medical、顶级医生”等不适合公开展示或高风险表述；“团队成员/已确认合作/保证可接诊”等词仅以否定免责声明形式出现。
+- 已执行 `rg -n "MWMWT" app components lib`，确认公开页面源码中不再出现大写 MWMWT。
+- 已执行 `npm run typecheck`，TypeScript 检查通过。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 `/about-medical-family-office` 新页面与旧地址跳转正常参与构建，当前生成 148 个页面。
+- 已再次执行 `rg -n "MWMWT" app components lib` 与 `.next/server .next/static` 构建产物检索，确认源码与构建产物中均不再出现大写 MWMWT。
+- 已执行 `npm run typecheck`，TypeScript 检查通过。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认首页重写、案例中心和 3 个新增案例页正常生成，当前生成 152 个页面。

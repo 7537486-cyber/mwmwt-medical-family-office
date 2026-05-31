@@ -17,7 +17,7 @@ const footerCopy = {
     languages: "中文 / 日语 / 英语",
     appointment: "仅限预约",
     legalLinks: [
-      { label: "About MWMWT", href: "/about-mwmwt" },
+      { label: "关于 Medical Family Office", href: "/about-medical-family-office" },
       { label: "创始人", href: "/founder" },
       { label: "医疗顾问体系", href: "/medical-advisory" },
       { label: "隐私政策", href: "/privacy-policy" },
@@ -38,7 +38,7 @@ const footerCopy = {
     languages: "中国語 / 日本語 / 英語",
     appointment: "完全予約制",
     legalLinks: [
-      { label: "About MWMWT", href: "/about-mwmwt" },
+      { label: "Medical Family Officeについて", href: "/about-medical-family-office" },
       { label: "創業者", href: "/founder" },
       { label: "医療アドバイザリー", href: "/medical-advisory" },
       { label: "プライバシーポリシー", href: "/privacy-policy" },
@@ -59,7 +59,7 @@ const footerCopy = {
     languages: "Chinese / Japanese / English",
     appointment: "By appointment only",
     legalLinks: [
-      { label: "About MWMWT", href: "/about-mwmwt" },
+      { label: "About Medical Family Office", href: "/about-medical-family-office" },
       { label: "Founder", href: "/founder" },
       { label: "Medical Advisory", href: "/medical-advisory" },
       { label: "Privacy Policy", href: "/privacy-policy" },

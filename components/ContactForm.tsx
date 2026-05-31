@@ -29,7 +29,7 @@ const copy = {
     placeholder: "请简要说明健康目标、家庭情况、时间安排、已有检查结果或正在面对的风险议题。",
     submit: "申请私密顾问沟通",
     note:
-      "提交后将进入 MWMWT 私人医疗协调流程。我们会先判断适配度，再安排中日双语或英文沟通。",
+      "提交后将进入 Medical Family Office 私人医疗协调流程。我们会先判断适配度，再安排中日双语或英文沟通。",
     submitting: "正在安全提交...",
     error: "暂时无法提交，请稍后再试。",
     consentStart: "我已阅读并同意",
@@ -56,7 +56,7 @@ const copy = {
     placeholder: "健康目標、ご家族の状況、希望時期、既存の検査結果、現在のリスク課題を簡潔にご記入ください。",
     submit: "プライベート相談を申請",
     note:
-      "送信後、MWMWT のプライベート医療調整プロセスに入ります。適合性を確認したうえで、中日または英語でのご連絡を調整します。",
+      "送信後、Medical Family Office のプライベート医療調整プロセスに入ります。適合性を確認したうえで、中日または英語でのご連絡を調整します。",
     submitting: "安全に送信しています...",
     error: "現在送信できません。時間をおいて再度お試しください。",
     consentStart: "私は",
@@ -83,7 +83,7 @@ const copy = {
     placeholder: "Briefly describe health goals, family context, timing, existing test results, or risk concerns.",
     submit: "Apply for Private Consultation",
     note:
-      "Your inquiry enters the MWMWT private medical coordination process. We first review fit, then arrange communication in Chinese, Japanese, or English.",
+      "Your inquiry enters the Medical Family Office private medical coordination process. We first review fit, then arrange communication in Chinese, Japanese, or English.",
     submitting: "Submitting securely...",
     error: "Submission is temporarily unavailable. Please try again later.",
     consentStart: "I have read and agree to the",

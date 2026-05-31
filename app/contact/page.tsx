@@ -114,7 +114,7 @@ export default function ContactPage({
               <div className="relative mx-auto aspect-square w-36 overflow-hidden bg-pearl">
                 <Image
                   src="/wechat-tyler-qr.jpg"
-                  alt="MWMWT WeChat QR code"
+                  alt="Medical Family Office WeChat QR code"
                   fill
                   className="object-contain"
                   sizes="144px"

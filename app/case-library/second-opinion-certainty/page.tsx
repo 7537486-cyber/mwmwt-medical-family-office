@@ -6,7 +6,7 @@ import { normalizeLanguage, withLanguage } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Second Opinion Case | Certainty Before Intervention",
   description:
-    "A de-identified journey case showing how MWMWT helps families seek clearer medical judgment through Japan-based second opinion coordination, multidisciplinary review, and long-term follow-up."
+    "A de-identified journey case showing how Medical Family Office helps families seek clearer medical judgment through Japan-based second opinion coordination, multidisciplinary review, and long-term follow-up."
 };
 
 const copy = {
@@ -29,7 +29,7 @@ const copy = {
       {
         title: "赴日评估",
         body: [
-          "MWMWT 协助整理既往检查资料、关键问题清单和家族健康背景，并协调日本方向的进一步检查与专家意见。",
+          "Medical Family Office 协助整理既往检查资料、关键问题清单和家族健康背景，并协调日本方向的进一步检查与专家意见。",
           "通过更全面的检查、多学科专家团队的综合评估以及必要的风险说明，客户获得了更加清晰、客观且科学的健康结论。"
         ]
       },
@@ -50,9 +50,9 @@ const copy = {
     ],
     stepsTitle: "服务路径",
     steps: ["资料整理", "日本检查", "多学科评估", "专业判断", "长期随访"],
-    closingTitle: "MWMWT 的意义",
+    closingTitle: "Medical Family Office 的意义",
     closing:
-      "很多时候，人们真正需要的并非更多治疗，而是更准确的专业判断；并非更多信息，而是更具可信度的答案。这正是 MWMWT 存在的意义。",
+      "很多时候，人们真正需要的并非更多治疗，而是更准确的专业判断；并非更多信息，而是更具可信度的答案。这正是 Medical Family Office 存在的意义。",
     disclaimer:
       "本案例为去标识化服务路径示例，不构成医疗广告、诊断建议、治疗建议或疗效承诺。具体诊疗决定必须由持牌医生根据个人情况判断。",
     cta: "申请私密顾问沟通"
@@ -76,7 +76,7 @@ const copy = {
       {
         title: "日本での評価",
         body: [
-          "MWMWTは既存検査資料、質問リスト、家族健康背景を整理し、日本での追加検査と専門家意見の調整を支援しました。",
+          "Medical Family Officeは既存検査資料、質問リスト、家族健康背景を整理し、日本での追加検査と専門家意見の調整を支援しました。",
           "より包括的な検査、多職種専門家による評価、必要なリスク説明を通じて、より明確で客観的な健康判断を得ることができました。"
         ]
       },
@@ -97,9 +97,9 @@ const copy = {
     ],
     stepsTitle: "サービス経路",
     steps: ["資料整理", "日本での検査", "多職種評価", "専門的判断", "長期フォロー"],
-    closingTitle: "MWMWT の意味",
+    closingTitle: "Medical Family Office の意味",
     closing:
-      "多くの場合、人が本当に必要としているのは、より多くの治療ではなく、より正確な専門判断です。より多くの情報ではなく、信頼できる答えです。これが MWMWT の存在意義です。",
+      "多くの場合、人が本当に必要としているのは、より多くの治療ではなく、より正確な専門判断です。より多くの情報ではなく、信頼できる答えです。これが Medical Family Office の存在意義です。",
     disclaimer:
       "本ケースは匿名化したサービス経路例であり、医療広告、診断助言、治療助言、効果保証ではありません。具体的な診療判断は医師が個別状況に基づいて行う必要があります。",
     cta: "プライベート相談を申請"
@@ -123,7 +123,7 @@ const copy = {
       {
         title: "Japan Evaluation",
         body: [
-          "MWMWT helped organize prior records, a focused question list, and family health context, then coordinated further testing and specialist review in Japan.",
+          "Medical Family Office helped organize prior records, a focused question list, and family health context, then coordinated further testing and specialist review in Japan.",
           "Through broader evaluation, multidisciplinary review, and risk explanation, the client received a clearer and more objective medical conclusion."
         ]
       },
@@ -144,9 +144,9 @@ const copy = {
     ],
     stepsTitle: "Service Pathway",
     steps: ["Record preparation", "Japan testing", "Multidisciplinary review", "Professional judgment", "Long-term follow-up"],
-    closingTitle: "Why MWMWT Exists",
+    closingTitle: "Why Medical Family Office Exists",
     closing:
-      "Many times, people do not need more treatment. They need better judgment. They do not need more information. They need a more trusted answer. This is why MWMWT exists.",
+      "Many times, people do not need more treatment. They need better judgment. They do not need more information. They need a more trusted answer. This is why Medical Family Office exists.",
     disclaimer:
       "This is a de-identified service pathway example. It does not constitute medical advertising, diagnosis, treatment advice, or outcome commitment. Specific care decisions must be made by licensed physicians based on individual circumstances.",
     cta: "Apply for Private Consultation"
