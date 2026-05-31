@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
+import { knowledgeCenters } from "@/lib/knowledge-centers";
 import { knowledgeArticles } from "@/lib/knowledge";
 import { normalizeLanguage, withLanguage } from "@/lib/site";
 
@@ -49,45 +50,6 @@ const researchDirections = [
   }
 ];
 
-const centers = {
-  zh: [
-    "长寿医学中心",
-    "细胞科学中心",
-    "外泌体研究中心",
-    "企业家健康中心",
-    "再生医疗中心",
-    "全球医疗资源中心",
-    "生物标志物中心",
-    "预防医学中心",
-    "案例中心",
-    "创始人观点"
-  ],
-  ja: [
-    "長寿医学センター",
-    "細胞科学センター",
-    "エクソソーム研究センター",
-    "経営者健康センター",
-    "再生医療センター",
-    "国際医療資源センター",
-    "バイオマーカー研究センター",
-    "予防医学センター",
-    "ケースライブラリ",
-    "創業者インサイト"
-  ],
-  en: [
-    "Longevity Medicine",
-    "Cellular Science",
-    "Exosome Research",
-    "Executive Health",
-    "Regenerative Medicine",
-    "Global Medical Access",
-    "Biomarker Research",
-    "Preventive Medicine",
-    "Case Library",
-    "Founder Insights"
-  ]
-};
-
 const pageCopy = {
   zh: {
     eyebrow: "知识中心",
@@ -101,7 +63,13 @@ const pageCopy = {
     featured: "精选文章",
     articleTitle: "什么是长寿医学？",
     articleBody: "长寿医学不是简单地活得更久，而是以延长健康寿命为目标，提前发现衰老速度、慢病风险与功能下降趋势。",
-    read: "阅读文章"
+    read: "阅读文章",
+    downloads: "PDF 资料下载",
+    downloadTitle: "Medical Family Office 常见问题",
+    downloadBody: "系统说明医疗家族办公室、健康管理、第二诊疗意见、全球医疗资源、长寿医学、再生医学、干细胞、外泌体与会员服务的基础问题。",
+    downloadCta: "下载 PDF",
+    centers: "10大知识中心",
+    centersBody: "每个中心都可以进入独立页面，查看主题大图、专业文献方向、延伸文章与行业知识下载。"
   },
   ja: {
     eyebrow: "ナレッジセンター",
@@ -115,7 +83,13 @@ const pageCopy = {
     featured: "注目記事",
     articleTitle: "長寿医学とは何か",
     articleBody: "長寿医学は単に長く生きることではなく、健康寿命を延ばし、老化速度や慢性疾患リスク、機能低下の兆候を早期に捉える考え方です。",
-    read: "記事を読む"
+    read: "記事を読む",
+    downloads: "PDF資料",
+    downloadTitle: "Medical Family Office FAQ",
+    downloadBody: "医療ファミリーオフィス、健康管理、セカンドオピニオン、国際医療アクセス、長寿医学、再生医療、幹細胞、エクソソーム、会員サービスの基本を整理した資料です。",
+    downloadCta: "PDFをダウンロード",
+    centers: "10のナレッジセンター",
+    centersBody: "各センターから、テーマ画像、専門文献テーマ、関連記事、業界資料ダウンロードへ進めます。"
   },
   en: {
     eyebrow: "Knowledge Center",
@@ -129,7 +103,13 @@ const pageCopy = {
     featured: "Featured Article",
     articleTitle: "What Is Longevity Medicine?",
     articleBody: "Longevity medicine is not simply about living longer. It focuses on extending healthspan by identifying aging speed, chronic disease risk, and functional decline earlier.",
-    read: "Read Article"
+    read: "Read Article",
+    downloads: "PDF Resource",
+    downloadTitle: "Medical Family Office Frequently Asked Questions",
+    downloadBody: "A structured FAQ covering Medical Family Office, health management, second opinions, global medical access, longevity medicine, regenerative medicine, stem cells, exosomes, and membership.",
+    downloadCta: "Download PDF",
+    centers: "10 Knowledge Centers",
+    centersBody: "Each center opens into a dedicated page with a theme image, professional literature map, related articles, and downloadable industry knowledge."
   }
 };
 
@@ -257,6 +237,25 @@ export default function KnowledgeCenterPage({
 
       <section className="bg-pearl px-5 pb-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
+          <div className="mb-12 border border-champagne/40 bg-white p-8 shadow-sm md:grid md:grid-cols-[0.78fr_1.22fr_auto] md:items-center md:gap-8">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-champagne">
+                {copy.downloads}
+              </p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-ink md:text-4xl">
+                {copy.downloadTitle}
+              </h2>
+            </div>
+            <p className="mt-6 text-sm leading-7 text-graphite/72 md:mt-0">
+              {copy.downloadBody}
+            </p>
+            <Link
+              href="/medical-family-office-faq.pdf"
+              className="mt-7 inline-flex bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-pearl transition hover:bg-champagne hover:text-ink md:mt-0"
+            >
+              {copy.downloadCta}
+            </Link>
+          </div>
           <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2 lg:grid-cols-5">
             {centers[lang].map((center) => (
               <div key={center} className="bg-white p-6">

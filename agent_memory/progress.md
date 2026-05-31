@@ -4,6 +4,10 @@
 
 优化首页信息架构，使其更接近亚洲领先的高净值健康与长寿管理平台，同时保留冻卵咨询和联系表单可用发送路径。
 
+当前文档交付：将用户提供的 Medical Family Office FAQ 英文内容整理为可下载 PDF，要求包含 `mwmwt.com`、`info@mwmwt.com`，并使用 Medical Family Office 抬头纸和页脚。
+
+当前知识库上传：将 `medical-family-office-faq.pdf` 作为官网知识中心可下载资料接入，并加入 sitemap。
+
 当前追加目标：将医疗官网与误覆盖进来的钢结构网站彻底分开；医疗官网继续补齐联系表单系统、首页首屏价值主张、会员体系、合规声明和服务流程页面。
 
 当前最新调整：优化移动端联系表单与内页内容深度：咨询方向改为大按钮选择，解决手机端原生下拉难选问题；平台内页的 01/02/03 卡片改为可点击锚点，并新增延伸内容区；Google Analytics 与 Google Search Console 代码入口已在站点布局中，等待填入 Google 后台提供的 ID/验证码。
@@ -38,6 +42,11 @@
 
 ## 成功标准
 
+- FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
+- PDF 每页带 Medical Family Office 抬头与页脚，并展示 `mwmwt.com`、`info@mwmwt.com`。
+- PDF 文件生成后完成基础文件格式与关键文字验证。
+- 知识中心页面展示 FAQ PDF 下载入口，链接到 `/medical-family-office-faq.pdf`。
+- sitemap 包含 PDF 静态资源地址。
 - 首页 9 个服务卡片在桌面端呈现 3+3+3
 - 服务卡片不再复用同一张图片
 - 新增富士山健康长寿、家庭健康规划、生育力保存等更有人气的图片
@@ -51,6 +60,11 @@
 
 ## 状态
 
+- 已生成 FAQ PDF：`generated/medical-family-office-faq.pdf`。
+- 已复制站点静态下载版本：`public/medical-family-office-faq.pdf`。
+- 已新增本地生成脚本：`generated/generate_medical_family_office_faq_pdf.py`。
+- 已在 `/knowledge-center` 页面底部分类区上方新增 PDF 资料下载卡片，支持中日英文案。
+- 已在 sitemap 中加入 `https://mwmwt.com/medical-family-office-faq.pdf`。
 - 已生成并保存 5 张新图片到 `public/`
 - 已将首页服务卡桌面布局调整为 3 列，9 个卡片为三行
 - 已将首页服务项调整为：服务、再生医疗、长寿规划、医疗礼宾、日本医院网络、医生网络、资源数据库、冻卵咨询、家庭健康计划
@@ -142,6 +156,13 @@
 
 ## 验证记录
 
+- 已执行 `file generated/medical-family-office-faq.pdf`，确认是 PDF 1.4 文档，共 7 页。
+- 已执行 `ls -lh generated/medical-family-office-faq.pdf public/medical-family-office-faq.pdf`，确认两个 PDF 文件均已生成，大小约 32K。
+- 已执行 Python 字节检查，确认 PDF 以 `%PDF-1.4` 开头并以 `%%EOF` 结束。
+- 已执行 `strings ... | rg`，确认 PDF 内包含 `Frequently Asked Questions`、`Medical Family Office`、`mwmwt.com`、`info@mwmwt.com` 与关键结尾文案。
+- 已执行 `npm run typecheck`，TypeScript 检查通过。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认知识中心下载入口和 sitemap PDF 资源未破坏构建，当前生成 152 个页面。
+- 已执行构建产物关键字检索，确认 `.next` 中包含 `/medical-family-office-faq.pdf` 下载链接与 sitemap 记录。
 - 已执行 `npm run build`，Next.js 生产构建通过，生成 23 个路由
 - 已再次执行 `npm run build`，Next.js 生产构建通过，确认治理体系、会员体系和 sitemap 改动未破坏构建
 - 已执行 `npm run build`，Next.js 生产构建通过，确认知识库首页与长寿医学文章静态路由生成正常，共 25 个路由

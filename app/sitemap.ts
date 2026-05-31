@@ -65,5 +65,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }));
 
-  return [...staticPages, ...platformPages, ...doctorPages, ...knowledgePages];
+  const downloadableResources = [
+    {
+      url: `${siteUrl}/medical-family-office-faq.pdf`,
+      lastModified: new Date("2026-05-31"),
+      changeFrequency: "yearly" as const,
+      priority: 0.55
+    }
+  ];
+
+  return [...staticPages, ...platformPages, ...doctorPages, ...knowledgePages, ...downloadableResources];
 }
