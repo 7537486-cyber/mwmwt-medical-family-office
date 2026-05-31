@@ -11,28 +11,34 @@ export const metadata: Metadata = {
 
 const inquiryTypes = [
   "日本精密体检",
-  "再生医疗 / 抗衰项目",
+  "企业家健康管理",
+  "长寿医学 / 抗衰管理",
+  "再生医疗咨询",
   "重大疾病第二意见",
-  "赴日就医礼宾",
-  "冻卵与生育力保存",
+  "赴日就医协调",
+  "生育力保存 / 冻卵咨询",
   "家庭长期健康规划"
 ];
 
 const inquiryTypesEn = [
   "Executive checkups in Japan",
-  "Regenerative medicine / anti-aging",
+  "Executive health management",
+  "Longevity medicine / anti-aging management",
+  "Regenerative medicine consultation",
   "Major illness second opinion",
-  "Medical concierge travel to Japan",
-  "Egg freezing / fertility preservation",
+  "Japan medical coordination",
+  "Fertility preservation / egg freezing",
   "Long-term family health planning"
 ];
 
 const inquiryTypesJa = [
   "日本での精密健診",
-  "再生医療・アンチエイジング",
+  "エグゼクティブ健康管理",
+  "長寿医学・アンチエイジング管理",
+  "再生医療相談",
   "重大疾患のセカンドオピニオン",
-  "訪日医療コンシェルジュ",
-  "卵子凍結・妊孕性温存",
+  "訪日医療コーディネーション",
+  "妊孕性温存・卵子凍結相談",
   "家族の長期健康計画"
 ];
 
@@ -41,19 +47,22 @@ const contactCopy = {
     firstStep: "私密初步沟通",
     scope: "联系方式",
     wechatTitle: "微信咨询",
-    wechatBody: "可扫码添加微信，适合补充说明时间安排、家庭成员情况或希望先进行简短沟通。"
+    wechatBody: "可扫码添加私人礼宾微信，用于确认沟通时间、补充基础背景或预约初步说明。涉及完整病历、影像和敏感资料时，我们会另行提供更安全的提交方式。",
+    trust: ["仅限预约沟通", "中日英协调", "信息保密", "不替代医生诊断", "适合高净值家庭、企业家与跨境医疗需求"]
   },
   ja: {
     firstStep: "プライベート初回相談",
     scope: "連絡方法",
     wechatTitle: "WeChat相談",
-    wechatBody: "QRコードからWeChatを追加し、希望時期やご家族の状況について簡単にご相談いただけます。"
+    wechatBody: "プライベートコンシェルジュのWeChatを追加し、面談時間、基本背景、初回説明の予約を確認できます。完全な病歴、画像、機微な資料については、安全な提出方法を別途ご案内します。",
+    trust: ["予約制", "中日英対応", "情報の秘匿性", "医師の診断に代わるものではありません", "富裕層家族・経営者・国際医療ニーズに対応"]
   },
   en: {
     firstStep: "Private First Step",
     scope: "Contact Options",
     wechatTitle: "WeChat Inquiry",
-    wechatBody: "Scan the QR code to add us on WeChat for timing, family context, or a brief first conversation."
+    wechatBody: "Scan the QR code to add the private concierge WeChat for scheduling, basic context, or an introductory call. Complete medical records, imaging, and sensitive files should be sent only through a secure method provided by our team.",
+    trust: ["Appointment only", "Chinese, Japanese, and English coordination", "Confidential handling", "Not a substitute for physician diagnosis", "For UHNW families, entrepreneurs, and cross-border medical needs"]
   }
 };
 
@@ -89,11 +98,18 @@ export default function ContactPage({
             </p>
             <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
               {lang === "en"
-                ? "Tell us the family's most important health priority"
+                ? "Tell us the family's most important health priority."
                 : lang === "ja"
-                  ? "ご家族にとって最も重要な健康課題をお知らせください"
-                  : "告诉我们家庭当前最重要的健康议题"}
+                  ? "ご家族にとって最も重要な健康課題をお知らせください。"
+                  : "告诉我们家庭当前最重要的健康议题。"}
             </h2>
+            <div className="mt-8 grid gap-3">
+              {copy.trust.map((item) => (
+                <div key={item} className="border-l border-champagne/50 bg-white px-5 py-3">
+                  <p className="text-sm font-semibold text-ink">{item}</p>
+                </div>
+              ))}
+            </div>
             <div className="mt-10 grid gap-5 border border-mist bg-white p-6 shadow-sm sm:grid-cols-[150px_1fr] sm:items-center">
               <div className="relative mx-auto aspect-square w-36 overflow-hidden bg-pearl">
                 <Image

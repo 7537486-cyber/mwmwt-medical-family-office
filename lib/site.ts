@@ -376,13 +376,16 @@ export const pages: Record<string, PageContent> = {
   },
   contact: {
     slug: "contact",
-    eyebrow: "Private Inquiry",
-    title: "以私密方式开启第一次沟通",
-    jaTitle: "初回相談はプライベートに",
+    eyebrow: "Private Medical Advisory",
+    title: "预约一次私密医疗顾问沟通",
+    jaTitle: "プライベート医療アドバイザー相談を予約",
+    enTitle: "先判断适配度，再安排私密沟通",
     description:
-      "请留下希望讨论的方向。我们会先确认适配度，再安排一场保密的中日双语介绍会议。",
+      "MWMWT 为高净值家庭、企业家与跨境客户提供日本医疗资源协调、长期健康治理与私人医疗礼宾服务。提交信息后，我们会先判断适配度，再安排中日双语沟通。",
     jaDescription:
-      "ご相談内容をお知らせください。適合性を確認したうえで、秘密保持を前提とした初回面談を設定します。",
+      "MWMWTは富裕層家族、経営者、国際医療ニーズを持つお客様に、日本医療資源の調整、長期健康管理、プライベート医療コンシェルジュを提供します。送信後、適合性を確認したうえで中日バイリンガル面談を調整します。",
+    enDescription:
+      "We first understand your health goals, family context, and risk concerns, then assess whether MWMWT is the right private medical coordination system for your needs.",
     pillars: [
       {
         title: "适合对象",
@@ -402,7 +405,7 @@ export const pages: Record<string, PageContent> = {
     ],
     proof: ["24 小时内初步回复", "中日双语顾问", "私密会议安排"],
     process: ["提交需求", "适配度确认", "预约介绍会议", "形成下一步建议"],
-    cta: "提交咨询"
+    cta: "提交私密咨询"
   }
 };
 
@@ -609,12 +612,12 @@ const englishPages: Record<string, EnglishPage> = {
     ]
   },
   contact: {
-    title: "Begin the first conversation privately",
+    title: "Book a private medical advisory consultation",
     description:
-      "Share the area you would like to discuss. We will first confirm fit, then arrange a confidential introductory meeting in Chinese, Japanese, or English.",
-    proof: ["Initial reply within 24 hours", "Chinese, Japanese, and English advisors", "Private meeting arrangement"],
-    process: ["Submit inquiry", "Confirm fit", "Schedule introductory meeting", "Define next-step recommendations"],
-    cta: "Submit inquiry",
+      "MWMWT provides Japan medical access coordination, long-term health governance, and private medical concierge support for high-net-worth families, entrepreneurs, and cross-border clients. After submission, we first assess fit, then arrange communication in Chinese, Japanese, or English.",
+    proof: ["Appointment-only first contact", "Chinese, Japanese, and English coordination", "Confidential handling"],
+    process: ["Submit private inquiry", "Review goals and fit", "Schedule advisory call", "Define next steps"],
+    cta: "Submit private inquiry",
     pillars: [
       { title: "Who we serve", body: "Entrepreneur families, family offices, private banking relationship managers, and families with cross-border medical needs." },
       { title: "What we discuss", body: "Executive checkups, regenerative medicine, major illness second opinions, long-term health planning, and Japan hospital appointments." },
@@ -649,7 +652,8 @@ export function pageText(page: PageContent, lang: Language) {
     return {
       eyebrow: page.eyebrow,
       title: page.jaTitle,
-      secondaryTitle: english?.title ?? page.eyebrow,
+      secondaryTitle:
+        page.slug === "contact" ? "適合性を確認してからご連絡します" : english?.title ?? page.eyebrow,
       description: page.jaDescription,
       secondaryDescription:
         "ご相談内容に応じて、医療資源、専門医、資料整理、予約調整、長期フォローを一つの窓口で支援します。",

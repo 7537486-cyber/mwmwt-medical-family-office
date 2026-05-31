@@ -13,23 +13,23 @@ type ContactFormProps = {
 const copy = {
   zh: {
     name: "称呼",
-    gender: "性别",
-    ageRange: "年龄",
-    phone: "电话 / WhatsApp / LINE",
-    messenger: "微信 / 备用联系方式",
-    email: "邮箱",
+    countryCity: "所在国家 / 城市",
+    preferredLanguage: "希望沟通语言",
+    preferredContactMethod: "首选联系方式",
+    contactDetail: "联系方式 / 账号",
     inquiry: "咨询方向",
+    urgency: "紧急程度",
     background: "背景说明",
-    namePlaceholder: "陈先生",
-    genderOptions: ["男", "女"],
-    ageOptions: ["30岁以下", "30-39岁", "40-49岁", "50-59岁", "60-69岁", "70岁以上"],
-    phonePlaceholder: "+86 / +81 / +65 手机号，或 WhatsApp / LINE ID",
-    messengerPlaceholder: "微信号或其他备用联系方式，可选",
-    emailPlaceholder: "邮箱，可选",
-    placeholder: "请简要说明目标、时间安排、家庭成员情况或已持有的医疗资料。",
-    submit: "发送私密咨询",
+    namePlaceholder: "陈先生 / 王女士",
+    countryCityPlaceholder: "例如：中国上海 / 日本东京 / 新加坡",
+    contactDetailPlaceholder: "请填写微信号、WhatsApp、LINE ID、电话或邮箱",
+    languageOptions: ["中文", "日文", "英文"],
+    contactOptions: ["微信", "WhatsApp", "LINE", "电话", "邮箱"],
+    urgencyOptions: ["非紧急", "1个月内", "尽快"],
+    placeholder: "请简要说明健康目标、家庭情况、时间安排、已有检查结果或正在面对的风险议题。",
+    submit: "提交私密咨询",
     note:
-      "提交后将进入 MWMWT 私人礼宾咨询系统，我们会优先通过您留下的电话、WhatsApp、LINE 或微信回复。",
+      "提交后将进入 MWMWT 私人医疗协调流程。我们会先判断适配度，再安排中日双语或英文沟通。",
     submitting: "正在安全提交...",
     error: "暂时无法提交，请稍后再试。",
     consentStart: "我已阅读并同意",
@@ -40,23 +40,23 @@ const copy = {
   },
   ja: {
     name: "お名前",
-    gender: "性別",
-    ageRange: "年齢",
-    phone: "電話 / WhatsApp / LINE",
-    messenger: "WeChat / 予備連絡先",
-    email: "メール",
+    countryCity: "居住国 / 都市",
+    preferredLanguage: "希望する言語",
+    preferredContactMethod: "希望する連絡方法",
+    contactDetail: "連絡先 / アカウント",
     inquiry: "ご相談内容",
+    urgency: "緊急度",
     background: "ご状況",
     namePlaceholder: "山田様",
-    genderOptions: ["男性", "女性"],
-    ageOptions: ["30歳未満", "30-39歳", "40-49歳", "50-59歳", "60-69歳", "70歳以上"],
-    phonePlaceholder: "+86 / +81 / +65 の電話番号、または WhatsApp / LINE ID",
-    messengerPlaceholder: "WeChat ID または予備連絡先、任意",
-    emailPlaceholder: "メール、任意",
-    placeholder: "目的、時期、ご家族の状況、すでにお持ちの医療資料を簡潔にご記入ください。",
+    countryCityPlaceholder: "例：中国・上海 / 日本・東京 / シンガポール",
+    contactDetailPlaceholder: "WeChat、WhatsApp、LINE ID、電話番号、メールをご記入ください",
+    languageOptions: ["中国語", "日本語", "英語"],
+    contactOptions: ["WeChat", "WhatsApp", "LINE", "電話", "メール"],
+    urgencyOptions: ["緊急ではない", "1か月以内", "できるだけ早く"],
+    placeholder: "健康目標、ご家族の状況、希望時期、既存の検査結果、現在のリスク課題を簡潔にご記入ください。",
     submit: "プライベート相談を送信",
     note:
-      "送信内容は MWMWT のプライベートコンシェルジュ相談システムに入り、電話、WhatsApp、LINE、WeChat を優先してご連絡します。",
+      "送信後、MWMWT のプライベート医療調整プロセスに入ります。適合性を確認したうえで、中日または英語でのご連絡を調整します。",
     submitting: "安全に送信しています...",
     error: "現在送信できません。時間をおいて再度お試しください。",
     consentStart: "私は",
@@ -67,23 +67,23 @@ const copy = {
   },
   en: {
     name: "Name",
-    gender: "Gender",
-    ageRange: "Age",
-    phone: "Phone / WhatsApp / LINE",
-    messenger: "WeChat / Backup Contact",
-    email: "Email",
-    inquiry: "Inquiry type",
+    countryCity: "Country / City",
+    preferredLanguage: "Preferred language",
+    preferredContactMethod: "Preferred contact method",
+    contactDetail: "Contact detail / account",
+    inquiry: "Inquiry purpose",
+    urgency: "Urgency",
     background: "Background",
-    namePlaceholder: "Mr. Chen",
-    genderOptions: ["Male", "Female"],
-    ageOptions: ["Under 30", "30-39", "40-49", "50-59", "60-69", "70+"],
-    phonePlaceholder: "+86 / +81 / +65 phone number, or WhatsApp / LINE ID",
-    messengerPlaceholder: "WeChat ID or backup contact, optional",
-    emailPlaceholder: "Email, optional",
-    placeholder: "Briefly describe goals, timing, family member context, or available medical records.",
+    namePlaceholder: "Mr. Chen / Ms. Wang",
+    countryCityPlaceholder: "e.g. Shanghai, China / Tokyo, Japan / Singapore",
+    contactDetailPlaceholder: "WeChat, WhatsApp, LINE ID, phone number, or email",
+    languageOptions: ["Chinese", "Japanese", "English"],
+    contactOptions: ["WeChat", "WhatsApp", "LINE", "Phone", "Email"],
+    urgencyOptions: ["Not urgent", "Within 1 month", "As soon as possible"],
+    placeholder: "Briefly describe health goals, family context, timing, existing test results, or risk concerns.",
     submit: "Submit Private Inquiry",
     note:
-      "Your inquiry enters the MWMWT private concierge system. We will prioritize follow-up by phone, WhatsApp, LINE, or WeChat.",
+      "Your inquiry enters the MWMWT private medical coordination process. We first review fit, then arrange communication in Chinese, Japanese, or English.",
     submitting: "Submitting securely...",
     error: "Submission is temporarily unavailable. Please try again later.",
     consentStart: "I have read and agree to the",
@@ -95,16 +95,57 @@ const copy = {
   }
 };
 
+function ChoiceGroup({
+  label,
+  options,
+  value,
+  onChange,
+  columns = "sm:grid-cols-3"
+}: {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+  columns?: string;
+}) {
+  return (
+    <fieldset className="grid gap-3">
+      <legend className="text-sm font-semibold text-ink">{label}</legend>
+      <div className={`grid gap-3 ${columns}`}>
+        {options.map((item) => {
+          const active = value === item;
+
+          return (
+            <button
+              key={item}
+              type="button"
+              onClick={() => onChange(item)}
+              className={`min-h-12 border px-4 py-3 text-left text-sm font-semibold leading-6 transition ${
+                active
+                  ? "border-champagne bg-ink text-pearl"
+                  : "border-mist bg-pearl text-ink hover:border-champagne"
+              }`}
+              aria-pressed={active}
+            >
+              {item}
+            </button>
+          );
+        })}
+      </div>
+    </fieldset>
+  );
+}
+
 export function ContactForm({ lang, typeOptions }: ContactFormProps) {
   const router = useRouter();
   const text = copy[lang];
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
-  const [ageRange, setAgeRange] = useState("");
-  const [phone, setPhone] = useState("");
-  const [messenger, setMessenger] = useState("");
-  const [email, setEmail] = useState("");
+  const [countryCity, setCountryCity] = useState("");
+  const [preferredLanguage, setPreferredLanguage] = useState(text.languageOptions[0]);
+  const [preferredContactMethod, setPreferredContactMethod] = useState(text.contactOptions[0]);
+  const [contactDetail, setContactDetail] = useState("");
   const [inquiryType, setInquiryType] = useState(typeOptions[0] ?? "");
+  const [urgency, setUrgency] = useState(text.urgencyOptions[0]);
   const [background, setBackground] = useState("");
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
@@ -120,12 +161,13 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
       body: JSON.stringify({
         lang,
         name,
-        gender,
-        ageRange,
-        phone,
-        messenger,
-        email,
+        countryCity,
+        preferredLanguage,
+        preferredContactMethod,
+        contactDetail,
+        email: contactDetail.includes("@") ? contactDetail : "",
         inquiryType,
+        urgency,
         background,
         consent,
         sourcePage: window.location.toString()
@@ -153,108 +195,59 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
             placeholder={text.namePlaceholder}
           />
         </label>
-        <fieldset className="grid gap-3">
-          <legend className="text-sm font-semibold text-ink">{text.gender}</legend>
-          <div className="grid grid-cols-2 gap-3">
-            {text.genderOptions.map((item) => {
-              const active = gender === item;
 
-              return (
-                <button
-                  key={item}
-                  type="button"
-                  onClick={() => setGender(item)}
-                  className={`min-h-12 border px-4 py-3 text-left text-sm font-semibold leading-6 transition ${
-                    active
-                      ? "border-champagne bg-ink text-pearl"
-                      : "border-mist bg-pearl text-ink hover:border-champagne"
-                  }`}
-                  aria-pressed={active}
-                >
-                  {item}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
-        <fieldset className="grid gap-3">
-          <legend className="text-sm font-semibold text-ink">{text.ageRange}</legend>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {text.ageOptions.map((item) => {
-              const active = ageRange === item;
-
-              return (
-                <button
-                  key={item}
-                  type="button"
-                  onClick={() => setAgeRange(item)}
-                  className={`min-h-12 border px-4 py-3 text-left text-sm font-semibold leading-6 transition ${
-                    active
-                      ? "border-champagne bg-ink text-pearl"
-                      : "border-mist bg-pearl text-ink hover:border-champagne"
-                  }`}
-                  aria-pressed={active}
-                >
-                  {item}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
         <label className="grid gap-2 text-sm font-semibold text-ink">
-          {text.phone}
+          {text.countryCity}
           <input
             required
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
+            value={countryCity}
+            onChange={(event) => setCountryCity(event.target.value)}
             className="border border-mist bg-pearl px-4 py-3 font-normal outline-none transition focus:border-champagne"
-            placeholder={text.phonePlaceholder}
+            placeholder={text.countryCityPlaceholder}
           />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink">
-          {text.messenger}
-          <input
-            value={messenger}
-            onChange={(event) => setMessenger(event.target.value)}
-            className="border border-mist bg-pearl px-4 py-3 font-normal outline-none transition focus:border-champagne"
-            placeholder={text.messengerPlaceholder}
-          />
-        </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink">
-          {text.email}
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            className="border border-mist bg-pearl px-4 py-3 font-normal outline-none transition focus:border-champagne"
-            placeholder={text.emailPlaceholder}
-          />
-        </label>
-        <fieldset className="grid gap-3">
-          <legend className="text-sm font-semibold text-ink">{text.inquiry}</legend>
-          <input type="hidden" name="inquiryType" value={inquiryType} />
-          <div className="grid gap-3 sm:grid-cols-2">
-            {typeOptions.map((item) => {
-              const active = inquiryType === item;
 
-              return (
-                <button
-                  key={item}
-                  type="button"
-                  onClick={() => setInquiryType(item)}
-                  className={`min-h-14 border px-4 py-3 text-left text-sm font-semibold leading-6 transition ${
-                    active
-                      ? "border-champagne bg-ink text-pearl"
-                      : "border-mist bg-pearl text-ink hover:border-champagne"
-                  }`}
-                  aria-pressed={active}
-                >
-                  {item}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
+        <ChoiceGroup
+          label={text.preferredLanguage}
+          options={text.languageOptions}
+          value={preferredLanguage}
+          onChange={setPreferredLanguage}
+        />
+
+        <ChoiceGroup
+          label={text.preferredContactMethod}
+          options={text.contactOptions}
+          value={preferredContactMethod}
+          onChange={setPreferredContactMethod}
+          columns="sm:grid-cols-5"
+        />
+
+        <label className="grid gap-2 text-sm font-semibold text-ink">
+          {text.contactDetail}
+          <input
+            required
+            value={contactDetail}
+            onChange={(event) => setContactDetail(event.target.value)}
+            className="border border-mist bg-pearl px-4 py-3 font-normal outline-none transition focus:border-champagne"
+            placeholder={text.contactDetailPlaceholder}
+          />
+        </label>
+
+        <ChoiceGroup
+          label={text.inquiry}
+          options={typeOptions}
+          value={inquiryType}
+          onChange={setInquiryType}
+          columns="sm:grid-cols-2"
+        />
+
+        <ChoiceGroup
+          label={text.urgency}
+          options={text.urgencyOptions}
+          value={urgency}
+          onChange={setUrgency}
+        />
+
         <label className="grid gap-2 text-sm font-semibold text-ink">
           {text.background}
           <textarea
@@ -265,6 +258,7 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
             placeholder={text.placeholder}
           />
         </label>
+
         <label className="flex gap-3 text-xs leading-6 text-graphite/70">
           <input
             type="checkbox"
@@ -298,6 +292,7 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
             {text.consentMiddle}
           </span>
         </label>
+
         <button
           type="submit"
           disabled={!consent || status === "loading"}
@@ -305,11 +300,13 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
         >
           {status === "loading" ? text.submitting : text.submit}
         </button>
+
         {status === "error" ? (
           <p className="border border-champagne/50 bg-pearl px-4 py-3 text-xs leading-6 text-ink">
             {text.error}
           </p>
         ) : null}
+
         <p className="text-xs leading-6 text-graphite/62">{text.note}</p>
       </div>
     </form>

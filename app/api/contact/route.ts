@@ -5,11 +5,16 @@ type ContactPayload = {
   name?: string;
   gender?: string;
   ageRange?: string;
+  countryCity?: string;
+  preferredLanguage?: string;
+  preferredContactMethod?: string;
+  contactDetail?: string;
   contact?: string;
   phone?: string;
   messenger?: string;
   email?: string;
   inquiryType?: string;
+  urgency?: string;
   background?: string;
   sourcePage?: string;
   consent?: boolean;
@@ -56,10 +61,14 @@ async function pushLineNotification(payload: {
   name: string;
   gender: string;
   ageRange: string;
+  countryCity: string;
+  preferredLanguage: string;
+  preferredContactMethod: string;
   phone: string;
   messenger: string;
   email: string;
   inquiryType: string;
+  urgency: string;
   sourcePage: string;
 }) {
   const message = [
@@ -68,10 +77,14 @@ async function pushLineNotification(payload: {
     `Name: ${payload.name}`,
     payload.gender ? `Gender: ${payload.gender}` : undefined,
     payload.ageRange ? `Age: ${payload.ageRange}` : undefined,
-    `Phone/LINE: ${payload.phone}`,
+    payload.countryCity ? `Country/City: ${payload.countryCity}` : undefined,
+    payload.preferredLanguage ? `Preferred language: ${payload.preferredLanguage}` : undefined,
+    payload.preferredContactMethod ? `Preferred contact: ${payload.preferredContactMethod}` : undefined,
+    `Contact detail: ${payload.phone}`,
     payload.messenger ? `WeChat/Backup: ${payload.messenger}` : undefined,
     payload.email ? `Email: ${payload.email}` : undefined,
     `Type: ${payload.inquiryType}`,
+    payload.urgency ? `Urgency: ${payload.urgency}` : undefined,
     `Source: ${payload.sourcePage || "mwmwt.com"}`
   ]
     .filter(Boolean)
@@ -120,15 +133,20 @@ export async function POST(request: Request) {
   const name = clean(payload.name);
   const gender = clean(payload.gender);
   const ageRange = clean(payload.ageRange);
-  const phone = clean(payload.phone ?? payload.contact);
+  const countryCity = clean(payload.countryCity);
+  const preferredLanguage = clean(payload.preferredLanguage);
+  const preferredContactMethod = clean(payload.preferredContactMethod);
+  const contactDetail = clean(payload.contactDetail);
+  const phone = clean(payload.phone ?? payload.contact ?? payload.contactDetail);
   const messenger = clean(payload.messenger);
-  const email = clean(payload.email);
+  const email = clean(payload.email) || (isLikelyEmail(contactDetail) ? contactDetail : "");
   const inquiryType = clean(payload.inquiryType);
+  const urgency = clean(payload.urgency);
   const background = clean(payload.background);
   const sourcePage = clean(payload.sourcePage) || "mwmwt.com";
   const lang = clean(payload.lang) || "zh";
 
-  if (!name || !phone || !inquiryType || !payload.consent) {
+  if (!name || !countryCity || !phone || !inquiryType || !urgency || !payload.consent) {
     return NextResponse.json({ ok: false, error: "MISSING_REQUIRED_FIELDS" }, { status: 400 });
   }
 
@@ -140,10 +158,15 @@ export async function POST(request: Request) {
     name,
     gender,
     ageRange,
+    countryCity,
+    preferredLanguage,
+    preferredContactMethod,
+    contactDetail: phone,
     phone,
     messenger,
     email,
     inquiryType,
+    urgency,
     background,
     sourcePage,
     consent: Boolean(payload.consent)
@@ -171,10 +194,14 @@ export async function POST(request: Request) {
     `Name: ${name}`,
     `Gender: ${gender || "-"}`,
     `Age: ${ageRange || "-"}`,
-    `Phone / WhatsApp / LINE: ${phone}`,
+    `Country / City: ${countryCity}`,
+    `Preferred language: ${preferredLanguage || "-"}`,
+    `Preferred contact method: ${preferredContactMethod || "-"}`,
+    `Contact detail: ${phone}`,
     `WeChat / Backup contact: ${messenger || "-"}`,
     `Email: ${email || "-"}`,
     `Inquiry type: ${inquiryType}`,
+    `Urgency: ${urgency}`,
     "",
     "Background:",
     background || "-"
@@ -189,10 +216,14 @@ export async function POST(request: Request) {
       <p><strong>Name:</strong> ${escapeHtml(name)}</p>
       <p><strong>Gender:</strong> ${escapeHtml(gender || "-")}</p>
       <p><strong>Age:</strong> ${escapeHtml(ageRange || "-")}</p>
-      <p><strong>Phone / WhatsApp / LINE:</strong> ${escapeHtml(phone)}</p>
+      <p><strong>Country / City:</strong> ${escapeHtml(countryCity)}</p>
+      <p><strong>Preferred language:</strong> ${escapeHtml(preferredLanguage || "-")}</p>
+      <p><strong>Preferred contact method:</strong> ${escapeHtml(preferredContactMethod || "-")}</p>
+      <p><strong>Contact detail:</strong> ${escapeHtml(phone)}</p>
       <p><strong>WeChat / Backup contact:</strong> ${escapeHtml(messenger || "-")}</p>
       <p><strong>Email:</strong> ${escapeHtml(email || "-")}</p>
       <p><strong>Inquiry type:</strong> ${escapeHtml(inquiryType)}</p>
+      <p><strong>Urgency:</strong> ${escapeHtml(urgency)}</p>
       <p><strong>Background:</strong></p>
       <p style="white-space:pre-wrap">${escapeHtml(background || "-")}</p>
     </div>
@@ -251,10 +282,14 @@ export async function POST(request: Request) {
       name,
       gender,
       ageRange,
+      countryCity,
+      preferredLanguage,
+      preferredContactMethod,
       phone,
       messenger,
       email,
       inquiryType,
+      urgency,
       sourcePage
     })
   ]);
