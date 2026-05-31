@@ -136,6 +136,7 @@ export default function DoctorNetworkPage({
         description={hero.description}
         secondaryDescription={hero.secondaryDescription}
         cta={hero.cta}
+        ctaHref={withLanguage("/contact", lang)}
         image={image}
       />
 

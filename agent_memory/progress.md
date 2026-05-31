@@ -4,13 +4,17 @@
 
 优化首页信息架构，使其更接近亚洲领先的高净值健康与长寿管理平台，同时保留冻卵咨询和联系表单可用发送路径。
 
+当前追加目标：将医疗官网与误覆盖进来的钢结构网站彻底分开；医疗官网继续补齐联系表单系统、首页首屏价值主张、会员体系、合规声明和服务流程页面。
+
+当前最新调整：彻底移除联系表单 `mailto` 行为，改为 `/api/contact` 服务端通过 Resend 发送到固定收件地址 `info@mwmwt.com`，使用 `process.env.RESEND_API_KEY`；提交成功后跳转到感谢页并显示 “Thank you. Your inquiry has been submitted.”。
+
 ## 成功标准
 
 - 首页 9 个服务卡片在桌面端呈现 3+3+3
 - 服务卡片不再复用同一张图片
 - 新增富士山健康长寿、家庭健康规划、生育力保存等更有人气的图片
 - 新增“冻卵与生育力保存咨询”页面，并避免把代孕写成可安排服务
-- 联系表单点击后能打开邮件草稿
+- 联系表单点击后不打开本地邮件客户端，改由服务器端发送
 - 首页第一屏不出现具体项目，改为 Medical Family Office 总定位
 - 首页按六屏结构呈现：定位、What We Do、Why Clients Choose Us、Knowledge Center、Medical Advisory Board、Membership
 - 首页体现“四大核心板块”：Longevity Medicine、Regenerative Medicine、Executive Health、Global Medical Access
@@ -59,7 +63,25 @@
 - 已修正日文页面中大量英文小标题、英文/日文页面露出中文医生种子资料的问题，医生详情页在日文/英文下改为对应语言的专业资源介绍
 - 已将知识中心长寿医学文章改为中文完整长文，日文/英文访问时显示对应语言的精简专业文章，避免语言混杂
 - 已调整通用首屏图片移动端展示：手机端先显示完整比例图片，桌面端仍保留大图沉浸式背景，降低手机端裁切看不全的问题
-- 待用户执行 Git 提交和推送，触发 Vercel 自动部署
+- 当前修复已本地提交；GitHub 推送和 Vercel CLI 生产部署因本机认证不可用暂时未完成
+- 已将当前误混入的钢结构网站另存到 `/Users/yumi/Documents/MWM钢结构官网`，并用 `git archive HEAD` 将医疗官网目录恢复为医疗项目内容，两个网站后续作为独立项目处理
+- 已在 `.gitignore` 忽略 `public/mwm-*.jpg`，避免钢结构图片被误提交到医疗官网
+- 已新增 `/privacy-policy`、`/medical-disclaimer`、`/terms-of-service`、`/compliance` 四个法律与合规页面，并在页脚加入入口
+- 已将结构化数据从 `MedicalBusiness` 调整为 `ProfessionalService`，避免网站被误解为直接医疗机构
+- 已将联系表单从 `mailto` 草稿改为站内提交：`/api/contact` 发送到域名邮箱配置，并支持可选 CRM Webhook 写入
+- 已新增 `/thank-you` 感谢页，提示邮箱、LINE 与 WhatsApp 后续咨询入口
+- 已将公开联系邮箱统一改为 `vip@mwmwt.com`，表单默认发送目标为 `concierge@mwmwt.com`，内部抄送改为环境变量配置
+- 已强化首页首屏为 “Medical Family Office”，明确长期医疗资源管理、长寿规划与日本高端医疗通道
+- 已完善首页会员体系卡片，加入结果、核心权益、申请门槛、费用说明与服务边界
+- 已新增 `/service-process` 服务流程页面，并加入导航，展示从 15 分钟初步沟通到长期随访的完整路径
+- 已更新 `DEPLOY.md`，补充域名邮箱、Resend、CRM Webhook、LINE 与 WhatsApp 环境变量配置说明
+- 已将联系表单主联系方式改为“电话 / WhatsApp / LINE”必填，微信 / 备用联系方式和邮箱改为可选
+- 已将表单后台默认收件改为 `info@mwmwt.com`，公开页面不再依赖客户发邮件
+- 已在表单 API 中增加 LINE 内部通知能力：可通过 `LINE_NOTIFICATION_WEBHOOK_URL` 接 Make/Zapier/LINE 桥接，也可通过 `LINE_CHANNEL_ACCESS_TOKEN` + `LINE_TO_ID` 直接调用 LINE Messaging API
+- 已将 CRM Payload 拆分为 `phone`、`messenger`、`email` 字段，便于后续写入客户表或 CRM
+- 已将联系表单发送接口固定发送到 `info@mwmwt.com`，不再依赖 `CONTACT_TO_EMAIL`
+- 已移除感谢页残留的邮件链接，公开代码中不再存在 `mailto:`，避免点击后打开 Apple Mail
+- 已将感谢页标题三语统一为 “Thank you. Your inquiry has been submitted.”
 
 ## 验证记录
 
@@ -76,3 +98,9 @@
 - 已执行 `npm run build`，Next.js 生产构建通过，确认包机、商务车接送、一对一陪同图片与页面接入后共 32 个路由正常生成
 - 已执行全站敏感内部词检索，确认公开代码中不再出现“麦肯锡、卖项目、网站不应、医美诊所、干细胞中介、获客、复购、SEO、高权重、1000+、100位、销售页、正式版后续可”等公开不适合词
 - 已执行 `npm run build`，Next.js 生产构建通过，确认内部话术清理、多语言修正和移动端图片展示调整后共 32 个路由正常生成
+- 已执行 `npm run build`，Next.js 生产构建通过，确认表单 API、感谢页、合规页面、会员体系与服务流程页面正常生成，共 38 个路由
+- 已执行公开文案检索，确认未检出 QQ/iCloud 邮箱、钢结构网站残留、SEO/线索/获客/内部沟通等不适合公开展示词
+- 已执行 `npm run build`，Next.js 生产构建通过，确认电话优先表单、`info@mwmwt.com` 默认配置与 LINE 通知代码未破坏构建，共 38 个路由
+- 已执行邮箱残留检索，确认公开代码中不再出现 QQ/iCloud/vip/concierge 等旧联系邮箱
+- 已执行 `rg` 检索，确认 `app`、`components`、`lib`、`DEPLOY.md` 中不再出现 `mailto:`、`window.location`、`location.href`、`CONTACT_TO_EMAIL`、旧邮箱等残留
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 Resend 服务端发送、感谢页文案和部署说明更新后仍正常生成 38 个路由

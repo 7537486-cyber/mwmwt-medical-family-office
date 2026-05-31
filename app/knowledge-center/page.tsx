@@ -153,6 +153,7 @@ export default function KnowledgeCenterPage({
         description={copy.description}
         secondaryDescription={copy.secondaryDescription}
         cta={copy.cta}
+        ctaHref={withLanguage("/contact", lang)}
         image={image}
       />
 

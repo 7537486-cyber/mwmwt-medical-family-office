@@ -8,6 +8,7 @@ type PageHeroProps = {
   description: string;
   secondaryDescription: string;
   cta?: string;
+  ctaHref?: string;
   image?: {
     src: string;
     alt: string;
@@ -21,6 +22,7 @@ export function PageHero({
   description,
   secondaryDescription,
   cta = "Private Inquiry",
+  ctaHref = "/contact",
   image
 }: PageHeroProps) {
   return (
@@ -66,7 +68,7 @@ export function PageHero({
           <p className="text-base leading-8 text-pearl/66">{secondaryDescription}</p>
         </div>
         <Link
-          href="/contact"
+          href={ctaHref}
           className="mt-12 inline-flex items-center gap-3 bg-champagne px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-pearl"
         >
           {cta} <span aria-hidden="true">→</span>

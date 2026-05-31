@@ -10,7 +10,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/research-center",
     "/case-library",
     "/media-center",
-    "/private-aviation-concierge"
+    "/private-aviation-concierge",
+    "/privacy-policy",
+    "/medical-disclaimer",
+    "/terms-of-service",
+    "/compliance"
   ];
 
   const staticPages = navItems.map((item) => ({

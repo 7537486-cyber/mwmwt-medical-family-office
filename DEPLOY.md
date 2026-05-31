@@ -62,3 +62,33 @@ https://www.mwmwt.com
 https://mwmwt.com/sitemap.xml
 https://mwmwt.com/robots.txt
 ```
+
+## 6. 域名邮箱与联系表单配置
+
+建议先创建域名邮箱：
+
+```text
+info@mwmwt.com
+```
+
+网站内表单需要在 Vercel 项目里配置环境变量：
+
+```text
+RESEND_API_KEY=你的 Resend API Key
+CONTACT_FROM_EMAIL=MWMWT Concierge <info@mwmwt.com>
+CONTACT_CC_EMAIL=内部抄送邮箱，可选
+CONTACT_CRM_WEBHOOK_URL=客户表或 CRM 的 Webhook 地址，可选
+LINE_NOTIFICATION_WEBHOOK_URL=LINE 推送桥接 Webhook，可选
+LINE_CHANNEL_ACCESS_TOKEN=LINE Messaging API Channel Access Token，可选
+LINE_TO_ID=要接收内部通知的 LINE 用户或群组 ID，可选
+NEXT_PUBLIC_LINE_URL=LINE 官方账号链接，可选
+NEXT_PUBLIC_WHATSAPP_URL=WhatsApp 咨询链接，可选
+```
+
+配置路径：
+
+```text
+Vercel -> Project -> Settings -> Environment Variables
+```
+
+保存后重新部署一次，表单才会真正发送邮件并写入 CRM Webhook。

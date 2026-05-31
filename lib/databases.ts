@@ -29,14 +29,6 @@ export type ProgramProfile = {
   followUp: string;
 };
 
-export type AcquisitionStage = {
-  stage: string;
-  target: string;
-  contentAsset: string;
-  qualificationSignal: string;
-  nextAction: string;
-};
-
 export const medicalResources: MedicalResource[] = [
   {
     id: "MR-TYO-EXEC-01",
@@ -122,9 +114,9 @@ export const doctorProfiles: DoctorProfile[] = [
   {
     id: "DR-REGEN-SCREEN-03",
     specialty: "再生医疗 / 抗衰风险筛查",
-    role: "项目适配度评估医生画像",
+    role: "资源适配度评估医生画像",
     caseFit: "适合关注干细胞、免疫细胞、外泌体但需要先判断禁忌与证据边界的客户",
-    languageWorkflow: "医学资料预审后再进入医生沟通，不以销售话术替代医学判断",
+    languageWorkflow: "医学资料预审后再进入医生沟通，以医学判断、证据边界和风险说明为基础",
     verification: ["合规项目参与范围", "不良反应处理机制", "术前术后管理能力"],
     matchingQuestions: ["是否有肿瘤或自身免疫病史", "是否正在使用免疫抑制药", "核心目标是修复、抗衰还是疲劳改善"]
   },
@@ -164,7 +156,7 @@ export const programProfiles: ProgramProfile[] = [
     program: "3 日东京高净值客户精密筛查",
     clientFit: "时间有限但希望建立年度健康基线的企业家",
     deliverables: ["检查预约表", "中日双语陪诊", "异常指标摘要", "后续转诊建议"],
-    riskControls: ["避免重复检查", "确认检查禁忌", "异常结果不直接销售治疗"],
+    riskControls: ["避免重复检查", "确认检查禁忌", "异常结果进入医生评估流程"],
     followUp: "30 天内完成报告解读，90 天内跟进异常指标处理"
   },
   {
@@ -179,8 +171,8 @@ export const programProfiles: ProgramProfile[] = [
   {
     id: "PG-REGEN-DUE",
     category: "再生医疗",
-    program: "再生医疗项目尽调与适配评估",
-    clientFit: "关注抗衰或修复项目，但需要先判断合规、风险和适应症",
+    program: "再生医疗合规与适配评估",
+    clientFit: "关注抗衰或修复方向，但需要先判断合规、风险和适应症",
     deliverables: ["适配度问卷", "禁忌风险清单", "机构尽调摘要", "医生沟通安排"],
     riskControls: ["不替代医生诊断", "不夸大疗效", "先评估后预约"],
     followUp: "治疗后纳入指标追踪和年度健康档案"
@@ -191,7 +183,7 @@ export const programProfiles: ProgramProfile[] = [
     program: "12 个月家庭长寿管理计划",
     clientFit: "希望持续管理代谢、睡眠、压力、肿瘤与心脑血管风险的家庭",
     deliverables: ["家庭健康档案", "年度风险地图", "季度复盘", "赴日升级检查建议"],
-    riskControls: ["分层管理", "必要医疗才升级", "避免项目堆叠"],
+    riskControls: ["分层管理", "必要医疗才升级", "避免过度安排"],
     followUp: "每季度复盘一次，年度更新健康董事会议程"
   },
   {
@@ -212,64 +204,4 @@ export const programProfiles: ProgramProfile[] = [
     riskControls: ["权限分级", "隐私边界", "敏感资料延后提交"],
     followUp: "每年更新一次，重大事件发生时启动预案"
   }
-];
-
-export const acquisitionStages: AcquisitionStage[] = [
-  {
-    stage: "定位触达",
-    target: "企业家、家族办公室、私人银行 RM、海外教育与移民服务客户",
-    contentAsset: "《日本高端体检与长寿管理白皮书》",
-    qualificationSignal: "主动询问日本体检、肿瘤第二意见、再生医疗或父母健康安排",
-    nextAction: "邀请填写匿名健康需求问卷"
-  },
-  {
-    stage: "信任建立",
-    target: "已表达健康焦虑但尚未提交病历的潜在客户",
-    contentAsset: "闭门线上说明会：日本医疗资源如何筛选",
-    qualificationSignal: "愿意说明年龄、核心风险、预算区间与可出行时间",
-    nextAction: "安排 20 分钟适配度电话"
-  },
-  {
-    stage: "需求诊断",
-    target: "具备明确医疗需求或家庭健康管理目标的客户",
-    contentAsset: "一页式家庭健康风险地图",
-    qualificationSignal: "提供既往体检或病历摘要，接受保密流程",
-    nextAction: "生成初步服务路径和报价范围"
-  },
-  {
-    stage: "服务确认",
-    target: "需要决策赴日体检、第二意见或年度健康计划的客户",
-    contentAsset: "项目说明书、行程节奏、交付物样例",
-    qualificationSignal: "确认决策人、时间窗口和付款主体",
-    nextAction: "签署服务确认并建立客户档案"
-  },
-  {
-    stage: "长期跟进",
-    target: "已完成体检、会诊或医疗礼宾的客户",
-    contentAsset: "诊后中文行动清单与年度复盘报告",
-    qualificationSignal: "愿意加入季度复盘或推荐家庭成员",
-    nextAction: "升级为 12 个月长寿管理或家庭健康计划"
-  },
-  {
-    stage: "渠道共建",
-    target: "私人银行、保险经纪、家族办公室、企业家社群",
-    contentAsset: "合规合作介绍包与客户转介边界",
-    qualificationSignal: "有稳定高净值客户池且认可不夸大医疗承诺",
-    nextAction: "建立联合活动和转介登记机制"
-  }
-];
-
-export const acquisitionSegments = [
-  "企业创始人：关注重大疾病风险、时间效率、隐私与决策确定性",
-  "创始人配偶：关注父母健康、子女压力、女性健康与长期陪伴",
-  "家族办公室：关注信息可信度、供应商尽调、预算与服务边界",
-  "私人银行 RM：关注可转介绍内容、客户体验和合规表达",
-  "高端保险与移民顾问：关注补充服务能力、跨境资源和客户粘性"
-];
-
-export const leadScoringRules = [
-  "A 级线索：30 天内有明确赴日计划、愿意提交资料、预算与决策人明确",
-  "B 级线索：有明确健康议题但时间未定，需要内容培育和适配度沟通",
-  "C 级线索：只关注价格或单一项目，先进入教育内容池，不立即投入高成本服务",
-  "风险线索：要求结果承诺、规避合规流程或拒绝基础病史披露，应暂停推进"
 ];

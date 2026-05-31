@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
-import { type Language, type PageContent, pageText, serviceImages } from "@/lib/site";
+import { type Language, type PageContent, pageText, serviceImages, withLanguage } from "@/lib/site";
 
 type ContentPageProps = {
   page: PageContent;
@@ -111,6 +111,7 @@ export function ContentPage({ page, lang }: ContentPageProps) {
         description={text.description}
         secondaryDescription={text.secondaryDescription}
         cta={text.cta}
+        ctaHref={withLanguage("/contact", lang)}
         image={image}
       />
       <section className="px-5 py-20 lg:px-8">

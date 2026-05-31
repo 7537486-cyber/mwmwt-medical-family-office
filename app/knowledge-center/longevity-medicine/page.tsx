@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { normalizeLanguage, serviceImages } from "@/lib/site";
+import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "什么是长寿医学 Longevity Medicine",
@@ -167,6 +167,7 @@ export default function LongevityMedicineArticlePage({
           description={copy.description}
           secondaryDescription={copy.secondaryDescription}
           cta={copy.cta}
+          ctaHref={withLanguage("/contact", lang)}
           image={serviceImages["longevity-planning"]}
         />
 
@@ -205,6 +206,7 @@ export default function LongevityMedicineArticlePage({
         description="长寿医学并不是简单地活得更久。它融合预防医学、功能医学、再生医学、基因科学、人工智能、营养学和运动科学，核心目标是延长健康寿命。"
         secondaryDescription="不是让人带病活到100岁，而是帮助客户在更长时间里保持工作能力、独立生活能力、大脑认知能力和生活质量。"
         cta="Private Inquiry"
+        ctaHref={withLanguage("/contact", lang)}
         image={serviceImages["longevity-planning"]}
       />
 

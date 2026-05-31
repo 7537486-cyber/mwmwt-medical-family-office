@@ -47,17 +47,17 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": "ProfessionalService",
     name: "Japan Medical Family Office",
     description:
       "Private health intelligence, longevity planning, medical governance, and global medical access for entrepreneurs, investors, and families.",
     areaServed: ["China", "Japan", "Singapore", "Switzerland", "United States"],
     availableLanguage: ["zh-CN", "ja-JP", "en"],
-    medicalSpecialty: [
-      "Preventive",
-      "Regenerative Medicine",
-      "Concierge Medicine",
-      "Executive Health"
+    serviceType: [
+      "Medical resource coordination",
+      "Longevity planning",
+      "Medical governance advisory",
+      "Global medical concierge"
     ]
   };
 

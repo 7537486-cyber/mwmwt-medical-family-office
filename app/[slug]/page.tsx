@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
-import { normalizeLanguage, serviceImages } from "@/lib/site";
+import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
 
 type PlatformPage = {
   eyebrow: string;
@@ -54,6 +55,19 @@ const platformPages: Record<string, PlatformPage> = {
     enDescription:
       "Specialist consultation, overseas referrals, second opinions, private medical arrangements, and follow-up are coordinated through one advisory desk.",
     sections: ["Second opinions", "Overseas referral", "Private coordination", "Long-term follow-up"]
+  },
+  "service-process": {
+    eyebrow: "Service Process",
+    title: "从15分钟初步沟通到长期健康管理的清晰流程",
+    jaTitle: "15分の初回相談から長期健康管理までの明確な流れ",
+    enTitle: "A clear path from a 15-minute first call to long-term health management",
+    description:
+      "每一次合作都先确认目标、资料、风险边界和适配度，再进入医生资源匹配、行程协调、结果复盘与长期随访。",
+    jaDescription:
+      "目的、資料、リスク境界、適合性を確認したうえで、医師リソース、渡航調整、結果レビュー、長期フォローへ進みます。",
+    enDescription:
+      "Every engagement starts with goals, records, risk boundaries, and fit review before specialist matching, travel coordination, review, and follow-up.",
+    sections: ["Fit Review", "Medical Records", "Specialist Matching", "Long-Term Follow-up"]
   },
   "knowledge-center": {
     eyebrow: "Knowledge Center",
@@ -161,6 +175,10 @@ const platformHeroImages: Record<string, { src: string; alt: string }> = {
     src: "/hero-global-medical-access.png",
     alt: "Private aviation medical concierge for global medical access"
   },
+  "service-process": {
+    src: "/one-on-one-medical-escort.png",
+    alt: "One-on-one medical escort and service coordination process"
+  },
   "knowledge-center": {
     src: "/hero-knowledge-center.png",
     alt: "Premium medical knowledge and research intelligence library"
@@ -194,6 +212,11 @@ const localizedPlatformSections: Record<string, Record<"zh" | "ja" | "en", strin
     zh: ["第二诊疗意见", "海外转诊", "私密协调", "长期随访"],
     ja: ["セカンドオピニオン", "海外紹介", "プライベート調整", "長期フォロー"],
     en: ["Second opinions", "Overseas referral", "Private coordination", "Long-term follow-up"]
+  },
+  "service-process": {
+    zh: ["适配度确认", "资料整理", "专家匹配", "长期随访"],
+    ja: ["適合性確認", "資料整理", "専門医マッチング", "長期フォロー"],
+    en: ["Fit Review", "Medical Records", "Specialist Matching", "Long-Term Follow-up"]
   },
   "knowledge-center": {
     zh: ["长寿医学", "细胞科学", "外泌体研究", "企业家健康"],
@@ -310,6 +333,192 @@ const aviationCopy = {
   }
 };
 
+const serviceProcessDetails = {
+  zh: {
+    label: "客户路径",
+    cta: "预约15分钟初步沟通",
+    steps: [
+      {
+        title: "15分钟初步沟通",
+        body: "确认家庭当前最重要的健康议题、时间窗口、语言需求和隐私边界。"
+      },
+      {
+        title: "适配度与风险边界确认",
+        body: "判断需求是否适合进入医疗资源协调，明确本平台不提供诊断、治疗或医疗行为。"
+      },
+      {
+        title: "资料整理与问题清单",
+        body: "整理既往检查、影像、用药、家族史和希望向医生确认的问题。"
+      },
+      {
+        title: "医生与机构资源匹配",
+        body: "基于专科能力、机构规则、合规边界、可预约性和语言流程进行匹配。"
+      },
+      {
+        title: "赴日或跨境医疗协调",
+        body: "协调预约、翻译、陪同、商务车接送、包机动线和诊后资料交接。"
+      },
+      {
+        title: "结果复盘与长期随访",
+        body: "形成行动清单、复查计划、家庭健康档案和年度健康回顾节奏。"
+      }
+    ]
+  },
+  ja: {
+    label: "クライアントプロセス",
+    cta: "15分相談を予約",
+    steps: [
+      {
+        title: "15分の初回相談",
+        body: "最も重要な健康課題、時期、言語、秘匿性の境界を確認します。"
+      },
+      {
+        title: "適合性とリスク境界確認",
+        body: "医療資源調整に適しているかを確認し、本サービスが診断・治療・医療行為を提供しないことを明確にします。"
+      },
+      {
+        title: "資料整理と質問リスト",
+        body: "既往検査、画像、服薬、家族歴、医師に確認したい質問を整理します。"
+      },
+      {
+        title: "医師・医療機関マッチング",
+        body: "専門能力、医療機関規定、規制境界、予約可能性、言語フローに基づき調整します。"
+      },
+      {
+        title: "訪日・国際医療調整",
+        body: "予約、通訳、同行、専用車送迎、チャーター導線、診療後資料整理を支援します。"
+      },
+      {
+        title: "結果レビューと長期フォロー",
+        body: "行動リスト、再検査計画、家族健康記録、年次レビューのリズムを整えます。"
+      }
+    ]
+  },
+  en: {
+    label: "Client Pathway",
+    cta: "Book a 15-Minute Call",
+    steps: [
+      {
+        title: "15-minute first call",
+        body: "Clarify the family's most important health priority, timing, language needs, and privacy boundaries."
+      },
+      {
+        title: "Fit and risk-boundary review",
+        body: "Assess whether the request fits medical resource coordination and clarify that we do not provide diagnosis, treatment, or medical acts."
+      },
+      {
+        title: "Records and question list",
+        body: "Organize prior reports, imaging, medications, family history, and questions for physicians."
+      },
+      {
+        title: "Specialist and institution matching",
+        body: "Match resources based on specialty capability, institution rules, compliance boundaries, availability, and language process."
+      },
+      {
+        title: "Japan or cross-border coordination",
+        body: "Coordinate appointments, interpretation, escort, vehicle transfer, charter flow, and post-visit documents."
+      },
+      {
+        title: "Review and long-term follow-up",
+        body: "Create action lists, retesting plans, family health archives, and annual review rhythm."
+      }
+    ]
+  }
+};
+
+const membershipProgramDetails = {
+  zh: {
+    label: "会员权益",
+    cta: "申请会员咨询",
+    cards: [
+      {
+        name: "Founder Member",
+        result: "为创始人建立年度健康策略和重大风险预警。",
+        scope: "年度健康策略、精密体检路径、专家第二意见预案、睡眠压力与代谢风险复盘。",
+        entry: "申请制，适合企业创始人和核心决策者。"
+      },
+      {
+        name: "Executive Member",
+        result: "把个人体检、复盘和跨境医疗协调变成长期节奏。",
+        scope: "季度复盘、异常指标跟进、国际医疗协调、企业家精力管理。",
+        entry: "申请制，适合高压管理者和频繁跨境出行人群。"
+      },
+      {
+        name: "Family Member",
+        result: "为配偶、父母和下一代建立家庭健康档案与转诊预案。",
+        scope: "家庭健康档案、成员分层、父母健康管理、年度家庭健康回顾。",
+        entry: "申请制，按家庭成员与服务深度确认。"
+      },
+      {
+        name: "Legacy Member",
+        result: "建立传承型医疗家族办公室和全球医疗资源预案。",
+        scope: "医疗治理框架、应急协议、全球专家资源预案、年度健康董事会。",
+        entry: "邀请制，适合多代家庭、家族办公室与私人银行客户。"
+      }
+    ]
+  },
+  ja: {
+    label: "会員内容",
+    cta: "会員相談を申し込む",
+    cards: [
+      {
+        name: "Founder Member",
+        result: "創業者の年次健康戦略と重大リスク確認を設計します。",
+        scope: "年次健康戦略、精密健診ルート、専門医相談準備、睡眠・代謝リスクレビュー。",
+        entry: "申請制。創業者と主要意思決定者向け。"
+      },
+      {
+        name: "Executive Member",
+        result: "個人の健診、レビュー、国際医療調整を長期リズムにします。",
+        scope: "定期レビュー、異常指標フォロー、国際医療調整、活力管理。",
+        entry: "申請制。高ストレス経営者と国際移動が多い方へ。"
+      },
+      {
+        name: "Family Member",
+        result: "配偶者、両親、次世代の健康記録と紹介準備を整えます。",
+        scope: "家族健康記録、メンバー分類、両親の健康管理、年次家族レビュー。",
+        entry: "申請制。家族人数とサービス深度により確認。"
+      },
+      {
+        name: "Legacy Member",
+        result: "多世代家族の医療ファミリーオフィスと国際医療準備を設計します。",
+        scope: "医療ガバナンス、緊急対応、国際専門医準備、年次健康ボード。",
+        entry: "招待制。多世代家族、ファミリーオフィス、プライベートバンク顧客向け。"
+      }
+    ]
+  },
+  en: {
+    label: "Membership Benefits",
+    cta: "Apply for Membership Inquiry",
+    cards: [
+      {
+        name: "Founder Member",
+        result: "Annual health strategy and major-risk alert system for founders.",
+        scope: "Health strategy board, Japan diagnostics pathway, second-opinion readiness, sleep and metabolic review.",
+        entry: "Application-based. For founders and key decision makers."
+      },
+      {
+        name: "Executive Member",
+        result: "Personal checkups, reviews, and cross-border coordination in one long-term rhythm.",
+        scope: "Quarterly review, abnormal-marker follow-up, international coordination, executive energy management.",
+        entry: "Application-based. For high-pressure executives and frequent travelers."
+      },
+      {
+        name: "Family Member",
+        result: "Family health archives and referral readiness for spouses, parents, and the next generation.",
+        scope: "Family archive, member segmentation, parent health planning, annual family review.",
+        entry: "Application-based. Confirmed by family size and service depth."
+      },
+      {
+        name: "Legacy Member",
+        result: "A medical family office and global medical readiness plan for multi-generation families.",
+        scope: "Medical governance, emergency protocols, global specialist readiness, annual health board.",
+        entry: "Invitation-based. For multi-generation families, family offices, and private banking clients."
+      }
+    ]
+  }
+};
+
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const page = platformPages[params.slug];
 
@@ -365,6 +574,7 @@ export default function PlatformPage({
         description={description}
         secondaryDescription={secondaryDescription}
         cta={heroCta}
+        ctaHref={withLanguage("/contact", lang)}
         image={platformHeroImages[params.slug] ?? serviceImages["medical-concierge"]}
       />
       <section className="bg-pearl px-5 py-20 lg:px-8">
@@ -379,6 +589,67 @@ export default function PlatformPage({
           ))}
         </div>
       </section>
+      {params.slug === "membership-program" ? (
+        <section className="bg-white px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+              {membershipProgramDetails[lang].label}
+            </p>
+            <div className="mt-10 grid gap-5 lg:grid-cols-2">
+              {membershipProgramDetails[lang].cards.map((card) => (
+                <article key={card.name} className="border border-mist bg-pearl p-8">
+                  <h2 className="font-serif text-4xl leading-tight text-champagne">
+                    {card.name}
+                  </h2>
+                  <p className="mt-6 text-lg font-semibold leading-8 text-ink">{card.result}</p>
+                  <p className="mt-5 text-sm leading-7 text-graphite/72">{card.scope}</p>
+                  <p className="mt-5 border-l border-champagne pl-4 text-sm leading-7 text-graphite/72">
+                    {card.entry}
+                  </p>
+                  <Link
+                    href={withLanguage("/contact", lang)}
+                    className="mt-8 inline-flex border border-ink px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-ink hover:text-pearl"
+                  >
+                    {membershipProgramDetails[lang].cta}
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+      {params.slug === "service-process" ? (
+        <section className="bg-white px-5 py-20 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                {serviceProcessDetails[lang].label}
+              </p>
+              <Link
+                href={withLanguage("/contact", lang)}
+                className="inline-flex w-fit border border-ink px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-ink hover:text-pearl"
+              >
+                {serviceProcessDetails[lang].cta}
+              </Link>
+            </div>
+            <div className="mt-10 divide-y divide-mist border-y border-mist">
+              {serviceProcessDetails[lang].steps.map((step, index) => (
+                <article key={step.title} className="grid gap-6 py-8 md:grid-cols-[5rem_1fr]">
+                  <span className="font-serif text-4xl text-champagne">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h2 className="text-2xl font-semibold text-ink">{step.title}</h2>
+                    <p className="mt-4 max-w-3xl text-sm leading-7 text-graphite/72">
+                      {step.body}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
       {params.slug === "private-aviation-concierge" ? (
         <section className="bg-white px-5 py-20 lg:px-8">
           <div className="mx-auto max-w-7xl">

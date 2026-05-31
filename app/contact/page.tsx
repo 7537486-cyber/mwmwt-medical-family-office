@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
-import { normalizeLanguage, pageText, pages, serviceImages } from "@/lib/site";
+import { normalizeLanguage, pageText, pages, serviceImages, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "联系",
@@ -71,6 +71,7 @@ export default function ContactPage({
         description={text.description}
         secondaryDescription={text.secondaryDescription}
         cta={text.cta}
+        ctaHref={withLanguage("/contact", lang)}
         image={image}
       />
       <section className="px-5 py-20 lg:px-8">

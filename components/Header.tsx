@@ -11,9 +11,9 @@ const languageLabels: Array<[Language, string]> = [
 ];
 
 const inquiryLabel: Record<Language, string> = {
-  zh: "私密咨询",
-  ja: "お問い合わせ",
-  en: "Private Inquiry"
+  zh: "预约15分钟",
+  ja: "15分相談",
+  en: "Book 15 Min"
 };
 
 export function Header() {

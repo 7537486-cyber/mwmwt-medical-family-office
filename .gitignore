@@ -8,3 +8,4 @@ dist
 .DS_Store
 _upload_to_github
 _upload_to_github_ready
+public/mwm-*.jpg

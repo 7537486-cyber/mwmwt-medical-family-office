@@ -5,8 +5,8 @@ import { normalizeLanguage, withLanguage } from "@/lib/site";
 
 const homeCopy = {
   zh: {
-    heroTitle: "打造亚洲领先的高净值健康与长寿管理平台",
-    heroAudience: "服务企业家、家族客户与高净值人群",
+    heroTitle: "Medical Family Office",
+    heroAudience: "为企业家家庭提供长期医疗资源管理、长寿规划与日本高端医疗通道",
     intro:
       "我们专注于为企业家、家族客户与高净值人群，建立长期、系统、全球化的健康管理体系。",
     risk: "不是一次治疗，而是一套长期健康资产管理系统。核心价值是风险管理、长期健康决策权与全球医疗资源配置能力。",
@@ -17,7 +17,7 @@ const homeCopy = {
     inquiry: "预约私密咨询",
     learn: "了解会员体系",
     whatBody:
-      "MWMWT 不做单一项目销售，而是以医疗版家族办公室的方式，把长寿医学、再生医疗、企业家健康管理和全球医疗资源整合为长期顾问关系。",
+      "MWMWT 以医疗家族办公室的方式，把长寿医学、再生医疗、企业家健康管理和全球医疗资源整合为长期顾问关系。",
     whyBody:
       "客户选择我们的原因，是能在重大健康选择前获得更完整的信息、更安静的隐私保护和更长期的医学陪伴。",
     knowledgeBody:
@@ -25,7 +25,7 @@ const homeCopy = {
     boardBody:
       "医疗顾问资源以公开资料核验、专科能力、研究方向和适配场景进行整理，实际转诊前仍需确认医生接诊规则与机构准入要求。",
     membershipBody:
-      "会员体系不是销售一次体检、一次医美或一次干细胞项目，而是为创始人、企业家和家族成员建立长期健康伙伴关系。",
+      "会员体系围绕年度健康策略、专家资源协调、风险预案与家族健康档案，为创始人、企业家和家族成员建立长期健康伙伴关系。",
     whatTitle: "四大核心板块构成长期健康资产管理系统。",
     whyTitle: "为家族最重要的资产建立健康风险管理。",
     governanceTitle: "我们不提供医疗服务，我们代表客户做医疗尽调与长期治理。",
@@ -50,8 +50,8 @@ const homeCopy = {
       "年度健康策略、专家资源、风险预案、跨境协调与家族健康档案共同构成会员价值。"
   },
   ja: {
-    heroTitle: "アジアを代表する富裕層向け健康・長寿管理プラットフォームへ",
-    heroAudience: "起業家、家族、超富裕層クライアントのために",
+    heroTitle: "Medical Family Office",
+    heroAudience: "起業家ファミリーのための長期医療資源管理、長寿設計、日本高度医療アクセス",
     intro:
       "起業家、家族、超富裕層クライアントのために、長期的な健康意思決定システムを構築します。高度健診、長寿医療、再生医療、国際紹介、家族健康ガバナンスを一つの顧問体制に統合します。",
     risk: "重要なのは単発受診ではなく、長期的な健康意思決定権、リスク管理、国際医療資源への管理されたアクセスです。",
@@ -95,8 +95,8 @@ const homeCopy = {
       "年次健康戦略、専門医資源、リスク対応、国際調整、家族健康記録が会員価値を構成します。"
   },
   en: {
-    heroTitle: "Asia's leading health and longevity platform for high-net-worth families",
-    heroAudience: "For Entrepreneurs, Families and UHNW Clients",
+    heroTitle: "Medical Family Office",
+    heroAudience: "Long-term medical resource management, longevity planning, and Japan premium medical access for entrepreneurial families",
     intro:
       "We build a long-term health decision system for entrepreneurs, families, and UHNW clients by integrating executive health, longevity medicine, regenerative medicine, global referrals, and family health governance.",
     risk:
@@ -682,57 +682,144 @@ const memberships = {
   zh: [
     {
       name: "Founder Membership",
-      focus: "为创始人和核心决策者建立年度健康策略、精密体检、睡眠压力管理和重大风险预警。"
+      focus: "创始会员，适合早期核心客户与企业创始人。",
+      outcome: "获得一套可复盘的年度健康策略和重大风险预警机制。",
+      benefits: ["年度健康策略会议", "日本精密体检路径", "专家第二意见预案", "睡眠压力与代谢风险复盘"],
+      threshold: "创始人、核心决策者、长期高压管理者",
+      fee: "申请制，按年度服务范围确认",
+      boundary: "不替代医生诊断，不承诺医学结果"
     },
     {
       name: "Executive Membership",
-      focus: "面向高压管理者，提供季度复盘、专家第二意见、国际医疗协调和长期精力管理。"
+      focus: "企业家个人健康管理，围绕时间效率、精力和慢病风险。",
+      outcome: "把体检、专科复核、季度复盘和跨境协调纳入一个长期管理节奏。",
+      benefits: ["季度健康复盘", "异常指标跟进", "国际医疗资源协调", "企业家精力与睡眠管理"],
+      threshold: "频繁出差、高压决策、希望系统管理健康的人群",
+      fee: "申请制，按服务频率确认",
+      boundary: "医疗行为由持牌医生和机构依法提供"
     },
     {
       name: "Family Membership",
-      focus: "覆盖配偶、父母与下一代，建立家庭健康档案、成员分层、转诊预案与长期随访。"
+      focus: "家族长期健康管理，覆盖配偶、父母与下一代。",
+      outcome: "建立家庭健康档案、成员分层、转诊预案与长期随访机制。",
+      benefits: ["家庭健康档案", "成员风险分层", "父母健康与重大疾病预案", "年度家庭健康回顾"],
+      threshold: "多成员家庭、父母健康管理、家族办公室客户",
+      fee: "申请制，按家庭成员与服务深度确认",
+      boundary: "不公开处理完整病历，敏感资料需安全授权"
     },
     {
       name: "Legacy Membership",
-      focus: "为家族办公室和多代家庭建立医疗治理、应急协议、全球资源配置和年度健康董事会。"
+      focus: "传承型医疗家族办公室，面向多代家庭与家族办公室。",
+      outcome: "建立医疗治理、应急协议、全球资源配置和年度健康董事会。",
+      benefits: ["家族健康治理框架", "全球专家资源预案", "重大疾病应急流程", "年度健康董事会"],
+      threshold: "多代家庭、跨境资产家庭、私人银行及家办客户",
+      fee: "邀请制，按家族治理范围定制",
+      boundary: "法律、税务、保险事项由对应专业顾问确认"
     }
   ],
   ja: [
     {
       name: "Founder Membership",
-      focus: "創業者と意思決定者のために、年次健康戦略、精密健診、睡眠・ストレス管理、重大リスク確認を設計します。"
+      focus: "創業者と主要意思決定者のための初期中核メンバーシップ。",
+      outcome: "年次健康戦略と重大リスク確認の仕組みを得られます。",
+      benefits: ["年次健康戦略会議", "日本精密健診ルート", "専門医セカンドオピニオン準備", "睡眠・ストレス・代謝リスクレビュー"],
+      threshold: "創業者、主要意思決定者、高ストレス管理者",
+      fee: "申請制、年次サービス範囲により確認",
+      boundary: "医師診断の代替や医学的結果保証ではありません"
     },
     {
       name: "Executive Membership",
-      focus: "高ストレスの経営者に、定期レビュー、専門医セカンドオピニオン、国際医療調整、活力管理を提供します。"
+      focus: "経営者個人の健康管理。時間効率、活力、慢性リスクに焦点を当てます。",
+      outcome: "健診、専門医レビュー、定期復盤、国際調整を一つの長期管理リズムにします。",
+      benefits: ["定期健康レビュー", "異常指標フォロー", "国際医療資源調整", "経営者の活力・睡眠管理"],
+      threshold: "出張が多い方、高圧判断を担う方、健康を体系管理したい方",
+      fee: "申請制、利用頻度により確認",
+      boundary: "医療行為は医師・医療機関が法令に基づき提供します"
     },
     {
       name: "Family Membership",
-      focus: "配偶者、両親、次世代を含め、家族健康記録、メンバー分類、紹介準備、長期フォローを整えます。"
+      focus: "配偶者、両親、次世代を含む家族長期健康管理。",
+      outcome: "家族健康記録、メンバー分類、紹介準備、長期フォロー体制を構築します。",
+      benefits: ["家族健康記録", "メンバー別リスク分類", "両親の健康・重大疾患対応", "年次家族健康レビュー"],
+      threshold: "複数メンバーの家族、両親の健康管理、ファミリーオフィス顧客",
+      fee: "申請制、家族人数とサービス深度により確認",
+      boundary: "機微資料は安全な権限確認後に取り扱います"
     },
     {
       name: "Legacy Membership",
-      focus: "ファミリーオフィスと多世代家族のために、医療ガバナンス、緊急対応、国際資源配置、年次レビューを設計します。"
+      focus: "多世代家族とファミリーオフィス向けの医療ファミリーオフィス。",
+      outcome: "医療ガバナンス、緊急対応、国際資源配置、年次健康ボードを設計します。",
+      benefits: ["家族医療ガバナンス", "国際専門医リソース準備", "重大疾患緊急プロトコル", "年次健康ボード"],
+      threshold: "多世代家族、国際資産家族、プライベートバンク・ファミリーオフィス顧客",
+      fee: "招待制、家族ガバナンス範囲により設計",
+      boundary: "法律、税務、保険は各専門家が確認します"
     }
   ],
   en: [
     {
       name: "Founder Membership",
-      focus: "Annual health strategy, executive diagnostics, sleep and stress management, and major risk review for founders."
+      focus: "Founding membership for early core clients and business founders.",
+      outcome: "A reviewable annual health strategy and major-risk alert system.",
+      benefits: ["Annual health strategy board", "Japan executive diagnostics pathway", "Specialist second-opinion readiness", "Sleep, stress, and metabolic review"],
+      threshold: "Best for founders, key decision makers, and high-pressure leaders",
+      fee: "application-based, confirmed by annual service scope",
+      boundary: "not a substitute for physician diagnosis or outcome guarantees"
     },
     {
       name: "Executive Membership",
-      focus: "Quarterly reviews, specialist second opinions, international coordination, and energy management for high-pressure executives."
+      focus: "Personal executive health management for time efficiency, energy, and chronic-risk control.",
+      outcome: "Checkups, specialist reviews, quarterly follow-up, and global coordination in one rhythm.",
+      benefits: ["Quarterly health review", "Abnormal marker follow-up", "International medical coordination", "Executive energy and sleep management"],
+      threshold: "Best for frequent travelers, high-pressure executives, and clients seeking structured health management",
+      fee: "application-based, confirmed by service frequency",
+      boundary: "medical acts are provided by licensed physicians and institutions"
     },
     {
       name: "Family Membership",
-      focus: "Family health records, member segmentation, referral readiness, and long-term follow-up for spouses, parents, and the next generation."
+      focus: "Long-term family health management for spouses, parents, and the next generation.",
+      outcome: "Family health archives, member segmentation, referral readiness, and long-term follow-up.",
+      benefits: ["Family health archive", "Member risk segmentation", "Parent health and critical illness planning", "Annual family health review"],
+      threshold: "Best for multi-member families, parent health management, and family office clients",
+      fee: "application-based, confirmed by family size and service depth",
+      boundary: "sensitive records are handled only through secure authorization"
     },
     {
       name: "Legacy Membership",
-      focus: "Medical governance, emergency protocols, global resource allocation, and annual health boards for multi-generation families."
+      focus: "A medical family office for multi-generation families and family offices.",
+      outcome: "Medical governance, emergency protocols, global resource allocation, and annual health boards.",
+      benefits: ["Family medical governance", "Global specialist readiness", "Critical illness emergency protocol", "Annual health board"],
+      threshold: "Best for multi-generation families, cross-border families, private banks, and family offices",
+      fee: "invitation-based, customized by family governance scope",
+      boundary: "legal, tax, and insurance matters remain with relevant advisors"
     }
   ]
+};
+
+const membershipLabels = {
+  zh: {
+    outcome: "买到什么结果",
+    benefits: "核心权益",
+    threshold: "申请门槛",
+    fee: "费用",
+    boundary: "服务边界",
+    apply: "申请私人咨询"
+  },
+  ja: {
+    outcome: "得られる結果",
+    benefits: "主な内容",
+    threshold: "対象条件",
+    fee: "費用",
+    boundary: "サービス境界",
+    apply: "相談を申し込む"
+  },
+  en: {
+    outcome: "Outcome",
+    benefits: "Benefits",
+    threshold: "Entry Criteria",
+    fee: "Fee",
+    boundary: "Service Boundary",
+    apply: "Apply for Private Inquiry"
+  }
 };
 
 export default function Home({
@@ -752,6 +839,7 @@ export default function Home({
   const researchItems = researchDirections[lang];
   const platformItems = platformSections[lang];
   const membershipItems = memberships[lang];
+  const membershipText = membershipLabels[lang];
   const featuredDoctors = doctorProfiles.slice(0, 4);
 
   return (
@@ -1125,8 +1213,46 @@ export default function Home({
           <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2">
             {membershipItems.map((membership) => (
               <article key={membership.name} className="bg-pearl p-8">
-                <p className="font-serif text-4xl text-champagne">{membership.name}</p>
-                <p className="mt-6 text-sm leading-7 text-graphite/72">{membership.focus}</p>
+                <p className="font-serif text-4xl leading-tight text-champagne">{membership.name}</p>
+                <p className="mt-5 text-sm leading-7 text-graphite/72">{membership.focus}</p>
+                <div className="mt-7 space-y-5">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-champagne">
+                      {membershipText.outcome}
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-ink">{membership.outcome}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-champagne">
+                      {membershipText.benefits}
+                    </p>
+                    <ul className="mt-3 space-y-2 text-sm leading-7 text-graphite/72">
+                      {membership.benefits.map((item) => (
+                        <li key={item} className="border-l border-champagne/45 pl-3">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <p className="text-sm leading-7 text-graphite/72">
+                    <span className="font-semibold text-ink">{membershipText.threshold}: </span>
+                    {membership.threshold}
+                  </p>
+                  <p className="text-sm leading-7 text-graphite/72">
+                    <span className="font-semibold text-ink">{membershipText.fee}: </span>
+                    {membership.fee}
+                  </p>
+                  <p className="text-sm leading-7 text-graphite/72">
+                    <span className="font-semibold text-ink">{membershipText.boundary}: </span>
+                    {membership.boundary}
+                  </p>
+                </div>
+                <Link
+                  href={withLanguage("/contact", lang)}
+                  className="mt-8 inline-flex border border-ink px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-ink hover:text-pearl"
+                >
+                  {membershipText.apply}
+                </Link>
               </article>
             ))}
           </div>

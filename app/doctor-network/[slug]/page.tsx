@@ -58,7 +58,7 @@ const doctorCopy = {
     institution: "机构",
     role: "职务",
     sources: "公开资料",
-    sourceTitle: "公开资料线索",
+    sourceTitle: "公开资料来源",
     field: "所属领域",
     city: "所在城市",
     cooperation: "合作身份",

@@ -37,6 +37,7 @@ export const navItems: NavItem[] = [
   { href: "/", label: "首页", ja: "ホーム", en: "Home" },
   { href: "/about", label: "关于我们", ja: "私たちについて", en: "About Us" },
   { href: "/medical-family-office", label: "医疗家族办公室", ja: "医療ファミリーオフィス", en: "Medical Family Office" },
+  { href: "/service-process", label: "服务流程", ja: "サービスの流れ", en: "Process" },
   { href: "/longevity-planning", label: "长寿医学", ja: "長寿医学", en: "Longevity Medicine" },
   { href: "/regenerative-medicine", label: "再生医疗", ja: "再生医療", en: "Regenerative Medicine" },
   { href: "/executive-health", label: "企业家健康", ja: "エグゼクティブヘルス", en: "Executive Health" },

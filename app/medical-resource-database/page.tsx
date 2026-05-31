@@ -6,7 +6,7 @@ import {
   medicalResources,
   programProfiles
 } from "@/lib/databases";
-import { normalizeLanguage, pages, serviceImages } from "@/lib/site";
+import { normalizeLanguage, pages, serviceImages, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "医疗资源与专家资料管理体系",
@@ -15,12 +15,13 @@ export const metadata: Metadata = {
 
 const copy = {
   zh: {
+    databaseEyebrow: "资源管理层",
     resourceTitle: "医疗资源数据库",
     resourceIntro: "用于管理日本各地区可协调的医疗机构、专科能力、准入方式和尽调信息。",
     doctorTitle: "医生数据库",
     doctorIntro: "以可验证的专家画像管理匹配逻辑，真实医生资料须在授权与资质核验后展示。",
-    programTitle: "项目数据库",
-    programIntro: "将高净值客户常见需求产品化，明确交付物、风险控制和复盘机制。",
+    programTitle: "服务路径数据库",
+    programIntro: "将高净值客户常见需求梳理成清晰服务路径，明确交付物、风险控制和复盘机制。",
     coordinationTitle: "客户适配与服务流程",
     coordinationIntro: "从初步咨询到适配度确认、资料整理、专家沟通与长期随访，形成更清晰的服务路径。",
     segmentTitle: "适合服务人群",
@@ -29,6 +30,7 @@ const copy = {
       "合规边界：以下内容用于资源管理与服务介绍，不构成医疗诊断、治疗建议或疗效承诺；真实医生与机构接入前必须完成资质、授权、费用、等待周期和适应症确认。"
   },
   ja: {
+    databaseEyebrow: "リソース管理層",
     resourceTitle: "医療資源データベース",
     resourceIntro: "日本各地域の医療機関、専門能力、アクセス方法、確認項目を管理します。",
     doctorTitle: "医師データベース",
@@ -43,6 +45,7 @@ const copy = {
       "コンプライアンス：本内容は資源管理とサービス紹介を目的とし、診断、治療助言、効果保証ではありません。実際の医師・機関連携前に資格、権限、費用、待機期間、適応を確認します。"
   },
   en: {
+    databaseEyebrow: "Resource Management Layer",
     resourceTitle: "Medical Resource Database",
     resourceIntro: "Manage Japanese medical institutions, specialty capabilities, access models, and diligence fields by region.",
     doctorTitle: "Doctor Database",
@@ -55,6 +58,27 @@ const copy = {
     scoringTitle: "Fit Review Priorities",
     compliance:
       "Compliance boundary: this content is for resource management and service introduction only. It is not diagnosis, treatment advice, or an outcome guarantee. Real physicians and institutions require credential, authorization, cost, timing, and indication confirmation."
+  }
+};
+
+const stageFieldLabels = {
+  zh: {
+    target: "目标",
+    materials: "资料与说明",
+    fitCriteria: "适配重点",
+    nextAction: "下一步"
+  },
+  ja: {
+    target: "目的",
+    materials: "資料と説明",
+    fitCriteria: "適合性の重点",
+    nextAction: "次のステップ"
+  },
+  en: {
+    target: "Goal",
+    materials: "Materials",
+    fitCriteria: "Fit Criteria",
+    nextAction: "Next Step"
   }
 };
 
@@ -102,29 +126,29 @@ const serviceStages = {
     {
       stage: "初步咨询",
       target: "确认需求方向、家庭成员情况与时间安排",
-      contentAsset: "咨询摘要与资料清单",
-      qualificationSignal: "目标清晰、资料完整、愿意遵守合规流程",
+      materials: "咨询摘要与资料清单",
+      fitCriteria: "目标清晰、资料完整、愿意遵守合规流程",
       nextAction: "进入适配度确认"
     },
     {
       stage: "适配度确认",
       target: "评估是否适合进入医生匹配、机构咨询或长期管理",
-      contentAsset: "风险边界与服务范围说明",
-      qualificationSignal: "了解服务边界，不要求结果承诺",
+      materials: "风险边界与服务范围说明",
+      fitCriteria: "了解服务边界，不要求结果承诺",
       nextAction: "准备医疗资料"
     },
     {
       stage: "资料整理",
       target: "整理既往报告、影像、用药、家族史与核心问题",
-      contentAsset: "医生沟通资料包",
-      qualificationSignal: "可提供必要医学资料",
+      materials: "医生沟通资料包",
+      fitCriteria: "可提供必要医学资料",
       nextAction: "专家或机构沟通"
     },
     {
       stage: "长期跟进",
       target: "建立复盘节奏、复查计划与家庭健康档案",
-      contentAsset: "随访计划与健康档案",
-      qualificationSignal: "需要持续管理而非一次性安排",
+      materials: "随访计划与健康档案",
+      fitCriteria: "需要持续管理而非一次性安排",
       nextAction: "年度健康回顾"
     }
   ],
@@ -132,29 +156,29 @@ const serviceStages = {
     {
       stage: "初回相談",
       target: "相談内容、家族状況、日程を確認します。",
-      contentAsset: "相談サマリーと資料リスト",
-      qualificationSignal: "目的が明確で、資料整理と規定遵守が可能",
+      materials: "相談サマリーと資料リスト",
+      fitCriteria: "目的が明確で、資料整理と規定遵守が可能",
       nextAction: "適合性確認へ"
     },
     {
       stage: "適合性確認",
       target: "医師マッチング、医療機関相談、長期管理に適しているかを確認します。",
-      contentAsset: "リスク境界とサービス範囲の説明",
-      qualificationSignal: "サービス境界を理解し、結果保証を求めない",
+      materials: "リスク境界とサービス範囲の説明",
+      fitCriteria: "サービス境界を理解し、結果保証を求めない",
       nextAction: "医療資料準備"
     },
     {
       stage: "資料整理",
       target: "既往レポート、画像、服薬、家族歴、質問を整理します。",
-      contentAsset: "医師コミュニケーション資料",
-      qualificationSignal: "必要な医学資料を提出できる",
+      materials: "医師コミュニケーション資料",
+      fitCriteria: "必要な医学資料を提出できる",
       nextAction: "専門医・医療機関との確認"
     },
     {
       stage: "長期フォロー",
       target: "レビュー頻度、再検査計画、家族健康記録を整えます。",
-      contentAsset: "フォロー計画と健康記録",
-      qualificationSignal: "単発手配ではなく継続管理を希望",
+      materials: "フォロー計画と健康記録",
+      fitCriteria: "単発手配ではなく継続管理を希望",
       nextAction: "年次健康レビュー"
     }
   ],
@@ -162,29 +186,29 @@ const serviceStages = {
     {
       stage: "Initial inquiry",
       target: "Clarify goals, family context, and timing.",
-      contentAsset: "Inquiry summary and document checklist",
-      qualificationSignal: "Clear goals, organized information, and willingness to follow compliant process",
+      materials: "Inquiry summary and document checklist",
+      fitCriteria: "Clear goals, organized information, and willingness to follow compliant process",
       nextAction: "Fit review"
     },
     {
       stage: "Fit review",
       target: "Assess whether physician matching, institution consultation, or long-term management is appropriate.",
-      contentAsset: "Risk boundaries and service scope",
-      qualificationSignal: "Understands service boundaries and does not expect outcome guarantees",
+      materials: "Risk boundaries and service scope",
+      fitCriteria: "Understands service boundaries and does not expect outcome guarantees",
       nextAction: "Medical document preparation"
     },
     {
       stage: "Document preparation",
       target: "Organize prior reports, imaging, medication, family history, and key questions.",
-      contentAsset: "Physician communication package",
-      qualificationSignal: "Able to provide necessary medical information",
+      materials: "Physician communication package",
+      fitCriteria: "Able to provide necessary medical information",
       nextAction: "Specialist or institution communication"
     },
     {
       stage: "Long-term follow-up",
       target: "Set review rhythm, retesting plan, and family health records.",
-      contentAsset: "Follow-up plan and health archive",
-      qualificationSignal: "Needs continuing management rather than a one-time arrangement",
+      materials: "Follow-up plan and health archive",
+      fitCriteria: "Needs continuing management rather than a one-time arrangement",
       nextAction: "Annual health review"
     }
   ]
@@ -227,6 +251,7 @@ export default function MedicalResourceDatabasePage({
         }
         secondaryDescription={text.compliance}
         cta={lang === "en" ? "Discuss the system" : lang === "ja" ? "相談する" : "咨询数据库系统"}
+        ctaHref={withLanguage("/contact", lang)}
       />
 
       <section className="bg-pearl px-5 py-16 lg:px-8">
@@ -257,7 +282,11 @@ export default function MedicalResourceDatabasePage({
 
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <DatabaseIntro title={text.resourceTitle} intro={text.resourceIntro} />
+          <DatabaseIntro
+            eyebrow={text.databaseEyebrow}
+            title={text.resourceTitle}
+            intro={text.resourceIntro}
+          />
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
             {medicalResources.map((resource) => (
               <article key={resource.id} className="border border-mist bg-white p-7 shadow-sm">
@@ -279,7 +308,11 @@ export default function MedicalResourceDatabasePage({
 
       <section className="bg-white px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <DatabaseIntro title={text.doctorTitle} intro={text.doctorIntro} />
+          <DatabaseIntro
+            eyebrow={text.databaseEyebrow}
+            title={text.doctorTitle}
+            intro={text.doctorIntro}
+          />
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {doctorProfiles.map((doctor) => (
               <article key={doctor.id} className="border border-mist bg-pearl/55 p-7">
@@ -298,7 +331,12 @@ export default function MedicalResourceDatabasePage({
 
       <section className="bg-ink px-5 py-20 text-pearl lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <DatabaseIntro title={text.programTitle} intro={text.programIntro} inverted />
+          <DatabaseIntro
+            eyebrow={text.databaseEyebrow}
+            title={text.programTitle}
+            intro={text.programIntro}
+            inverted
+          />
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
             {programProfiles.map((program) => (
               <article key={program.id} className="border border-white/12 bg-white/5 p-7">
@@ -320,7 +358,11 @@ export default function MedicalResourceDatabasePage({
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <DatabaseIntro title={text.coordinationTitle} intro={text.coordinationIntro} />
+            <DatabaseIntro
+              eyebrow={text.databaseEyebrow}
+              title={text.coordinationTitle}
+              intro={text.coordinationIntro}
+            />
             <div className="mt-10 border-y border-mist py-7">
               <h2 className="text-xl font-semibold text-ink">{text.segmentTitle}</h2>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-graphite/74">
@@ -347,10 +389,16 @@ export default function MedicalResourceDatabasePage({
                 <div>
                   <h2 className="text-2xl font-semibold text-ink">{stage.stage}</h2>
                   <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                    <Field label="目标对象" value={stage.target} />
-                    <Field label="内容资产" value={stage.contentAsset} />
-                    <Field label="资格信号" value={stage.qualificationSignal} />
-                    <Field label="下一动作" value={stage.nextAction} />
+                    <Field label={stageFieldLabels[lang].target} value={stage.target} />
+                    <Field
+                      label={stageFieldLabels[lang].materials}
+                      value={stage.materials}
+                    />
+                    <Field
+                      label={stageFieldLabels[lang].fitCriteria}
+                      value={stage.fitCriteria}
+                    />
+                    <Field label={stageFieldLabels[lang].nextAction} value={stage.nextAction} />
                   </div>
                 </div>
               </article>
@@ -363,10 +411,12 @@ export default function MedicalResourceDatabasePage({
 }
 
 function DatabaseIntro({
+  eyebrow,
   title,
   intro,
   inverted = false
 }: {
+  eyebrow: string;
   title: string;
   intro: string;
   inverted?: boolean;
@@ -374,7 +424,7 @@ function DatabaseIntro({
   return (
     <div className="max-w-3xl">
       <p className={`text-xs uppercase tracking-[0.3em] ${inverted ? "text-champagne" : "text-champagne"}`}>
-        Database Layer
+        {eyebrow}
       </p>
       <h2 className={`mt-5 font-serif text-4xl leading-tight md:text-5xl ${inverted ? "text-pearl" : "text-ink"}`}>
         {title}
