@@ -75,7 +75,7 @@ info@mwmwt.com
 
 ```text
 RESEND_API_KEY=你的 Resend API Key
-CONTACT_FROM_EMAIL=MWMWT Concierge <info@mwmwt.com>
+CONTACT_FROM_EMAIL=Medical Family Office <info@mwmwt.com>
 CONTACT_CC_EMAIL=内部抄送邮箱，可选
 CONTACT_CRM_WEBHOOK_URL=客户表或 CRM 的 Webhook 地址，可选
 LINE_NOTIFICATION_WEBHOOK_URL=LINE 推送桥接 Webhook，可选

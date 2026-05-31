@@ -111,7 +111,8 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
         email,
         inquiryType,
         background,
-        consent
+        consent,
+        sourcePage: window.location.toString()
       })
     }).catch(() => undefined);
 

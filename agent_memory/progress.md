@@ -6,7 +6,7 @@
 
 当前追加目标：将医疗官网与误覆盖进来的钢结构网站彻底分开；医疗官网继续补齐联系表单系统、首页首屏价值主张、会员体系、合规声明和服务流程页面。
 
-当前最新调整：彻底移除联系表单 `mailto` 行为，改为 `/api/contact` 服务端通过 Resend 发送到固定收件地址 `info@mwmwt.com`，使用 `process.env.RESEND_API_KEY`；提交成功后跳转到感谢页并显示 “Thank you. Your inquiry has been submitted.”。
+当前最新调整：彻底移除联系表单 `mailto` 行为，改为 `/api/contact` 服务端通过 Resend 发送到固定收件地址 `info@mwmwt.com`，使用 `process.env.RESEND_API_KEY`；内部邮件补充来源页面字段，默认发件人改为 `Medical Family Office <info@mwmwt.com>`，客户填写有效邮箱时自动发送确认回复。
 
 ## 成功标准
 
@@ -82,6 +82,9 @@
 - 已将联系表单发送接口固定发送到 `info@mwmwt.com`，不再依赖 `CONTACT_TO_EMAIL`
 - 已移除感谢页残留的邮件链接，公开代码中不再存在 `mailto:`，避免点击后打开 Apple Mail
 - 已将感谢页标题三语统一为 “Thank you. Your inquiry has been submitted.”
+- 已将表单当前页面 URL 作为 `sourcePage` 传给后端，内部询盘邮件、CRM Payload 与 LINE 通知均包含来源页面
+- 已将默认发件人显示改为 `Medical Family Office <info@mwmwt.com>`
+- 已新增客户自动回复邮件：客户填写有效邮箱时，按中日英语言发送 24 小时内联系的确认邮件，并提示不要通过公开邮件直接发送完整病历或敏感资料
 
 ## 验证记录
 
@@ -104,3 +107,4 @@
 - 已执行邮箱残留检索，确认公开代码中不再出现 QQ/iCloud/vip/concierge 等旧联系邮箱
 - 已执行 `rg` 检索，确认 `app`、`components`、`lib`、`DEPLOY.md` 中不再出现 `mailto:`、`window.location`、`location.href`、`CONTACT_TO_EMAIL`、旧邮箱等残留
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 Resend 服务端发送、感谢页文案和部署说明更新后仍正常生成 38 个路由
+- 已执行 `npm run build`，Next.js 生产构建通过，确认来源页面字段、发件人显示和客户自动回复邮件改动未破坏构建

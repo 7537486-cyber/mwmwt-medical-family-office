@@ -13,7 +13,7 @@
 - 本地预览服务在当前环境启动时遇到端口绑定权限限制（`0.0.0.0:3000`），因此视觉检查主要依赖生产构建；用户本机或 Vercel 部署后仍需实际浏览确认图片裁切效果。
 - 本轮再次尝试用 `127.0.0.1:3000` 启动本地预览，仍被环境以 `EPERM` 拦截；移动端视觉已通过代码约束处理，但最终仍建议在 Vercel 部署后用手机实际检查首屏图片比例和文字换行。
 - 曾发现钢结构网站内容误覆盖到医疗官网目录；已将钢结构网站复制保存在 `/Users/yumi/Documents/MWM钢结构官网`，医疗官网已恢复，但后续部署钢结构网站时必须作为独立 GitHub/Vercel 项目处理，不能继续在当前医疗官网仓库内操作。
-- 当前联系表单已经改为站内提交接口并固定发送到 `info@mwmwt.com`；真正上线发送邮件需要在 Vercel 配置 `RESEND_API_KEY`，并建议配置已验证发件地址 `CONTACT_FROM_EMAIL`。如未配置 `RESEND_API_KEY`，表单会提示提交系统暂不可用。
+- 当前联系表单已经改为站内提交接口并固定发送到 `info@mwmwt.com`；真正上线发送邮件需要在 Vercel 配置 `RESEND_API_KEY`，并建议配置已验证发件地址 `CONTACT_FROM_EMAIL=Medical Family Office <info@mwmwt.com>`。如未配置 `RESEND_API_KEY`，表单会提示提交系统暂不可用。
 - CRM 写入目前采用可选 Webhook：需要后续提供 `CONTACT_CRM_WEBHOOK_URL`，可接 Make、Zapier、Notion、Airtable、Google Sheets 或正式 CRM。
 - LINE / WhatsApp 快捷入口已在感谢页预留，但需要提供官方链接并配置 `NEXT_PUBLIC_LINE_URL` 与 `NEXT_PUBLIC_WHATSAPP_URL` 后才会启用。
 - `info@mwmwt.com` 当前如尚未创建，表单代码虽已默认发送到该地址，但上线前必须先创建邮箱或至少完成 Resend 发信域名验证；否则邮件发送会失败。
