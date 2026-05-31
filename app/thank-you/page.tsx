@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
@@ -18,6 +19,9 @@ const copy = {
       "我们会根据您提交的方向、时间安排和健康背景进行初步整理，并优先通过您留下的电话、WhatsApp、LINE 或微信回复。请勿通过公开渠道发送完整病历、影像或高度敏感资料。",
     line: "LINE 咨询",
     whatsapp: "WhatsApp 咨询",
+    wechat: "微信咨询",
+    wechatBody:
+      "也可以扫码添加微信，继续补充咨询方向、时间安排或家庭健康背景。请勿通过公开聊天直接发送完整病历或高度敏感资料。",
     unavailable: "快捷入口配置后启用",
     back: "返回首页"
   },
@@ -30,6 +34,9 @@ const copy = {
       "ご相談内容、希望時期、健康背景を確認し、電話、WhatsApp、LINE、WeChat を優先してご連絡します。公開フォームや公開チャネルで完全な病歴、画像、高度に機微な資料を送信しないでください。",
     line: "LINE相談",
     whatsapp: "WhatsApp相談",
+    wechat: "WeChat相談",
+    wechatBody:
+      "WeChatのQRコードから追加し、ご相談内容や希望時期を補足できます。完全な病歴や高度に機微な資料は公開チャットで送らないでください。",
     unavailable: "設定後に利用可能",
     back: "ホームへ戻る"
   },
@@ -42,6 +49,9 @@ const copy = {
       "We review the submitted topic, timing, and health background, then prioritize follow-up by phone, WhatsApp, LINE, or WeChat. Please do not send complete medical records, imaging, or highly sensitive files through public channels.",
     line: "LINE",
     whatsapp: "WhatsApp",
+    wechat: "WeChat",
+    wechatBody:
+      "Scan the QR code to continue on WeChat. Please do not send complete medical records or highly sensitive information through public chat.",
     unavailable: "Available after account setup",
     back: "Back Home"
   }
@@ -109,6 +119,24 @@ export default function ThankYouPage({
                 </div>
               )
             )}
+          </div>
+          <div className="mt-8 grid gap-5 border border-mist bg-white p-6 shadow-quiet sm:grid-cols-[160px_1fr] sm:items-center">
+            <div className="relative mx-auto aspect-square w-40 overflow-hidden bg-pearl">
+              <Image
+                src="/wechat-tyler-qr.jpg"
+                alt="MWMWT WeChat QR code"
+                fill
+                className="object-contain"
+                sizes="160px"
+              />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-champagne">
+                WeChat
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold text-ink">{text.wechat}</h2>
+              <p className="mt-3 text-sm leading-7 text-graphite/70">{text.wechatBody}</p>
+            </div>
           </div>
           <div className="mt-10 text-center">
             <Link

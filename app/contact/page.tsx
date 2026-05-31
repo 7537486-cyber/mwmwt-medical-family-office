@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { normalizeLanguage, pageText, pages, serviceImages, withLanguage } from "@/lib/site";
@@ -38,15 +39,21 @@ const inquiryTypesJa = [
 const contactCopy = {
   zh: {
     firstStep: "私密初步沟通",
-    scope: "咨询范围"
+    scope: "咨询范围",
+    wechatTitle: "微信咨询",
+    wechatBody: "可扫码添加微信，适合补充说明时间安排、家庭成员情况或希望先进行简短沟通。"
   },
   ja: {
     firstStep: "プライベート初回相談",
-    scope: "相談範囲"
+    scope: "相談範囲",
+    wechatTitle: "WeChat相談",
+    wechatBody: "QRコードからWeChatを追加し、希望時期やご家族の状況について簡単にご相談いただけます。"
   },
   en: {
     firstStep: "Private First Step",
-    scope: "Inquiry Scope"
+    scope: "Inquiry Scope",
+    wechatTitle: "WeChat Inquiry",
+    wechatBody: "Scan the QR code to add us on WeChat for timing, family context, or a brief first conversation."
   }
 };
 
@@ -93,6 +100,24 @@ export default function ContactPage({
                   <p className="text-sm font-semibold text-ink">{item}</p>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 grid gap-5 border border-mist bg-white p-6 shadow-sm sm:grid-cols-[150px_1fr] sm:items-center">
+              <div className="relative mx-auto aspect-square w-36 overflow-hidden bg-pearl">
+                <Image
+                  src="/wechat-tyler-qr.jpg"
+                  alt="MWMWT WeChat QR code"
+                  fill
+                  className="object-contain"
+                  sizes="144px"
+                />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-champagne">
+                  WeChat
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold text-ink">{copy.wechatTitle}</h3>
+                <p className="mt-3 text-sm leading-7 text-graphite/70">{copy.wechatBody}</p>
+              </div>
             </div>
           </div>
           <ContactForm lang={lang} typeOptions={typeOptions} />
