@@ -33,14 +33,6 @@ const homeCopy = {
       "我们代表客户，严格筛选全球优质医疗资源，建立从机构审核、医生评估、治疗协调到长期随访的完整医疗治理体系。",
     governanceMission:
       "Medical Family Office 的使命，不是安排一次治疗，而是守护客户及其家庭未来数十年的健康寿命。",
-    valueTitle: "为企业家、投资人与家族建立全球医疗家族办公室。",
-    valueBody:
-      "我们的核心价值是帮助家族获得合适资源、完成审慎判断、保护隐私、节省时间，并在重大健康选择前建立可复核的风险控制机制。",
-    valueDiligence:
-      "医疗尽调重点包括机构资质、医生背景、公开学术资料、合规边界、流程记录与安全管理。",
-    networkTitle: "帮助企业家家庭链接全球优质医疗资源。",
-    networkBody:
-      "我们以医疗尽调体系评估医院资质、医生背景、公开资料、合规边界与安全管理，降低跨境医疗决策的不确定性。",
     platformTitle: "从医疗治理、医生资源到知识研究，建立长期健康决策基础。",
     platformBody:
       "我们以医疗家族办公室的方式整合专业资源、风险评估、知识研究与长期随访，帮助家族更冷静地面对未来健康选择。",
@@ -78,14 +70,6 @@ const homeCopy = {
       "顧客の代理として世界の優れた医療資源を慎重に確認し、医療機関審査、医師評価、治療調整、長期フォローまでの医療ガバナンスを設計します。",
     governanceMission:
       "Medical Family Office の使命は単発の治療手配ではなく、顧客と家族の今後数十年の健康寿命を守ることです。",
-    valueTitle: "起業家、投資家、家族のためのグローバル医療ファミリーオフィス。",
-    valueBody:
-      "私たちは適切な資源へのアクセス、慎重な判断、プライバシー保護、時間効率、重要な健康判断前のリスク確認を支援します。",
-    valueDiligence:
-      "医療デューデリジェンスでは、医療機関資格、医師背景、公開学術情報、規制境界、記録管理、安全体制を確認します。",
-    networkTitle: "起業家家族を、世界の優れた医療資源へつなぎます。",
-    networkBody:
-      "医療機関資格、医師背景、公開情報、規制境界、安全管理を確認し、国際医療判断の不確実性を下げます。",
     platformTitle: "医療ガバナンス、医師資源、知識研究を長期判断の基盤にします。",
     platformBody:
       "医療ファミリーオフィスとして、専門資源、リスク評価、知識研究、長期フォローを統合し、家族が将来の健康判断に落ち着いて向き合えるよう支援します。",
@@ -124,14 +108,6 @@ const homeCopy = {
       "We screen global medical resources on behalf of clients and build a governance system from institution review and physician assessment to treatment coordination and long-term follow-up.",
     governanceMission:
       "The mission of a Medical Family Office is not to arrange a single procedure. It is to protect the healthspan of clients and families for decades ahead.",
-    valueTitle: "A global medical family office for entrepreneurs, investors, and families.",
-    valueBody:
-      "Our value is helping families access appropriate resources, make careful decisions, protect privacy, save time, and establish reviewable risk control before major health choices.",
-    valueDiligence:
-      "Medical due diligence covers institution credentials, physician background, public academic information, compliance boundaries, process records, and safety management.",
-    networkTitle: "We help families access high-quality medical resources around the world.",
-    networkBody:
-      "We assess institution credentials, physician background, public information, compliance boundaries, and safety management to reduce uncertainty in cross-border medical decisions.",
     platformTitle: "Medical governance, physician resources, and research intelligence form the foundation for long-term health decisions.",
     platformBody:
       "As a Medical Family Office, we integrate professional resources, risk review, research intelligence, and follow-up so families can approach future health choices with clarity.",
@@ -148,8 +124,6 @@ const sectionCopy = {
     healthspan: "健康寿命价值观",
     why: "客户为什么选择我们",
     governance: "医疗治理体系",
-    valueModel: "私人健康决策支持",
-    network: "全球医疗资源网络",
     knowledge: "知识中心",
     knowledgeTitle: "用于长期健康决策的医学知识体系。",
     knowledgeCta: "进入知识中心",
@@ -163,8 +137,6 @@ const sectionCopy = {
     healthspan: "健康寿命の価値観",
     why: "選ばれる理由",
     governance: "医療ガバナンス",
-    valueModel: "プライベート健康意思決定支援",
-    network: "グローバル医療ネットワーク",
     knowledge: "ナレッジセンター",
     knowledgeTitle: "長期的な健康判断を支える医療知識体系。",
     knowledgeCta: "ナレッジセンターを見る",
@@ -178,8 +150,6 @@ const sectionCopy = {
     healthspan: "Healthspan Philosophy",
     why: "Why Clients Choose Us",
     governance: "Medical Governance Framework",
-    valueModel: "Private Health Decision Support",
-    network: "Global Medical Network",
     knowledge: "Knowledge Center",
     knowledgeTitle: "Medical intelligence for better long-term health decisions.",
     knowledgeCta: "Explore Knowledge Center",
@@ -206,66 +176,78 @@ const whatWeDo = {
     {
       title: "Longevity Medicine",
       label: "长寿医学",
-      body: "以健康寿命为目标，围绕生物年龄、慢病风险、睡眠、代谢、炎症、认知功能与衰老速度，建立长期健康规划。"
+      body: "以健康寿命为目标，围绕生物年龄、慢病风险、睡眠、代谢、炎症、认知功能与衰老速度，建立长期健康规划。",
+      href: "/longevity-planning"
     },
     {
       title: "Regenerative Medicine",
       label: "再生医疗",
-      body: "整合日本及全球合规再生医疗资源，包括干细胞、外泌体、免疫调节与组织修复相关方案，强调安全性、合规性与医学评估。"
+      body: "整合日本及全球合规再生医疗资源，包括干细胞、外泌体、免疫调节与组织修复相关方案，强调安全性、合规性与医学评估。",
+      href: "/regenerative-medicine"
     },
     {
       title: "Executive Health",
       label: "企业家健康管理",
-      body: "专为企业家与核心决策者设计，关注高压、过劳、睡眠不足、代谢紊乱、心脑血管风险与精力下降等问题。"
+      body: "专为企业家与核心决策者设计，关注高压、过劳、睡眠不足、代谢紊乱、心脑血管风险与精力下降等问题。",
+      href: "/executive-health"
     },
     {
       title: "Global Medical Access",
       label: "全球医疗资源",
-      body: "连接日本、新加坡、瑞士、美国等优质医疗资源，提供专家会诊、海外转诊、第二诊疗意见、私密医疗安排与长期随访。"
+      body: "连接日本、新加坡、瑞士、美国等优质医疗资源，提供专家会诊、海外转诊、第二诊疗意见、私密医疗安排与长期随访。",
+      href: "/global-medical-access"
     }
   ],
   ja: [
     {
       title: "Longevity Medicine",
       label: "長寿医学",
-      body: "健康寿命を目標に、生物学的年齢、慢性疾患リスク、睡眠、代謝、炎症、認知機能、老化速度を長期的に把握します。"
+      body: "健康寿命を目標に、生物学的年齢、慢性疾患リスク、睡眠、代謝、炎症、認知機能、老化速度を長期的に把握します。",
+      href: "/longevity-planning"
     },
     {
       title: "Regenerative Medicine",
       label: "再生医療",
-      body: "日本および海外の規制に沿った再生医療資源を確認し、安全性、適応、医学的評価を重視します。"
+      body: "日本および海外の規制に沿った再生医療資源を確認し、安全性、適応、医学的評価を重視します。",
+      href: "/regenerative-medicine"
     },
     {
       title: "Executive Health",
       label: "経営者健康管理",
-      body: "高ストレス、過労、睡眠不足、代謝異常、心血管リスク、活力低下を抱える経営者のために設計します。"
+      body: "高ストレス、過労、睡眠不足、代謝異常、心血管リスク、活力低下を抱える経営者のために設計します。",
+      href: "/executive-health"
     },
     {
       title: "Global Medical Access",
       label: "グローバル医療アクセス",
-      body: "日本、シンガポール、スイス、米国などの医療資源へ、専門医相談、紹介、セカンドオピニオン、長期フォローを調整します。"
+      body: "日本、シンガポール、スイス、米国などの医療資源へ、専門医相談、紹介、セカンドオピニオン、長期フォローを調整します。",
+      href: "/global-medical-access"
     }
   ],
   en: [
     {
       title: "Longevity Medicine",
       label: "Healthspan planning",
-      body: "Long-term planning around biological age, chronic disease risk, sleep, metabolism, inflammation, cognition, and pace of aging."
+      body: "Long-term planning around biological age, chronic disease risk, sleep, metabolism, inflammation, cognition, and pace of aging.",
+      href: "/longevity-planning"
     },
     {
       title: "Regenerative Medicine",
       label: "Regulated access",
-      body: "Access to compliant regenerative medicine resources in Japan and globally, with attention to safety, eligibility, and medical review."
+      body: "Access to compliant regenerative medicine resources in Japan and globally, with attention to safety, eligibility, and medical review.",
+      href: "/regenerative-medicine"
     },
     {
       title: "Executive Health",
       label: "Founder and decision-maker health",
-      body: "Designed for high-pressure executives facing fatigue, sleep debt, metabolic disruption, cardiovascular risk, and declining energy."
+      body: "Designed for high-pressure executives facing fatigue, sleep debt, metabolic disruption, cardiovascular risk, and declining energy.",
+      href: "/executive-health"
     },
     {
       title: "Global Medical Access",
       label: "Cross-border medical resources",
-      body: "Specialist consultations, referrals, second opinions, private medical arrangements, and follow-up across Japan, Singapore, Switzerland, and the United States."
+      body: "Specialist consultations, referrals, second opinions, private medical arrangements, and follow-up across Japan, Singapore, Switzerland, and the United States.",
+      href: "/global-medical-access"
     }
   ]
 };
@@ -274,90 +256,6 @@ const whyClientsChooseUs = {
   zh: ["医疗资源获取", "医疗决策顾问", "隐私保护", "时间效率", "风险控制"],
   ja: ["医療資源へのアクセス", "医療判断の支援", "プライバシー保護", "時間効率", "リスク管理"],
   en: ["Resource Access", "Medical Navigation", "Privacy", "Time Efficiency", "Risk Control"]
-};
-
-const coreValues = {
-  zh: [
-    {
-      title: "Resource Access",
-      label: "医疗资源获取",
-      body: "客户很难独立判断医生、医院和方案是否适合；我们先进行资料核验，再进入资源匹配。"
-    },
-    {
-      title: "Medical Navigation",
-      label: "医疗决策顾问",
-      body: "客户最大的痛点不是没有预算，而是不知道选谁。我们帮助比较路径、医生与方案。"
-    },
-    {
-      title: "Privacy",
-      label: "隐私保护",
-      body: "围绕 VIP 通道、独立接待、翻译团队、私密行程和保密协议，降低暴露与混乱。"
-    },
-    {
-      title: "Time Efficiency",
-      label: "时间效率",
-      body: "企业家不需要研究每一家医院和每一位医生，只需要知道当前更稳妥的选择是什么。"
-    },
-    {
-      title: "Risk Control",
-      label: "风险控制",
-      body: "通过医疗尽调体系评估资质、背景、公开资料、合规边界和安全记录。"
-    }
-  ],
-  ja: [
-    {
-      title: "Resource Access",
-      label: "医療資源へのアクセス",
-      body: "医師、病院、選択肢が自分に適しているかを判断する前に、必要な情報を確認します。"
-    },
-    {
-      title: "Medical Navigation",
-      label: "医療判断の支援",
-      body: "課題は予算ではなく、誰を選ぶべきかです。複数の選択肢を整理し、判断を支援します。"
-    },
-    {
-      title: "Privacy",
-      label: "プライバシー保護",
-      body: "VIP動線、個別対応、通訳、秘匿性の高い旅程、秘密保持を前提に調整します。"
-    },
-    {
-      title: "Time Efficiency",
-      label: "時間効率",
-      body: "経営者がすべての病院や医師を調べる必要がないよう、判断に必要な情報を整理します。"
-    },
-    {
-      title: "Risk Control",
-      label: "リスク管理",
-      body: "資格、経歴、公開資料、規制境界、安全記録を医療デューデリジェンスとして確認します。"
-    }
-  ],
-  en: [
-    {
-      title: "Resource Access",
-      label: "Resource access",
-      body: "Before matching resources, we help verify whether physicians, institutions, and options are appropriate for the client."
-    },
-    {
-      title: "Medical Navigation",
-      label: "Medical navigation",
-      body: "The hard question is rarely budget. It is knowing whom to trust and which path to take."
-    },
-    {
-      title: "Privacy",
-      label: "Privacy",
-      body: "VIP access, private reception, interpreter teams, discreet itineraries, and confidentiality protocols reduce exposure."
-    },
-    {
-      title: "Time Efficiency",
-      label: "Time efficiency",
-      body: "Executives should not have to research every hospital and doctor. They need clear, decision-ready options."
-    },
-    {
-      title: "Risk Control",
-      label: "Risk control",
-      body: "Medical due diligence reviews credentials, background, public information, compliance boundaries, and safety records."
-    }
-  ]
 };
 
 const governanceLayers = {
@@ -437,75 +335,6 @@ const governanceLayers = {
       label: "Long-term follow-up",
       body: "Medical care is not a one-time purchase. The follow-up, review, and next decisions matter most.",
       items: ["Personal health archive", "3/6/12-month reviews", "Dedicated health advisor", "Longevity management plan"]
-    }
-  ]
-};
-
-const globalNetwork = {
-  zh: [
-    {
-      region: "Japan",
-      cities: "Tokyo / Osaka / Nagoya",
-      focus: "再生医疗、癌症筛查、精密体检、专科医院、企业家健康管理"
-    },
-    {
-      region: "Singapore",
-      cities: "Asia medical hub",
-      focus: "国际医疗中心、家族办公室客户、高端保险资源"
-    },
-    {
-      region: "Switzerland",
-      cities: "European longevity network",
-      focus: "长寿医学、健康度假、顶级私立诊所"
-    },
-    {
-      region: "United States",
-      cities: "North America",
-      focus: "长寿医学、精准医学、临床研究与前沿检测"
-    }
-  ],
-  ja: [
-    {
-      region: "Japan",
-      cities: "Tokyo / Osaka / Nagoya",
-      focus: "再生医療、がん検診、精密健診、専門病院、経営者健康管理"
-    },
-    {
-      region: "Singapore",
-      cities: "Asia medical hub",
-      focus: "国際医療センター、ファミリーオフィス顧客、高付加価値保険資源"
-    },
-    {
-      region: "Switzerland",
-      cities: "European longevity network",
-      focus: "長寿医療、ウェルネスリトリート、上質な私立クリニック"
-    },
-    {
-      region: "United States",
-      cities: "North America",
-      focus: "長寿医療、精密医療、臨床研究、先端検査"
-    }
-  ],
-  en: [
-    {
-      region: "Japan",
-      cities: "Tokyo / Osaka / Nagoya",
-      focus: "Regenerative medicine, cancer screening, executive checkups, specialty hospitals, and founder health management"
-    },
-    {
-      region: "Singapore",
-      cities: "Asia medical hub",
-      focus: "International medical centers, family office clients, and premium insurance resources"
-    },
-    {
-      region: "Switzerland",
-      cities: "European longevity network",
-      focus: "Longevity medicine, wellness retreats, and premium private clinics"
-    },
-    {
-      region: "United States",
-      cities: "North America",
-      focus: "Longevity medicine, precision medicine, clinical research, and advanced diagnostics"
     }
   ]
 };
@@ -839,6 +668,13 @@ export default function Home({
   const membershipItems = memberships[lang];
   const membershipText = membershipLabels[lang];
   const featuredDoctors = doctorProfiles.slice(0, 4);
+  const whyLinks = [
+    "/global-medical-access",
+    "/medical-family-office",
+    "/contact",
+    "/service-process",
+    "/medical-governance-framework"
+  ];
 
   return (
     <>
@@ -935,14 +771,20 @@ export default function Home({
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             {whatItems.map((item, index) => (
-              <div key={item.title} className="border-t border-champagne/55 pt-5">
+              <Link
+                key={item.title}
+                href={withLanguage(item.href, lang)}
+                className="group border-t border-champagne/55 pt-5 transition hover:-translate-y-1"
+              >
                 <p className="font-serif text-4xl text-champagne">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-4 text-xl font-semibold text-ink">{item.title}</p>
+                <p className="mt-4 text-xl font-semibold text-ink transition group-hover:text-champagne">
+                  {item.title}
+                </p>
                 <p className="mt-2 text-sm font-semibold text-champagne">{item.label}</p>
                 <p className="mt-4 text-sm leading-7 text-graphite/72">{item.body}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -968,11 +810,17 @@ export default function Home({
             </h2>
             <p className="mt-6 text-lg leading-9 text-graphite/72">{copy.whyBody}</p>
             <div className="mt-10 divide-y divide-mist border-y border-mist">
-              {whyItems.map((item) => (
-                <div key={item} className="grid grid-cols-[1fr_auto] gap-6 py-5">
-                  <p className="text-lg font-semibold text-ink">{item}</p>
+              {whyItems.map((item, index) => (
+                <Link
+                  key={item}
+                  href={withLanguage(whyLinks[index], lang)}
+                  className="group grid grid-cols-[1fr_auto] gap-6 py-5"
+                >
+                  <p className="text-lg font-semibold text-ink transition group-hover:text-champagne">
+                    {item}
+                  </p>
                   <span className="text-champagne">→</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -1020,6 +868,12 @@ export default function Home({
               </article>
             ))}
           </div>
+          <Link
+            href={withLanguage("/medical-governance-framework", lang)}
+            className="mt-12 inline-flex border border-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-pearl"
+          >
+            {sections.governance} <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
