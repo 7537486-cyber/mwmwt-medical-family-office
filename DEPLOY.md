@@ -3,7 +3,7 @@
 ## 1. 上传到 GitHub
 
 1. 登录 GitHub。
-2. 新建仓库，建议名称：`mwmwt-medical-family-office`。
+2. 新建仓库，建议名称：`aeteralife-medical-family-office`。
 3. 将本项目上传到该仓库。
 
 ## 2. 在 Vercel 部署
@@ -26,13 +26,13 @@ Settings -> Domains
 添加：
 
 ```text
-mwmwt.com
-www.mwmwt.com
+aeteralife.com
+www.aeteralife.com
 ```
 
 ## 4. 新网 DNS 解析
 
-登录新网，进入域名 `mwmwt.com` 的解析设置，添加：
+登录新网，进入域名 `aeteralife.com` 的解析设置，添加：
 
 ```text
 记录类型：A
@@ -57,10 +57,10 @@ TTL：默认
 等待解析生效后访问：
 
 ```text
-https://mwmwt.com
-https://www.mwmwt.com
-https://mwmwt.com/sitemap.xml
-https://mwmwt.com/robots.txt
+https://aeteralife.com
+https://www.aeteralife.com
+https://aeteralife.com/sitemap.xml
+https://aeteralife.com/robots.txt
 ```
 
 ## 6. 域名邮箱与联系表单配置
@@ -68,14 +68,14 @@ https://mwmwt.com/robots.txt
 建议先创建域名邮箱：
 
 ```text
-info@mwmwt.com
+info@aeteralife.com
 ```
 
 网站内表单需要在 Vercel 项目里配置环境变量：
 
 ```text
 RESEND_API_KEY=你的 Resend API Key
-CONTACT_FROM_EMAIL=Medical Family Office <info@mwmwt.com>
+CONTACT_FROM_EMAIL=Medical Family Office <info@aeteralife.com>
 CONTACT_CC_EMAIL=内部抄送邮箱，可选
 CONTACT_CRM_WEBHOOK_URL=客户表或 CRM 的 Webhook 地址，可选
 LINE_NOTIFICATION_WEBHOOK_URL=LINE 推送桥接 Webhook，可选

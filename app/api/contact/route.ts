@@ -24,8 +24,8 @@ type ResendError = {
   message?: string;
 };
 
-const contactToEmail = "info@mwmwt.com";
-const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "Medical Family Office <info@mwmwt.com>";
+const contactToEmail = "info@aeteralife.com";
+const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "Medical Family Office <info@aeteralife.com>";
 const contactCcEmail = process.env.CONTACT_CC_EMAIL;
 const crmWebhookUrl = process.env.CONTACT_CRM_WEBHOOK_URL;
 const lineNotificationWebhookUrl = process.env.LINE_NOTIFICATION_WEBHOOK_URL;
@@ -85,7 +85,7 @@ async function pushLineNotification(payload: {
     payload.email ? `Email: ${payload.email}` : undefined,
     `Type: ${payload.inquiryType}`,
     payload.urgency ? `Urgency: ${payload.urgency}` : undefined,
-    `Source: ${payload.sourcePage || "mwmwt.com"}`
+    `Source: ${payload.sourcePage || "aeteralife.com"}`
   ]
     .filter(Boolean)
     .join("\n");
@@ -143,7 +143,7 @@ export async function POST(request: Request) {
   const inquiryType = clean(payload.inquiryType);
   const urgency = clean(payload.urgency);
   const background = clean(payload.background);
-  const sourcePage = clean(payload.sourcePage) || "mwmwt.com";
+  const sourcePage = clean(payload.sourcePage) || "aeteralife.com";
   const lang = clean(payload.lang) || "zh";
 
   if (!name || !countryCity || !phone || !inquiryType || !urgency || !payload.consent) {
@@ -153,7 +153,7 @@ export async function POST(request: Request) {
   const submittedAt = new Date().toISOString();
   const crmPayload = {
     submittedAt,
-    source: "mwmwt.com",
+    source: "aeteralife.com",
     lang,
     name,
     gender,
@@ -186,7 +186,7 @@ export async function POST(request: Request) {
 
   const subject = `Private inquiry - ${inquiryType}`;
   const text = [
-    "New private inquiry from mwmwt.com",
+    "New private inquiry from aeteralife.com",
     "",
     `Submitted at: ${submittedAt}`,
     `Language: ${lang}`,

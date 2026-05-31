@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const siteUrl = "https://mwmwt.com";
+export const siteUrl = "https://aeteralife.com";
 export const defaultOgImage = "/hero-medical-family-office.png";
 
 export function absoluteUrl(path: string) {

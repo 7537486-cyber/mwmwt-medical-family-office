@@ -44,6 +44,8 @@
 
 当前品牌视觉升级：已新增通用电影感大图组件 `CinematicSection`，并将首页、通用平台内页、服务内页、案例中心和信任页升级为更接近高端杂志/私人银行/长寿研究院的视觉表达。首页强化 Mission、Vision、Philosophy 三层哲学体系；内页增加 2 组以上宽幅高质感图片区块；案例中心改为图片主导的 Journey Card；创始人页承接完整 Founder Letter。
 
+当前域名切换准备：用户希望将正式域名改为 `aeteralife.com`。已将 SEO canonical、robots sitemap、联系表单来源标识、默认表单收件/发件邮箱和部署说明从旧域名切换为 `aeteralife.com` / `info@aeteralife.com`。后续需要在 Vercel 添加 `aeteralife.com` 与 `www.aeteralife.com`，并在域名商配置 A/CNAME 解析；同时必须创建 `info@aeteralife.com` 或在 Vercel 环境变量中指定真实可收件地址。
+
 ## 成功标准
 
 - FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
@@ -216,3 +218,6 @@
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认电影感大图组件、平台内页、案例中心、信任页和首页哲学体系改动类型正确。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认高级视觉升级后仍正常生成 162 个页面。
 - 已执行公开源码与构建产物敏感词检索，确认未出现 `MWMWT`、Forever Young、逆生长、永葆青春、时间定格、卖项目、SEO内容资产、顶级医生等不适合公开展示或高风险表达。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认域名切换相关代码类型正确。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认域名切换后仍正常生成 162 个页面。
+- 已执行源码域名残留检索，确认 `app`、`components`、`lib`、`DEPLOY.md` 与公开文本中不再出现旧正式域名 `mwmwt.com`、旧邮箱 `info@mwmwt.com` 或大写 `MWMWT`。
