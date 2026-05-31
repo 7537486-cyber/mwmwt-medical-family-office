@@ -32,7 +32,7 @@ export function Header() {
             <span className="block text-sm font-semibold tracking-[0.22em]">
               MEDICAL FAMILY OFFICE
             </span>
-            <span className="block text-xs text-pearl/58">Tokyo | Shanghai</span>
+            <span className="block text-xs text-pearl/58">Tokyo</span>
           </span>
         </Link>
         <nav className="hidden items-center gap-3 xl:flex">
