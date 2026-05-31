@@ -40,6 +40,8 @@
 
 当前案例中心：已新增 `/case-library` 真实健康决策案例中心，并新增 3 个去标识化 Journey 页面：连续失眠企业家健康管理、赴日冻卵与家庭规划、癌症风险筛查与长期管理；原第二诊疗意见案例继续作为主案例入口。所有案例均强调服务路径与决策价值，不宣传疗效。
 
+当前知识库产品化：用户要求 10 个知识中心可点击、配相关大图、具备更专业文献方向和行业知识下载功能。已新增 10 个独立中心页 `/knowledge-center/centers/[slug]`，每页包含主题大图、中心定位、专业文献方向、延伸文章和 FAQ PDF 下载入口；知识库首页 10 个中心卡片已改为可点击入口，并保留行业资料下载区。
+
 ## 成功标准
 
 - FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
@@ -206,3 +208,6 @@
 - 已再次执行 `rg -n "MWMWT" app components lib` 与 `.next/server .next/static` 构建产物检索，确认源码与构建产物中均不再出现大写 MWMWT。
 - 已执行 `npm run typecheck`，TypeScript 检查通过。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认首页重写、案例中心和 3 个新增案例页正常生成，当前生成 152 个页面。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认 10 个知识中心数据、详情页和首页入口类型正确。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 10 个知识中心详情页正常生成，当前生成 162 个页面。
+- 已执行 `rg -n "MWMWT" app components lib .next/server .next/static`，确认源码与构建产物中未出现大写 MWMWT。

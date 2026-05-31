@@ -249,18 +249,47 @@ export default function KnowledgeCenterPage({
             <p className="mt-6 text-sm leading-7 text-graphite/72 md:mt-0">
               {copy.downloadBody}
             </p>
-            <Link
+            <a
               href="/medical-family-office-faq.pdf"
+              download
               className="mt-7 inline-flex bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-pearl transition hover:bg-champagne hover:text-ink md:mt-0"
             >
               {copy.downloadCta}
-            </Link>
+            </a>
+          </div>
+          <div className="mb-10 grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                {copy.centers}
+              </p>
+              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
+                {copy.centers}
+              </h2>
+            </div>
+            <p className="text-lg leading-9 text-graphite/72">
+              {copy.centersBody}
+            </p>
           </div>
           <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2 lg:grid-cols-5">
-            {centers[lang].map((center) => (
-              <div key={center} className="bg-white p-6">
-                <p className="text-sm font-semibold leading-7 text-ink">{center}</p>
-              </div>
+            {knowledgeCenters.map((center) => (
+              <Link
+                key={center.slug}
+                href={withLanguage(`/knowledge-center/centers/${center.slug}`, lang)}
+                className="group bg-white p-6 transition hover:bg-ink"
+              >
+                <p className="text-xs uppercase tracking-[0.24em] text-champagne">
+                  {center.label}
+                </p>
+                <p className="mt-5 text-lg font-semibold leading-7 text-ink transition group-hover:text-pearl">
+                  {center.title[lang]}
+                </p>
+                <p className="mt-4 text-sm leading-7 text-graphite/70 transition group-hover:text-pearl/70">
+                  {center.description[lang]}
+                </p>
+                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-champagne">
+                  {lang === "ja" ? "詳しく見る" : lang === "en" ? "Explore" : "进入中心"} →
+                </p>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { doctorProfiles } from "@/lib/doctors";
+import { knowledgeCenters } from "@/lib/knowledge-centers";
 import { knowledgeArticles } from "@/lib/knowledge";
 import { languageAlternates, siteUrl } from "@/lib/seo";
 import { navItems } from "@/lib/site";
@@ -74,5 +75,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
-  return [...staticPages, ...platformPages, ...doctorPages, ...knowledgePages, ...downloadableResources];
+  const knowledgeCenterPages = knowledgeCenters.map((center) => ({
+    url: `${siteUrl}/knowledge-center/centers/${center.slug}`,
+    lastModified: new Date("2026-05-31"),
+    changeFrequency: "monthly" as const,
+    priority: 0.74,
+    alternates: {
+      languages: languageAlternates(`/knowledge-center/centers/${center.slug}`)
+    }
+  }));
+
+  return [
+    ...staticPages,
+    ...platformPages,
+    ...doctorPages,
+    ...knowledgePages,
+    ...knowledgeCenterPages,
+    ...downloadableResources
+  ];
 }
