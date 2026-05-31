@@ -39,19 +39,19 @@ const inquiryTypesJa = [
 const contactCopy = {
   zh: {
     firstStep: "私密初步沟通",
-    scope: "咨询范围",
+    scope: "联系方式",
     wechatTitle: "微信咨询",
     wechatBody: "可扫码添加微信，适合补充说明时间安排、家庭成员情况或希望先进行简短沟通。"
   },
   ja: {
     firstStep: "プライベート初回相談",
-    scope: "相談範囲",
+    scope: "連絡方法",
     wechatTitle: "WeChat相談",
     wechatBody: "QRコードからWeChatを追加し、希望時期やご家族の状況について簡単にご相談いただけます。"
   },
   en: {
     firstStep: "Private First Step",
-    scope: "Inquiry Scope",
+    scope: "Contact Options",
     wechatTitle: "WeChat Inquiry",
     wechatBody: "Scan the QR code to add us on WeChat for timing, family context, or a brief first conversation."
   }
@@ -94,14 +94,7 @@ export default function ContactPage({
                   ? "ご家族にとって最も重要な健康課題をお知らせください"
                   : "告诉我们家庭当前最重要的健康议题"}
             </h2>
-            <div className="mt-10 grid gap-4">
-              {typeOptions.map((item) => (
-                <div key={item} className="border-l border-champagne/50 bg-white px-5 py-4">
-                  <p className="text-sm font-semibold text-ink">{item}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 grid gap-5 border border-mist bg-white p-6 shadow-sm sm:grid-cols-[150px_1fr] sm:items-center">
+            <div className="mt-10 grid gap-5 border border-mist bg-white p-6 shadow-sm sm:grid-cols-[150px_1fr] sm:items-center">
               <div className="relative mx-auto aspect-square w-36 overflow-hidden bg-pearl">
                 <Image
                   src="/wechat-tyler-qr.jpg"
