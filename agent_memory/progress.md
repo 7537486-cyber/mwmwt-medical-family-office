@@ -10,6 +10,8 @@
 
 当前 SEO 启动：以 `mwmwt.com` 为正式域名，完成第一轮技术 SEO 打底，包括 canonical、多语言 alternates、OG/Twitter 元数据、sitemap 语言版本提示，以及知识库文章 Article/Breadcrumb 结构化数据。
 
+当前首页整理：用户反馈首页内容重复后，已移除首页中重复展开的“私人健康决策支持”与“全球医疗资源网络”两块，把资源、决策、隐私、时间、风险控制保留在“客户为什么选择我们”和相关内页中，首页改为更清晰的高层叙事。
+
 ## 成功标准
 
 - 首页 9 个服务卡片在桌面端呈现 3+3+3
@@ -100,6 +102,7 @@
 - 已为通用平台页与知识库动态文章页接入统一 SEO metadata，并保留中日英 `?lang=` 版本 alternate
 - 已为知识库动态文章页加入 Article 与 BreadcrumbList JSON-LD，增强文章型内容可理解性
 - 已为 sitemap 中首页、导航页、平台页、医生页、知识库页补充多语言 alternates，并将 lastModified 统一更新到 2026-05-31
+- 已精简首页重复区块：删除第二次重复讲述 Resource Access、Medical Navigation、Privacy、Time Efficiency、Risk Control 的深色价值模型区块，并删除与内页重复的 Global Medical Network 展开区块；相关内容继续由“客户为什么选择我们”、医疗治理区和平台内页承接。
 
 ## 验证记录
 
@@ -127,3 +130,4 @@
 - 已执行 `npm run build`，Next.js 生产构建通过，确认移动端咨询按钮和平台页延伸内容改动后仍正常生成 43 个路由
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认第一轮 SEO 元数据与结构化数据改动类型正确
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 `mwmwt.com` 技术 SEO 打底后仍正常生成 43 个路由
+- 已执行 `npm run build`，Next.js 生产构建通过，确认首页重复区块精简后仍正常生成 43 个路由

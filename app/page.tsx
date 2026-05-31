@@ -833,9 +833,7 @@ export default function Home({
   const healthspan = healthspanPoints[lang];
   const whatItems = whatWeDo[lang];
   const whyItems = whyClientsChooseUs[lang];
-  const valueItems = coreValues[lang];
   const governanceItems = governanceLayers[lang];
-  const networkItems = globalNetwork[lang];
   const researchItems = researchDirections[lang];
   const platformItems = platformSections[lang];
   const membershipItems = memberships[lang];
@@ -1019,71 +1017,6 @@ export default function Home({
                     </li>
                   ))}
                 </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-ink px-5 py-24 text-pearl lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                {sections.valueModel}
-              </p>
-              <h2 className="mt-5 font-serif text-4xl leading-tight md:text-6xl">
-                {copy.valueTitle}
-              </h2>
-            </div>
-            <div className="space-y-6 text-lg leading-9 text-pearl/72">
-              <p>
-                {copy.valueBody}
-              </p>
-              <p className="text-champagne">
-                {copy.valueDiligence}
-              </p>
-            </div>
-          </div>
-          <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-5">
-            {valueItems.map((value) => (
-              <article key={value.title} className="bg-ink p-7 transition hover:bg-pearl/5">
-                <p className="text-xs uppercase tracking-[0.26em] text-champagne">
-                  {value.title}
-                </p>
-                <h3 className="mt-6 text-xl font-semibold leading-tight text-pearl">
-                  {value.label}
-                </h3>
-                <p className="mt-5 text-sm leading-7 text-pearl/62">{value.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-5 py-24 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-                {sections.network}
-              </p>
-              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-                {copy.networkTitle}
-              </h2>
-            </div>
-            <p className="text-lg leading-9 text-graphite/72">
-              {copy.networkBody}
-            </p>
-          </div>
-          <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {networkItems.map((network) => (
-              <article key={network.region} className="border-t border-champagne/55 pt-6">
-                <p className="font-serif text-4xl text-champagne">{network.region}</p>
-                <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink">
-                  {network.cities}
-                </p>
-                <p className="mt-5 text-sm leading-7 text-graphite/72">{network.focus}</p>
               </article>
             ))}
           </div>
