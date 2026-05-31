@@ -20,6 +20,8 @@
 
 当前联系页重构：根据用户反馈，将首屏改为“预约一次私密医疗顾问沟通”，删除重复 Private Inquiry 感；表单顺序调整为称呼、所在国家/城市、沟通语言、首选联系方式、咨询方向、紧急程度、背景说明和隐私/医疗免责声明同意，降低普通问卷感并强化适配度审核与保密信任。
 
+当前首页与信任页整改：根据用户最高优先级要求，首页已重写为平台型叙事：Aging Is Not Destiny、客户真正购买的健康寿命与风险控制、MWMWT 四步流程、长期健康治理、全球医疗资源、医生网络、企业家专区、家庭健康办公室、知识中心与私密咨询入口；同时新增 About MWMWT、Founder、Medical Advisory 三个信任页并加入 sitemap。
+
 ## 成功标准
 
 - 首页 9 个服务卡片在桌面端呈现 3+3+3
@@ -116,6 +118,8 @@
 - 已新增微信二维码公开素材 `public/wechat-tyler-qr.jpg`，并在联系页与感谢页展示扫码入口，同时保留表单作为正式询盘记录入口。
 - 已移除联系页左侧重复的咨询项目列表，避免与右侧表单项目按钮重复展示。
 - 已重构联系表单字段与后台提交 payload，新增所在国家/城市、希望沟通语言、首选联系方式、紧急程度，并同步进入邮件、CRM 与 LINE 通知。
+- 已重写首页为 Medical Family Office 平台结构，弱化项目销售感，突出 Aging Is Not Destiny、Healthspan、Risk Control、Global Medical Access、Executive Health 与 Family Health Office。
+- 已新增 `/about-mwmwt`、`/founder`、`/medical-advisory` 三个信任页面，接入页脚入口与 sitemap。
 
 ## 验证记录
 
@@ -149,3 +153,4 @@
 - 已执行 `npm run build`，Next.js 生产构建通过，确认微信二维码入口接入联系页与感谢页后仍正常生成 43 个路由
 - 已执行 `npm run build`，Next.js 生产构建通过，确认联系页去重后仍正常生成 43 个路由
 - 已执行 `npm run build`，Next.js 生产构建通过，确认联系页顾问式表单重构、后台字段同步和首屏文案调整后仍正常生成 43 个路由
+- 已执行 `npm run build`，Next.js 生产构建通过，确认首页平台化重写、About MWMWT、Founder、Medical Advisory 三个信任页与 sitemap 更新后正常生成 46 个路由

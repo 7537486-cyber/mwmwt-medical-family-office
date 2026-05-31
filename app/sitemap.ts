@@ -6,6 +6,9 @@ import { navItems } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const platformPaths = [
+    "/about-mwmwt",
+    "/founder",
+    "/medical-advisory",
     "/medical-governance-framework",
     "/knowledge-center/longevity-medicine",
     "/research-center",
