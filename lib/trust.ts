@@ -153,39 +153,62 @@ export const trustPages: Record<string, TrustPageContent> = {
     copies: {
       zh: {
         eyebrow: "Founder",
-        title: "创始人理念：把健康寿命纳入家族长期决策。",
+        title: "Why We Created Medical Family Office",
         description:
-          "Medical Family Office 的建立，是为了回应企业家和家族客户在跨境医疗、长寿管理和重大健康决策中的真实不确定性。",
-        secondaryTitle: "客户需要的不是更多项目，而是更可靠的判断。",
+          "过去很多年，我都在思考一个问题：我们花了一生管理事业、资金、风险与未来，却常常以最被动的方式面对健康。",
+        secondaryTitle: "Aging is inevitable. Decline is not.",
         secondaryDescription:
-          "创始团队坚持以合规、隐私、风险控制和长期陪伴为核心，而不是把医疗资源包装成一次性消费。",
+          "时间无法停止。但健康可以被管理，风险可以被提前发现，未来可以被更好地规划。",
         sections: [
           {
-            title: "为什么建立 Medical Family Office",
+            title: "健康的时间",
             body: [
-              "很多企业家在事业进入成熟期后，才发现健康风险开始成为最不可控的变量。财富可以配置，税务可以规划，法律风险可以管理，但健康寿命常常缺少专属顾问。",
-              "Medical Family Office 希望填补这个空白：帮助客户在复杂医疗信息中获得清晰判断，知道该找谁、该问什么、该如何评估风险。"
+              "我们花了一生的时间经营事业，学习如何管理公司、团队、资金、风险与未来。但当涉及健康时，大多数人却仍然采用最被动的方式：等到出现症状才去检查，等到疾病发生才开始治疗，等到身体发出警报才意识到健康的重要性。",
+              "对于企业家、高净值家庭和长期承担责任的人来说，真正稀缺的资源从来不是财富，而是时间。更准确地说，是健康的时间。"
             ]
           },
           {
-            title: "服务原则",
+            title: "健康也需要系统思维",
             body: [
-              "我们不承诺永生、不承诺逆转衰老，也不承诺任何医学结果。我们帮助客户更早识别风险、更谨慎选择资源、更长期地管理健康轨迹。",
-              "在每一次推荐之前，我们更重视医生背景、机构合规、资料完整性、适应症匹配、禁忌和替代路径。"
+              "随着年龄增长，我开始接触越来越多优秀的企业家。他们拥有成功的事业、幸福的家庭和丰富的人生经历。但我也发现一个共同现象：很多人对公司的经营投入巨大精力，却很少用同样的系统思维去管理自己的身体。",
+              "事实上，健康和企业一样。需要长期规划，需要风险管理，需要专业顾问，需要持续监测，更需要提前行动。"
             ]
           },
           {
-            title: "面向未来",
+            title: "在疾病发生之前管理风险",
             body: [
-              "未来的高净值健康管理，不应停留在体检套餐或医疗旅游，而应成为家族治理的一部分。",
-              "Medical Family Office 将持续建设公开医学专家资料、知识中心、研究资料库和长期会员体系，为全球家族提供更稳定的私人健康决策支持。"
+              "人终究会衰老，这是自然规律。但衰老的速度、疾病发生的风险以及生命后半程的生活质量，却并非完全无法改变。",
+              "现代医学的发展让我们第一次有机会在疾病发生之前发现风险，在症状出现之前进行干预，在身体明显衰退之前开始管理。这也是长寿医学、预防医学和健康管理正在改变世界的原因。"
+            ]
+          },
+          {
+            title: "Medical Family Office 的角色",
+            body: [
+              "Medical Family Office 的诞生，正是基于这样的理念。我们不是一家诊所，也不是一家销售医疗项目的公司。我们的角色更像一个长期医疗顾问团队。",
+              "我们帮助客户整合全球医疗资源，建立个人与家庭的健康档案，制定长期健康规划，在关键医疗决策时提供专业支持，并陪伴客户走过未来数十年的健康旅程。"
+            ]
+          },
+          {
+            title: "最有价值的是可靠答案",
+            body: [
+              "我们相信，最好的医疗并不是最昂贵的治疗，而是在正确的时间做出正确的决定。",
+              "很多时候，最有价值的不是一次手术，不是一种药物，甚至不是某项先进技术，而是获得一个准确且值得信赖的答案。"
+            ]
+          },
+          {
+            title: "Our Philosophy",
+            body: [
+              "我们的目标并非追求长寿本身，而是帮助更多人在未来的岁月里依然拥有活力、独立与尊严。因为真正值得追求的，从来不只是生命的长度，而是生命的质量。",
+              "Aging is inevitable. Decline is not. 时间无法停止。但健康可以被管理，风险可以被提前发现，未来可以被更好地规划。",
+              "如果财富需要家族办公室，那么健康，同样值得拥有属于自己的 Family Office。",
+              "— Yumi Hamasaki / Founder / Medical Family Office"
             ]
           }
         ],
         cards: [
-          { title: "长期主义", body: "关注未来 10 至 30 年的健康轨迹，而非一次性消费。" },
-          { title: "独立判断", body: "帮助客户理解资源、风险和选择逻辑。" },
-          { title: "私密陪伴", body: "以高净值客户习惯的节奏处理敏感健康议题。" }
+          { title: "Mission", body: "Extend Healthspan, Not Just Lifespan. 延长健康寿命，而不仅是生命长度。" },
+          { title: "Vision", body: "A Medical Family Office for Every Successful Family. 让每一个成功家庭都拥有自己的医疗家族办公室。" },
+          { title: "Philosophy", body: "Aging is inevitable. Decline is not. 衰老不可避免，但衰退可以被管理。" }
         ]
       },
       ja: {
@@ -220,9 +243,9 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "長期志向", body: "一回の消費ではなく、10年から30年の健康軌跡を重視します。" },
-          { title: "独立した判断", body: "医療資源、リスク、選択理由を理解できるよう支援します。" },
-          { title: "秘匿性ある伴走", body: "富裕層のお客様に求められる静かな進行で健康課題を扱います。" }
+          { title: "Mission", body: "Extend Healthspan, Not Just Lifespan. 単なる寿命ではなく、健康寿命を延ばすこと。" },
+          { title: "Vision", body: "A Medical Family Office for Every Successful Family. すべての成功した家族に医療ファミリーオフィスを。" },
+          { title: "Philosophy", body: "Aging is inevitable. Decline is not. 老化は避けられなくても、衰えは管理できます。" }
         ]
       },
       en: {
@@ -257,9 +280,9 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "Long-Term View", body: "Focused on the next 10 to 30 years of health trajectory, not one-off consumption." },
-          { title: "Independent Judgment", body: "Helping clients understand resources, risk, and decision logic." },
-          { title: "Private Partnership", body: "Handling sensitive health topics with the rhythm expected by UHNW clients." }
+          { title: "Mission", body: "Extend Healthspan, Not Just Lifespan." },
+          { title: "Vision", body: "A Medical Family Office for Every Successful Family." },
+          { title: "Philosophy", body: "Aging is inevitable. Decline is not." }
         ]
       }
     }

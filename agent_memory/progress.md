@@ -42,6 +42,8 @@
 
 当前知识库产品化：用户要求 10 个知识中心可点击、配相关大图、具备更专业文献方向和行业知识下载功能。已新增 10 个独立中心页 `/knowledge-center/centers/[slug]`，每页包含主题大图、中心定位、专业文献方向、延伸文章和 FAQ PDF 下载入口；知识库首页 10 个中心卡片已改为可点击入口，并保留行业资料下载区。
 
+当前品牌视觉升级：已新增通用电影感大图组件 `CinematicSection`，并将首页、通用平台内页、服务内页、案例中心和信任页升级为更接近高端杂志/私人银行/长寿研究院的视觉表达。首页强化 Mission、Vision、Philosophy 三层哲学体系；内页增加 2 组以上宽幅高质感图片区块；案例中心改为图片主导的 Journey Card；创始人页承接完整 Founder Letter。
+
 ## 成功标准
 
 - FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
@@ -211,3 +213,6 @@
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认 10 个知识中心数据、详情页和首页入口类型正确。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 10 个知识中心详情页正常生成，当前生成 162 个页面。
 - 已执行 `rg -n "MWMWT" app components lib .next/server .next/static`，确认源码与构建产物中未出现大写 MWMWT。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认电影感大图组件、平台内页、案例中心、信任页和首页哲学体系改动类型正确。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认高级视觉升级后仍正常生成 162 个页面。
+- 已执行公开源码与构建产物敏感词检索，确认未出现 `MWMWT`、Forever Young、逆生长、永葆青春、时间定格、卖项目、SEO内容资产、顶级医生等不适合公开展示或高风险表达。

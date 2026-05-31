@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CinematicSection } from "@/components/CinematicSection";
 import { normalizeLanguage, withLanguage } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -41,22 +42,22 @@ const copy = {
 
 const cases = {
   zh: [
-    ["Second Opinion", "浙江企业家重大健康风险第二意见", "通过赴日评估、多学科意见与长期跟踪，获得更清晰的专业判断。", "/case-library/second-opinion-certainty"],
-    ["Executive Health", "连续失眠企业家健康管理路径", "从睡眠、压力、代谢和工作节奏切入，建立 12 个月健康管理结构。", "/case-library/executive-sleep-health"],
-    ["Family Medical Planning", "企业家夫妻赴日冻卵与家庭规划", "在家庭时间表、医学评估和隐私安排之间建立更稳妥的决策路径。", "/case-library/family-fertility-planning"],
-    ["Risk Management", "癌症风险筛查与长期管理路径", "围绕家族史、筛查策略、第二意见和年度复盘建立风险管理框架。", "/case-library/cancer-risk-management"]
+    ["Second Opinion", "浙江企业家重大健康风险第二意见", "通过赴日评估、多学科意见与长期跟踪，获得更清晰的专业判断。", "/case-library/second-opinion-certainty", "/hero-doctor-network.png"],
+    ["Executive Health", "连续失眠企业家健康管理路径", "从睡眠、压力、代谢和工作节奏切入，建立 12 个月健康管理结构。", "/case-library/executive-sleep-health", "/hero-executive-health.png"],
+    ["Family Medical Planning", "企业家夫妻赴日冻卵与家庭规划", "在家庭时间表、医学评估和隐私安排之间建立更稳妥的决策路径。", "/case-library/family-fertility-planning", "/fertility-preservation.png"],
+    ["Risk Management", "癌症风险筛查与长期管理路径", "围绕家族史、筛查策略、第二意见和年度复盘建立风险管理框架。", "/case-library/cancer-risk-management", "/executive-checkup-consultation.png"]
   ],
   ja: [
-    ["Second Opinion", "中国人経営者の重大リスクとセカンドオピニオン", "日本での評価、多職種意見、長期フォローにより判断を整理。", "/case-library/second-opinion-certainty"],
-    ["Executive Health", "不眠が続く経営者の健康管理", "睡眠、ストレス、代謝、仕事のリズムから 12 か月の管理構造を構築。", "/case-library/executive-sleep-health"],
-    ["Family Medical Planning", "日本での卵子凍結と家族計画", "家族の時間軸、医学評価、秘匿性ある手配の間で判断経路を整備。", "/case-library/family-fertility-planning"],
-    ["Risk Management", "がんリスク検査と長期管理", "家族歴、検査戦略、セカンドオピニオン、年次レビューを整理。", "/case-library/cancer-risk-management"]
+    ["Second Opinion", "中国人経営者の重大リスクとセカンドオピニオン", "日本での評価、多職種意見、長期フォローにより判断を整理。", "/case-library/second-opinion-certainty", "/hero-doctor-network.png"],
+    ["Executive Health", "不眠が続く経営者の健康管理", "睡眠、ストレス、代謝、仕事のリズムから 12 か月の管理構造を構築。", "/case-library/executive-sleep-health", "/hero-executive-health.png"],
+    ["Family Medical Planning", "日本での卵子凍結と家族計画", "家族の時間軸、医学評価、秘匿性ある手配の間で判断経路を整備。", "/case-library/family-fertility-planning", "/fertility-preservation.png"],
+    ["Risk Management", "がんリスク検査と長期管理", "家族歴、検査戦略、セカンドオピニオン、年次レビューを整理。", "/case-library/cancer-risk-management", "/executive-checkup-consultation.png"]
   ],
   en: [
-    ["Second Opinion", "Zhejiang entrepreneur second-opinion journey", "Japan evaluation, multidisciplinary review, and long-term follow-up created clearer judgment.", "/case-library/second-opinion-certainty"],
-    ["Executive Health", "Persistent insomnia and founder health management", "A 12-month structure built around sleep, stress, metabolism, and work rhythm.", "/case-library/executive-sleep-health"],
-    ["Family Medical Planning", "Fertility preservation and family planning in Japan", "A decision pathway across family timing, medical assessment, and privacy-sensitive coordination.", "/case-library/family-fertility-planning"],
-    ["Risk Management", "Cancer risk screening and long-term planning", "A risk governance pathway across family history, screening strategy, second opinion, and annual review.", "/case-library/cancer-risk-management"]
+    ["Second Opinion", "Zhejiang entrepreneur second-opinion journey", "Japan evaluation, multidisciplinary review, and long-term follow-up created clearer judgment.", "/case-library/second-opinion-certainty", "/hero-doctor-network.png"],
+    ["Executive Health", "Persistent insomnia and founder health management", "A 12-month structure built around sleep, stress, metabolism, and work rhythm.", "/case-library/executive-sleep-health", "/hero-executive-health.png"],
+    ["Family Medical Planning", "Fertility preservation and family planning in Japan", "A decision pathway across family timing, medical assessment, and privacy-sensitive coordination.", "/case-library/family-fertility-planning", "/fertility-preservation.png"],
+    ["Risk Management", "Cancer risk screening and long-term planning", "A risk governance pathway across family history, screening strategy, second opinion, and annual review.", "/case-library/cancer-risk-management", "/executive-checkup-consultation.png"]
   ]
 };
 
@@ -89,20 +90,48 @@ export default function CaseLibraryPage({
         </div>
       </section>
 
+      <CinematicSection
+        eyebrow="Case Journey"
+        title="The most valuable treatment is sometimes certainty."
+        body={
+          lang === "en"
+            ? "A clearer judgment can change the entire medical path: what to test, who to consult, which risks matter, and what can wait."
+            : lang === "ja"
+              ? "より明確な判断は、検査、相談先、重要なリスク、待てる選択肢を整理し、医療の進み方を変えます。"
+              : "更清晰的判断，会改变整个医疗路径：该查什么、问谁、哪些风险优先、哪些选择可以等待。"
+        }
+        image={{ src: "/hero-private-inquiry.png", alt: "Private case journey and medical certainty" }}
+        align="right"
+      />
+
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2">
-          {cases[lang].map(([label, title, body, href]) => (
-            <Link key={href} href={withLanguage(href, lang)} className="group bg-white p-8 transition hover:bg-ink">
-              <p className="text-xs uppercase tracking-[0.24em] text-champagne">{label}</p>
-              <h2 className="mt-6 font-serif text-3xl leading-tight text-ink transition group-hover:text-pearl">
-                {title}
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-graphite/70 transition group-hover:text-pearl/72">
-                {body}
-              </p>
-              <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition group-hover:text-champagne">
-                {text.read} →
-              </p>
+          {cases[lang].map(([label, title, body, href, image]) => (
+            <Link
+              key={href}
+              href={withLanguage(href, lang)}
+              className="group relative min-h-[460px] overflow-hidden bg-ink p-8 text-pearl"
+            >
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover opacity-54 transition duration-700 group-hover:scale-105 group-hover:opacity-70"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/18" />
+              <div className="relative flex h-full flex-col justify-end">
+                <p className="text-xs uppercase tracking-[0.24em] text-champagne">{label}</p>
+                <h2 className="mt-6 font-serif text-3xl leading-tight text-pearl">
+                  {title}
+                </h2>
+                <p className="mt-5 text-sm leading-7 text-pearl/72">
+                  {body}
+                </p>
+                <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-champagne">
+                  {text.read} →
+                </p>
+              </div>
             </Link>
           ))}
         </div>

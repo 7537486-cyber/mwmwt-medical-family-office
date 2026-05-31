@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CinematicSection } from "@/components/CinematicSection";
 import { PageHero } from "@/components/PageHero";
 import { type Language, type PageContent, pageText, serviceImages, withLanguage } from "@/lib/site";
 
@@ -7,9 +8,202 @@ type ContentPageProps = {
   lang: Language;
 };
 
+const cinematicCopy: Record<
+  string,
+  Record<
+    Language,
+    Array<{
+      eyebrow: string;
+      title: string;
+      body: string;
+      image: { src: string; alt: string };
+    }>
+  >
+> = {
+  "longevity-planning": {
+    zh: [
+      {
+        eyebrow: "Healthspan",
+        title: "Live longer. Age better. Decide earlier.",
+        body: "长寿医学的价值不在于追求年龄数字，而是在疾病发生前识别风险，在功能下降前开始管理。",
+        image: { src: "/fuji-active-longevity.png", alt: "Active longevity near Mount Fuji" }
+      },
+      {
+        eyebrow: "Biological Age",
+        title: "Time moves forward. Your health can be managed.",
+        body: "通过生物年龄、代谢、炎症、睡眠和肌肉质量等指标，建立可长期复盘的健康轨迹。",
+        image: { src: "/longevity-planning.png", alt: "Biological age and longevity planning" }
+      }
+    ],
+    ja: [
+      {
+        eyebrow: "Healthspan",
+        title: "Live longer. Age better. Decide earlier.",
+        body: "長寿医学の価値は年齢の数字ではなく、疾患前のリスク把握と機能低下前の管理にあります。",
+        image: { src: "/fuji-active-longevity.png", alt: "Active longevity near Mount Fuji" }
+      },
+      {
+        eyebrow: "Biological Age",
+        title: "Time moves forward. Your health can be managed.",
+        body: "生物学的年齢、代謝、炎症、睡眠、筋肉量を長期的に追跡します。",
+        image: { src: "/longevity-planning.png", alt: "Biological age and longevity planning" }
+      }
+    ],
+    en: [
+      {
+        eyebrow: "Healthspan",
+        title: "Live longer. Age better. Decide earlier.",
+        body: "Longevity medicine is not about chasing age. It is about identifying risk before disease and managing function before decline.",
+        image: { src: "/fuji-active-longevity.png", alt: "Active longevity near Mount Fuji" }
+      },
+      {
+        eyebrow: "Biological Age",
+        title: "Time moves forward. Your health can be managed.",
+        body: "Biological age, metabolism, inflammation, sleep, and muscle quality become part of a reviewable health trajectory.",
+        image: { src: "/longevity-planning.png", alt: "Biological age and longevity planning" }
+      }
+    ]
+  },
+  "regenerative-medicine": {
+    zh: [
+      {
+        eyebrow: "Regenerative Medicine",
+        title: "Healthspan is not a treatment. It is a system.",
+        body: "再生医学相关资源必须放在医学评估、合规文件、适应症和长期随访的系统中理解。",
+        image: { src: "/regenerative-advisory.png", alt: "Regenerative medicine advisory" }
+      },
+      {
+        eyebrow: "Clinical Research",
+        title: "The most valuable medical decision is often the one made early.",
+        body: "越早明确风险、边界和替代路径，越能避免不必要或不适合的医疗决策。",
+        image: { src: "/hero-knowledge-center.png", alt: "Clinical research and medical intelligence" }
+      }
+    ],
+    ja: [
+      {
+        eyebrow: "Regenerative Medicine",
+        title: "Healthspan is not a treatment. It is a system.",
+        body: "再生医療は医学評価、法令遵守、適応、長期フォローの体系の中で理解する必要があります。",
+        image: { src: "/regenerative-advisory.png", alt: "Regenerative medicine advisory" }
+      },
+      {
+        eyebrow: "Clinical Research",
+        title: "The most valuable medical decision is often the one made early.",
+        body: "早期にリスク、境界、代替経路を確認することで、不必要な判断を避けやすくなります。",
+        image: { src: "/hero-knowledge-center.png", alt: "Clinical research and medical intelligence" }
+      }
+    ],
+    en: [
+      {
+        eyebrow: "Regenerative Medicine",
+        title: "Healthspan is not a treatment. It is a system.",
+        body: "Regenerative resources must be understood through medical assessment, compliance documents, indications, and follow-up.",
+        image: { src: "/regenerative-advisory.png", alt: "Regenerative medicine advisory" }
+      },
+      {
+        eyebrow: "Clinical Research",
+        title: "The most valuable medical decision is often the one made early.",
+        body: "The earlier risks, boundaries, and alternatives are clarified, the easier it is to avoid unnecessary medical decisions.",
+        image: { src: "/hero-knowledge-center.png", alt: "Clinical research and medical intelligence" }
+      }
+    ]
+  },
+  "medical-concierge": {
+    zh: [
+      {
+        eyebrow: "Private Coordination",
+        title: "A private medical strategy for a longer, healthier life.",
+        body: "跨境医疗不只是预约医生，更是隐私、时间、交通、资料、陪同和诊后管理的整体协调。",
+        image: { src: "/private-jet-medical-concierge.png", alt: "Private aviation medical concierge" }
+      }
+    ],
+    ja: [
+      {
+        eyebrow: "Private Coordination",
+        title: "A private medical strategy for a longer, healthier life.",
+        body: "国際医療は予約だけではなく、秘匿性、時間、移動、資料、同行、フォローの総合調整です。",
+        image: { src: "/private-jet-medical-concierge.png", alt: "Private aviation medical concierge" }
+      }
+    ],
+    en: [
+      {
+        eyebrow: "Private Coordination",
+        title: "A private medical strategy for a longer, healthier life.",
+        body: "Cross-border care is not just appointment booking. It is privacy, time, movement, records, escort, and follow-up managed together.",
+        image: { src: "/private-jet-medical-concierge.png", alt: "Private aviation medical concierge" }
+      }
+    ]
+  },
+  "family-office-health-plan": {
+    zh: [
+      {
+        eyebrow: "Family Health Office",
+        title: "Built for entrepreneurs, families, and long-term health decisions.",
+        body: "家庭健康计划关注父母、配偶、下一代、生育力保存、重大疾病预案和跨境医疗资源。",
+        image: { src: "/family-health-planning.png", alt: "Family health planning" }
+      }
+    ],
+    ja: [
+      {
+        eyebrow: "Family Health Office",
+        title: "Built for entrepreneurs, families, and long-term health decisions.",
+        body: "家族健康計画は両親、配偶者、次世代、妊孕性、重大疾患対応、国際医療資源を扱います。",
+        image: { src: "/family-health-planning.png", alt: "Family health planning" }
+      }
+    ],
+    en: [
+      {
+        eyebrow: "Family Health Office",
+        title: "Built for entrepreneurs, families, and long-term health decisions.",
+        body: "Family health planning covers parents, spouses, next generation, fertility preservation, critical illness readiness, and cross-border access.",
+        image: { src: "/family-health-planning.png", alt: "Family health planning" }
+      }
+    ]
+  },
+  services: {
+    zh: [
+      {
+        eyebrow: "Private Medical Advisory",
+        title: "A private medical strategy for a longer, healthier life.",
+        body: "我们把体检、第二意见、赴日就医、再生医疗咨询和长期随访整合成一个清晰路径。",
+        image: { src: "/executive-checkup-consultation.png", alt: "Executive medical consultation" }
+      }
+    ],
+    ja: [
+      {
+        eyebrow: "Private Medical Advisory",
+        title: "A private medical strategy for a longer, healthier life.",
+        body: "健診、セカンドオピニオン、訪日医療、再生医療相談、長期フォローを一つの経路に整理します。",
+        image: { src: "/executive-checkup-consultation.png", alt: "Executive medical consultation" }
+      }
+    ],
+    en: [
+      {
+        eyebrow: "Private Medical Advisory",
+        title: "A private medical strategy for a longer, healthier life.",
+        body: "Checkups, second opinions, Japan access, regenerative medicine consultation, and follow-up are organized into one clear pathway.",
+        image: { src: "/executive-checkup-consultation.png", alt: "Executive medical consultation" }
+      }
+    ]
+  }
+};
+
 export function ContentPage({ page, lang }: ContentPageProps) {
   const text = pageText(page, lang);
   const image = serviceImages[page.slug];
+  const cinematicBlocks = cinematicCopy[page.slug]?.[lang] ?? [
+    {
+      eyebrow: "Medical Family Office",
+      title: "Manage your health like your greatest asset.",
+      body:
+        lang === "ja"
+          ? "健康判断、医療資源、リスク管理、長期フォローを一つの静かな体系として扱います。"
+          : lang === "en"
+            ? "Health decisions, medical access, risk control, and follow-up are managed as one quiet system."
+            : "把健康决策、医疗资源、风险控制与长期随访纳入一套安静、清晰、可持续的体系。",
+      image
+    }
+  ];
   const sectionLabels = {
     zh: {
       visual: "视觉呈现",
@@ -114,6 +308,14 @@ export function ContentPage({ page, lang }: ContentPageProps) {
         ctaHref={withLanguage("/contact", lang)}
         image={image}
       />
+      {cinematicBlocks[0] ? (
+        <CinematicSection
+          eyebrow={cinematicBlocks[0].eyebrow}
+          title={cinematicBlocks[0].title}
+          body={cinematicBlocks[0].body}
+          image={cinematicBlocks[0].image}
+        />
+      ) : null}
       <section className="px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <aside className="border-l border-champagne/50 pl-6">
@@ -142,6 +344,14 @@ export function ContentPage({ page, lang }: ContentPageProps) {
           </div>
         </div>
       </section>
+      {cinematicBlocks[1] ? (
+        <CinematicSection
+          eyebrow={cinematicBlocks[1].eyebrow}
+          title={cinematicBlocks[1].title}
+          body={cinematicBlocks[1].body}
+          image={cinematicBlocks[1].image}
+        />
+      ) : null}
       {page.slug === "medical-concierge" ? (
         <section className="bg-ink px-5 py-20 text-pearl lg:px-8">
           <div className="mx-auto max-w-7xl">

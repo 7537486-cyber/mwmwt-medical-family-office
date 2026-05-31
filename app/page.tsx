@@ -1,14 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CinematicSection } from "@/components/CinematicSection";
 import { normalizeLanguage, withLanguage } from "@/lib/site";
 
 const copy = {
   zh: {
     heroEyebrow: "Medical Family Office",
-    heroTitle: "Aging Is Not Destiny.",
-    heroSubtitle: "衰老不是宿命。",
-    heroBody: "面向企业家、投资人及全球家族的私人健康、长寿医学与日本医疗资源顾问体系。",
+    heroTitle: "Aging is inevitable. Decline is not.",
+    heroSubtitle: "衰老不可避免，但衰退可以被管理。",
+    heroBody: "Medical Family Office 帮助企业家与家族把健康作为长期资产进行管理。",
     heroCta: "申请私密顾问沟通",
+    missionEyebrow: "Mission",
+    missionTitle: "Extend Healthspan, Not Just Lifespan.",
+    missionBody: "延长健康寿命，而不仅是生命长度。",
+    visionEyebrow: "Vision",
+    visionTitle: "A Medical Family Office for Every Successful Family.",
+    visionBody: "让每一个成功家庭都拥有自己的医疗家族办公室。",
+    philosophyEyebrow: "Philosophy",
+    philosophyTitle: "Aging is inevitable. Decline is not.",
+    philosophyBody: "时间无法停止，但健康可以被管理；风险可以被提前发现，未来可以被更好地规划。",
     assetEyebrow: "Ultimate Asset",
     assetTitle: "Health Is The Ultimate Asset.",
     assetBody: "财富可以配置，事业可以传承，但健康决策一旦失误，时间、行动力与家庭稳定性都会受到影响。",
@@ -45,10 +55,19 @@ const copy = {
   },
   ja: {
     heroEyebrow: "Medical Family Office",
-    heroTitle: "Aging Is Not Destiny.",
-    heroSubtitle: "老化は宿命ではありません。",
-    heroBody: "経営者、投資家、グローバル家族のためのプライベート健康、長寿医学、日本医療アクセスの助言体系。",
+    heroTitle: "Aging is inevitable. Decline is not.",
+    heroSubtitle: "老化は避けられません。しかし衰退は管理できます。",
+    heroBody: "Medical Family Office は、経営者と家族が健康を長期資産として管理するための医療助言体系です。",
     heroCta: "プライベート相談を申請",
+    missionEyebrow: "Mission",
+    missionTitle: "Extend Healthspan, Not Just Lifespan.",
+    missionBody: "寿命だけでなく、健康寿命を延ばす。",
+    visionEyebrow: "Vision",
+    visionTitle: "A Medical Family Office for Every Successful Family.",
+    visionBody: "すべての成功した家族に、自分たちの医療ファミリーオフィスを。",
+    philosophyEyebrow: "Philosophy",
+    philosophyTitle: "Aging is inevitable. Decline is not.",
+    philosophyBody: "時間は止められません。しかし健康は管理でき、リスクは早期に見つけ、未来はより良く設計できます。",
     assetEyebrow: "Ultimate Asset",
     assetTitle: "Health Is The Ultimate Asset.",
     assetBody: "資産は配置でき、事業は継承できます。しかし健康判断を誤れば、時間、行動力、家族の安定性に影響します。",
@@ -85,10 +104,19 @@ const copy = {
   },
   en: {
     heroEyebrow: "Medical Family Office",
-    heroTitle: "Aging Is Not Destiny.",
+    heroTitle: "Aging is inevitable. Decline is not.",
     heroSubtitle: "Private Health, Longevity & Japan Medical Access.",
-    heroBody: "A private health advisory system for entrepreneurs, investors, and global families.",
+    heroBody: "Medical Family Office helps entrepreneurs and families manage health as a long-term asset.",
     heroCta: "Apply for Private Consultation",
+    missionEyebrow: "Mission",
+    missionTitle: "Extend Healthspan, Not Just Lifespan.",
+    missionBody: "The goal is not simply to live longer, but to live longer with function, clarity, and dignity.",
+    visionEyebrow: "Vision",
+    visionTitle: "A Medical Family Office for Every Successful Family.",
+    visionBody: "Every successful family should have a trusted system for long-term medical decisions.",
+    philosophyEyebrow: "Philosophy",
+    philosophyTitle: "Aging is inevitable. Decline is not.",
+    philosophyBody: "Time moves forward. Health can be managed, risks can be identified earlier, and the future can be planned with more clarity.",
     assetEyebrow: "Ultimate Asset",
     assetTitle: "Health Is The Ultimate Asset.",
     assetBody: "Capital can be allocated and businesses can be transferred. A wrong health decision can affect time, mobility, judgment, and family stability.",
@@ -211,7 +239,7 @@ export default function Home({
     <>
       <section className="relative min-h-[92vh] overflow-hidden bg-ink text-pearl">
         <Image
-          src="/hero-longevity-concierge.png"
+          src="/fuji-active-longevity.png"
           alt="Private longevity medical advisory setting"
           fill
           priority
@@ -239,6 +267,22 @@ export default function Home({
         </div>
       </section>
 
+      <section className="bg-ink px-5 py-24 text-pearl lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+          {[
+            [text.missionEyebrow, text.missionTitle, text.missionBody],
+            [text.visionEyebrow, text.visionTitle, text.visionBody],
+            [text.philosophyEyebrow, text.philosophyTitle, text.philosophyBody]
+          ].map(([eyebrow, title, body]) => (
+            <article key={eyebrow} className="bg-ink p-8 md:p-10">
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">{eyebrow}</p>
+              <h2 className="mt-7 font-serif text-4xl leading-tight md:text-5xl">{title}</h2>
+              <p className="mt-6 text-base leading-8 text-pearl/68">{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="bg-white px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <div>
@@ -252,6 +296,19 @@ export default function Home({
           <p className="text-xl leading-10 text-graphite/74">{text.assetBody}</p>
         </div>
       </section>
+
+      <CinematicSection
+        eyebrow="Healthspan Strategy"
+        title="Your health deserves a long-term strategy."
+        body={
+          lang === "ja"
+            ? "単発の検査や治療ではなく、健康寿命、リスク管理、医療資源、家族の意思決定を一つの長期戦略として扱います。"
+            : lang === "en"
+              ? "Not a single checkup or procedure, but a long-term strategy across healthspan, risk control, medical access, and family decision-making."
+              : "不是一次体检或一个项目，而是把健康寿命、风险控制、医疗资源和家庭决策放进同一套长期战略。"
+        }
+        image={{ src: "/hero-medical-family-office.png", alt: "Private medical family office strategy" }}
+      />
 
       <section className="bg-pearl px-5 py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">

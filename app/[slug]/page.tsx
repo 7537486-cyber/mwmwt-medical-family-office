@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CinematicSection } from "@/components/CinematicSection";
 import { PageHero } from "@/components/PageHero";
 import { createPageMetadata } from "@/lib/seo";
 import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
@@ -202,6 +203,271 @@ const platformHeroImages: Record<string, { src: string; alt: string }> = {
     src: "/private-jet-medical-concierge.png",
     alt: "Private jet medical concierge coordination"
   }
+};
+
+const platformCinematicBlocks: Record<
+  string,
+  Array<{
+    eyebrow: string;
+    title: string;
+    body: Record<"zh" | "ja" | "en", string>;
+    image: { src: string; alt: string };
+    align?: "left" | "center" | "right";
+  }>
+> = {
+  "medical-family-office": [
+    {
+      eyebrow: "Long-Term Health Strategy",
+      title: "Your health deserves a long-term strategy.",
+      body: {
+        zh: "我们关注的不是一次体检或一次治疗，而是家庭未来数十年的健康风险、医疗资源和关键决策能力。",
+        ja: "一度の健診や治療ではなく、家族の数十年にわたる健康リスク、医療資源、重要な意思決定を支援します。",
+        en: "The focus is not a single checkup or treatment, but decades of family health risk, medical access, and critical decision-making."
+      },
+      image: { src: "/hero-medical-family-office.png", alt: "Private medical family office strategy meeting" }
+    },
+    {
+      eyebrow: "Built For Families",
+      title: "Built for entrepreneurs, families, and long-term health decisions.",
+      body: {
+        zh: "当事业、家庭和资产进入长期阶段，健康也需要像财富一样被系统管理、定期复盘和提前规划。",
+        ja: "事業、家族、資産が長期段階に入ると、健康も資産のように体系的に管理し、定期的に見直す必要があります。",
+        en: "When business, family, and assets become long-term responsibilities, health deserves the same discipline of review and planning."
+      },
+      image: { src: "/family-health-planning.png", alt: "Family health planning consultation" },
+      align: "right"
+    }
+  ],
+  "executive-health": [
+    {
+      eyebrow: "Executive Health",
+      title: "For those who build companies, families, and futures.",
+      body: {
+        zh: "企业家的健康管理不只是检查指标，更是管理睡眠、压力、代谢、心脑血管风险和持续决策能力。",
+        ja: "経営者の健康管理は検査数値だけでなく、睡眠、ストレス、代謝、心血管リスク、意思決定能力を扱います。",
+        en: "Executive health is not only about test results. It is about sleep, stress, metabolic risk, cardiovascular risk, and decision capacity."
+      },
+      image: { src: "/hero-executive-health.png", alt: "Executive health private consultation" }
+    },
+    {
+      eyebrow: "Early Decisions",
+      title: "The most valuable medical decision is often the one made early.",
+      body: {
+        zh: "我们帮助客户在疾病形成之前理解风险，在医疗选择变复杂之前建立清晰路径。",
+        ja: "疾病が形になる前にリスクを理解し、選択肢が複雑になる前に明確な経路を設計します。",
+        en: "We help clients understand risk before disease becomes visible and clarify pathways before choices become complicated."
+      },
+      image: { src: "/executive-checkup-consultation.png", alt: "Advanced executive diagnostics consultation" },
+      align: "right"
+    }
+  ],
+  "global-medical-access": [
+    {
+      eyebrow: "Global Medical Access",
+      title: "A private medical strategy for a longer, healthier life.",
+      body: {
+        zh: "跨境医疗的难点不是找到医院，而是判断何时需要、应找谁、资料如何准备，以及之后如何长期跟踪。",
+        ja: "国際医療で難しいのは病院探しではなく、必要性、相談先、資料準備、その後のフォロー判断です。",
+        en: "The challenge is not merely finding hospitals, but knowing when to go, who to consult, what records to prepare, and how to follow up."
+      },
+      image: { src: "/hero-global-medical-access.png", alt: "Global private medical access coordination" }
+    },
+    {
+      eyebrow: "Private Coordination",
+      title: "Time moves forward. Your health can be managed.",
+      body: {
+        zh: "我们以医疗顾问方式整合日本、新加坡、瑞士与美国资源，让跨境医疗安排更克制、更私密、更可复盘。",
+        ja: "日本、シンガポール、スイス、米国の資源を医療顧問として整理し、国際医療をより静かに、秘匿性高く、見直せる形にします。",
+        en: "We coordinate Japan, Singapore, Switzerland, and the United States with discretion, privacy, and reviewable medical logic."
+      },
+      image: { src: "/private-jet-medical-concierge.png", alt: "Private aviation and global medical coordination" },
+      align: "right"
+    }
+  ],
+  "membership-program": [
+    {
+      eyebrow: "Membership",
+      title: "Manage your health like your greatest asset.",
+      body: {
+        zh: "会员体系不是套餐价格表，而是一种长期关系：年度健康复盘、家族健康档案、医疗资源协调与风险管理。",
+        ja: "会員制度は価格表ではなく、年次レビュー、家族健康記録、医療資源調整、リスク管理を含む長期関係です。",
+        en: "Membership is not a pricing table. It is a long-term relationship built around annual review, family records, medical access, and risk governance."
+      },
+      image: { src: "/hero-membership-program.png", alt: "Private banking style medical membership" }
+    },
+    {
+      eyebrow: "Private Health Office",
+      title: "A private medical strategy for a longer, healthier life.",
+      body: {
+        zh: "当健康议题影响家庭、事业与传承安排，会员服务提供更稳定的入口、更清晰的节奏和更连续的医学支持。",
+        ja: "健康課題が家族、事業、継承に関わるとき、会員サービスは安定した入口、明確な進行、継続的な医学支援を提供します。",
+        en: "When health affects family, business, and succession, membership provides a stable gateway, clearer rhythm, and continuous medical support."
+      },
+      image: { src: "/hero-private-inquiry.png", alt: "Private consultation lounge for medical membership" },
+      align: "right"
+    }
+  ],
+  "medical-governance-framework": [
+    {
+      eyebrow: "Medical Governance",
+      title: "Healthspan is not a treatment. It is a system.",
+      body: {
+        zh: "医疗治理意味着在机构、医生、资料、方案、执行和随访之间建立可追踪的质量控制。",
+        ja: "医療ガバナンスとは、医療機関、医師、資料、計画、実施、フォローの間に追跡可能な品質管理を置くことです。",
+        en: "Medical governance creates traceable quality control across institutions, physicians, records, plans, execution, and follow-up."
+      },
+      image: { src: "/hero-about-governance.png", alt: "Medical governance and private health records" }
+    },
+    {
+      eyebrow: "Risk Control",
+      title: "The most valuable medical decision is often the one made early.",
+      body: {
+        zh: "越早建立健康基线、风险地图和复查机制，越有机会把不确定性控制在可管理范围内。",
+        ja: "健康基準、リスクマップ、再評価の仕組みを早く作るほど、不確実性を管理しやすくなります。",
+        en: "The earlier the baseline, risk map, and review rhythm are established, the more manageable uncertainty becomes."
+      },
+      image: { src: "/longevity-planning.png", alt: "Long-term health risk planning" },
+      align: "right"
+    }
+  ],
+  "service-process": [
+    {
+      eyebrow: "Medical Process",
+      title: "Live longer. Age better. Decide earlier.",
+      body: {
+        zh: "清晰流程的价值，是让客户在开始之前就知道需要准备什么、如何判断适配度，以及之后如何复盘。",
+        ja: "明確なプロセスにより、開始前に準備、適合性、レビュー方法を理解できます。",
+        en: "A clear process helps clients know what to prepare, how fit is assessed, and how decisions are reviewed."
+      },
+      image: { src: "/one-on-one-medical-escort.png", alt: "One-on-one medical escort process" }
+    },
+    {
+      eyebrow: "Follow-up",
+      title: "Healthspan is not a treatment. It is a system.",
+      body: {
+        zh: "从初步沟通到资料整理、资源匹配、现场协调和长期随访，每一步都应该可记录、可解释、可继续。",
+        ja: "初回相談、資料整理、資源調整、現地同行、長期フォローまで、すべて記録、説明、継続できる形にします。",
+        en: "From first call to records, matching, on-site coordination, and follow-up, every step should be documented and explainable."
+      },
+      image: { src: "/medical-concierge.png", alt: "Medical concierge follow-up planning" },
+      align: "right"
+    }
+  ],
+  "knowledge-center": [
+    {
+      eyebrow: "Medical Intelligence",
+      title: "Manage your health like your greatest asset.",
+      body: {
+        zh: "知识中心不是营销文章库，而是帮助家庭理解长寿医学、预防医学、再生医学与跨境医疗判断的长期资料系统。",
+        ja: "ナレッジセンターは宣伝記事ではなく、長寿医学、予防医学、再生医療、国際医療判断を理解するための資料体系です。",
+        en: "The knowledge center is not a marketing archive. It is a long-term resource system for longevity, prevention, regenerative medicine, and cross-border decisions."
+      },
+      image: { src: "/hero-knowledge-center.png", alt: "Editorial medical knowledge center" }
+    },
+    {
+      eyebrow: "Research-Led",
+      title: "The most valuable medical decision is often the one made early.",
+      body: {
+        zh: "我们用可读的语言解释复杂医学主题，让客户更早理解风险、证据等级和合理问题。",
+        ja: "複雑な医学テーマを読みやすい言葉で説明し、リスク、根拠レベル、確認すべき質問を早期に整理します。",
+        en: "Complex medical topics are translated into readable language so clients can understand risk, evidence levels, and better questions earlier."
+      },
+      image: { src: "/longevity-planning.png", alt: "Research led longevity planning" },
+      align: "right"
+    }
+  ],
+  "research-center": [
+    {
+      eyebrow: "Research Center",
+      title: "Live longer. Age better. Decide earlier.",
+      body: {
+        zh: "研究中心围绕长寿医学、生物标志物、预防医学和精准医学，沉淀可支持长期决策的证据线索。",
+        ja: "研究センターは長寿医学、バイオマーカー、予防医学、精密医療を中心に、長期判断を支える根拠を整理します。",
+        en: "The research center organizes evidence signals across longevity medicine, biomarkers, prevention, and precision medicine."
+      },
+      image: { src: "/hero-knowledge-center.png", alt: "Longevity research center" }
+    },
+    {
+      eyebrow: "Evidence",
+      title: "Healthspan is not a treatment. It is a system.",
+      body: {
+        zh: "单篇研究不能替代医疗判断，但系统性的研究阅读可以帮助家庭提出更好的问题。",
+        ja: "単一研究は医療判断の代替ではありませんが、体系的な読解は家族がより良い質問をする助けになります。",
+        en: "One paper does not replace medical judgment, but systematic reading helps families ask better questions."
+      },
+      image: { src: "/regenerative-advisory.png", alt: "Clinical evidence and regenerative research" },
+      align: "right"
+    }
+  ],
+  "case-library": [
+    {
+      eyebrow: "Real Health Journeys",
+      title: "The most valuable treatment is sometimes certainty.",
+      body: {
+        zh: "案例中心记录的是健康决策路径，而不是疗效宣传。客户真正需要的是更可信的判断和更稳妥的下一步。",
+        ja: "ケースセンターは効果宣伝ではなく、健康意思決定の経路を示します。必要なのは信頼できる判断と次の一歩です。",
+        en: "The case library documents decision pathways, not outcome claims. What clients need is trusted judgment and a safer next step."
+      },
+      image: { src: "/hero-private-inquiry.png", alt: "Private medical case story" }
+    },
+    {
+      eyebrow: "Journey",
+      title: "At times, the most valuable medical care is not a procedure, but certainty.",
+      body: {
+        zh: "去标识化案例帮助客户理解：评估、资料、会诊、转诊、随访和家庭沟通如何共同形成一条健康管理路径。",
+        ja: "匿名化ケースにより、評価、資料、相談、紹介、フォロー、家族コミュニケーションがどのように経路を作るかを示します。",
+        en: "De-identified cases show how assessment, records, consultation, referral, follow-up, and family communication create a health pathway."
+      },
+      image: { src: "/executive-checkup-consultation.png", alt: "Executive case review and follow-up" },
+      align: "right"
+    }
+  ],
+  "media-center": [
+    {
+      eyebrow: "Editorial Desk",
+      title: "Your health deserves a long-term strategy.",
+      body: {
+        zh: "媒体中心以公司动态、医学趋势、行业观察和创始人观点，建立持续的品牌声音和专业语境。",
+        ja: "メディアセンターはニュース、医学動向、業界観察、創業者視点を通じて継続的な専門文脈を作ります。",
+        en: "The media center builds a continuous editorial voice through updates, medical trends, industry observation, and founder perspectives."
+      },
+      image: { src: "/japan-wellness-concierge.png", alt: "Editorial medical media and wellness insight" }
+    },
+    {
+      eyebrow: "Perspective",
+      title: "For those who build companies, families, and futures.",
+      body: {
+        zh: "我们关注医疗、长寿产业与高净值家庭健康治理的交汇点，而不是追逐短期热点。",
+        ja: "短期的な話題ではなく、医療、長寿産業、富裕層家族の健康ガバナンスの交差点を扱います。",
+        en: "We focus on the intersection of medicine, longevity, and family health governance rather than short-term trends."
+      },
+      image: { src: "/hero-medical-family-office.png", alt: "Founder insights and medical family office perspective" },
+      align: "right"
+    }
+  ],
+  "private-aviation-concierge": [
+    {
+      eyebrow: "Private Access",
+      title: "A private medical strategy for a longer, healthier life.",
+      body: {
+        zh: "包机协调、阿尔法商务车接送和一对一陪同并不是奢华装饰，而是为时间、隐私和医疗动线服务。",
+        ja: "チャーター、アルファード送迎、一対一同行は装飾ではなく、時間、秘匿性、医療導線のための設計です。",
+        en: "Charter coordination, Alphard transfers, and one-on-one escort are not decoration. They protect time, privacy, and medical flow."
+      },
+      image: { src: "/private-jet-medical-concierge.png", alt: "Private jet medical concierge service" }
+    },
+    {
+      eyebrow: "Discreet Movement",
+      title: "Time moves forward. Your health can be managed.",
+      body: {
+        zh: "从机场、酒店、医院到会诊现场，每个环节都以减少等待、减少暴露和减少沟通误差为目标。",
+        ja: "空港、ホテル、病院、診察現場まで、待ち時間、露出、コミュニケーション誤差を減らすことを重視します。",
+        en: "From airport to hotel, hospital, and consultation room, every step is designed to reduce waiting, exposure, and communication friction."
+      },
+      image: { src: "/alphard-medical-transfer.png", alt: "Private Alphard transfer for medical concierge" },
+      align: "right"
+    }
+  ]
 };
 
 const localizedPlatformSections: Record<string, Record<"zh" | "ja" | "en", string[]>> = {
@@ -864,6 +1130,18 @@ export default function PlatformPage({
   const visibleSections = localizedPlatformSections[params.slug]?.[lang] ?? page.sections;
   const detailSections = buildPlatformDetails(params.slug, lang, visibleSections);
   const aviation = aviationCopy[lang];
+  const cinematicBlocks = platformCinematicBlocks[params.slug] ?? [
+    {
+      eyebrow: "Private Medical Strategy",
+      title: "A private medical strategy for a longer, healthier life.",
+      body: {
+        zh: "我们以长期健康资产管理的方式，帮助客户把医学信息、资源选择和风险判断转化为更清晰的行动路径。",
+        ja: "医学情報、資源選択、リスク判断を長期健康資産管理として整理し、明確な行動経路へつなげます。",
+        en: "We help clients translate medical information, resource selection, and risk judgment into clearer long-term health action."
+      },
+      image: platformHeroImages[params.slug] ?? serviceImages["medical-concierge"]
+    }
+  ];
   const secondaryDescription =
     lang === "en"
       ? "Risk management, long-term health decision rights, and global medical resource allocation."
@@ -882,6 +1160,13 @@ export default function PlatformPage({
         cta={heroCta}
         ctaHref={withLanguage("/contact", lang)}
         image={platformHeroImages[params.slug] ?? serviceImages["medical-concierge"]}
+      />
+      <CinematicSection
+        eyebrow={cinematicBlocks[0].eyebrow}
+        title={cinematicBlocks[0].title}
+        body={cinematicBlocks[0].body[lang]}
+        image={cinematicBlocks[0].image}
+        align={cinematicBlocks[0].align}
       />
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -946,6 +1231,15 @@ export default function PlatformPage({
           </div>
         </div>
       </section>
+      {cinematicBlocks[1] ? (
+        <CinematicSection
+          eyebrow={cinematicBlocks[1].eyebrow}
+          title={cinematicBlocks[1].title}
+          body={cinematicBlocks[1].body[lang]}
+          image={cinematicBlocks[1].image}
+          align={cinematicBlocks[1].align}
+        />
+      ) : null}
       {params.slug === "membership-program" ? (
         <section className="bg-white px-5 py-20 lg:px-8">
           <div className="mx-auto max-w-7xl">
