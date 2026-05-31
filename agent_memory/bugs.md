@@ -21,3 +21,5 @@
 - 本次 Resend 表单修复已本地提交，但生产部署仍被账号认证阻塞：`git push origin main` 无法读取 GitHub 用户名，Vercel CLI token 无效，Vercel 连接工具也未提供直接部署能力。需要用户重新登录 GitHub/Vercel 或在本机执行授权后再发布。
 - Google Analytics 与 Google Search Console 代码入口已经加入，但需要在 Vercel 配置 `NEXT_PUBLIC_GA_ID` 与 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` 并重新部署；Search Console 仍需要用户在 Google 后台完成资源创建和验证。
 - 新增 SEO 文章为首批合规型内容骨架，未使用真实医生、真实机构或疗效承诺；后续扩展到深度医学文章时应继续保留参考文献、来源和医学免责声明。
+- 目前无法替用户完成 Google 账号侧的 GA 数据流创建与 Search Console 资源验证；需要用户提供 `G-` 开头的 GA 衡量 ID，以及 Search Console HTML 标记 content 值，或在 Vercel 环境变量中自行填写。
+- 当前环境不允许创建 `.git/index.lock`，因此无法用 Git 命令还原验证过程中更新的 `tsconfig.tsbuildinfo`；该文件是本地 TypeScript 构建缓存，不属于 SEO 功能改动。

@@ -4,9 +4,11 @@ import "./globals.css";
 import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { absoluteUrl, languageAlternates, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mwmwt.com"),
+  metadataBase: new URL(siteUrl),
+  applicationName: "Japan Medical Family Office",
   title: {
     default: "Japan Medical Family Office | 日本医疗家族办公室",
     template: "%s | Japan Medical Family Office"
@@ -31,13 +33,45 @@ export const metadata: Metadata = {
     "再生医療",
     "医療コンシェルジュ"
   ],
+  alternates: {
+    canonical: siteUrl,
+    languages: languageAlternates("/")
+  },
   openGraph: {
     title: "Japan Medical Family Office",
     description:
       "Private health intelligence, longevity planning, medical governance, and global medical access for entrepreneurs and families.",
     type: "website",
+    url: siteUrl,
+    siteName: "Japan Medical Family Office",
     locale: "zh_CN",
-    alternateLocale: ["ja_JP", "en_US"]
+    alternateLocale: ["ja_JP", "en_US"],
+    images: [
+      {
+        url: absoluteUrl("/hero-medical-family-office.png"),
+        width: 1200,
+        height: 630,
+        alt: "Japan Medical Family Office"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Japan Medical Family Office",
+    description:
+      "Private health intelligence, longevity planning, medical governance, and global medical access for entrepreneurs and families.",
+    images: [absoluteUrl("/hero-medical-family-office.png")]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION

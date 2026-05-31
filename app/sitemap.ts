@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 import { doctorProfiles } from "@/lib/doctors";
 import { knowledgeArticles } from "@/lib/knowledge";
+import { languageAlternates, siteUrl } from "@/lib/seo";
 import { navItems } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mwmwt.com";
   const platformPaths = [
     "/medical-governance-framework",
     "/knowledge-center/longevity-medicine",
@@ -19,31 +19,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const staticPages = navItems.map((item) => ({
-    url: `${baseUrl}${item.href === "/" ? "" : item.href}`,
-    lastModified: new Date("2026-05-29"),
+    url: `${siteUrl}${item.href === "/" ? "" : item.href}`,
+    lastModified: new Date("2026-05-31"),
     changeFrequency: item.href === "/" ? ("weekly" as const) : ("monthly" as const),
-    priority: item.href === "/" ? 1 : 0.8
+    priority: item.href === "/" ? 1 : 0.8,
+    alternates: {
+      languages: languageAlternates(item.href)
+    }
   }));
 
   const platformPages = platformPaths.map((path) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: new Date("2026-05-30"),
+    url: `${siteUrl}${path}`,
+    lastModified: new Date("2026-05-31"),
     changeFrequency: "monthly" as const,
-    priority: 0.75
+    priority: 0.75,
+    alternates: {
+      languages: languageAlternates(path)
+    }
   }));
 
   const doctorPages = doctorProfiles.map((doctor) => ({
-    url: `${baseUrl}/doctors/${doctor.slug}`,
-    lastModified: new Date("2026-05-30"),
+    url: `${siteUrl}/doctors/${doctor.slug}`,
+    lastModified: new Date("2026-05-31"),
     changeFrequency: "monthly" as const,
-    priority: 0.7
+    priority: 0.7,
+    alternates: {
+      languages: languageAlternates(`/doctors/${doctor.slug}`)
+    }
   }));
 
   const knowledgePages = knowledgeArticles.map((article) => ({
-    url: `${baseUrl}/knowledge-center/${article.slug}`,
+    url: `${siteUrl}/knowledge-center/${article.slug}`,
     lastModified: new Date("2026-05-31"),
     changeFrequency: "monthly" as const,
-    priority: 0.72
+    priority: 0.72,
+    alternates: {
+      languages: languageAlternates(`/knowledge-center/${article.slug}`)
+    }
   }));
 
   return [...staticPages, ...platformPages, ...doctorPages, ...knowledgePages];

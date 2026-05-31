@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { getKnowledgeArticle, knowledgeArticles } from "@/lib/knowledge";
+import { createPageMetadata, localizedUrl, siteUrl } from "@/lib/seo";
 import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
 
 type KnowledgeArticlePageProps = {
@@ -22,10 +23,13 @@ export function generateMetadata({ params }: KnowledgeArticlePageProps): Metadat
     };
   }
 
-  return {
+  return createPageMetadata({
+    path: `/knowledge-center/${article.slug}`,
     title: article.title.zh,
-    description: article.description.zh
-  };
+    description: article.description.zh,
+    image: serviceImages["medical-resource-database"].src,
+    type: "article"
+  });
 }
 
 export default function KnowledgeArticlePage({
@@ -38,9 +42,53 @@ export default function KnowledgeArticlePage({
 
   const lang = normalizeLanguage(searchParams?.lang);
   const sections = article.sections[lang];
+  const articleUrl = localizedUrl(`/knowledge-center/${article.slug}`, lang === "ja" ? "ja-JP" : lang === "en" ? "en-US" : "zh-CN");
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title[lang],
+      description: article.description[lang],
+      inLanguage: lang === "ja" ? "ja-JP" : lang === "en" ? "en-US" : "zh-CN",
+      mainEntityOfPage: articleUrl,
+      publisher: {
+        "@type": "Organization",
+        name: "Japan Medical Family Office",
+        url: siteUrl
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: lang === "ja" ? "ホーム" : lang === "en" ? "Home" : "首页",
+          item: localizedUrl("/", lang === "ja" ? "ja-JP" : lang === "en" ? "en-US" : "zh-CN")
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: lang === "ja" ? "ナレッジセンター" : lang === "en" ? "Knowledge Center" : "知识中心",
+          item: localizedUrl("/knowledge-center", lang === "ja" ? "ja-JP" : lang === "en" ? "en-US" : "zh-CN")
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: article.title[lang],
+          item: articleUrl
+        }
+      ]
+    }
+  ];
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <PageHero
         eyebrow={article.category}
         title={article.title[lang]}

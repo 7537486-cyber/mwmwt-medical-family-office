@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
+import { createPageMetadata } from "@/lib/seo";
 import { normalizeLanguage, serviceImages, withLanguage } from "@/lib/site";
 
 type PlatformPage = {
@@ -14,6 +15,12 @@ type PlatformPage = {
   jaDescription: string;
   enDescription: string;
   sections: string[];
+};
+
+type PlatformDetail = {
+  title: string;
+  body: string;
+  points: string[];
 };
 
 const platformPages: Record<string, PlatformPage> = {
@@ -254,6 +261,302 @@ const localizedPlatformSections: Record<string, Record<"zh" | "ja" | "en", strin
     en: ["VIP Access", "Private Reception", "Interpreter Team", "Charter Coordination"]
   }
 };
+
+const platformSectionDetails: Record<string, Record<"zh" | "ja" | "en", PlatformDetail[]>> = {
+  "medical-family-office": {
+    zh: [
+      {
+        title: "家族健康档案",
+        body: "把体检、影像、用药、家族史、生物年龄、重大病史和跨境就医记录集中管理，避免每次看医生都从零开始。",
+        points: ["跨语言资料整理", "年度指标追踪", "家庭成员分层"]
+      },
+      {
+        title: "年度健康董事会",
+        body: "像管理资产一样，每年复盘家庭健康风险、资源配置、优先检查项目和应急预案。",
+        points: ["年度复盘", "风险排序", "下一年度行动清单"]
+      },
+      {
+        title: "医疗风险地图",
+        body: "围绕肿瘤、心脑血管、代谢、认知、睡眠和家族遗传风险，建立可解释的长期风险地图。",
+        points: ["重大疾病风险", "慢病趋势", "功能衰退预警"]
+      },
+      {
+        title: "重大疾病预案",
+        body: "提前准备第二诊疗意见、海外转诊、专家会诊和资料翻译路径，让关键时刻不被混乱拖慢。",
+        points: ["专家预案", "转诊路径", "资料清单"]
+      }
+    ],
+    ja: [
+      {
+        title: "家族健康記録",
+        body: "健診、画像、服薬、家族歴、生物学的年齢、国際受診記録を整理し、毎回ゼロから説明する負担を減らします。",
+        points: ["多言語資料整理", "年次指標追跡", "家族メンバー分類"]
+      },
+      {
+        title: "年次健康レビュー",
+        body: "資産管理と同じように、健康リスク、医療資源、優先検査、緊急時対応を年次で見直します。",
+        points: ["年次レビュー", "リスク順位付け", "次年度アクション"]
+      },
+      {
+        title: "医療リスクマップ",
+        body: "がん、心血管、代謝、認知、睡眠、家族歴を含め、長期的なリスクを可視化します。",
+        points: ["重大疾患リスク", "慢性疾患傾向", "機能低下の兆候"]
+      },
+      {
+        title: "重大疾患対応",
+        body: "セカンドオピニオン、海外紹介、専門医相談、資料翻訳を事前に準備します。",
+        points: ["専門医準備", "紹介ルート", "資料チェックリスト"]
+      }
+    ],
+    en: [
+      {
+        title: "Family health archive",
+        body: "Checkups, imaging, medication, family history, biological age, and cross-border medical records are organized in one long-term file.",
+        points: ["Multilingual record organization", "Annual marker tracking", "Family member segmentation"]
+      },
+      {
+        title: "Annual health board",
+        body: "Like an investment review, the family reviews health risks, medical resources, priority screenings, and emergency readiness each year.",
+        points: ["Annual review", "Risk ranking", "Next-year action list"]
+      },
+      {
+        title: "Medical risk map",
+        body: "Cancer, cardiovascular, metabolic, cognitive, sleep, and family-history risks are organized into an explainable long-term map.",
+        points: ["Major disease risk", "Chronic trend", "Functional decline signals"]
+      },
+      {
+        title: "Critical illness protocol",
+        body: "Second opinions, overseas referrals, specialist review, and translated records are prepared before urgent moments arrive.",
+        points: ["Specialist readiness", "Referral route", "Document checklist"]
+      }
+    ]
+  },
+  "executive-health": {
+    zh: [
+      {
+        title: "企业家精密体检",
+        body: "不做堆项目式体检，而是围绕企业家年龄、家族史、压力水平、应酬频率和飞行节奏设计检查重点。",
+        points: ["肿瘤早筛", "心脑血管评估", "胃肠内镜与影像"]
+      },
+      {
+        title: "睡眠与压力",
+        body: "长期睡眠不足和高压会影响激素、炎症、血压、血糖和认知表现，需要被纳入正式健康管理。",
+        points: ["睡眠质量", "压力恢复", "疲劳与专注力"]
+      },
+      {
+        title: "代谢风险",
+        body: "很多企业家在没有明显疾病时已经出现胰岛素抵抗、脂肪肝、内脏脂肪和慢性炎症。",
+        points: ["血糖与胰岛素", "血脂与脂肪肝", "体重和肌肉质量"]
+      },
+      {
+        title: "精力与表现",
+        body: "真正的目标不是短期兴奋，而是让核心决策者长期保持稳定体能、清晰判断和高质量生活。",
+        points: ["认知表现", "运动能力", "长期健康寿命"]
+      }
+    ],
+    ja: [
+      {
+        title: "経営者精密健診",
+        body: "検査項目を増やすのではなく、年齢、家族歴、ストレス、会食、移動頻度に基づき優先順位を設計します。",
+        points: ["がんスクリーニング", "心血管評価", "内視鏡と画像検査"]
+      },
+      {
+        title: "睡眠とストレス",
+        body: "慢性的な睡眠不足と高ストレスは、ホルモン、炎症、血圧、血糖、認知パフォーマンスに影響します。",
+        points: ["睡眠品質", "回復力", "疲労と集中"]
+      },
+      {
+        title: "代謝リスク",
+        body: "明確な病気がなくても、インスリン抵抗性、脂肪肝、内臓脂肪、慢性炎症が進むことがあります。",
+        points: ["血糖とインスリン", "脂質と脂肪肝", "体重と筋肉量"]
+      },
+      {
+        title: "活力とパフォーマンス",
+        body: "短期的な刺激ではなく、長期的に安定した体力、判断力、生活の質を保つことを重視します。",
+        points: ["認知機能", "運動能力", "健康寿命"]
+      }
+    ],
+    en: [
+      {
+        title: "Executive checkups",
+        body: "Not a pile of tests, but a risk-based plan built around age, family history, stress, business dining, and travel rhythm.",
+        points: ["Cancer screening", "Cardiovascular review", "Endoscopy and imaging"]
+      },
+      {
+        title: "Sleep and stress",
+        body: "Chronic poor sleep and high stress influence hormones, inflammation, blood pressure, glucose, and cognitive performance.",
+        points: ["Sleep quality", "Recovery", "Fatigue and focus"]
+      },
+      {
+        title: "Metabolic risk",
+        body: "Before obvious disease appears, insulin resistance, fatty liver, visceral fat, and chronic inflammation may already be present.",
+        points: ["Glucose and insulin", "Lipids and fatty liver", "Weight and muscle quality"]
+      },
+      {
+        title: "Energy and performance",
+        body: "The goal is not short-term stimulation. It is stable energy, clear judgment, and quality of life over decades.",
+        points: ["Cognition", "Physical capacity", "Healthspan"]
+      }
+    ]
+  },
+  "global-medical-access": {
+    zh: [
+      {
+        title: "第二诊疗意见",
+        body: "面对重大疾病或复杂方案时，客户需要独立专家视角，帮助理解诊断、替代方案、风险和下一步选择。",
+        points: ["病历整理", "影像资料翻译", "专家问题清单"]
+      },
+      {
+        title: "海外转诊",
+        body: "根据疾病领域、时间紧迫度、语言需求和可预约性，协调日本、新加坡、瑞士、美国等资源。",
+        points: ["专科匹配", "机构规则", "转诊路径"]
+      },
+      {
+        title: "私密协调",
+        body: "高净值家庭需要的不只是医院预约，还包括身份保护、行程动线、陪同翻译和资料交接。",
+        points: ["VIP动线", "隐私保护", "双语协调"]
+      },
+      {
+        title: "长期随访",
+        body: "跨境医疗结束后，检查结果、治疗记录和复查计划应进入长期健康档案，而不是散落在各个邮箱里。",
+        points: ["复查计划", "报告归档", "年度回顾"]
+      }
+    ],
+    ja: [
+      {
+        title: "セカンドオピニオン",
+        body: "重大疾患や複雑な治療方針では、診断、代替案、リスク、次の選択肢を独立した視点で確認します。",
+        points: ["病歴整理", "画像資料翻訳", "専門医への質問リスト"]
+      },
+      {
+        title: "海外紹介",
+        body: "疾患領域、緊急性、言語、予約可能性に応じ、日本、シンガポール、スイス、米国の資源を調整します。",
+        points: ["専門領域マッチング", "医療機関規定", "紹介ルート"]
+      },
+      {
+        title: "プライベート調整",
+        body: "予約だけでなく、身元保護、移動導線、同行通訳、資料受け渡しを含めて支援します。",
+        points: ["VIP導線", "秘匿性", "バイリンガル調整"]
+      },
+      {
+        title: "長期フォロー",
+        body: "受診後の結果、治療記録、再検査計画を長期健康記録に統合します。",
+        points: ["再検査計画", "報告書管理", "年次レビュー"]
+      }
+    ],
+    en: [
+      {
+        title: "Second opinions",
+        body: "For serious disease or complex plans, clients need independent specialist perspective on diagnosis, alternatives, risks, and next steps.",
+        points: ["Record organization", "Imaging translation", "Question list"]
+      },
+      {
+        title: "Overseas referral",
+        body: "Resources across Japan, Singapore, Switzerland, and the United States are coordinated by specialty, urgency, language, and availability.",
+        points: ["Specialty matching", "Institution rules", "Referral pathway"]
+      },
+      {
+        title: "Private coordination",
+        body: "UHNW families need more than appointments: privacy, itinerary flow, interpretation, and document handover all matter.",
+        points: ["VIP flow", "Privacy", "Bilingual coordination"]
+      },
+      {
+        title: "Long-term follow-up",
+        body: "Reports, treatment records, and retesting plans should become part of a long-term health archive.",
+        points: ["Review schedule", "Report archive", "Annual review"]
+      }
+    ]
+  },
+  "membership-program": {
+    zh: [
+      {
+        title: "创始人会员",
+        body: "为企业创始人建立年度健康策略、重大疾病预案和关键专家资源准备。",
+        points: ["年度健康策略", "高压与睡眠管理", "第二意见预案"]
+      },
+      {
+        title: "企业家会员",
+        body: "把个人体检、异常指标复盘和跨境医疗协调变成可持续的长期节奏。",
+        points: ["季度复盘", "指标追踪", "国际协调"]
+      },
+      {
+        title: "家族会员",
+        body: "为配偶、父母和下一代建立分层健康档案与家庭年度健康回顾。",
+        points: ["家庭档案", "父母健康管理", "下一代风险意识"]
+      },
+      {
+        title: "传承会员",
+        body: "面向多代家族、家族办公室和私人银行客户，建立长期医疗治理体系。",
+        points: ["医疗治理", "应急协议", "全球资源预案"]
+      }
+    ],
+    ja: [
+      {
+        title: "創業者会員",
+        body: "創業者の年次健康戦略、重大疾患対応、主要専門医リソースを準備します。",
+        points: ["年次健康戦略", "睡眠とストレス", "セカンドオピニオン準備"]
+      },
+      {
+        title: "経営者会員",
+        body: "個人健診、異常指標レビュー、国際医療調整を継続的なリズムにします。",
+        points: ["定期レビュー", "指標追跡", "国際調整"]
+      },
+      {
+        title: "家族会員",
+        body: "配偶者、両親、次世代の健康記録と年次家族レビューを整えます。",
+        points: ["家族記録", "両親の健康管理", "次世代リスク教育"]
+      },
+      {
+        title: "レガシー会員",
+        body: "多世代家族、ファミリーオフィス、プライベートバンク顧客向けの医療ガバナンスです。",
+        points: ["医療ガバナンス", "緊急対応", "国際リソース準備"]
+      }
+    ],
+    en: [
+      {
+        title: "Founder Membership",
+        body: "Annual health strategy, critical illness readiness, and specialist resource planning for founders.",
+        points: ["Annual health strategy", "Stress and sleep", "Second-opinion readiness"]
+      },
+      {
+        title: "Executive Membership",
+        body: "Personal checkups, abnormal-marker review, and cross-border medical coordination in a sustainable rhythm.",
+        points: ["Quarterly review", "Marker tracking", "International coordination"]
+      },
+      {
+        title: "Family Membership",
+        body: "Segmented health archives and annual family reviews for spouses, parents, and next generation.",
+        points: ["Family archive", "Parent health", "Next-generation risk literacy"]
+      },
+      {
+        title: "Legacy Membership",
+        body: "Long-term medical governance for multi-generation families, family offices, and private banking clients.",
+        points: ["Medical governance", "Emergency protocol", "Global resource readiness"]
+      }
+    ]
+  }
+};
+
+function buildPlatformDetails(slug: string, lang: "zh" | "ja" | "en", sections: string[]) {
+  return (
+    platformSectionDetails[slug]?.[lang] ??
+    sections.map((section) => ({
+      title: section,
+      body:
+        lang === "en"
+          ? "This module connects client goals, medical records, risk boundaries, and appropriate resources into a clearer decision path."
+          : lang === "ja"
+            ? "このモジュールは、目的、医療資料、リスク境界、適切な医療資源を整理し、判断しやすい流れにします。"
+            : "该模块将客户目标、医学资料、风险边界与合适资源连接起来，形成更清晰的长期决策路径。",
+      points:
+        lang === "en"
+          ? ["Goal clarification", "Risk review", "Follow-up plan"]
+          : lang === "ja"
+            ? ["目的確認", "リスク確認", "フォロー計画"]
+            : ["目标确认", "风险复核", "随访计划"]
+    }))
+  );
+}
 
 const aviationCopy = {
   zh: {
@@ -526,10 +829,12 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     return {};
   }
 
-  return {
+  return createPageMetadata({
+    path: `/${params.slug}`,
     title: page.title,
-    description: page.description
-  };
+    description: page.description,
+    image: platformHeroImages[params.slug]?.src ?? serviceImages["medical-concierge"].src
+  });
 }
 
 export default function PlatformPage({
@@ -557,6 +862,7 @@ export default function PlatformPage({
         ? "グローバルファミリーのためのプライベート健康インテリジェンス"
         : "为全球家族提供私人健康智慧系统";
   const visibleSections = localizedPlatformSections[params.slug]?.[lang] ?? page.sections;
+  const detailSections = buildPlatformDetails(params.slug, lang, visibleSections);
   const aviation = aviationCopy[lang];
   const secondaryDescription =
     lang === "en"
@@ -580,13 +886,64 @@ export default function PlatformPage({
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
           {visibleSections.map((section, index) => (
-            <article key={section} className="border border-mist bg-white p-7 shadow-sm">
+            <Link
+              key={section}
+              href={`#detail-${index + 1}`}
+              className="border border-mist bg-white p-7 shadow-sm transition hover:border-champagne hover:bg-pearl"
+            >
               <p className="font-serif text-4xl text-champagne">
                 {String(index + 1).padStart(2, "0")}
               </p>
               <h2 className="mt-6 text-xl font-semibold text-ink">{section}</h2>
-            </article>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-graphite/50">
+                {lang === "en" ? "Read more" : lang === "ja" ? "詳しく見る" : "查看延伸内容"}
+              </p>
+            </Link>
           ))}
+        </div>
+      </section>
+      <section className="bg-white px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.34em] text-champagne">
+                {lang === "en" ? "Deeper Context" : lang === "ja" ? "詳細コンテキスト" : "延伸内容"}
+              </p>
+              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-5xl">
+                {lang === "en"
+                  ? "More than a headline: each module becomes a decision system."
+                  : lang === "ja"
+                    ? "見出しだけでなく、各モジュールを判断体系へ。"
+                    : "不只是标题，每个模块都应成为可理解的决策系统。"}
+              </h2>
+            </div>
+            <div className="grid gap-5">
+              {detailSections.map((detail, index) => (
+                <article
+                  id={`detail-${index + 1}`}
+                  key={detail.title}
+                  className="scroll-mt-28 border border-mist bg-pearl p-7 md:p-8"
+                >
+                  <p className="font-serif text-4xl text-champagne">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-5 text-2xl font-semibold leading-tight text-ink">
+                    {detail.title}
+                  </h3>
+                  <p className="mt-5 text-base leading-8 text-graphite/74">
+                    {detail.body}
+                  </p>
+                  <div className="mt-6 grid gap-3 md:grid-cols-3">
+                    {detail.points.map((point) => (
+                      <p key={point} className="border border-mist bg-white p-4 text-sm leading-7 text-ink">
+                        {point}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       {params.slug === "membership-program" ? (

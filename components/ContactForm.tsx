@@ -166,18 +166,31 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
             placeholder={text.emailPlaceholder}
           />
         </label>
-        <label className="grid gap-2 text-sm font-semibold text-ink">
-          {text.inquiry}
-          <select
-            value={inquiryType}
-            onChange={(event) => setInquiryType(event.target.value)}
-            className="border border-mist bg-pearl px-4 py-3 font-normal outline-none transition focus:border-champagne"
-          >
-            {typeOptions.map((item) => (
-              <option key={item}>{item}</option>
-            ))}
-          </select>
-        </label>
+        <fieldset className="grid gap-3">
+          <legend className="text-sm font-semibold text-ink">{text.inquiry}</legend>
+          <input type="hidden" name="inquiryType" value={inquiryType} />
+          <div className="grid gap-3 sm:grid-cols-2">
+            {typeOptions.map((item) => {
+              const active = inquiryType === item;
+
+              return (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => setInquiryType(item)}
+                  className={`min-h-14 border px-4 py-3 text-left text-sm font-semibold leading-6 transition ${
+                    active
+                      ? "border-champagne bg-ink text-pearl"
+                      : "border-mist bg-pearl text-ink hover:border-champagne"
+                  }`}
+                  aria-pressed={active}
+                >
+                  {item}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
         <label className="grid gap-2 text-sm font-semibold text-ink">
           {text.background}
           <textarea

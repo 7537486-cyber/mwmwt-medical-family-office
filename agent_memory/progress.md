@@ -6,7 +6,9 @@
 
 当前追加目标：将医疗官网与误覆盖进来的钢结构网站彻底分开；医疗官网继续补齐联系表单系统、首页首屏价值主张、会员体系、合规声明和服务流程页面。
 
-当前最新调整：在现有询盘闭环基础上补齐增长基础设施入口：LINE/CRM 配置说明已更新，自动回复已完成；新增 Google Analytics 与 Google Search Console 环境变量入口；知识库新增 5 个 SEO 文章页，并与现有长寿医学文章共同组成首批 6 个 SEO 主题。
+当前最新调整：优化移动端联系表单与内页内容深度：咨询方向改为大按钮选择，解决手机端原生下拉难选问题；平台内页的 01/02/03 卡片改为可点击锚点，并新增延伸内容区；Google Analytics 与 Google Search Console 代码入口已在站点布局中，等待填入 Google 后台提供的 ID/验证码。
+
+当前 SEO 启动：以 `mwmwt.com` 为正式域名，完成第一轮技术 SEO 打底，包括 canonical、多语言 alternates、OG/Twitter 元数据、sitemap 语言版本提示，以及知识库文章 Article/Breadcrumb 结构化数据。
 
 ## 成功标准
 
@@ -90,6 +92,14 @@
 - 已新增 `lib/knowledge.ts` 与 `/knowledge-center/[slug]` 动态文章页，首批新增 5 个知识库 SEO 文章：日本精密体检、干细胞合法性、外泌体、日本医疗体系、企业家健康管理
 - 已将知识库首页的精选文章区扩展为 6 篇文章入口，并将新知识库文章加入 sitemap
 - 已更新 `DEPLOY.md`，补充 LINE Webhook、GA、Search Console 的环境变量与落地说明
+- 已将联系页咨询方向从原生 `select` 改为移动端友好的按钮组，避免手机端无法稳定选择项目
+- 已将平台通用页顶部模块卡片改为可点击锚点，并新增 Deeper Context / 延伸内容区，补充每个模块的解释、适用点和长期管理意义
+- 已重点补齐医疗家族办公室、企业家健康、全球医疗资源和会员体系页面的延伸文案，减少“只有标题、不能点进去”的薄内容问题
+- 已新增 `lib/seo.ts` 统一管理 `mwmwt.com` 绝对链接、canonical、多语言 alternate 与页面元数据生成
+- 已为根布局补强 applicationName、canonical、OG 图片、Twitter Card 与 Googlebot 预览策略
+- 已为通用平台页与知识库动态文章页接入统一 SEO metadata，并保留中日英 `?lang=` 版本 alternate
+- 已为知识库动态文章页加入 Article 与 BreadcrumbList JSON-LD，增强文章型内容可理解性
+- 已为 sitemap 中首页、导航页、平台页、医生页、知识库页补充多语言 alternates，并将 lastModified 统一更新到 2026-05-31
 
 ## 验证记录
 
@@ -114,3 +124,6 @@
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 Resend 服务端发送、感谢页文案和部署说明更新后仍正常生成 38 个路由
 - 已执行 `npm run build`，Next.js 生产构建通过，确认来源页面字段、发件人显示和客户自动回复邮件改动未破坏构建
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 GA/GSC 入口、知识库动态文章和 sitemap 正常生成，共 43 个路由
+- 已执行 `npm run build`，Next.js 生产构建通过，确认移动端咨询按钮和平台页延伸内容改动后仍正常生成 43 个路由
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认第一轮 SEO 元数据与结构化数据改动类型正确
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 `mwmwt.com` 技术 SEO 打底后仍正常生成 43 个路由
