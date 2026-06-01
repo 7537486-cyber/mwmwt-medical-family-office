@@ -229,16 +229,25 @@ function MultiChoiceGroup({
 function getErrorMessage(
   lang: Language,
   error?: string,
-  message?: string
+  message?: string,
+  status?: number,
+  requestId?: string,
+  rawBody?: string
 ) {
   const text = copy[lang];
   const key = error as keyof typeof text.errors | undefined;
   const known = key ? text.errors[key] : undefined;
+  const details = [
+    status ? `HTTP ${status}` : "",
+    requestId ? `Request ${requestId}` : ""
+  ].filter(Boolean);
+  const suffix = details.length ? `（${details.join(" / ")}）` : "";
 
-  if (known) return known;
-  if (message) return `${text.error}（${message}）`;
-  if (error) return `${text.error}（${error}）`;
-  return text.error;
+  if (message) return `${message}${suffix}`;
+  if (known) return `${known}${suffix}`;
+  if (error) return `${error}${suffix}`;
+  if (rawBody) return `${rawBody}${suffix}`;
+  return `${text.error}${suffix}`;
 }
 
 export function ContactForm({ lang, typeOptions }: ContactFormProps) {
@@ -299,12 +308,38 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
       return;
     }
 
-    const errorBody = (await response?.json().catch(() => undefined)) as
-      | { error?: string; message?: string }
+    const rawBody = await response?.text().catch(() => "");
+    let errorBody:
+      | {
+          error?: string;
+          message?: string;
+          requestId?: string;
+          resendStatus?: number;
+          resendStatusText?: string;
+          resendError?: { message?: string; name?: string };
+        }
       | undefined;
+
+    try {
+      errorBody = rawBody ? JSON.parse(rawBody) : undefined;
+    } catch {
+      errorBody = undefined;
+    }
+    const serverMessage =
+      errorBody?.message ??
+      errorBody?.resendError?.message ??
+      errorBody?.resendError?.name ??
+      errorBody?.resendStatusText;
     setErrorMessage(
       response
-        ? getErrorMessage(lang, errorBody?.error, errorBody?.message)
+        ? getErrorMessage(
+            lang,
+            errorBody?.error,
+            serverMessage,
+            errorBody?.resendStatus ?? response.status,
+            errorBody?.requestId,
+            rawBody
+          )
         : getErrorMessage(lang, "NETWORK")
     );
     setStatus("error");

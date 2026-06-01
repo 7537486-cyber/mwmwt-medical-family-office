@@ -54,7 +54,9 @@
 
 当前首页精简与预约入口：用户要求首页不要承载大量内页文字，已将首页压缩为品牌封面式结构，只保留首屏、Mission/Vision/Philosophy、Why Japan 简短入口、Founder Letter、主案例入口和私密咨询；服务流程、保护能力、案例列表和会员体系改由对应内页承接。顶部“预约15分钟”按钮新增 `NEXT_PUBLIC_CALENDAR_URL` 支持，可接 Cal.com 或 Calendly；未配置时继续跳转联系页。
 
-当前联系表单排障与入口优化：用户反馈手机端仍显示“无法提交”。已将前端错误提示改为显示具体后端错误码与原因，便于区分 `RESEND_API_KEY` 未配置、Resend 发信域名未验证、必填项缺失或网络问题；同时将表单拆为“姓名 + 称呼方式”，自动回复可按先生/女士称呼；将“背景说明”改为当前情况多选 + 补充说明；更新微信二维码并新增 LINE 二维码入口。
+当前联系表单排障与入口优化：用户反馈手机端仍显示“无法提交”。已确认生产接口真实错误为 Resend 拒绝旧发件域名：`The mwmwt.com domain is not verified`。本地已将 API 改为忽略残留 `mwmwt.com` 的 `CONTACT_FROM_EMAIL`，自动使用 `AETERA Medical Family Office <contact@aeteralife.com>`，并加入请求、验证、Resend 返回和捕获异常日志；前端临时显示真实后端错误与 requestId，便于继续排查。同时已将表单拆为“姓名 + 称呼方式”，自动回复可按先生/女士称呼；将“背景说明”改为当前情况多选 + 补充说明；更新微信二维码并新增 LINE 二维码入口。
+
+当前发布状态：已本地提交 `88601e5 fix contact form submission diagnostics`；推送到 GitHub 时因终端 GitHub 凭证缺失失败（浏览器已登录不等于终端已登录）。需要用户在本机终端或 GitHub Desktop 完成推送，Vercel 才会自动部署最新表单修复。
 
 ## 成功标准
 

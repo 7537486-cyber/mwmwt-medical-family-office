@@ -1142,6 +1142,8 @@ export default function PlatformPage({
       image: platformHeroImages[params.slug] ?? serviceImages["medical-concierge"]
     }
   ];
+  const heroImage = platformHeroImages[params.slug] ?? serviceImages["medical-concierge"];
+  const uniqueCinematicBlocks = cinematicBlocks.filter((block) => block.image.src !== heroImage.src);
   const secondaryDescription =
     lang === "en"
       ? "Risk management, long-term health decision rights, and global medical resource allocation."
@@ -1159,15 +1161,17 @@ export default function PlatformPage({
         secondaryDescription={secondaryDescription}
         cta={heroCta}
         ctaHref={withLanguage("/contact", lang)}
-        image={platformHeroImages[params.slug] ?? serviceImages["medical-concierge"]}
+        image={heroImage}
       />
-      <CinematicSection
-        eyebrow={cinematicBlocks[0].eyebrow}
-        title={cinematicBlocks[0].title}
-        body={cinematicBlocks[0].body[lang]}
-        image={cinematicBlocks[0].image}
-        align={cinematicBlocks[0].align}
-      />
+      {uniqueCinematicBlocks[0] ? (
+        <CinematicSection
+          eyebrow={uniqueCinematicBlocks[0].eyebrow}
+          title={uniqueCinematicBlocks[0].title}
+          body={uniqueCinematicBlocks[0].body[lang]}
+          image={uniqueCinematicBlocks[0].image}
+          align={uniqueCinematicBlocks[0].align}
+        />
+      ) : null}
       <section className="bg-pearl px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
           {visibleSections.map((section, index) => (

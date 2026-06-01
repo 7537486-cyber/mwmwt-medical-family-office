@@ -204,6 +204,7 @@ export function ContentPage({ page, lang }: ContentPageProps) {
       image
     }
   ];
+  const uniqueCinematicBlocks = cinematicBlocks.filter((block) => block.image.src !== image.src);
   const sectionLabels = {
     zh: {
       visual: "视觉呈现",
@@ -308,12 +309,12 @@ export function ContentPage({ page, lang }: ContentPageProps) {
         ctaHref={withLanguage("/contact", lang)}
         image={image}
       />
-      {cinematicBlocks[0] ? (
+      {uniqueCinematicBlocks[0] ? (
         <CinematicSection
-          eyebrow={cinematicBlocks[0].eyebrow}
-          title={cinematicBlocks[0].title}
-          body={cinematicBlocks[0].body}
-          image={cinematicBlocks[0].image}
+          eyebrow={uniqueCinematicBlocks[0].eyebrow}
+          title={uniqueCinematicBlocks[0].title}
+          body={uniqueCinematicBlocks[0].body}
+          image={uniqueCinematicBlocks[0].image}
         />
       ) : null}
       <section className="px-5 py-20 lg:px-8">
@@ -344,12 +345,12 @@ export function ContentPage({ page, lang }: ContentPageProps) {
           </div>
         </div>
       </section>
-      {cinematicBlocks[1] ? (
+      {uniqueCinematicBlocks[1] ? (
         <CinematicSection
-          eyebrow={cinematicBlocks[1].eyebrow}
-          title={cinematicBlocks[1].title}
-          body={cinematicBlocks[1].body}
-          image={cinematicBlocks[1].image}
+          eyebrow={uniqueCinematicBlocks[1].eyebrow}
+          title={uniqueCinematicBlocks[1].title}
+          body={uniqueCinematicBlocks[1].body}
+          image={uniqueCinematicBlocks[1].image}
         />
       ) : null}
       {page.slug === "medical-concierge" ? (

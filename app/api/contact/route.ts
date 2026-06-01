@@ -27,12 +27,46 @@ type ResendError = {
 };
 
 const contactToEmail = "contact@aeteralife.com";
-const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "Medical Family Office <contact@aeteralife.com>";
+const configuredContactFromEmail = process.env.CONTACT_FROM_EMAIL?.trim();
+const contactFromEmail =
+  configuredContactFromEmail && !configuredContactFromEmail.includes("mwmwt.com")
+    ? configuredContactFromEmail
+    : "AETERA Medical Family Office <contact@aeteralife.com>";
 const contactCcEmail = process.env.CONTACT_CC_EMAIL;
 const crmWebhookUrl = process.env.CONTACT_CRM_WEBHOOK_URL;
 const lineNotificationWebhookUrl = process.env.LINE_NOTIFICATION_WEBHOOK_URL;
 const lineChannelAccessToken = process.env.LINE_CHANNEL_ACCESS_TOKEN;
 const lineToId = process.env.LINE_TO_ID;
+
+function logContact(event: string, details: Record<string, unknown>) {
+  console.log(
+    JSON.stringify({
+      scope: "contact-form",
+      event,
+      ...details
+    })
+  );
+}
+
+function logContactError(event: string, error: unknown, details: Record<string, unknown> = {}) {
+  const normalized =
+    error instanceof Error
+      ? {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      }
+      : { value: error };
+
+  console.error(
+    JSON.stringify({
+      scope: "contact-form",
+      event,
+      error: normalized,
+      ...details
+    })
+  );
+}
 
 function clean(value?: string) {
   return value?.trim().slice(0, 4000) ?? "";
@@ -131,11 +165,31 @@ async function pushLineNotification(payload: {
 
 export async function POST(request: Request) {
   let payload: ContactPayload;
+  const requestId =
+    typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+  logContact("incoming_request", {
+    requestId,
+    method: request.method,
+    url: request.url,
+    hasResendApiKey: Boolean(process.env.RESEND_API_KEY),
+    contactFromEmail,
+    contactToEmail,
+    hasCrmWebhook: Boolean(crmWebhookUrl),
+    hasLineWebhook: Boolean(lineNotificationWebhookUrl),
+    hasLinePushConfig: Boolean(lineChannelAccessToken && lineToId)
+  });
 
   try {
     payload = (await request.json()) as ContactPayload;
-  } catch {
-    return NextResponse.json({ ok: false, error: "INVALID_JSON" }, { status: 400 });
+  } catch (error) {
+    logContactError("invalid_json", error, { requestId });
+    return NextResponse.json(
+      { ok: false, error: "INVALID_JSON", message: "Request body is not valid JSON.", requestId },
+      { status: 400 }
+    );
   }
 
   const name = clean(payload.name);
@@ -155,9 +209,37 @@ export async function POST(request: Request) {
   const sourcePage = clean(payload.sourcePage) || "aeteralife.com";
   const lang = clean(payload.lang) || "zh";
 
-  if (!name || !countryCity || !phone || !inquiryType || !urgency || !payload.consent) {
+  const missingFields = [
+    !name ? "name" : "",
+    !countryCity ? "countryCity" : "",
+    !phone ? "contactDetail" : "",
+    !inquiryType ? "inquiryType" : "",
+    !urgency ? "urgency" : "",
+    !payload.consent ? "consent" : ""
+  ].filter(Boolean);
+
+  logContact("validation_result", {
+    requestId,
+    ok: missingFields.length === 0,
+    missingFields,
+    lang,
+    inquiryType,
+    urgency,
+    preferredContactMethod,
+    hasEmail: Boolean(email),
+    hasMessenger: Boolean(messenger),
+    hasBackground: Boolean(background),
+    backgroundTagCount: backgroundTags.length
+  });
+
+  if (missingFields.length) {
     return NextResponse.json(
-      { ok: false, error: "MISSING_REQUIRED_FIELDS", message: "Please complete all required fields." },
+      {
+        ok: false,
+        error: "MISSING_REQUIRED_FIELDS",
+        message: `Missing required fields: ${missingFields.join(", ")}`,
+        requestId
+      },
       { status: 400 }
     );
   }
@@ -194,11 +276,13 @@ export async function POST(request: Request) {
     : Promise.resolve(undefined);
 
   if (!process.env.RESEND_API_KEY) {
+    logContact("email_service_not_configured", { requestId });
     return NextResponse.json(
       {
         ok: false,
         error: "EMAIL_SERVICE_NOT_CONFIGURED",
-        message: "RESEND_API_KEY is not configured in Vercel."
+        message: "RESEND_API_KEY is not configured in Vercel.",
+        requestId
       },
       { status: 503 }
     );
@@ -251,21 +335,54 @@ export async function POST(request: Request) {
     </div>
   `;
 
-  const internalEmail = fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({
-      from: contactFromEmail,
-      to: [contactToEmail],
-      cc: splitEmails(contactCcEmail),
-      reply_to: isLikelyEmail(email) ? email : undefined,
-      subject,
-      text,
-      html
-    })
+  let response: Response;
+
+  try {
+    response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        from: contactFromEmail,
+        to: [contactToEmail],
+        cc: splitEmails(contactCcEmail),
+        reply_to: isLikelyEmail(email) ? email : undefined,
+        subject,
+        text,
+        html
+      })
+    });
+  } catch (error) {
+    logContactError("resend_internal_fetch_threw", error, { requestId });
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "RESEND_FETCH_FAILED",
+        message: error instanceof Error ? error.message : "Resend fetch failed before receiving a response.",
+        requestId
+      },
+      { status: 502 }
+    );
+  }
+
+  const resendBody = (await response.json().catch((error) => {
+    logContactError("resend_internal_json_parse_failed", error, {
+      requestId,
+      status: response.status
+    });
+    return undefined;
+  })) as (ResendError & { id?: string }) | undefined;
+
+  logContact("resend_internal_result", {
+    requestId,
+    ok: response.ok,
+    status: response.status,
+    statusText: response.statusText,
+    resendId: resendBody?.id,
+    resendErrorName: resendBody?.name,
+    resendErrorMessage: resendBody?.message
   });
 
   const autoReply =
@@ -286,21 +403,22 @@ export async function POST(request: Request) {
       })
       : Promise.resolve(undefined);
 
-  const response = await internalEmail;
-
   if (!response.ok) {
-    const error = (await response.json().catch(() => ({}))) as ResendError;
     return NextResponse.json(
       {
         ok: false,
         error: "EMAIL_SEND_FAILED",
-        message: error.message ?? error.name ?? "Resend email sending failed."
+        message: resendBody?.message ?? resendBody?.name ?? response.statusText ?? "Resend email sending failed.",
+        resendStatus: response.status,
+        resendStatusText: response.statusText,
+        resendError: resendBody,
+        requestId
       },
       { status: 502 }
     );
   }
 
-  await Promise.allSettled([
+  const postSendResults = await Promise.allSettled([
     crmWrite,
     autoReply,
     pushLineNotification({
@@ -321,7 +439,14 @@ export async function POST(request: Request) {
     })
   ]);
 
-  return NextResponse.json({ ok: true });
+  logContact("post_send_results", {
+    requestId,
+    crm: postSendResults[0].status,
+    autoReply: postSendResults[1].status,
+    line: postSendResults[2].status
+  });
+
+  return NextResponse.json({ ok: true, requestId });
 }
 
 function getAutoReplySubject(lang: string) {
