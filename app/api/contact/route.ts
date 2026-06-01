@@ -26,7 +26,8 @@ type ResendError = {
   name?: string;
 };
 
-const contactToEmail = "contact@aeteralife.com";
+const defaultContactEmail = "contact@aeteralife.com";
+const contactToEmail = process.env.CONTACT_TO_EMAIL?.trim() || defaultContactEmail;
 const configuredContactFromEmail = process.env.CONTACT_FROM_EMAIL?.trim();
 const contactFromEmail =
   configuredContactFromEmail && !configuredContactFromEmail.includes("mwmwt.com")
@@ -175,6 +176,8 @@ export async function POST(request: Request) {
     method: request.method,
     url: request.url,
     hasResendApiKey: Boolean(process.env.RESEND_API_KEY),
+    hasContactFromEmail: Boolean(configuredContactFromEmail),
+    hasContactToEmail: Boolean(process.env.CONTACT_TO_EMAIL),
     contactFromEmail,
     contactToEmail,
     hasCrmWebhook: Boolean(crmWebhookUrl),
@@ -182,12 +185,20 @@ export async function POST(request: Request) {
     hasLinePushConfig: Boolean(lineChannelAccessToken && lineToId)
   });
 
+  if (configuredContactFromEmail?.includes("mwmwt.com")) {
+    logContactError("invalid_contact_from_email_domain", new Error("CONTACT_FROM_EMAIL uses the old mwmwt.com domain."), {
+      requestId,
+      configuredContactFromEmail,
+      fallbackContactFromEmail: contactFromEmail
+    });
+  }
+
   try {
     payload = (await request.json()) as ContactPayload;
   } catch (error) {
     logContactError("invalid_json", error, { requestId });
     return NextResponse.json(
-      { ok: false, error: "INVALID_JSON", message: "Request body is not valid JSON.", requestId },
+      { success: false, error: "INVALID_JSON", message: "Request body is not valid JSON.", requestId },
       { status: 400 }
     );
   }
@@ -235,7 +246,7 @@ export async function POST(request: Request) {
   if (missingFields.length) {
     return NextResponse.json(
       {
-        ok: false,
+        success: false,
         error: "MISSING_REQUIRED_FIELDS",
         message: `Missing required fields: ${missingFields.join(", ")}`,
         requestId
@@ -279,12 +290,12 @@ export async function POST(request: Request) {
     logContact("email_service_not_configured", { requestId });
     return NextResponse.json(
       {
-        ok: false,
+        success: false,
         error: "EMAIL_SERVICE_NOT_CONFIGURED",
         message: "RESEND_API_KEY is not configured in Vercel.",
         requestId
       },
-      { status: 503 }
+      { status: 500 }
     );
   }
 
@@ -358,12 +369,12 @@ export async function POST(request: Request) {
     logContactError("resend_internal_fetch_threw", error, { requestId });
     return NextResponse.json(
       {
-        ok: false,
+        success: false,
         error: "RESEND_FETCH_FAILED",
         message: error instanceof Error ? error.message : "Resend fetch failed before receiving a response.",
         requestId
       },
-      { status: 502 }
+      { status: 500 }
     );
   }
 
@@ -404,9 +415,16 @@ export async function POST(request: Request) {
       : Promise.resolve(undefined);
 
   if (!response.ok) {
+    logContactError("resend_email_send_failed", new Error(resendBody?.message ?? resendBody?.name ?? response.statusText), {
+      requestId,
+      status: response.status,
+      statusText: response.statusText,
+      resendError: resendBody
+    });
+
     return NextResponse.json(
       {
-        ok: false,
+        success: false,
         error: "EMAIL_SEND_FAILED",
         message: resendBody?.message ?? resendBody?.name ?? response.statusText ?? "Resend email sending failed.",
         resendStatus: response.status,
@@ -414,7 +432,7 @@ export async function POST(request: Request) {
         resendError: resendBody,
         requestId
       },
-      { status: 502 }
+      { status: 500 }
     );
   }
 
@@ -446,7 +464,7 @@ export async function POST(request: Request) {
     line: postSendResults[2].status
   });
 
-  return NextResponse.json({ ok: true, requestId });
+  return NextResponse.json({ success: true, requestId });
 }
 
 function getAutoReplySubject(lang: string) {

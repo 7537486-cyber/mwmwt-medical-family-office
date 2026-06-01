@@ -16,7 +16,7 @@
 
 当前首页整理：用户反馈首页内容重复后，已移除首页中重复展开的“私人健康决策支持”与“全球医疗资源网络”两块，把资源、决策、隐私、时间、风险控制保留在“客户为什么选择我们”和相关内页中，首页改为更清晰的高层叙事；随后继续清理旧重复数据，并将首页核心服务与选择理由改为可点击内页入口。
 
-当前联系表单调整：用户要求在姓名外增加性别与年龄选项，已在联系表单姓名后加入男女/年龄段按钮，并将字段传入后台邮件、CRM Payload 与 LINE 通知。
+当前联系表单调整：用户要求在姓名外增加性别与年龄选项，已在联系表单姓名后加入男女/年龄段按钮，并将字段传入后台邮件、CRM Payload 与 LINE 通知。最新排查中，联系表单已统一改为前端读取 `/api/contact` 返回的 `success === true` 判断成功；API 仅在 Resend 主邮件成功发送后返回 `{ success: true }`，Resend 失败时返回 500 与真实错误信息，并读取 `RESEND_API_KEY`、`CONTACT_FROM_EMAIL`、`CONTACT_TO_EMAIL`。
 
 当前微信入口调整：用户提供 Tyler 微信二维码，已作为官网公开素材接入联系页与咨询提交成功页，方便客户扫码补充咨询背景；后续如需医院式菜单、自动回复和 AI 接待，应升级为 LINE 官方账号或微信公众号体系。
 
@@ -250,3 +250,5 @@
 - 已执行旧域名残留检索，确认 `app`、`components`、`lib`、`DEPLOY.md`、`README.md`、FAQ PDF 生成脚本和公开 PDF 中不再出现 `mwmwt.com` 或 `info@mwmwt.com`。
 - 已将首页长文字模块继续下沉到内页，只保留品牌判断、简短 Why Japan、Founder Letter、案例入口与咨询入口。
 - 已为顶部预约按钮增加可选日历链接环境变量 `NEXT_PUBLIC_CALENDAR_URL`。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认联系表单 `success` JSON 判断与 API 返回类型一致。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 `/api/contact`、`/contact` 与 162 个页面构建正常。

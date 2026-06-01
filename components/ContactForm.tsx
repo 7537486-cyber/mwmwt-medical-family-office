@@ -303,14 +303,10 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
       })
     }).catch(() => undefined);
 
-    if (response?.ok) {
-      router.push(withLanguage("/thank-you", lang));
-      return;
-    }
-
     const rawBody = await response?.text().catch(() => "");
     let errorBody:
       | {
+          success?: boolean;
           error?: string;
           message?: string;
           requestId?: string;
@@ -325,6 +321,12 @@ export function ContactForm({ lang, typeOptions }: ContactFormProps) {
     } catch {
       errorBody = undefined;
     }
+
+    if (response && errorBody?.success === true) {
+      router.push(withLanguage("/thank-you", lang));
+      return;
+    }
+
     const serverMessage =
       errorBody?.message ??
       errorBody?.resendError?.message ??
