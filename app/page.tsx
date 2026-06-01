@@ -8,8 +8,11 @@ const copy = {
     heroEyebrow: "Medical Family Office",
     heroTitle: "Aging is inevitable. Decline is not.",
     heroSubtitle: "衰老不可避免，但衰退可以被管理。",
-    heroBody: "Medical Family Office 帮助企业家与家族把健康作为长期资产进行管理。",
+    heroBody: "我们帮助成功家庭做出更好的长期健康决策。Medical Family Office for Longevity, Executive Health and Global Medical Access.",
     heroCta: "申请私密顾问沟通",
+    problemEyebrow: "Client Questions",
+    problemTitle: "客户真正需要回答的，不是项目名称，而是关键判断。",
+    problemBody: "AETERA 的价值，是在医疗信息不对称、跨境资源复杂、重大健康决策难以判断时，帮助家庭建立更清晰的路径。",
     missionEyebrow: "Mission",
     missionTitle: "Extend Healthspan, Not Just Lifespan.",
     missionBody:
@@ -58,8 +61,11 @@ const copy = {
     heroEyebrow: "Medical Family Office",
     heroTitle: "Aging is inevitable. Decline is not.",
     heroSubtitle: "老化は避けられません。しかし衰退は管理できます。",
-    heroBody: "Medical Family Office は、経営者と家族が健康を長期資産として管理するための医療助言体系です。",
+    heroBody: "成功したご家族が、長期的な健康判断をより良く行うための Medical Family Office です。Longevity, Executive Health, Global Medical Access.",
     heroCta: "プライベート相談を申請",
+    problemEyebrow: "Client Questions",
+    problemTitle: "必要なのは、プログラム名ではなく重要な判断です。",
+    problemBody: "AETERA は、医療情報の非対称性、国際医療資源の複雑さ、重大な健康判断に直面するご家族へ、より明確な道筋を提供します。",
     missionEyebrow: "Mission",
     missionTitle: "Extend Healthspan, Not Just Lifespan.",
     missionBody:
@@ -108,8 +114,11 @@ const copy = {
     heroEyebrow: "Medical Family Office",
     heroTitle: "Aging is inevitable. Decline is not.",
     heroSubtitle: "Private Health, Longevity & Japan Medical Access.",
-    heroBody: "Medical Family Office helps entrepreneurs and families manage health as a long-term asset.",
+    heroBody: "We help successful families make better long-term health decisions. Medical Family Office for Longevity, Executive Health and Global Medical Access.",
     heroCta: "Apply for Private Consultation",
+    problemEyebrow: "Client Questions",
+    problemTitle: "Clients do not need more medical noise. They need better judgment.",
+    problemBody: "AETERA exists for moments when medical information is fragmented, global resources are hard to evaluate, and a family needs a clearer decision path.",
     missionEyebrow: "Mission",
     missionTitle: "Extend Healthspan, Not Just Lifespan.",
     missionBody:
@@ -162,6 +171,33 @@ const japanFacts = {
   en: ["Long-living society", "Stable healthcare system", "Dense medical resources", "Mature screening culture", "High privacy standards", "Measured physician-patient culture"]
 };
 
+const problemLinks = {
+  zh: [
+    ["我40岁以后，如何判断自己老得快不快？", "/knowledge-center/longevity-medicine"],
+    ["日本干细胞到底合法吗、安全吗？", "/knowledge-center/stem-cell-legality-japan"],
+    ["一年体检几十万，怎么知道该信谁？", "/knowledge-center/japan-executive-health-checkup"],
+    ["父母遇到癌症风险，如何获取第二诊疗意见？", "/knowledge-center/japan-cancer-second-opinion"],
+    ["企业家如何避免长期高压带来的健康风险？", "/knowledge-center/executive-health-management"],
+    ["怎样建立一个家庭长期健康档案？", "/knowledge-center/family-health-governance-for-high-net-worth-families"]
+  ],
+  ja: [
+    ["40代以降、自分の老化速度をどう理解するか。", "/knowledge-center/longevity-medicine"],
+    ["日本の幹細胞医療は合法で安全なのか。", "/knowledge-center/stem-cell-legality-japan"],
+    ["高額な健診をどう判断すべきか。", "/knowledge-center/japan-executive-health-checkup"],
+    ["親世代のがんリスクで、セカンドオピニオンをどう準備するか。", "/knowledge-center/japan-cancer-second-opinion"],
+    ["経営者の高ストレス健康リスクをどう管理するか。", "/knowledge-center/executive-health-management"],
+    ["家族の長期健康記録をどう作るか。", "/knowledge-center/family-health-governance-for-high-net-worth-families"]
+  ],
+  en: [
+    ["How do I know if I am aging faster after 40?", "/knowledge-center/longevity-medicine"],
+    ["Are stem cell programs in Japan legal and safe?", "/knowledge-center/stem-cell-legality-japan"],
+    ["How do I judge an expensive executive checkup?", "/knowledge-center/japan-executive-health-checkup"],
+    ["How should a family prepare a cancer second opinion in Japan?", "/knowledge-center/japan-cancer-second-opinion"],
+    ["How should founders manage high-pressure health risk?", "/knowledge-center/executive-health-management"],
+    ["How do we build a long-term family health archive?", "/knowledge-center/family-health-governance-for-high-net-worth-families"]
+  ]
+};
+
 export default function Home({
   searchParams
 }: {
@@ -199,6 +235,34 @@ export default function Home({
           >
             {text.heroCta} <span aria-hidden="true">→</span>
           </Link>
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-20 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.problemEyebrow}</p>
+            <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
+              {text.problemTitle}
+            </h2>
+            <p className="mt-6 text-lg leading-9 text-graphite/72">{text.problemBody}</p>
+          </div>
+          <div className="grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-2">
+            {problemLinks[lang].map(([label, href]) => (
+              <Link
+                key={label}
+                href={withLanguage(href, lang)}
+                className="group bg-pearl p-6 transition hover:bg-ink"
+              >
+                <p className="text-lg font-semibold leading-8 text-ink transition group-hover:text-pearl">
+                  {label}
+                </p>
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-champagne">
+                  {lang === "ja" ? "詳しく読む" : lang === "en" ? "Read More" : "阅读答案"} →
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

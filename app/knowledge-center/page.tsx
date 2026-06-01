@@ -68,6 +68,10 @@ const pageCopy = {
     downloadTitle: "Medical Family Office 常见问题",
     downloadBody: "系统说明医疗家族办公室、健康管理、第二诊疗意见、全球医疗资源、长寿医学、再生医学、干细胞、外泌体与会员服务的基础问题。",
     downloadCta: "下载 PDF",
+    faq: "FAQ 杂志",
+    faqTitle: "每天更新的高净值健康管理 FAQ",
+    faqBody: "上千条短问答按知识中心收纳，答案默认收起。像翻杂志一样扫标题，感兴趣再点开。",
+    faqCta: "进入 FAQ",
     centers: "10大知识中心",
     centersBody: "每个中心都可以进入独立页面，查看主题大图、专业文献方向、延伸文章与行业知识下载。"
   },
@@ -88,6 +92,10 @@ const pageCopy = {
     downloadTitle: "Medical Family Office FAQ",
     downloadBody: "医療ファミリーオフィス、健康管理、セカンドオピニオン、国際医療アクセス、長寿医学、再生医療、幹細胞、エクソソーム、会員サービスの基本を整理した資料です。",
     downloadCta: "PDFをダウンロード",
+    faq: "FAQマガジン",
+    faqTitle: "毎日更新する富裕層向け健康管理 FAQ",
+    faqBody: "多数の短いFAQをナレッジセンター別に整理。回答は閉じた状態で、読みたい質問だけ開けます。",
+    faqCta: "FAQを見る",
     centers: "10のナレッジセンター",
     centersBody: "各センターから、テーマ画像、専門文献テーマ、関連記事、業界資料ダウンロードへ進めます。"
   },
@@ -108,6 +116,10 @@ const pageCopy = {
     downloadTitle: "Medical Family Office Frequently Asked Questions",
     downloadBody: "A structured FAQ covering Medical Family Office, health management, second opinions, global medical access, longevity medicine, regenerative medicine, stem cells, exosomes, and membership.",
     downloadCta: "Download PDF",
+    faq: "FAQ Magazine",
+    faqTitle: "A daily FAQ library for private health management",
+    faqBody: "Thousands of compact questions are organized by knowledge center. Answers stay closed by default; readers open only what matters.",
+    faqCta: "Open FAQ",
     centers: "10 Knowledge Centers",
     centersBody: "Each center opens into a dedicated page with a theme image, professional literature map, related articles, and downloadable industry knowledge."
   }
@@ -237,25 +249,42 @@ export default function KnowledgeCenterPage({
 
       <section className="bg-pearl px-5 pb-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 border border-champagne/40 bg-white p-8 shadow-sm md:grid md:grid-cols-[0.78fr_1.22fr_auto] md:items-center md:gap-8">
-            <div>
+          <div className="mb-12 grid gap-5 lg:grid-cols-2">
+            <div className="border border-champagne/40 bg-white p-8 shadow-sm">
+              <p className="text-xs uppercase tracking-[0.3em] text-champagne">
+                {copy.faq}
+              </p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-ink md:text-4xl">
+                {copy.faqTitle}
+              </h2>
+              <p className="mt-6 text-sm leading-7 text-graphite/72">
+                {copy.faqBody}
+              </p>
+              <Link
+                href={withLanguage("/knowledge-center/faq", lang)}
+                className="mt-7 inline-flex bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-pearl transition hover:bg-champagne hover:text-ink"
+              >
+                {copy.faqCta} →
+              </Link>
+            </div>
+            <div className="border border-champagne/40 bg-white p-8 shadow-sm">
               <p className="text-xs uppercase tracking-[0.3em] text-champagne">
                 {copy.downloads}
               </p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-ink md:text-4xl">
                 {copy.downloadTitle}
               </h2>
+              <p className="mt-6 text-sm leading-7 text-graphite/72">
+                {copy.downloadBody}
+              </p>
+              <a
+                href="/medical-family-office-faq.pdf"
+                download
+                className="mt-7 inline-flex bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-pearl transition hover:bg-champagne hover:text-ink"
+              >
+                {copy.downloadCta}
+              </a>
             </div>
-            <p className="mt-6 text-sm leading-7 text-graphite/72 md:mt-0">
-              {copy.downloadBody}
-            </p>
-            <a
-              href="/medical-family-office-faq.pdf"
-              download
-              className="mt-7 inline-flex bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-pearl transition hover:bg-champagne hover:text-ink md:mt-0"
-            >
-              {copy.downloadCta}
-            </a>
           </div>
           <div className="mb-10 grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
             <div>

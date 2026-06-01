@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/founder",
     "/medical-advisory",
     "/medical-governance-framework",
+    "/knowledge-center/faq",
     "/knowledge-center/longevity-medicine",
     "/research-center",
     "/case-library",

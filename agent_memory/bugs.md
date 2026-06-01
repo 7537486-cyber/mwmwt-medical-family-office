@@ -32,3 +32,4 @@
 - 切换到 `aeteralife.com` 后，表单默认发送到 `contact@aeteralife.com`，FAQ PDF 也已同步新域名和新邮箱；如果该邮箱尚未创建或 Resend 发信域名未验证，线上询盘邮件会失败或退信。上线前需先完成新域名邮箱与 Resend/Vercel 环境变量配置。
 - 用户手机端仍看到“暂时无法提交，请稍后再试。”说明生产环境很可能仍在运行旧前端错误提示，或 Vercel 尚未重新部署最新代码；最新代码已能区分 `RESEND_API_KEY` 缺失、Resend 发信域名未验证、必填项缺失和网络失败。排查时应先确认 Vercel 最新 Production Deployment 是否包含联系表单诊断改动。
 - 如果最新代码部署后仍提示 `EMAIL_SEND_FAILED`，优先检查 Resend 是否已验证 `aeteralife.com` 发信域名，以及 Vercel 环境变量 `CONTACT_FROM_EMAIL=Medical Family Office <contact@aeteralife.com>` 是否可用；未验证前使用 `contact@aeteralife.com` 作为发件人会被 Resend 拒绝。
+- FAQ Magazine 当前以静态数据源生成 1000 条短 FAQ，已经具备“每日更新”展示形态；若要真正自动每天新增内容，需要后续接 CMS、Google Sheet/Notion 数据源、GitHub 定时生成或后台发布流程，否则仍需要通过代码/数据提交后部署更新。

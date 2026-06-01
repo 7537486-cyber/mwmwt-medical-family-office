@@ -34,12 +34,12 @@ export const trustPages: Record<string, TrustPageContent> = {
     copies: {
       zh: {
         eyebrow: "About Medical Family Office",
-        title: "Medical Family Office 是面向全球家族的医疗家族办公室。",
+        title: "为什么成功家庭需要 Medical Family Office？",
         description:
-          "我们为企业家、高净值家庭与跨境客户提供日本医疗资源协调、长期健康治理、长寿医学规划和私人医疗礼宾支持。",
-        secondaryTitle: "不是医院，也不是单一项目中介。",
+          "当医疗信息越来越复杂，真正稀缺的不是更多项目，而是能帮助家庭判断风险、选择资源、整理资料并持续跟进的长期顾问体系。",
+        secondaryTitle: "传统医疗是生病后找医院；Medical Family Office 是健康时就开始管理。",
         secondaryDescription:
-          "Medical Family Office 的核心价值，是代表客户进行医疗资源筛选、医生沟通、资料整理、风险说明和长期随访管理。",
+          "AETERA 不替代医生诊断，也不承诺疗效。我们的价值是代表客户进行医疗资源筛选、医生沟通、资料整理、风险说明和长期随访管理。",
         sections: [
           {
             title: "我们的定位",
@@ -49,10 +49,17 @@ export const trustPages: Record<string, TrustPageContent> = {
             ]
           },
           {
-            title: "我们解决的问题",
+            title: "我们解决的真实问题",
             body: [
-              "高净值客户往往不缺预算，真正困难的是判断医生是否可靠、医院是否合规、项目是否适合、风险是否充分说明，以及治疗或体检之后是否有人持续跟进。",
-              "Medical Family Office 将医疗资源获取、医学资料整理、跨语言沟通、预约协调、长期健康档案和家庭健康规划整合为一个清晰的服务体系。"
+              "高净值客户往往不缺预算，真正困难的是：我40岁以后如何判断自己老得快不快？一年体检几十万到底该信谁？日本干细胞到底靠不靠谱？父母遇到癌症风险时，应该找谁做第二诊疗意见？企业家如何避免长期高压带来的猝发风险？家庭健康档案应该怎么建立？",
+              "Medical Family Office 将医疗资源获取、医学资料整理、跨语言沟通、预约协调、长期健康档案和家庭健康规划整合为一个清晰的服务体系，让客户不再只靠广告、熟人介绍或碎片信息做重大健康决策。"
+            ]
+          },
+          {
+            title: "我们的工作方式",
+            body: [
+              "第一步不是推荐项目，而是理解客户的目标、既往资料、家族史、时间安排、隐私需求和风险承受能力。",
+              "随后，我们把问题转化为医生可以判断的医学资料，协助匹配合适的公开专家资源、医院方向、检查路径、第二意见或长期健康管理方案。"
             ]
           },
           {
@@ -64,19 +71,19 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "医疗资源协调", body: "连接日本及全球合规医疗机构、公开医学专家资料与专科资源。" },
-          { title: "风险管理", body: "围绕合规、医生资质、资料完整性和预期边界进行审慎说明。" },
-          { title: "长期随访", body: "把体检、治疗、指标变化和家庭健康计划纳入持续管理。" }
+          { title: "判断医生与医院", body: "帮助客户核对公开资质、专科方向、资料要求、合规边界与适合场景。" },
+          { title: "减少信息不对称", body: "把复杂医学信息、跨语言资料和碎片建议整理为可讨论、可复盘的判断材料。" },
+          { title: "建立长期健康档案", body: "把体检、第二意见、治疗记录、指标变化和家庭健康计划纳入持续管理。" }
         ]
       },
       ja: {
         eyebrow: "About Medical Family Office",
-        title: "Medical Family Officeはグローバル家族のための医療ファミリーオフィスです。",
+        title: "なぜ成功した家族に Medical Family Office が必要なのか。",
         description:
-          "経営者、富裕層家族、国際医療ニーズを持つお客様に、日本医療資源の調整、長期健康管理、長寿医学計画、プライベート医療コンシェルジュを提供します。",
-        secondaryTitle: "病院でも単一プログラムの仲介でもありません。",
+          "医療情報が複雑になるほど、必要なのはより多くのプログラムではなく、リスク、資源、資料整理、継続フォローを支える長期的な助言体系です。",
+        secondaryTitle: "従来の医療は病気になってから病院へ行く。Medical Family Office は健康な時から管理を始めます。",
         secondaryDescription:
-          "Medical Family Officeの役割は、医療資源の確認、医師との調整、資料整理、リスク説明、長期フォローをお客様側に立って支援することです。",
+          "AETERA は診断や治療を代替せず、効果を保証しません。医療資源確認、医師調整、資料整理、リスク説明、長期フォローをお客様側に立って支援します。",
         sections: [
           {
             title: "私たちの位置づけ",
@@ -86,10 +93,17 @@ export const trustPages: Record<string, TrustPageContent> = {
             ]
           },
           {
-            title: "解決する課題",
+            title: "解決する実際の課題",
             body: [
-              "富裕層のお客様にとって難しいのは費用ではなく、医師の信頼性、医療機関の適法性、プログラムの適合性、リスク説明、受診後の継続管理です。",
-              "Medical Family Officeは医療資源アクセス、資料整理、多言語調整、予約、長期健康記録、家族健康計画を一つの体系にまとめます。"
+              "富裕層のお客様にとって難しいのは費用ではありません。40代以降の老化速度をどう見るか、高額な健診をどう判断するか、日本の再生医療をどう確認するか、親世代のがんリスクで誰に相談するか、経営者の高ストレスリスクをどう管理するかが課題です。",
+              "Medical Family Office は医療資源アクセス、資料整理、多言語調整、予約、長期健康記録、家族健康計画を一つの体系にまとめ、広告や断片的な紹介だけに頼らない判断を支えます。"
+            ]
+          },
+          {
+            title: "私たちの進め方",
+            body: [
+              "最初に行うのはプログラム提案ではなく、目的、既往資料、家族歴、時間軸、秘匿性、リスク許容度の理解です。",
+              "そのうえで、医師が判断しやすい医学資料へ整理し、公開専門家情報、病院方向、検査経路、セカンドオピニオン、長期健康管理の選択肢を調整します。"
             ]
           },
           {
@@ -101,19 +115,19 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "医療資源調整", body: "日本および海外の適法な医療機関、公開医学専門家情報、専門資源へ接続します。" },
-          { title: "リスク管理", body: "コンプライアンス、医師資格、資料の完全性、期待値の境界を慎重に整理します。" },
-          { title: "長期フォロー", body: "健診、治療、指標変化、家族健康計画を継続的に管理します。" }
+          { title: "医師と病院の判断", body: "公開資格、専門領域、資料要件、適法性、適した相談場面を確認します。" },
+          { title: "情報の非対称性を減らす", body: "複雑な医学情報、多言語資料、断片的な助言を、議論可能な材料へ整理します。" },
+          { title: "長期健康記録", body: "健診、セカンドオピニオン、治療記録、指標変化、家族健康計画を継続管理します。" }
         ]
       },
       en: {
         eyebrow: "About Medical Family Office",
-        title: "Medical Family Office is a private medical advisory platform for global families.",
+        title: "Why successful families need a Medical Family Office.",
         description:
-          "We support entrepreneurs, high-net-worth families, and cross-border clients with Japan medical access, long-term health governance, longevity planning, and private medical concierge coordination.",
-        secondaryTitle: "We are not a hospital or a single-treatment broker.",
+          "As medical information becomes more complex, families do not need more programs. They need a long-term advisory system for risk, resources, records, and follow-up.",
+        secondaryTitle: "Traditional healthcare begins after illness. A Medical Family Office begins while health can still be managed.",
         secondaryDescription:
-          "Our role is to help clients evaluate resources, organize records, coordinate physicians, understand risk boundaries, and manage follow-up over time.",
+          "AETERA does not replace physicians or promise outcomes. Our role is to help clients evaluate resources, organize records, coordinate physicians, understand risk boundaries, and manage follow-up over time.",
         sections: [
           {
             title: "Our Position",
@@ -123,10 +137,17 @@ export const trustPages: Record<string, TrustPageContent> = {
             ]
           },
           {
-            title: "The Problem We Solve",
+            title: "The Real Problems We Solve",
             body: [
-              "For UHNW clients, the hardest question is rarely cost. It is whether the doctor is reliable, the institution is compliant, the program is appropriate, risks are explained, and follow-up is managed.",
-              "Medical Family Office integrates medical access, document preparation, multilingual coordination, appointment management, long-term health records, and family health planning."
+              "For UHNW clients, the hardest question is rarely cost. It is whether aging risk is being tracked, which expensive checkup is worth trusting, whether stem cell-related programs in Japan are compliant, how to seek a cancer second opinion for parents, how founders should manage high-pressure health risk, and how a family health archive should be built.",
+              "Medical Family Office integrates medical access, document preparation, multilingual coordination, appointment management, long-term health records, and family health planning so clients do not rely only on advertising, personal introductions, or fragmented information."
+            ]
+          },
+          {
+            title: "How We Work",
+            body: [
+              "The first step is not recommending a program. It is understanding goals, prior records, family history, timing, privacy needs, and risk tolerance.",
+              "We then convert concerns into physician-readable medical information and coordinate suitable public expert references, hospital directions, screening pathways, second opinions, or long-term health management options."
             ]
           },
           {
@@ -138,9 +159,9 @@ export const trustPages: Record<string, TrustPageContent> = {
           }
         ],
         cards: [
-          { title: "Medical Access", body: "Connect with compliant institutions, public medical expert references, and specialty resources in Japan and globally." },
-          { title: "Risk Governance", body: "Review compliance, physician background, document readiness, and realistic expectations." },
-          { title: "Long-Term Follow-Up", body: "Integrate checkups, treatment records, indicators, and family health planning into one system." }
+          { title: "Judge Doctors and Hospitals", body: "Review public credentials, specialty direction, document requirements, compliance boundaries, and suitable use cases." },
+          { title: "Reduce Information Asymmetry", body: "Turn complex medical information, multilingual records, and fragmented opinions into reviewable decision material." },
+          { title: "Build Long-Term Health Archives", body: "Integrate checkups, second opinions, treatment records, indicators, and family health planning into one system." }
         ]
       }
     }
@@ -153,25 +174,32 @@ export const trustPages: Record<string, TrustPageContent> = {
     copies: {
       zh: {
         eyebrow: "Founder",
-        title: "Why We Created Medical Family Office",
+        title: "Why I Created AETERA",
         description:
-          "过去很多年，我都在思考一个问题：我们花了一生管理事业、资金、风险与未来，却常常以最被动的方式面对健康。",
-        secondaryTitle: "Aging is inevitable. Decline is not.",
+          "40岁以后，我越来越清楚地意识到：很多企业家会用极强的系统能力管理公司、资金和风险，却很少用同样的方式管理健康。",
+        secondaryTitle: "我希望建立的，不是一家诊所，而是一套长期陪伴家庭做健康决策的系统。",
         secondaryDescription:
-          "时间无法停止。但健康可以被管理，风险可以被提前发现，未来可以被更好地规划。",
+          "日本拥有非常好的医疗资源，但对跨境客户来说，信息、语言、流程、医生选择和风险判断并不透明。AETERA 正是为了解决这种不确定性而存在。",
         sections: [
           {
-            title: "健康的时间",
+            title: "从40岁以后开始重新理解时间",
             body: [
-              "我们花了一生的时间经营事业，学习如何管理公司、团队、资金、风险与未来。但当涉及健康时，大多数人却仍然采用最被动的方式：等到出现症状才去检查，等到疾病发生才开始治疗，等到身体发出警报才意识到健康的重要性。",
+              "当一个人进入40岁以后，健康不再只是体检报告上的数字，而会逐渐影响精力、判断力、家庭责任和人生安排。很多企业家最怕的不是花钱，而是在关键时刻不知道该相信谁、该去哪里、该如何判断风险。",
               "对于企业家、高净值家庭和长期承担责任的人来说，真正稀缺的资源从来不是财富，而是时间。更准确地说，是健康的时间。"
             ]
           },
           {
             title: "健康也需要系统思维",
             body: [
-              "随着年龄增长，我开始接触越来越多优秀的企业家。他们拥有成功的事业、幸福的家庭和丰富的人生经历。但我也发现一个共同现象：很多人对公司的经营投入巨大精力，却很少用同样的系统思维去管理自己的身体。",
+              "我接触到越来越多优秀的企业家。他们拥有成功的事业、幸福的家庭和丰富的人生经历。但我也发现一个共同现象：很多人对公司的经营投入巨大精力，却很少用同样的系统思维去管理自己的身体。",
               "事实上，健康和企业一样。需要长期规划，需要风险管理，需要专业顾问，需要持续监测，更需要提前行动。"
+            ]
+          },
+          {
+            title: "为什么是日本",
+            body: [
+              "日本医疗体系稳定、流程克制、检查文化成熟，并且在长寿社会、精密体检、专科诊疗和再生医疗监管方面形成了独特基础。",
+              "但好资源并不等于容易获得。跨境客户往往面对语言障碍、资料准备、预约规则、医生匹配、风险说明和隐私安排。AETERA 希望把这些复杂环节变成更清晰、更可管理的路径。"
             ]
           },
           {
@@ -184,7 +212,7 @@ export const trustPages: Record<string, TrustPageContent> = {
           {
             title: "Medical Family Office 的角色",
             body: [
-              "Medical Family Office 的诞生，正是基于这样的理念。我们不是一家诊所，也不是一家销售医疗项目的公司。我们的角色更像一个长期医疗顾问团队。",
+              "AETERA 的诞生，正是基于这样的理念。我们不是一家诊所，也不是一家销售医疗项目的公司。我们的角色更像一个长期医疗顾问团队。",
               "我们帮助客户整合全球医疗资源，建立个人与家庭的健康档案，制定长期健康规划，在关键医疗决策时提供专业支持，并陪伴客户走过未来数十年的健康旅程。"
             ]
           },

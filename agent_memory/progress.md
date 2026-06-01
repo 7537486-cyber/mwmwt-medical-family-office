@@ -58,6 +58,10 @@
 
 当前发布状态：已本地提交 `88601e5 fix contact form submission diagnostics`；推送到 GitHub 时因终端 GitHub 凭证缺失失败（浏览器已登录不等于终端已登录）。需要用户在本机终端或 GitHub Desktop 完成推送，Vercel 才会自动部署最新表单修复。
 
+当前 FAQ 流量池：用户要求 FAQ 未来扩展到上千条、放在知识中心、不放首页、不要教科书感、使用 `＋/−` 展开收起，并保持每天持续更新的内容形态。已新增 `/knowledge-center/faq` FAQ Magazine 页面，按 10 个知识中心生成 1000 条短 FAQ，答案默认收起；知识中心首页新增 FAQ 杂志入口，sitemap 已加入 FAQ 页面。
+
+当前长期内容机制：用户要求每天持续更新全球抗衰知识，目标成为行业定义者、给出最权威答案。已创建每日自动任务“ AETERA 全球抗衰权威情报日报 ”，每天 09:00（Asia/Shanghai）生成中文权威情报简报，要求引用 PubMed、Nature、Science、Cell、NEJM、Lancet、JAMA、WHO、FDA、EMA、PMDA、NIH/NIA 等权威来源，按证据等级分层，并输出官网选题、合规边界和行业定义者观点。
+
 ## 成功标准
 
 - FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
@@ -65,6 +69,9 @@
 - PDF 文件生成后完成基础文件格式与关键文字验证。
 - 知识中心页面展示 FAQ PDF 下载入口，链接到 `/medical-family-office-faq.pdf`。
 - sitemap 包含 PDF 静态资源地址。
+- FAQ 不出现在首页，只在知识中心承接。
+- FAQ 页面以杂志式短问题呈现，默认收起，点击 `＋` 展开、点击后显示 `−`。
+- FAQ 数据结构支持上千条内容和后续持续更新。
 - 首页 9 个服务卡片在桌面端呈现 3+3+3
 - 服务卡片不再复用同一张图片
 - 新增富士山健康长寿、家庭健康规划、生育力保存等更有人气的图片
@@ -83,6 +90,10 @@
 - 已新增本地生成脚本：`generated/generate_medical_family_office_faq_pdf.py`。
 - 已在 `/knowledge-center` 页面底部分类区上方新增 PDF 资料下载卡片，支持中日英文案。
 - 已在 sitemap 中加入 `https://mwmwt.com/medical-family-office-faq.pdf`。
+- 已新增 FAQ 数据源 `lib/knowledge-faq.ts`，按 10 个知识中心、10 类客户、10 个问题角度生成 1000 条短 FAQ。
+- 已新增 `/knowledge-center/faq` 页面，采用 FAQ Magazine 样式，含最新问题、知识中心导航、完整 FAQ 目录和 `FAQPage` 结构化数据。
+- 已在知识中心首页新增 FAQ 杂志入口卡片，链接到 `/knowledge-center/faq`。
+- 已在 sitemap 中加入 `/knowledge-center/faq`。
 - 已生成并保存 5 张新图片到 `public/`
 - 已将首页服务卡桌面布局调整为 3 列，9 个卡片为三行
 - 已将首页服务项调整为：服务、再生医疗、长寿规划、医疗礼宾、日本医院网络、医生网络、资源数据库、冻卵咨询、家庭健康计划
@@ -187,6 +198,9 @@
 - 已执行构建产物关键字检索，确认 `.next` 中包含 `/medical-family-office-faq.pdf` 下载链接与 sitemap 记录。
 - 已推送到 GitHub `origin/main`，线上 `https://mwmwt.com/medical-family-office-faq.pdf` 返回 `HTTP 200`、`content-type: application/pdf`，文件大小 32532 字节。
 - 已抓取 `https://mwmwt.com/knowledge-center`，确认线上页面包含 `/medical-family-office-faq.pdf`、`PDF 资料下载` 与 `Medical Family Office 常见问题`。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认 FAQ 数据源、FAQ 页面和知识中心入口无类型错误。
+- 已执行 `npm run build`，Next.js 生产构建通过，新增 `/knowledge-center/faq` 路由，当前生成 163 个页面。
+- 已执行构建产物关键字检索，确认 `.next` 中包含 `/knowledge-center/faq`，sitemap 包含 `https://aeteralife.com/knowledge-center/faq`。
 - 已执行 `npm run build`，Next.js 生产构建通过，生成 23 个路由
 - 已再次执行 `npm run build`，Next.js 生产构建通过，确认治理体系、会员体系和 sitemap 改动未破坏构建
 - 已执行 `npm run build`，Next.js 生产构建通过，确认知识库首页与长寿医学文章静态路由生成正常，共 25 个路由
@@ -248,6 +262,7 @@
 - 已重新生成 `generated/medical-family-office-faq.pdf`，并覆盖网站下载版本 `public/medical-family-office-faq.pdf`。
 - 已执行 `strings public/medical-family-office-faq.pdf | rg`，确认公开 PDF 内包含 `aeteralife.com` 与 `contact@aeteralife.com`。
 - 已执行旧域名残留检索，确认 `app`、`components`、`lib`、`DEPLOY.md`、`README.md`、FAQ PDF 生成脚本和公开 PDF 中不再出现 `mwmwt.com` 或 `info@mwmwt.com`。
+- 已创建自动任务 `aetera`：每日 09:00 生成全球抗衰/长寿医学权威情报日报，输出权威更新、证据等级、谨慎传播边界、官网选题和可公开发表的行业观点。
 - 已将首页长文字模块继续下沉到内页，只保留品牌判断、简短 Why Japan、Founder Letter、案例入口与咨询入口。
 - 已为顶部预约按钮增加可选日历链接环境变量 `NEXT_PUBLIC_CALENDAR_URL`。
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认联系表单 `success` JSON 判断与 API 返回类型一致。
