@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CinematicSection } from "@/components/CinematicSection";
+import { ExpandableText } from "@/components/ExpandableText";
 import { normalizeLanguage, withLanguage } from "@/lib/site";
 
 const copy = {
@@ -12,7 +12,8 @@ const copy = {
     heroCta: "申请私密顾问沟通",
     missionEyebrow: "Mission",
     missionTitle: "Extend Healthspan, Not Just Lifespan.",
-    missionBody: "延长健康寿命，而不仅是生命长度。",
+    missionBody:
+      "Our Mission\n\nTo help families extend not only lifespan, but healthspan — ensuring more years lived with vitality, dignity, and purpose.\n\n帮助家庭延长的不仅是寿命（Lifespan），更是健康寿命（Healthspan）。让更多岁月充满活力、尊严与意义。\n\nAETERA 的愿景，是成为亚洲领先的医疗家族办公室。我们相信，健康不应该等到疾病发生后才被重视，而应该像财富、企业与家族资产一样，被长期规划、专业管理、持续追踪。\n\nAETERA 希望为企业家家庭建立一套长期的健康管理系统，整合日本及全球优质医疗资源，帮助客户管理衰老相关风险、降低重大疾病风险、提升生命质量，并在关键医疗决策中获得更清晰、更可信赖的答案。\n\n我们的目标不是提供一次性的医疗项目，而是长期陪伴一个家庭管理最重要的资产：生命本身。",
     visionEyebrow: "Vision",
     visionTitle: "A Medical Family Office for Every Successful Family.",
     visionBody: "让每一个成功家庭都拥有自己的医疗家族办公室。",
@@ -61,7 +62,8 @@ const copy = {
     heroCta: "プライベート相談を申請",
     missionEyebrow: "Mission",
     missionTitle: "Extend Healthspan, Not Just Lifespan.",
-    missionBody: "寿命だけでなく、健康寿命を延ばす。",
+    missionBody:
+      "Our Mission\n\nTo help families extend not only lifespan, but healthspan — ensuring more years lived with vitality, dignity, and purpose.\n\n家族が延ばすべきものは寿命だけではなく、健康寿命です。より多くの時間を、活力、尊厳、目的とともに生きるために。\n\nAETERA のビジョンは、アジアを代表する Medical Family Office になることです。健康は病気が起きてから重視されるものではなく、資産、事業、家族資産と同じように、長期的に計画され、専門的に管理され、継続的に見直されるべきものです。\n\nAETERA は、経営者家族のために長期的な健康管理システムを構築し、日本および世界の質の高い医療資源を統合します。老化に関連するリスク、重大疾患リスク、生活の質、そして重要な医療判断における信頼できる答えを支援します。\n\n私たちの目的は一回限りの医療プログラムではなく、家族にとって最も重要な資産である生命そのものを長期的に支えることです。",
     visionEyebrow: "Vision",
     visionTitle: "A Medical Family Office for Every Successful Family.",
     visionBody: "すべての成功した家族に、自分たちの医療ファミリーオフィスを。",
@@ -110,7 +112,8 @@ const copy = {
     heroCta: "Apply for Private Consultation",
     missionEyebrow: "Mission",
     missionTitle: "Extend Healthspan, Not Just Lifespan.",
-    missionBody: "The goal is not simply to live longer, but to live longer with function, clarity, and dignity.",
+    missionBody:
+      "Our Mission\n\nTo help families extend not only lifespan, but healthspan — ensuring more years lived with vitality, dignity, and purpose.\n\nAETERA's vision is to become Asia's leading Medical Family Office. We believe health should not wait until illness appears. It should be planned, professionally managed, and continuously reviewed like wealth, enterprise value, and family assets.\n\nAETERA helps entrepreneurial families build a long-term health management system, integrating Japan and global medical resources to manage age-related risk, reduce major disease risk, improve quality of life, and obtain clearer, more trustworthy answers at critical medical decision points.\n\nOur goal is not to provide a one-time medical program. It is to accompany a family over time in managing its most important asset: life itself.",
     visionEyebrow: "Vision",
     visionTitle: "A Medical Family Office for Every Successful Family.",
     visionBody: "Every successful family should have a trusted system for long-term medical decisions.",
@@ -153,79 +156,11 @@ const copy = {
   }
 };
 
-const protectItems = {
-  zh: [
-    ["Decision Making Ability", "判断力"],
-    ["Mobility", "行动能力"],
-    ["Cognitive Health", "认知能力"],
-    ["Family Stability", "家庭稳定性"],
-    ["Time", "人生时间"]
-  ],
-  ja: [
-    ["Decision Making Ability", "判断力"],
-    ["Mobility", "行動能力"],
-    ["Cognitive Health", "認知機能"],
-    ["Family Stability", "家族の安定"],
-    ["Time", "人生の時間"]
-  ],
-  en: [
-    ["Decision Making Ability", "Clarity before major decisions"],
-    ["Mobility", "The freedom to keep moving"],
-    ["Cognitive Health", "Judgment, memory, and focus"],
-    ["Family Stability", "Less uncertainty for the family"],
-    ["Time", "More high-quality years"]
-  ]
-};
-
 const japanFacts = {
   zh: ["世界最长寿国家之一", "医疗体系稳定", "医疗资源密度高", "检查体系完善", "隐私性强", "医患关系克制"],
   ja: ["世界有数の長寿国", "安定した医療制度", "医療資源の密度", "精密な検査体制", "高い秘匿性", "抑制的な医患関係"],
   en: ["Long-living society", "Stable healthcare system", "Dense medical resources", "Mature screening culture", "High privacy standards", "Measured physician-patient culture"]
 };
-
-const processSteps = {
-  zh: [
-    ["01", "Assessment", "健康目标、家族背景、既往资料与风险议题。"],
-    ["02", "Strategy", "明确优先级、边界、可选路径和时间安排。"],
-    ["03", "Access", "匹配日本及全球合规医疗资源与专家路径。"],
-    ["04", "Follow-up", "建立长期档案、复盘指标和下一阶段计划。"]
-  ],
-  ja: [
-    ["01", "Assessment", "健康目標、家族背景、既存資料、リスク課題を確認。"],
-    ["02", "Strategy", "優先順位、境界、選択肢、時間軸を整理。"],
-    ["03", "Access", "日本および海外の適切な医療資源と専門家経路を調整。"],
-    ["04", "Follow-up", "長期記録、指標レビュー、次段階計画を構築。"]
-  ],
-  en: [
-    ["01", "Assessment", "Health goals, family context, records, and risk concerns."],
-    ["02", "Strategy", "Priorities, boundaries, options, and timing."],
-    ["03", "Access", "Japan and global medical resources with appropriate specialist pathways."],
-    ["04", "Follow-up", "Long-term records, indicator reviews, and next-stage plans."]
-  ]
-};
-
-const journeyCards = {
-  zh: [
-    ["Second Opinion", "浙江企业家重大健康风险第二意见", "/case-library/second-opinion-certainty"],
-    ["Executive Health", "连续失眠企业家健康管理路径", "/case-library/executive-sleep-health"],
-    ["Family Medical Planning", "企业家夫妻赴日冻卵与家庭规划", "/case-library/family-fertility-planning"],
-    ["Risk Management", "癌症风险筛查与长期管理路径", "/case-library/cancer-risk-management"]
-  ],
-  ja: [
-    ["Second Opinion", "中国人経営者の重大リスクとセカンドオピニオン", "/case-library/second-opinion-certainty"],
-    ["Executive Health", "不眠が続く経営者の健康管理", "/case-library/executive-sleep-health"],
-    ["Family Medical Planning", "日本での卵子凍結と家族計画", "/case-library/family-fertility-planning"],
-    ["Risk Management", "がんリスク検査と長期管理", "/case-library/cancer-risk-management"]
-  ],
-  en: [
-    ["Second Opinion", "Zhejiang entrepreneur second-opinion journey", "/case-library/second-opinion-certainty"],
-    ["Executive Health", "Persistent insomnia and founder health management", "/case-library/executive-sleep-health"],
-    ["Family Medical Planning", "Fertility preservation and family planning in Japan", "/case-library/family-fertility-planning"],
-    ["Risk Management", "Cancer risk screening and long-term planning", "/case-library/cancer-risk-management"]
-  ]
-};
-
-const membershipTiers = ["Silver", "Gold", "Black", "Family Office"];
 
 export default function Home({
   searchParams
@@ -239,7 +174,7 @@ export default function Home({
     <>
       <section className="relative min-h-[92vh] overflow-hidden bg-ink text-pearl">
         <Image
-          src="/fuji-active-longevity.png"
+          src="/hero-longevity-concierge.png"
           alt="Private longevity medical advisory setting"
           fill
           priority
@@ -277,53 +212,14 @@ export default function Home({
             <article key={eyebrow} className="bg-ink p-8 md:p-10">
               <p className="text-xs uppercase tracking-[0.34em] text-champagne">{eyebrow}</p>
               <h2 className="mt-7 font-serif text-4xl leading-tight md:text-5xl">{title}</h2>
-              <p className="mt-6 text-base leading-8 text-pearl/68">{body}</p>
+              <ExpandableText
+                text={body}
+                lang={lang}
+                className="mt-6 text-base leading-8 text-pearl/68"
+                buttonClassName="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-champagne transition hover:text-pearl"
+              />
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-white px-5 py-24 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-          <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-              {text.assetEyebrow}
-            </p>
-            <h2 className="mt-5 font-serif text-5xl leading-tight text-ink md:text-7xl">
-              {text.assetTitle}
-            </h2>
-          </div>
-          <p className="text-xl leading-10 text-graphite/74">{text.assetBody}</p>
-        </div>
-      </section>
-
-      <CinematicSection
-        eyebrow="Healthspan Strategy"
-        title="Your health deserves a long-term strategy."
-        body={
-          lang === "ja"
-            ? "単発の検査や治療ではなく、健康寿命、リスク管理、医療資源、家族の意思決定を一つの長期戦略として扱います。"
-            : lang === "en"
-              ? "Not a single checkup or procedure, but a long-term strategy across healthspan, risk control, medical access, and family decision-making."
-              : "不是一次体检或一个项目，而是把健康寿命、风险控制、医疗资源和家庭决策放进同一套长期战略。"
-        }
-        image={{ src: "/hero-medical-family-office.png", alt: "Private medical family office strategy" }}
-      />
-
-      <section className="bg-pearl px-5 py-24 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.protectEyebrow}</p>
-          <h2 className="mt-5 max-w-4xl font-serif text-4xl leading-tight text-ink md:text-6xl">
-            {text.protectTitle}
-          </h2>
-          <div className="mt-12 grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-5">
-            {protectItems[lang].map(([title, body]) => (
-              <article key={title} className="bg-white p-6">
-                <p className="text-xs uppercase tracking-[0.24em] text-champagne">{title}</p>
-                <h3 className="mt-5 text-xl font-semibold leading-7 text-ink">{body}</h3>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -351,24 +247,12 @@ export default function Home({
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-ink px-5 py-24 text-pearl lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.worksEyebrow}</p>
-          <h2 className="mt-5 max-w-4xl font-serif text-4xl leading-tight md:text-6xl">
-            {text.worksTitle}
-          </h2>
-          <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-4">
-            {processSteps[lang].map(([number, title, body]) => (
-              <article key={number} className="bg-ink p-7">
-                <p className="font-serif text-5xl text-champagne">{number}</p>
-                <h3 className="mt-8 text-xl font-semibold text-pearl">{title}</h3>
-                <p className="mt-4 text-sm leading-7 text-pearl/68">{body}</p>
-              </article>
-            ))}
+            <Link
+              href={withLanguage("/global-medical-access", lang)}
+              className="mt-10 inline-flex border border-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-pearl"
+            >
+              {lang === "ja" ? "詳しく見る" : lang === "en" ? "Explore Japan Access" : "了解日本医疗入口"} <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -415,69 +299,6 @@ export default function Home({
           >
             {text.caseCta} <span aria-hidden="true">→</span>
           </Link>
-        </div>
-      </section>
-
-      <section className="bg-pearl px-5 py-24 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-            <div>
-              <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.journeyEyebrow}</p>
-              <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-                {text.journeyTitle}
-              </h2>
-            </div>
-            <p className="text-lg leading-9 text-graphite/72">{text.journeyBody}</p>
-          </div>
-          <div className="mt-12 grid gap-px overflow-hidden border border-mist bg-mist md:grid-cols-4">
-            {journeyCards[lang].map(([label, title, href]) => (
-              <Link
-                key={href}
-                href={withLanguage(href, lang)}
-                className="group bg-white p-6 transition hover:bg-ink"
-              >
-                <p className="text-xs uppercase tracking-[0.24em] text-champagne">{label}</p>
-                <h3 className="mt-6 text-lg font-semibold leading-7 text-ink transition group-hover:text-pearl">
-                  {title}
-                </h3>
-                <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-graphite/48 transition group-hover:text-champagne">
-                  Read →
-                </p>
-              </Link>
-            ))}
-          </div>
-          <Link
-            href={withLanguage("/case-library", lang)}
-            className="mt-10 inline-flex border border-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-pearl"
-          >
-            {text.journeyCta} <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="bg-white px-5 py-24 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div>
-            <p className="text-xs uppercase tracking-[0.34em] text-champagne">{text.membershipEyebrow}</p>
-            <h2 className="mt-5 font-serif text-4xl leading-tight text-ink md:text-6xl">
-              {text.membershipTitle}
-            </h2>
-            <p className="mt-6 text-lg leading-9 text-graphite/72">{text.membershipBody}</p>
-            <Link
-              href={withLanguage("/membership-program", lang)}
-              className="mt-10 inline-flex border border-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-ink transition hover:bg-ink hover:text-pearl"
-            >
-              {text.membershipCta} <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {membershipTiers.map((tier, index) => (
-              <div key={tier} className="border border-mist bg-pearl p-7">
-                <p className="font-serif text-4xl text-champagne">0{index + 1}</p>
-                <h3 className="mt-8 text-xl font-semibold text-ink">{tier}</h3>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

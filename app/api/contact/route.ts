@@ -16,12 +16,14 @@ type ContactPayload = {
   inquiryType?: string;
   urgency?: string;
   background?: string;
+  backgroundTags?: string[];
   sourcePage?: string;
   consent?: boolean;
 };
 
 type ResendError = {
   message?: string;
+  name?: string;
 };
 
 const contactToEmail = "contact@aeteralife.com";
@@ -41,6 +43,10 @@ function splitEmails(value?: string) {
     ?.split(",")
     .map((email) => email.trim())
     .filter(Boolean);
+}
+
+function cleanArray(value?: string[]) {
+  return Array.isArray(value) ? value.map(clean).filter(Boolean).slice(0, 12) : [];
 }
 
 function isLikelyEmail(value: string) {
@@ -69,6 +75,7 @@ async function pushLineNotification(payload: {
   email: string;
   inquiryType: string;
   urgency: string;
+  backgroundTags: string[];
   sourcePage: string;
 }) {
   const message = [
@@ -85,6 +92,7 @@ async function pushLineNotification(payload: {
     payload.email ? `Email: ${payload.email}` : undefined,
     `Type: ${payload.inquiryType}`,
     payload.urgency ? `Urgency: ${payload.urgency}` : undefined,
+    payload.backgroundTags.length ? `Context: ${payload.backgroundTags.join(" / ")}` : undefined,
     `Source: ${payload.sourcePage || "aeteralife.com"}`
   ]
     .filter(Boolean)
@@ -143,11 +151,15 @@ export async function POST(request: Request) {
   const inquiryType = clean(payload.inquiryType);
   const urgency = clean(payload.urgency);
   const background = clean(payload.background);
+  const backgroundTags = cleanArray(payload.backgroundTags);
   const sourcePage = clean(payload.sourcePage) || "aeteralife.com";
   const lang = clean(payload.lang) || "zh";
 
   if (!name || !countryCity || !phone || !inquiryType || !urgency || !payload.consent) {
-    return NextResponse.json({ ok: false, error: "MISSING_REQUIRED_FIELDS" }, { status: 400 });
+    return NextResponse.json(
+      { ok: false, error: "MISSING_REQUIRED_FIELDS", message: "Please complete all required fields." },
+      { status: 400 }
+    );
   }
 
   const submittedAt = new Date().toISOString();
@@ -167,6 +179,7 @@ export async function POST(request: Request) {
     email,
     inquiryType,
     urgency,
+    backgroundTags,
     background,
     sourcePage,
     consent: Boolean(payload.consent)
@@ -181,7 +194,14 @@ export async function POST(request: Request) {
     : Promise.resolve(undefined);
 
   if (!process.env.RESEND_API_KEY) {
-    return NextResponse.json({ ok: false, error: "EMAIL_SERVICE_NOT_CONFIGURED" }, { status: 503 });
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "EMAIL_SERVICE_NOT_CONFIGURED",
+        message: "RESEND_API_KEY is not configured in Vercel."
+      },
+      { status: 503 }
+    );
   }
 
   const subject = `Private inquiry - ${inquiryType}`;
@@ -202,6 +222,7 @@ export async function POST(request: Request) {
     `Email: ${email || "-"}`,
     `Inquiry type: ${inquiryType}`,
     `Urgency: ${urgency}`,
+    `Context: ${backgroundTags.length ? backgroundTags.join(" / ") : "-"}`,
     "",
     "Background:",
     background || "-"
@@ -224,6 +245,7 @@ export async function POST(request: Request) {
       <p><strong>Email:</strong> ${escapeHtml(email || "-")}</p>
       <p><strong>Inquiry type:</strong> ${escapeHtml(inquiryType)}</p>
       <p><strong>Urgency:</strong> ${escapeHtml(urgency)}</p>
+      <p><strong>Context:</strong> ${escapeHtml(backgroundTags.length ? backgroundTags.join(" / ") : "-")}</p>
       <p><strong>Background:</strong></p>
       <p style="white-space:pre-wrap">${escapeHtml(background || "-")}</p>
     </div>
@@ -258,8 +280,8 @@ export async function POST(request: Request) {
           from: contactFromEmail,
           to: [email],
           subject: getAutoReplySubject(lang),
-          text: getAutoReplyText(lang, name),
-          html: getAutoReplyHtml(lang, name)
+          text: getAutoReplyText(lang, name, gender),
+          html: getAutoReplyHtml(lang, name, gender)
         })
       })
       : Promise.resolve(undefined);
@@ -269,7 +291,11 @@ export async function POST(request: Request) {
   if (!response.ok) {
     const error = (await response.json().catch(() => ({}))) as ResendError;
     return NextResponse.json(
-      { ok: false, error: error.message ?? "EMAIL_SEND_FAILED" },
+      {
+        ok: false,
+        error: "EMAIL_SEND_FAILED",
+        message: error.message ?? error.name ?? "Resend email sending failed."
+      },
       { status: 502 }
     );
   }
@@ -290,6 +316,7 @@ export async function POST(request: Request) {
       email,
       inquiryType,
       urgency,
+      backgroundTags,
       sourcePage
     })
   ]);
@@ -303,8 +330,42 @@ function getAutoReplySubject(lang: string) {
   return "我们已收到您的私密咨询 | Medical Family Office";
 }
 
-function getAutoReplyText(lang: string, name: string) {
-  const salutation = name ? `${name},` : "";
+function getAutoReplySalutation(lang: string, name: string, gender: string) {
+  const normalizedGender = gender.toLowerCase();
+  const normalizedName = name.trim();
+  const isFemale =
+    gender.includes("女") ||
+    normalizedGender.includes("ms") ||
+    normalizedGender.includes("mrs") ||
+    normalizedGender.includes("miss") ||
+    normalizedGender.includes("female");
+
+  if (lang === "ja") {
+    return normalizedName ? `${normalizedName}様` : "お客様";
+  }
+
+  if (lang === "en") {
+    const title = isFemale ? "Ms." : "Mr.";
+    if (!normalizedName) return "Dear client,";
+    if (/^(mr\.?|ms\.?|mrs\.?|miss)\s+/i.test(normalizedName)) return `Dear ${normalizedName},`;
+    return `Dear ${title} ${normalizedName},`;
+  }
+
+  if (!normalizedName) {
+    return isFemale ? "女士，" : "先生，";
+  }
+
+  if (/[先女]士$/.test(normalizedName)) return `${normalizedName}，`;
+
+  if (isFemale) {
+    return `${normalizedName}女士，`;
+  }
+
+  return `${normalizedName}先生，`;
+}
+
+function getAutoReplyText(lang: string, name: string, gender: string) {
+  const salutation = getAutoReplySalutation(lang, name, gender);
 
   if (lang === "ja") {
     return [
@@ -344,8 +405,8 @@ function getAutoReplyText(lang: string, name: string) {
   ].join("\n");
 }
 
-function getAutoReplyHtml(lang: string, name: string) {
-  const text = getAutoReplyText(lang, name)
+function getAutoReplyHtml(lang: string, name: string, gender: string) {
+  const text = getAutoReplyText(lang, name, gender)
     .split("\n")
     .map((line) => `<p style="margin:0 0 14px">${escapeHtml(line || " ")}</p>`)
     .join("");

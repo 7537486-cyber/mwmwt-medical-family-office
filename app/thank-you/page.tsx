@@ -22,6 +22,8 @@ const copy = {
     wechat: "微信咨询",
     wechatBody:
       "也可以扫码添加微信，继续补充咨询方向、时间安排或家庭健康背景。请勿通过公开聊天直接发送完整病历或高度敏感资料。",
+    lineBody:
+      "也可以扫码添加 LINE，适合确认预约时间、接收礼宾通知或进行初步沟通。完整病历与敏感资料请等待团队提供安全提交方式。",
     unavailable: "快捷入口配置后启用",
     back: "返回首页"
   },
@@ -37,6 +39,8 @@ const copy = {
     wechat: "WeChat相談",
     wechatBody:
       "WeChatのQRコードから追加し、ご相談内容や希望時期を補足できます。完全な病歴や高度に機微な資料は公開チャットで送らないでください。",
+    lineBody:
+      "LINEのQRコードから追加し、予約時間の確認、コンシェルジュ通知、初回相談にご利用いただけます。機微な医療資料は安全な提出方法をご案内します。",
     unavailable: "設定後に利用可能",
     back: "ホームへ戻る"
   },
@@ -52,6 +56,8 @@ const copy = {
     wechat: "WeChat",
     wechatBody:
       "Scan the QR code to continue on WeChat. Please do not send complete medical records or highly sensitive information through public chat.",
+    lineBody:
+      "Scan the QR code to continue on LINE for scheduling, concierge notifications, or introductory coordination. Sensitive medical files should wait for a secure submission method.",
     unavailable: "Available after account setup",
     back: "Back Home"
   }
@@ -120,23 +126,45 @@ export default function ThankYouPage({
               )
             )}
           </div>
-          <div className="mt-8 grid gap-5 border border-mist bg-white p-6 shadow-quiet sm:grid-cols-[160px_1fr] sm:items-center">
-            <div className="relative mx-auto aspect-square w-40 overflow-hidden bg-pearl">
-              <Image
-                src="/wechat-tyler-qr.jpg"
-                alt="Medical Family Office WeChat QR code"
-                fill
-                className="object-contain"
-                sizes="160px"
-              />
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-champagne">
-                WeChat
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold text-ink">{text.wechat}</h2>
-              <p className="mt-3 text-sm leading-7 text-graphite/70">{text.wechatBody}</p>
-            </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {[
+              {
+                image: "/wechat-tyler-qr.jpg",
+                label: "WeChat",
+                title: text.wechat,
+                body: text.wechatBody,
+                alt: "AETERA WeChat QR code"
+              },
+              {
+                image: "/line-qr.jpg",
+                label: "LINE",
+                title: text.line,
+                body: text.lineBody,
+                alt: "AETERA LINE QR code"
+              }
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="grid gap-5 border border-mist bg-white p-6 shadow-quiet sm:grid-cols-[150px_1fr] sm:items-center md:grid-cols-1"
+              >
+                <div className="relative mx-auto aspect-square w-36 overflow-hidden bg-pearl">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    className="object-contain"
+                    sizes="144px"
+                  />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-champagne">
+                    {item.label}
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold text-ink">{item.title}</h2>
+                  <p className="mt-3 text-sm leading-7 text-graphite/70">{item.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
           <div className="mt-10 text-center">
             <Link

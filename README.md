@@ -19,7 +19,7 @@ npm run build
 
 ## 线上域名
 
-正式域名：`https://mwmwt.com`
+正式域名：`https://aeteralife.com`
 
 Vercel 绑定域名后，新网 DNS 建议添加：
 

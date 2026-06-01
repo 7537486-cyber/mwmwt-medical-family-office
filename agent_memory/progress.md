@@ -50,6 +50,12 @@
 
 当前域名文档同步：用户询问最快将网站域名从 `mwmwt.com` 改为 `aeteralife.com`。确认运行代码、SEO、robots、sitemap、联系表单默认邮箱与 `DEPLOY.md` 已完成切换；本轮同步更新 `README.md` 正式域名说明，并确认部署相关源码范围无旧域名残留。旧域名仍仅存在于 FAQ PDF 成品和生成脚本中，如需对外 PDF 也统一品牌，需单独更新并重新生成 PDF。
 
+当前域名最终同步：用户确认当前域名已更改为 `aeteralife.com`；已将 FAQ PDF 生成脚本、`generated/medical-family-office-faq.pdf` 与 `public/medical-family-office-faq.pdf` 同步改为 `aeteralife.com` / `contact@aeteralife.com`，并确认运行代码、部署文档、脚本和公开 PDF 中不再出现旧域名与旧邮箱。
+
+当前首页精简与预约入口：用户要求首页不要承载大量内页文字，已将首页压缩为品牌封面式结构，只保留首屏、Mission/Vision/Philosophy、Why Japan 简短入口、Founder Letter、主案例入口和私密咨询；服务流程、保护能力、案例列表和会员体系改由对应内页承接。顶部“预约15分钟”按钮新增 `NEXT_PUBLIC_CALENDAR_URL` 支持，可接 Cal.com 或 Calendly；未配置时继续跳转联系页。
+
+当前联系表单排障与入口优化：用户反馈手机端仍显示“无法提交”。已将前端错误提示改为显示具体后端错误码与原因，便于区分 `RESEND_API_KEY` 未配置、Resend 发信域名未验证、必填项缺失或网络问题；同时将表单拆为“姓名 + 称呼方式”，自动回复可按先生/女士称呼；将“背景说明”改为当前情况多选 + 补充说明；更新微信二维码并新增 LINE 二维码入口。
+
 ## 成功标准
 
 - FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
@@ -137,6 +143,10 @@
 - 已将表单当前页面 URL 作为 `sourcePage` 传给后端，内部询盘邮件、CRM Payload 与 LINE 通知均包含来源页面
 - 已将默认发件人显示改为 `Medical Family Office <info@mwmwt.com>`
 - 已新增客户自动回复邮件：客户填写有效邮箱时，按中日英语言发送 24 小时内联系的确认邮件，并提示不要通过公开邮件直接发送完整病历或敏感资料
+- 已将表单错误提示改为可诊断信息：缺少 `RESEND_API_KEY`、Resend 发信失败、必填项缺失和网络失败会分别提示对应原因，不再只显示笼统“暂时无法提交”
+- 已将联系表单“称呼”调整为“姓名 + 称呼方式”，后台自动回复按先生/女士、Mr./Ms. 或日文様生成称呼
+- 已将背景说明改为“当前情况”多选 + “补充说明”文本，内部邮件、CRM Payload 和 LINE 通知都会包含当前情况标签
+- 已新增 `public/line-qr.jpg`，联系页和感谢页现在同时展示微信与 LINE 二维码；微信二维码同步为用户提供的 AETERA 标识版本
 - 已新增 `components/Analytics.tsx`，通过 `NEXT_PUBLIC_GA_ID` 加载 Google Analytics，不配置时不输出脚本
 - 已在根布局加入 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`，用于 Google Search Console HTML 标记验证
 - 已新增 `lib/knowledge.ts` 与 `/knowledge-center/[slug]` 动态文章页，首批新增 5 个知识库 SEO 文章：日本精密体检、干细胞合法性、外泌体、日本医疗体系、企业家健康管理
@@ -194,6 +204,8 @@
 - 已执行邮箱残留检索，确认公开代码中不再出现 QQ/iCloud/vip/concierge 等旧联系邮箱
 - 已执行 `rg` 检索，确认 `app`、`components`、`lib`、`DEPLOY.md` 中不再出现 `mailto:`、`window.location`、`location.href`、`CONTACT_TO_EMAIL`、旧邮箱等残留
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 Resend 服务端发送、感谢页文案和部署说明更新后仍正常生成 38 个路由
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认联系表单、API 和二维码入口改动无类型错误
+- 已执行 `npm run build`，Next.js 生产构建通过，确认联系表单排障提示、微信/LINE 双二维码和自动称呼逻辑未破坏生产构建，共 162 个静态页面
 - 已执行 `npm run build`，Next.js 生产构建通过，确认来源页面字段、发件人显示和客户自动回复邮件改动未破坏构建
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 GA/GSC 入口、知识库动态文章和 sitemap 正常生成，共 43 个路由
 - 已执行 `npm run build`，Next.js 生产构建通过，确认移动端咨询按钮和平台页延伸内容改动后仍正常生成 43 个路由
@@ -230,3 +242,9 @@
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认 AETERA logo 接入 Header/Footer 后类型正确。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 AETERA logo 接入后仍正常生成 162 个页面。
 - 已执行域名残留检索，确认 `app`、`components`、`lib`、`README.md`、`DEPLOY.md`、`next.config.mjs` 与 `package.json` 中不再出现 `mwmwt.com`、`info@mwmwt.com` 或 `MWMWT`；`aeteralife.com` 与 `contact@aeteralife.com` 已出现在 SEO、robots、表单和部署文档中。
+- 已将 FAQ PDF 生成脚本中的页眉、页脚和封面联系方式从旧域名/旧邮箱切换为 `aeteralife.com` 与 `contact@aeteralife.com`。
+- 已重新生成 `generated/medical-family-office-faq.pdf`，并覆盖网站下载版本 `public/medical-family-office-faq.pdf`。
+- 已执行 `strings public/medical-family-office-faq.pdf | rg`，确认公开 PDF 内包含 `aeteralife.com` 与 `contact@aeteralife.com`。
+- 已执行旧域名残留检索，确认 `app`、`components`、`lib`、`DEPLOY.md`、`README.md`、FAQ PDF 生成脚本和公开 PDF 中不再出现 `mwmwt.com` 或 `info@mwmwt.com`。
+- 已将首页长文字模块继续下沉到内页，只保留品牌判断、简短 Why Japan、Founder Letter、案例入口与咨询入口。
+- 已为顶部预约按钮增加可选日历链接环境变量 `NEXT_PUBLIC_CALENDAR_URL`。

@@ -4,6 +4,10 @@
 
 日本医疗官网：面向中国高净值企业家与家庭的日本 Medical Family Office 与 Longevity Concierge 平台。
 
+正式域名：`https://aeteralife.com`
+
+默认公开联系邮箱：`contact@aeteralife.com`
+
 ## 当前技术栈
 
 - Next.js App Router

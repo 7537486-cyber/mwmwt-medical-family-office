@@ -67,33 +67,57 @@ export function navLabel(item: NavItem, lang: Language) {
 export const pages: Record<string, PageContent> = {
   about: {
     slug: "about",
-    eyebrow: "Private Medical Advisory",
-    title: "以家族办公室方式管理跨境医疗决策",
-    jaTitle: "ファミリーオフィス型の医療意思決定支援",
+    eyebrow: "Why AETERA",
+    title: "AETERA Life 是面向长期健康决策的医疗家族办公室。",
+    jaTitle: "AETERA Lifeは、長期的な健康意思決定のための医療ファミリーオフィスです。",
+    enTitle: "What is AETERA Life?",
     description:
-      "我们将日本优质医疗资源、长期健康治理与高净值家庭的隐私需求整合为一个持续陪伴的顾问体系。",
+      "AETERA 源于“长久、时间与生命延续”的品牌意象。我们相信，健康不应只是疾病发生后的反应，而应像家族财富一样，被提前规划、持续管理并谨慎守护。",
     jaDescription:
-      "日本の高度医療資源、長期的な健康管理、富裕層家族に求められる秘匿性を統合し、継続的な医療アドバイザリーを提供します。",
+      "AETERAは、永続性、時間、生命の継続性を想起させるブランド名です。健康は病気が起きた後に対応するものではなく、家族の資産と同じように、事前に計画し、継続的に管理し、慎重に守るべきものだと私たちは考えています。",
+    enDescription:
+      "AETERA evokes endurance, time, and the continuity of life. We believe health should not be managed only after illness appears; it should be planned, monitored, and protected with the same seriousness as family wealth.",
     pillars: [
       {
-        title: "独立顾问视角",
-        ja: "独立した助言",
-        body: "不以单一医院或单次项目为中心，而以家庭长期利益、风险边界和可解释决策为核心。"
+        title: "名字来源",
+        ja: "名前の由来",
+        en: "Name Origin",
+        body: "AETERA 代表一种面向时间的健康观：不追逐短期项目，而关注未来十年、二十年甚至更长周期里的健康寿命、判断力与生活质量。",
+        jaBody:
+          "AETERAは時間に向き合う健康観を表しています。短期的なプログラムではなく、今後10年、20年、さらに長い期間の健康寿命、判断力、生活の質に焦点を当てます。",
+        enBody:
+          "AETERA represents a time-oriented view of health: not chasing short-term procedures, but protecting healthspan, judgment, and quality of life over the next ten, twenty, and many more years."
       },
       {
-        title: "中日双语协调",
-        ja: "中日バイリンガル調整",
-        body: "覆盖资料整理、医生沟通、预约安排、陪诊翻译、报告解读与回国后的连续跟进。"
+        title: "品牌理念",
+        ja: "ブランド理念",
+        en: "Brand Philosophy",
+        body: "我们的核心理念是：Aging is inevitable. Decline is not. 衰老不可避免，但重大风险、功能衰退和医疗不确定性，可以通过更早的判断与长期系统管理来降低。",
+        jaBody:
+          "私たちの理念は、Aging is inevitable. Decline is not. です。老化は避けられませんが、重大リスク、機能低下、医療上の不確実性は、早期判断と長期的な管理によって軽減できます。",
+        enBody:
+          "Our philosophy is simple: Aging is inevitable. Decline is not. Major risks, functional decline, and medical uncertainty can be reduced through earlier judgment and long-term health governance."
       },
       {
-        title: "隐私与秩序",
-        ja: "秘匿性と秩序",
-        body: "以私行式服务节奏处理敏感健康信息，让医疗过程更安静、更清晰、更可控。"
+        title: "创立原因",
+        ja: "設立の理由",
+        en: "Why We Created It",
+        body: "我们创立 AETERA Life，是因为企业家和家族客户并不缺少信息，真正缺少的是可信赖的医学判断、资源筛选、隐私保护和长期陪伴。",
+        jaBody:
+          "AETERA Lifeを設立した理由は、経営者や家族のお客様に不足しているのは情報ではなく、信頼できる医学的判断、資源の選別、秘匿性、長期的な伴走だからです。",
+        enBody:
+          "AETERA Life was created because entrepreneurs and families rarely lack information. What they need is trusted medical judgment, resource screening, privacy protection, and long-term guidance."
       }
     ],
-    proof: ["日本本地医疗协调", "中文家庭顾问沟通", "跨境病历资料管理"],
-    process: ["建立家庭健康档案", "明确医疗目标与限制", "匹配日本专家与机构", "形成长期追踪机制"],
-    cta: "预约私密介绍"
+    proof: ["Extend Healthspan, Not Just Lifespan", "A Medical Family Office for Every Successful Family", "Aging Is Inevitable. Decline Is Not."],
+    jaProof: ["健康寿命を延ばす", "すべての成功した家族に医療ファミリーオフィスを", "老化は避けられない。衰えは管理できる。"],
+    enProof: ["Extend Healthspan, Not Just Lifespan", "A Medical Family Office for Every Successful Family", "Aging Is Inevitable. Decline Is Not."],
+    process: ["理解家庭健康目标", "建立长期健康档案", "筛选医学资源与专家意见", "持续复盘健康风险"],
+    jaProcess: ["家族の健康目標を理解", "長期健康記録を構築", "医療資源と専門家意見を確認", "健康リスクを継続的に見直す"],
+    enProcess: ["Understand family health goals", "Build a long-term health archive", "Screen medical resources and expert opinions", "Review health risk over time"],
+    cta: "了解我们的理念",
+    jaCta: "理念を見る",
+    enCta: "Explore our philosophy"
   },
   services: {
     slug: "services",
@@ -482,16 +506,16 @@ type EnglishPage = {
 
 const englishPages: Record<string, EnglishPage> = {
   about: {
-    title: "Medical decision-making managed like a family office",
+    title: "What is AETERA Life?",
     description:
-      "We integrate Japan's premium medical resources, long-term health governance, and the privacy expectations of high-net-worth families into one continuous advisory relationship.",
-    proof: ["Japan-based medical coordination", "Chinese-speaking family advisor", "Cross-border medical record management"],
-    process: ["Build the family health archive", "Define goals and constraints", "Match Japanese specialists and institutions", "Create a long-term follow-up system"],
-    cta: "Request a private introduction",
+      "AETERA evokes endurance, time, and the continuity of life. We believe health should be planned, monitored, and protected with the same seriousness as family wealth.",
+    proof: ["Extend Healthspan, Not Just Lifespan", "A Medical Family Office for Every Successful Family", "Aging Is Inevitable. Decline Is Not."],
+    process: ["Understand family health goals", "Build a long-term health archive", "Screen medical resources and expert opinions", "Review health risk over time"],
+    cta: "Explore our philosophy",
     pillars: [
-      { title: "Independent advisory", body: "We do not center the process on a single hospital or one-off program. Decisions are framed around long-term family interests, risk boundaries, and clarity." },
-      { title: "Trilingual coordination", body: "We support record preparation, doctor communication, appointments, interpretation, report review, and post-visit follow-up in Chinese, Japanese, and English." },
-      { title: "Privacy and order", body: "Sensitive health information is handled with a private-banking service rhythm, making complex care quieter and more controlled." }
+      { title: "Name Origin", body: "AETERA represents a time-oriented view of health: not chasing short-term procedures, but protecting healthspan, judgment, and quality of life over the next ten, twenty, and many more years." },
+      { title: "Brand Philosophy", body: "Our philosophy is simple: Aging is inevitable. Decline is not. Major risks, functional decline, and medical uncertainty can be reduced through earlier judgment and long-term health governance." },
+      { title: "Why We Created It", body: "AETERA Life was created because entrepreneurs and families rarely lack information. What they need is trusted medical judgment, resource screening, privacy protection, and long-term guidance." }
     ]
   },
   services: {

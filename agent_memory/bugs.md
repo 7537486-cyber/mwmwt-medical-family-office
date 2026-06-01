@@ -25,8 +25,10 @@
 - 当前环境不允许创建 `.git/index.lock`，因此无法用 Git 命令还原验证过程中更新的 `tsconfig.tsbuildinfo`；该文件是本地 TypeScript 构建缓存，不属于 SEO 功能改动。
 - 新增 100 篇 SEO 文章采用主题矩阵生成，适合快速铺设长尾关键词与收录入口；后续若用于核心排名页，建议逐步把高价值关键词文章改写为更长的人工深度稿，并补充来源、案例流程与更具体的内部链接。
 - 新增案例详情页采用去标识化 Journey Case 表达，已避免写成疗效宣传；后续如加入真实客户故事，必须取得授权并由医疗合规视角复核措辞，避免暗示诊断、治疗建议或效果保证。
-- 公开页面已去除大写 `MWMWT` 品牌词，但 `mwmwt.com` 域名、`info@mwmwt.com` 邮箱、旧 `/about-mwmwt` 兼容跳转和内部数据 key 仍需保留；这些属于技术与运营配置，不应替换为普通文案。
+- 公开页面已去除大写 `MWMWT` 品牌词；正式域名与默认公开邮箱已切换为 `aeteralife.com` / `contact@aeteralife.com`。旧 `/about-mwmwt` 兼容跳转和内部数据 key 仍可能保留，属于技术兼容或内部标识，不应作为公开品牌文案展示。
 - 用户截图仍看到旧页面中的大写 `MWMWT`，但当前源码与本地构建产物均已检索不到该词；该现象高度可能来自生产环境尚未部署最新代码或浏览器缓存。需要完成 GitHub 推送 / Vercel 重新部署后再刷新验证。
 - 10 个知识中心当前提供的是“专业文献方向 / 阅读地图”和现有知识库文章入口，尚未接入真实论文引用库或用户即将发送的行业 FAQ PDF 新版本；后续加入具体论文、指南或 PDF 内容时，需要逐条核验来源、发布日期、适用边界和医学免责声明。
 - 本轮已用生产构建验证电影感大图布局，但当前环境仍无法启动本地浏览器预览服务；最终图片裁切、移动端标题换行和视觉节奏建议在 Vercel 最新部署后用手机与桌面实际复查。
-- 切换到 `aeteralife.com` 后，表单默认发送到 `contact@aeteralife.com`；如果该邮箱尚未创建或 Resend 发信域名未验证，线上询盘邮件会失败或退信。上线前需先完成新域名邮箱与 Resend/Vercel 环境变量配置。
+- 切换到 `aeteralife.com` 后，表单默认发送到 `contact@aeteralife.com`，FAQ PDF 也已同步新域名和新邮箱；如果该邮箱尚未创建或 Resend 发信域名未验证，线上询盘邮件会失败或退信。上线前需先完成新域名邮箱与 Resend/Vercel 环境变量配置。
+- 用户手机端仍看到“暂时无法提交，请稍后再试。”说明生产环境很可能仍在运行旧前端错误提示，或 Vercel 尚未重新部署最新代码；最新代码已能区分 `RESEND_API_KEY` 缺失、Resend 发信域名未验证、必填项缺失和网络失败。排查时应先确认 Vercel 最新 Production Deployment 是否包含联系表单诊断改动。
+- 如果最新代码部署后仍提示 `EMAIL_SEND_FAILED`，优先检查 Resend 是否已验证 `aeteralife.com` 发信域名，以及 Vercel 环境变量 `CONTACT_FROM_EMAIL=Medical Family Office <contact@aeteralife.com>` 是否可用；未验证前使用 `contact@aeteralife.com` 作为发件人会被 Resend 拒绝。

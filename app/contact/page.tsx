@@ -48,6 +48,8 @@ const contactCopy = {
     scope: "联系方式",
     wechatTitle: "微信咨询",
     wechatBody: "可扫码添加私人礼宾微信，用于确认沟通时间、补充基础背景或预约初步说明。涉及完整病历、影像和敏感资料时，我们会另行提供更安全的提交方式。",
+    lineTitle: "LINE 咨询",
+    lineBody: "适合日本及海外客户预约初步沟通、确认到诊时间或接收礼宾团队通知。正式病历与敏感资料仍需通过团队提供的安全方式提交。",
     trust: ["仅限预约沟通", "中日英协调", "信息保密", "不替代医生诊断", "适合高净值家庭、企业家与跨境医疗需求"]
   },
   ja: {
@@ -55,6 +57,8 @@ const contactCopy = {
     scope: "連絡方法",
     wechatTitle: "WeChat相談",
     wechatBody: "プライベートコンシェルジュのWeChatを追加し、面談時間、基本背景、初回説明の予約を確認できます。完全な病歴、画像、機微な資料については、安全な提出方法を別途ご案内します。",
+    lineTitle: "LINE相談",
+    lineBody: "日本および海外のお客様の初回相談予約、来院時間の確認、コンシェルジュチームからの連絡にご利用いただけます。機微な医療資料は別途安全な提出方法をご案内します。",
     trust: ["予約制", "中日英対応", "情報の秘匿性", "医師の診断に代わるものではありません", "富裕層家族・経営者・国際医療ニーズに対応"]
   },
   en: {
@@ -62,6 +66,8 @@ const contactCopy = {
     scope: "Contact Options",
     wechatTitle: "WeChat Inquiry",
     wechatBody: "Scan the QR code to add the private concierge WeChat for scheduling, basic context, or an introductory call. Complete medical records, imaging, and sensitive files should be sent only through a secure method provided by our team.",
+    lineTitle: "LINE Inquiry",
+    lineBody: "Use LINE for introductory scheduling, visit coordination, and concierge notifications. Complete medical records and sensitive files should still be submitted only through a secure method provided by our team.",
     trust: ["Appointment only", "Chinese, Japanese, and English coordination", "Confidential handling", "Not a substitute for physician diagnosis", "For UHNW families, entrepreneurs, and cross-border medical needs"]
   }
 };
@@ -110,23 +116,45 @@ export default function ContactPage({
                 </div>
               ))}
             </div>
-            <div className="mt-10 grid gap-5 border border-mist bg-white p-6 shadow-sm sm:grid-cols-[150px_1fr] sm:items-center">
-              <div className="relative mx-auto aspect-square w-36 overflow-hidden bg-pearl">
-                <Image
-                  src="/wechat-tyler-qr.jpg"
-                  alt="Medical Family Office WeChat QR code"
-                  fill
-                  className="object-contain"
-                  sizes="144px"
-                />
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-champagne">
-                  WeChat
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold text-ink">{copy.wechatTitle}</h3>
-                <p className="mt-3 text-sm leading-7 text-graphite/70">{copy.wechatBody}</p>
-              </div>
+            <div className="mt-10 grid gap-5">
+              {[
+                {
+                  image: "/wechat-tyler-qr.jpg",
+                  label: "WeChat",
+                  title: copy.wechatTitle,
+                  body: copy.wechatBody,
+                  alt: "AETERA WeChat QR code"
+                },
+                {
+                  image: "/line-qr.jpg",
+                  label: "LINE",
+                  title: copy.lineTitle,
+                  body: copy.lineBody,
+                  alt: "AETERA LINE QR code"
+                }
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="grid gap-5 border border-mist bg-white p-6 shadow-sm sm:grid-cols-[150px_1fr] sm:items-center"
+                >
+                  <div className="relative mx-auto aspect-square w-36 overflow-hidden bg-pearl">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      className="object-contain"
+                      sizes="144px"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-champagne">
+                      {item.label}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold text-ink">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-graphite/70">{item.body}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           <ContactForm lang={lang} typeOptions={typeOptions} />

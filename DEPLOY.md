@@ -83,6 +83,7 @@ LINE_CHANNEL_ACCESS_TOKEN=LINE Messaging API Channel Access Token，可选
 LINE_TO_ID=要接收内部通知的 LINE 用户或群组 ID，可选
 NEXT_PUBLIC_LINE_URL=LINE 官方账号链接，可选
 NEXT_PUBLIC_WHATSAPP_URL=WhatsApp 咨询链接，可选
+NEXT_PUBLIC_CALENDAR_URL=Cal.com 或 Calendly 预约链接，可选
 NEXT_PUBLIC_GA_ID=Google Analytics 衡量 ID，例如 G-XXXXXXXXXX，可选
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=Google Search Console HTML 标记中的验证码，可选
 ```

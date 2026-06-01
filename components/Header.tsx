@@ -21,6 +21,7 @@ export function Header() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const lang = normalizeLanguage(searchParams.get("lang") ?? undefined);
+  const calendarUrl = process.env.NEXT_PUBLIC_CALENDAR_URL;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/82 text-pearl backdrop-blur-xl">
@@ -70,12 +71,23 @@ export function Header() {
               </Link>
             ))}
           </div>
-          <Link
-            href={withLanguage("/contact", lang)}
-            className="border border-champagne/60 px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-champagne transition hover:bg-champagne hover:text-ink"
-          >
-            {inquiryLabel[lang]}
-          </Link>
+          {calendarUrl ? (
+            <a
+              href={calendarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="border border-champagne/60 px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-champagne transition hover:bg-champagne hover:text-ink"
+            >
+              {inquiryLabel[lang]}
+            </a>
+          ) : (
+            <Link
+              href={withLanguage("/contact", lang)}
+              className="border border-champagne/60 px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-champagne transition hover:bg-champagne hover:text-ink"
+            >
+              {inquiryLabel[lang]}
+            </Link>
+          )}
         </div>
       </div>
       <div className="flex gap-5 overflow-x-auto border-t border-white/10 px-5 py-3 text-xs text-pearl/70 xl:hidden">
