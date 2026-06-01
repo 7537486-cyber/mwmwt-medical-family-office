@@ -48,6 +48,8 @@
 
 当前品牌 Logo 接入：用户提供 AETERA 黑底象牙色 logo，已复制为 `public/aetera-black-ivory-logo.png`，并替换官网顶部导航和页脚旧的 `JM / Medical Family Office / Tokyo` 文字标识，公开顶部品牌统一为 AETERA Medical Family Office。
 
+当前域名文档同步：用户询问最快将网站域名从 `mwmwt.com` 改为 `aeteralife.com`。确认运行代码、SEO、robots、sitemap、联系表单默认邮箱与 `DEPLOY.md` 已完成切换；本轮同步更新 `README.md` 正式域名说明，并确认部署相关源码范围无旧域名残留。旧域名仍仅存在于 FAQ PDF 成品和生成脚本中，如需对外 PDF 也统一品牌，需单独更新并重新生成 PDF。
+
 ## 成功标准
 
 - FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
@@ -171,6 +173,8 @@
 - 已执行 `npm run typecheck`，TypeScript 检查通过。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认知识中心下载入口和 sitemap PDF 资源未破坏构建，当前生成 152 个页面。
 - 已执行构建产物关键字检索，确认 `.next` 中包含 `/medical-family-office-faq.pdf` 下载链接与 sitemap 记录。
+- 已推送到 GitHub `origin/main`，线上 `https://mwmwt.com/medical-family-office-faq.pdf` 返回 `HTTP 200`、`content-type: application/pdf`，文件大小 32532 字节。
+- 已抓取 `https://mwmwt.com/knowledge-center`，确认线上页面包含 `/medical-family-office-faq.pdf`、`PDF 资料下载` 与 `Medical Family Office 常见问题`。
 - 已执行 `npm run build`，Next.js 生产构建通过，生成 23 个路由
 - 已再次执行 `npm run build`，Next.js 生产构建通过，确认治理体系、会员体系和 sitemap 改动未破坏构建
 - 已执行 `npm run build`，Next.js 生产构建通过，确认知识库首页与长寿医学文章静态路由生成正常，共 25 个路由
@@ -225,3 +229,4 @@
 - 已执行源码域名残留检索，确认 `app`、`components`、`lib`、`DEPLOY.md` 与公开文本中不再出现旧正式域名 `mwmwt.com`、旧邮箱 `info@mwmwt.com` 或大写 `MWMWT`。
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认 AETERA logo 接入 Header/Footer 后类型正确。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 AETERA logo 接入后仍正常生成 162 个页面。
+- 已执行域名残留检索，确认 `app`、`components`、`lib`、`README.md`、`DEPLOY.md`、`next.config.mjs` 与 `package.json` 中不再出现 `mwmwt.com`、`info@mwmwt.com` 或 `MWMWT`；`aeteralife.com` 与 `contact@aeteralife.com` 已出现在 SEO、robots、表单和部署文档中。
