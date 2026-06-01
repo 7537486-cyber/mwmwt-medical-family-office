@@ -24,8 +24,8 @@ type ResendError = {
   message?: string;
 };
 
-const contactToEmail = "info@aeteralife.com";
-const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "Medical Family Office <info@aeteralife.com>";
+const contactToEmail = "contact@aeteralife.com";
+const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "Medical Family Office <contact@aeteralife.com>";
 const contactCcEmail = process.env.CONTACT_CC_EMAIL;
 const crmWebhookUrl = process.env.CONTACT_CRM_WEBHOOK_URL;
 const lineNotificationWebhookUrl = process.env.LINE_NOTIFICATION_WEBHOOK_URL;

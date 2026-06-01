@@ -68,14 +68,14 @@ https://aeteralife.com/robots.txt
 建议先创建域名邮箱：
 
 ```text
-info@aeteralife.com
+contact@aeteralife.com
 ```
 
 网站内表单需要在 Vercel 项目里配置环境变量：
 
 ```text
 RESEND_API_KEY=你的 Resend API Key
-CONTACT_FROM_EMAIL=Medical Family Office <info@aeteralife.com>
+CONTACT_FROM_EMAIL=Medical Family Office <contact@aeteralife.com>
 CONTACT_CC_EMAIL=内部抄送邮箱，可选
 CONTACT_CRM_WEBHOOK_URL=客户表或 CRM 的 Webhook 地址，可选
 LINE_NOTIFICATION_WEBHOOK_URL=LINE 推送桥接 Webhook，可选

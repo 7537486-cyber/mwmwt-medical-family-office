@@ -44,7 +44,7 @@
 
 当前品牌视觉升级：已新增通用电影感大图组件 `CinematicSection`，并将首页、通用平台内页、服务内页、案例中心和信任页升级为更接近高端杂志/私人银行/长寿研究院的视觉表达。首页强化 Mission、Vision、Philosophy 三层哲学体系；内页增加 2 组以上宽幅高质感图片区块；案例中心改为图片主导的 Journey Card；创始人页承接完整 Founder Letter。
 
-当前域名切换准备：用户希望将正式域名改为 `aeteralife.com`。已将 SEO canonical、robots sitemap、联系表单来源标识、默认表单收件/发件邮箱和部署说明从旧域名切换为 `aeteralife.com` / `info@aeteralife.com`。后续需要在 Vercel 添加 `aeteralife.com` 与 `www.aeteralife.com`，并在域名商配置 A/CNAME 解析；同时必须创建 `info@aeteralife.com` 或在 Vercel 环境变量中指定真实可收件地址。
+当前域名切换准备：用户希望将正式域名改为 `aeteralife.com`。已将 SEO canonical、robots sitemap、联系表单来源标识、默认表单收件/发件邮箱和部署说明从旧域名切换为 `aeteralife.com` / `contact@aeteralife.com`。后续需要在 Vercel 添加 `aeteralife.com` 与 `www.aeteralife.com`，并在域名商配置 A/CNAME 解析；同时必须创建 `contact@aeteralife.com` 或在 Vercel 环境变量中指定真实可收件地址。
 
 ## 成功标准
 

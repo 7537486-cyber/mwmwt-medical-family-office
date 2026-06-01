@@ -13,10 +13,10 @@
 - 本地预览服务在当前环境启动时遇到端口绑定权限限制（`0.0.0.0:3000`），因此视觉检查主要依赖生产构建；用户本机或 Vercel 部署后仍需实际浏览确认图片裁切效果。
 - 本轮再次尝试用 `127.0.0.1:3000` 启动本地预览，仍被环境以 `EPERM` 拦截；移动端视觉已通过代码约束处理，但最终仍建议在 Vercel 部署后用手机实际检查首屏图片比例和文字换行。
 - 曾发现钢结构网站内容误覆盖到医疗官网目录；已将钢结构网站复制保存在 `/Users/yumi/Documents/MWM钢结构官网`，医疗官网已恢复，但后续部署钢结构网站时必须作为独立 GitHub/Vercel 项目处理，不能继续在当前医疗官网仓库内操作。
-- 当前联系表单已经改为站内提交接口并固定发送到 `info@mwmwt.com`；真正上线发送邮件需要在 Vercel 配置 `RESEND_API_KEY`，并建议配置已验证发件地址 `CONTACT_FROM_EMAIL=Medical Family Office <info@mwmwt.com>`。如未配置 `RESEND_API_KEY`，表单会提示提交系统暂不可用。
+- 当前联系表单已经改为站内提交接口并固定发送到 `contact@aeteralife.com`；真正上线发送邮件需要在 Vercel 配置 `RESEND_API_KEY`，并建议配置已验证发件地址 `CONTACT_FROM_EMAIL=Medical Family Office <contact@aeteralife.com>`。如未配置 `RESEND_API_KEY`，表单会提示提交系统暂不可用。
 - CRM 写入目前采用可选 Webhook：需要后续提供 `CONTACT_CRM_WEBHOOK_URL`，可接 Make、Zapier、Notion、Airtable、Google Sheets 或正式 CRM。
 - LINE / WhatsApp 快捷入口已在感谢页预留，但需要提供官方链接并配置 `NEXT_PUBLIC_LINE_URL` 与 `NEXT_PUBLIC_WHATSAPP_URL` 后才会启用。
-- `info@mwmwt.com` 当前如尚未创建，表单代码虽已默认发送到该地址，但上线前必须先创建邮箱或至少完成 Resend 发信域名验证；否则邮件发送会失败。
+- `contact@aeteralife.com` 当前如尚未创建，表单代码虽已默认发送到该地址，但上线前必须先创建邮箱或至少完成 Resend 发信域名验证；否则邮件发送会失败。
 - LINE 内部推送需要二选一配置：`LINE_NOTIFICATION_WEBHOOK_URL`（推荐先接 Make/Zapier）或 `LINE_CHANNEL_ACCESS_TOKEN` + `LINE_TO_ID`（直接接 LINE Messaging API）。未配置时表单仍可提交邮件和 CRM，但不会推送 LINE。
 - 本次 Resend 表单修复已本地提交，但生产部署仍被账号认证阻塞：`git push origin main` 无法读取 GitHub 用户名，Vercel CLI token 无效，Vercel 连接工具也未提供直接部署能力。需要用户重新登录 GitHub/Vercel 或在本机执行授权后再发布。
 - Google Analytics 与 Google Search Console 代码入口已经加入，但需要在 Vercel 配置 `NEXT_PUBLIC_GA_ID` 与 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` 并重新部署；Search Console 仍需要用户在 Google 后台完成资源创建和验证。
@@ -29,4 +29,4 @@
 - 用户截图仍看到旧页面中的大写 `MWMWT`，但当前源码与本地构建产物均已检索不到该词；该现象高度可能来自生产环境尚未部署最新代码或浏览器缓存。需要完成 GitHub 推送 / Vercel 重新部署后再刷新验证。
 - 10 个知识中心当前提供的是“专业文献方向 / 阅读地图”和现有知识库文章入口，尚未接入真实论文引用库或用户即将发送的行业 FAQ PDF 新版本；后续加入具体论文、指南或 PDF 内容时，需要逐条核验来源、发布日期、适用边界和医学免责声明。
 - 本轮已用生产构建验证电影感大图布局，但当前环境仍无法启动本地浏览器预览服务；最终图片裁切、移动端标题换行和视觉节奏建议在 Vercel 最新部署后用手机与桌面实际复查。
-- 切换到 `aeteralife.com` 后，表单默认发送到 `info@aeteralife.com`；如果该邮箱尚未创建或 Resend 发信域名未验证，线上询盘邮件会失败或退信。上线前需先完成新域名邮箱与 Resend/Vercel 环境变量配置。
+- 切换到 `aeteralife.com` 后，表单默认发送到 `contact@aeteralife.com`；如果该邮箱尚未创建或 Resend 发信域名未验证，线上询盘邮件会失败或退信。上线前需先完成新域名邮箱与 Resend/Vercel 环境变量配置。
