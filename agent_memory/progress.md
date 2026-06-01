@@ -252,3 +252,5 @@
 - 已为顶部预约按钮增加可选日历链接环境变量 `NEXT_PUBLIC_CALENDAR_URL`。
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认联系表单 `success` JSON 判断与 API 返回类型一致。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认 `/api/contact`、`/contact` 与 162 个页面构建正常。
+- 已将内部询盘通知邮件模板整理为 “AETERA Private Inquiry / Client Information / Requested Service / Preferred Contact Method / Inquiry Details / Submitted via AETERA Medical Family Office” 格式，并将客户自动回复邮件主题与 HTML 标题统一为 “AETERA Medical Family Office”。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认邮件模板与自动回复标题改动无类型错误。

@@ -299,50 +299,80 @@ export async function POST(request: Request) {
     );
   }
 
-  const subject = `Private inquiry - ${inquiryType}`;
+  const contactInformation = [
+    `Contact detail: ${phone}`,
+    messenger ? `WeChat / Backup contact: ${messenger}` : "",
+    email ? `Email: ${email}` : "",
+    countryCity ? `Country / City: ${countryCity}` : "",
+    preferredLanguage ? `Preferred language: ${preferredLanguage}` : "",
+    urgency ? `Urgency: ${urgency}` : "",
+    sourcePage ? `Source page: ${sourcePage}` : ""
+  ].filter(Boolean);
+
+  const messageContent = [
+    backgroundTags.length ? backgroundTags.join(" / ") : "",
+    background || ""
+  ].filter(Boolean).join("\n\n");
+
+  const subject = `Private Inquiry - ${inquiryType}`;
   const text = [
-    "New private inquiry from aeteralife.com",
+    "AETERA Private Inquiry",
     "",
-    `Submitted at: ${submittedAt}`,
-    `Language: ${lang}`,
-    `Source page: ${sourcePage}`,
+    "Client Information",
     `Name: ${name}`,
     `Gender: ${gender || "-"}`,
     `Age: ${ageRange || "-"}`,
-    `Country / City: ${countryCity}`,
-    `Preferred language: ${preferredLanguage || "-"}`,
-    `Preferred contact method: ${preferredContactMethod || "-"}`,
-    `Contact detail: ${phone}`,
-    `WeChat / Backup contact: ${messenger || "-"}`,
-    `Email: ${email || "-"}`,
-    `Inquiry type: ${inquiryType}`,
-    `Urgency: ${urgency}`,
-    `Context: ${backgroundTags.length ? backgroundTags.join(" / ") : "-"}`,
     "",
-    "Background:",
-    background || "-"
+    "Requested Service",
+    inquiryType,
+    "",
+    "Preferred Contact Method",
+    preferredContactMethod || "-",
+    "",
+    "Inquiry Details",
+    messageContent || "-",
+    "",
+    "Contact Information:",
+    contactInformation.length ? contactInformation.join("\n") : "-",
+    "",
+    "Submitted via AETERA Medical Family Office",
+    "https://aeteralife.com",
+    "",
+    `Submitted at: ${submittedAt}`,
+    `Request ID: ${requestId}`
   ].join("\n");
 
-  const html = `
-    <div style="font-family:Inter,Arial,sans-serif;line-height:1.7;color:#171915">
-      <h1 style="font-size:22px">New private inquiry</h1>
-      <p><strong>Submitted at:</strong> ${escapeHtml(submittedAt)}</p>
-      <p><strong>Language:</strong> ${escapeHtml(lang)}</p>
-      <p><strong>Source page:</strong> ${escapeHtml(sourcePage)}</p>
-      <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-      <p><strong>Gender:</strong> ${escapeHtml(gender || "-")}</p>
-      <p><strong>Age:</strong> ${escapeHtml(ageRange || "-")}</p>
-      <p><strong>Country / City:</strong> ${escapeHtml(countryCity)}</p>
-      <p><strong>Preferred language:</strong> ${escapeHtml(preferredLanguage || "-")}</p>
-      <p><strong>Preferred contact method:</strong> ${escapeHtml(preferredContactMethod || "-")}</p>
-      <p><strong>Contact detail:</strong> ${escapeHtml(phone)}</p>
-      <p><strong>WeChat / Backup contact:</strong> ${escapeHtml(messenger || "-")}</p>
-      <p><strong>Email:</strong> ${escapeHtml(email || "-")}</p>
-      <p><strong>Inquiry type:</strong> ${escapeHtml(inquiryType)}</p>
-      <p><strong>Urgency:</strong> ${escapeHtml(urgency)}</p>
-      <p><strong>Context:</strong> ${escapeHtml(backgroundTags.length ? backgroundTags.join(" / ") : "-")}</p>
-      <p><strong>Background:</strong></p>
-      <p style="white-space:pre-wrap">${escapeHtml(background || "-")}</p>
+	  const html = `
+	    <div style="font-family:Inter,Arial,sans-serif;line-height:1.7;color:#171915;max-width:680px">
+	      <h1 style="font-size:24px;margin:0 0 24px">AETERA Private Inquiry</h1>
+	      <div style="margin:0 0 28px">
+	        <p style="margin:0 0 8px"><strong>Client Information</strong></p>
+	        <p style="margin:0">Name: ${escapeHtml(name)}</p>
+	        <p style="margin:0">Gender: ${escapeHtml(gender || "-")}</p>
+	        <p style="margin:0">Age: ${escapeHtml(ageRange || "-")}</p>
+	      </div>
+	      <div style="margin:28px 0">
+	        <p style="margin:0 0 8px"><strong>Requested Service</strong></p>
+	        <p style="margin:0">${escapeHtml(inquiryType)}</p>
+	      </div>
+	      <div style="margin:28px 0">
+	        <p style="margin:0 0 8px"><strong>Preferred Contact Method</strong></p>
+	        <p style="margin:0">${escapeHtml(preferredContactMethod || "-")}</p>
+	      </div>
+	      <div style="margin:28px 0">
+	        <p style="margin:0 0 8px"><strong>Inquiry Details</strong></p>
+	        <p style="margin:0;white-space:pre-wrap">${escapeHtml(messageContent || "-")}</p>
+	      </div>
+	      <div style="margin:28px 0">
+	        <p style="margin:0 0 8px"><strong>Contact Information:</strong></p>
+	        <p style="margin:0;white-space:pre-wrap">${escapeHtml(contactInformation.length ? contactInformation.join("\n") : "-")}</p>
+	      </div>
+	      <div style="border-top:1px solid #d8c59d;margin-top:32px;padding-top:18px">
+	        <p style="margin:0"><strong>Submitted via AETERA Medical Family Office</strong></p>
+	        <p style="margin:0">https://aeteralife.com</p>
+        <p style="margin:18px 0 0;color:#6f6f67;font-size:13px">Submitted at: ${escapeHtml(submittedAt)}</p>
+        <p style="margin:0;color:#6f6f67;font-size:13px">Request ID: ${escapeHtml(requestId)}</p>
+      </div>
     </div>
   `;
 
@@ -468,9 +498,7 @@ export async function POST(request: Request) {
 }
 
 function getAutoReplySubject(lang: string) {
-  if (lang === "ja") return "お問い合わせを受け付けました | Medical Family Office";
-  if (lang === "en") return "Thank you for your inquiry | Medical Family Office";
-  return "我们已收到您的私密咨询 | Medical Family Office";
+  return "AETERA Medical Family Office";
 }
 
 function getAutoReplySalutation(lang: string, name: string, gender: string) {
@@ -554,10 +582,10 @@ function getAutoReplyHtml(lang: string, name: string, gender: string) {
     .map((line) => `<p style="margin:0 0 14px">${escapeHtml(line || " ")}</p>`)
     .join("");
 
-  return `
-    <div style="font-family:Inter,Arial,sans-serif;line-height:1.7;color:#171915;max-width:620px">
-      <h1 style="font-size:22px;margin:0 0 20px">Medical Family Office</h1>
-      ${text}
-    </div>
-  `;
+	  return `
+	    <div style="font-family:Inter,Arial,sans-serif;line-height:1.7;color:#171915;max-width:620px">
+	      <h1 style="font-size:22px;margin:0 0 20px">AETERA Medical Family Office</h1>
+	      ${text}
+	    </div>
+	  `;
 }
