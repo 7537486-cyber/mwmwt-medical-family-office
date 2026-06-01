@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { type Language, navItems, navLabel, normalizeLanguage, withLanguage } from "@/lib/site";
@@ -25,14 +26,23 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/82 text-pearl backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <Link href={withLanguage("/", lang)} className="group flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center border border-champagne/70 text-sm font-semibold text-champagne">
-            JM
+          <span className="relative h-12 w-12 overflow-hidden border border-champagne/30 bg-black">
+            <Image
+              src="/aetera-black-ivory-logo.png"
+              alt="Aetera Medical Family Office"
+              fill
+              priority
+              className="object-cover"
+              sizes="48px"
+            />
           </span>
-          <span>
-            <span className="block text-sm font-semibold tracking-[0.22em]">
-              MEDICAL FAMILY OFFICE
+          <span className="leading-none">
+            <span className="block text-base font-semibold tracking-[0.32em] text-pearl">
+              AETERA
             </span>
-            <span className="block text-xs text-pearl/58">Tokyo</span>
+            <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.28em] text-pearl/58">
+              Medical Family Office
+            </span>
           </span>
         </Link>
         <nav className="hidden items-center gap-3 xl:flex">

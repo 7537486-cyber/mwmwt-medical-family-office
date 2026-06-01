@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { navItems, navLabel, normalizeLanguage, withLanguage } from "@/lib/site";
@@ -79,9 +80,25 @@ export function Footer() {
     <footer className="bg-ink px-5 py-16 text-pearl lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_1fr]">
         <div>
-          <p className="text-xs uppercase tracking-[0.34em] text-champagne">
-            Japan Medical Family Office
-          </p>
+          <div className="flex items-center gap-4">
+            <span className="relative h-16 w-16 overflow-hidden border border-champagne/30 bg-black">
+              <Image
+                src="/aetera-black-ivory-logo.png"
+                alt="Aetera Medical Family Office"
+                fill
+                className="object-cover"
+                sizes="64px"
+              />
+            </span>
+            <div>
+              <p className="text-lg font-semibold uppercase tracking-[0.34em] text-pearl">
+                AETERA
+              </p>
+              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-champagne">
+                Medical Family Office
+              </p>
+            </div>
+          </div>
           <h2 className="mt-5 max-w-xl font-serif text-4xl leading-tight text-balance md:text-5xl">
             {copy.headline}
           </h2>

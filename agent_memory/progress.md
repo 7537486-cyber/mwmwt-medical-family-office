@@ -46,6 +46,8 @@
 
 当前域名切换准备：用户希望将正式域名改为 `aeteralife.com`。已将 SEO canonical、robots sitemap、联系表单来源标识、默认表单收件/发件邮箱和部署说明从旧域名切换为 `aeteralife.com` / `contact@aeteralife.com`。后续需要在 Vercel 添加 `aeteralife.com` 与 `www.aeteralife.com`，并在域名商配置 A/CNAME 解析；同时必须创建 `contact@aeteralife.com` 或在 Vercel 环境变量中指定真实可收件地址。
 
+当前品牌 Logo 接入：用户提供 AETERA 黑底象牙色 logo，已复制为 `public/aetera-black-ivory-logo.png`，并替换官网顶部导航和页脚旧的 `JM / Medical Family Office / Tokyo` 文字标识，公开顶部品牌统一为 AETERA Medical Family Office。
+
 ## 成功标准
 
 - FAQ PDF 可直接打开下载，内容包含用户提供的问答结构。
@@ -221,3 +223,5 @@
 - 已执行 `npm run typecheck`，TypeScript 检查通过，确认域名切换相关代码类型正确。
 - 已执行 `npm run build`，Next.js 生产构建通过，确认域名切换后仍正常生成 162 个页面。
 - 已执行源码域名残留检索，确认 `app`、`components`、`lib`、`DEPLOY.md` 与公开文本中不再出现旧正式域名 `mwmwt.com`、旧邮箱 `info@mwmwt.com` 或大写 `MWMWT`。
+- 已执行 `npm run typecheck`，TypeScript 检查通过，确认 AETERA logo 接入 Header/Footer 后类型正确。
+- 已执行 `npm run build`，Next.js 生产构建通过，确认 AETERA logo 接入后仍正常生成 162 个页面。
